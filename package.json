@@ -11,7 +11,6 @@
   "dependencies": {
     "@headlessui/react": "^2.1.1",
     "@heroicons/react": "^2.1.4",
-    "@nextui-org/react": "^2.4.6",
     "@react-jvectormap/core": "^1.0.4",
     "@react-jvectormap/unitedstates": "^1.0.1",
     "apexcharts": "^3.52.0",
