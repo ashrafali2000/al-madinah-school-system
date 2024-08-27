@@ -3,14 +3,6 @@ import Link from "next/link";
 import { IoStar } from "react-icons/io5";
 import { PiCalendarStar } from "react-icons/pi";
 
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Image,
-  Button,
-} from "@nextui-org/react";
 import { useState } from "react";
 
 export default function Enquiry() {
@@ -251,282 +243,7 @@ export default function Enquiry() {
                   {" "}
                   Application Form{" "}
                 </h1>
-                {/* <div className="max-w-2xl mx-auto p-6 bg-white text-black shadow-md rounded mt-6">
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Email*
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="mt-3 block w-full border-green-500 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.email && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.email}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="parentFirstName"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Parent First Name*
-                      </label>
-                      <input
-                        type="text"
-                        id="parentFirstName"
-                        name="parentFirstName"
-                        value={formData.parentFirstName}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.parentFirstName && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.parentFirstName}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="parentLastName"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Parent Last Name*
-                      </label>
-                      <input
-                        type="text"
-                        id="parentLastName"
-                        name="parentLastName"
-                        value={formData.parentLastName}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.parentLastName && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.parentLastName}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="streetAddress"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Street Address*
-                      </label>
-                      <input
-                        type="text"
-                        id="streetAddress"
-                        name="streetAddress"
-                        value={formData.streetAddress}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.streetAddress && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.streetAddress}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="city"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        City*
-                      </label>
-                      <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.city && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.city}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="postalCode"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Postal Code*
-                      </label>
-                      <input
-                        type="text"
-                        id="postalCode"
-                        name="postalCode"
-                        value={formData.postalCode}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.postalCode && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.postalCode}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="phoneNumber"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Phone Number*
-                      </label>
-                      <input
-                        type="tel"
-                        id="phoneNumber"
-                        name="phoneNumber"
-                        value={formData.phoneNumber}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.phoneNumber && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.phoneNumber}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="studentFirstName"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Student's First Name (If not the same as above)*
-                      </label>
-                      <input
-                        type="text"
-                        id="studentFirstName"
-                        name="studentFirstName"
-                        value={formData.studentFirstName}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.studentFirstName && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.studentFirstName}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="studentLastName"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Student's Last Name (If not the same as above)*
-                      </label>
-                      <input
-                        type="text"
-                        id="studentLastName"
-                        name="studentLastName"
-                        value={formData.studentLastName}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.studentLastName && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.studentLastName}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="studentDOB"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Student's Date of Birth*
-                      </label>
-                      <input
-                        type="date"
-                        id="studentDOB"
-                        name="studentDOB"
-                        value={formData.studentDOB}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                      {errors.studentDOB && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.studentDOB}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="schoolYear"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        School Year on Entry*
-                      </label>
-                      <select
-                        id="schoolYear"
-                        name="schoolYear"
-                        value={formData.schoolYear}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      >
-                        <option value="">Select a year</option>
-                        <option value="Year 1">Year 1</option>
-                        <option value="Year 2">Year 2</option>
-                        <option value="Year 3">Year 3</option>
-                        <option value="Year 4">Year 4</option>
-                        <option value="Year 5">Year 5</option>
-                        <option value="Year 6">Year 6</option>
-                      </select>
-                      {errors.schoolYear && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.schoolYear}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="enrolDate"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        When would you like to enrol?
-                      </label>
-                      <select
-                        id="enrolDate"
-                        name="enrolDate"
-                        value={formData.enrolDate}
-                        onChange={handleChange}
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      >
-                        <option value="">Select a date</option>
-                        <option value="January 2025">January 2025</option>
-                        <option value="February 2025">February 2025</option>
-                        <option value="March 2025">March 2025</option>
-                        <option value="April 2025">April 2025</option>
-                        <option value="May 2025">May 2025</option>
-                        <option value="June 2025">June 2025</option>
-                      </select>
-                      {errors.enrolDate && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.enrolDate}
-                        </p>
-                      )}
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                      Register
-                    </button>
-                  </form>
-                </div> */}
+
                 <div className="max-w-2xl mx-auto p-8 bg-white text-black shadow-lg rounded-lg mt-6">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
@@ -810,8 +527,8 @@ export default function Enquiry() {
             {" "}
             <div className="grid grid-cols-1 gap-4">
               <Link href={`/`}>
-                <Card className="relative z-0 w-64 h-64">
-                  <CardHeader className="p-0 z-0">
+                <div className="relative z-0 w-64 h-64">
+                  <div className="p-0 z-0">
                     <img
                       src={`/bannerhero.jpg`}
                       alt={"ddddd"}
@@ -819,9 +536,9 @@ export default function Enquiry() {
                       height={250}
                       className="absolute inset-0 h-full w-full object-cover rounded-lg"
                     />
-                  </CardHeader>
+                  </div>
 
-                  <CardBody className="absolute inset-0 bg-opacity-50 bg-black text-white p-4 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-opacity-50 bg-black text-white p-4 flex items-center justify-center">
                     <h3 className="text-xl font-bold">
                       See Our 5 Stars Reviews
                     </h3>
@@ -840,13 +557,11 @@ export default function Enquiry() {
                         Trust <span className="text-blue-400">Pilot</span>
                       </p>
                     </div>
-                  </CardBody>
-                  <CardFooter className="absolute bottom-0 left-0 w-full bg-opacity-50 bg-black">
-                    <Button color="primary" className="w-full text-white">
-                      Learn More
-                    </Button>
-                  </CardFooter>
-                </Card>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-full bg-opacity-50 bg-black">
+                    <button className="w-full text-white">Learn More</button>
+                  </div>
+                </div>
               </Link>
 
               {cardData.map((card, index) => {
@@ -864,32 +579,32 @@ export default function Enquiry() {
 
                 return (
                   <Link href={"/"}>
-                    <Card
+                    <div
                       key={card.id}
                       className="relative z-0 w-64 h-64 bg-blu "
                     >
-                      <CardHeader className="p-0 z-0">
+                      <div className="p-0 z-0">
                         <img
                           src={card.imageUrl}
                           alt={card.title}
                           className="absolute inset-0 h-full w-full object-cover rounded-lg"
                         />
-                      </CardHeader>
-                      <CardBody className="absolute inset-0 bg-opacity-50 bg-black text-white p-4 flex items-left justify-center">
+                      </div>
+                      <div className="absolute inset-0 bg-opacity-50 bg-black text-white p-4 flex items-left justify-center">
                         <h3 className="text-xl font-bold">{card.title}</h3>
                         <p className="text-base ml font-bold">
                           {card.description}
                         </p>
-                      </CardBody>
-                      <CardFooter className="absolute bottom-0 left-0 w-full bg-opacity-50 bg-black items-left justify-center">
-                        <Button
-                          color="primary"
+                      </div>
+                      <div className="absolute bottom-0 left-0 w-full bg-opacity-50 bg-black items-left justify-center">
+                        <button
+                          // color="primary"
                           className={`w-full text-white ${buttonColor}`}
                         >
                           {card.btnText}
-                        </Button>
-                      </CardFooter>
-                    </Card>
+                        </button>
+                      </div>
+                    </div>
                   </Link>
                 );
               })}
@@ -934,13 +649,13 @@ export default function Enquiry() {
                   opacity: 0.2,
                 }}
               ></div>
-              <Image
+              {/* <img
                 className="relative w-s"
                 src={`./family2.jpg`}
                 alt="Peace Lily"
                 width={160}
                 height={160}
-              />
+              /> */}
             </div>
             <div className="relative text-white px-4 pb-5 mt-4">
               {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
@@ -992,13 +707,13 @@ export default function Enquiry() {
                   opacity: 0.2,
                 }}
               ></div>
-              <Image
+              {/* <img
                 className="relative w-s"
                 src={`./family2.jpg`}
                 alt="Peace Lily"
                 // width={160}
                 // height={160}
-              />
+              /> */}
             </div>
             <div className="relative text-white px-4 pb-5 mt-4">
               {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
@@ -1049,13 +764,13 @@ export default function Enquiry() {
                   opacity: 0.2,
                 }}
               ></div>
-              <Image
+              {/* <img
                 className="relative w-s"
                 src={`./family2.jpg`}
                 alt="Peace Lily"
                 // width={160}
                 // height={160}
-              />
+              /> */}
             </div>
             <div className="relative text-white px-4 pb-5 mt-4">
               {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
@@ -1107,13 +822,13 @@ export default function Enquiry() {
                   opacity: 0.2,
                 }}
               ></div>
-              <Image
+              {/* <img
                 className="relative w-s"
                 src={`./family2.jpg`}
                 alt="Peace Lily"
                 // width={160}
                 // height={160}
-              />
+              /> */}
             </div>
             <div className="relative text-white px-4 pb-5 mt-4">
               {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
