@@ -56,13 +56,14 @@ export default function Drawer({ open, drawerHandler }) {
                       key={index}
                       className="bg-gray-100 rounded-md  p-2 border transition duration-1000 hover:text-sky-400 hover:border-sky-600"
                       href={item.link}
+                      onClick={drawerHandler}
                     >
                       {item.title}
                     </Link>
                   ))}
-                  <button className="justify-end bg-sky-900 transition duration-1000 border hover:text-gray-800 hover:bg-gray-100 hover:border-sky-600 text-gray-100 text-sm xl:text-base uppercase  py-2  px-4 rounded-md font-bold ">
+                  <Link href={"/Enquiry"} onClick={drawerHandler} className="justify-end bg-sky-900 transition duration-1000 border hover:text-gray-800 hover:bg-gray-100 hover:border-sky-600 text-gray-100 text-sm xl:text-base uppercase  py-2  px-4 rounded-md font-bold ">
                     enquire
-                  </button>
+                  </Link>
                 </div>
               </div>
             </DialogPanel>
