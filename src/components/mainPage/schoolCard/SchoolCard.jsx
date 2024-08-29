@@ -10,7 +10,7 @@ export const SchoolCard = () => {
       schoolName: "Middle School",
       key_stage: "Key Stage 3",
       year: "Years 7–9 | Ages 11–14",
-      link: "/",
+      link: "/middleSchool",
       linkTitle: "Middle School",
     },
     {

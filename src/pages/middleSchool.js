@@ -3,7 +3,7 @@ import HeroSection from "../components/middleSchool/heroSection/HeroSection";
 import { Rating } from "../components//middleSchool/rating/Rating";
 import { MiddleAbout } from "../components/middleSchool/middleAbout/MiddleAbout";
 import LifeAtMiddleSchool from "../components/middleSchool/lifeAtMiddleSchool/LifeAtMiddleSchool";
-import MiddleSchoolLifeImages from "./middleSchool/middleSchoolLifeImages/MiddleSchoolLifeImages";
+import MiddleSchoolLifeImages from "../components/middleSchool/middleSchoolLifeImages/MiddleSchoolLifeImages";
 import MeetTeachers from "../components/middleSchool/meetTeachers/MeetTeachers";
 import { TeacherSlider } from "../components/middleSchool/TeacherSlider/TeacherSlider";
 import MiddleSchoolPackeges from "../components/middleSchool/middleSchoolPackeges/MiddleSchoolPackeges";

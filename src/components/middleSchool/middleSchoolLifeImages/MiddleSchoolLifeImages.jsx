@@ -1,8 +1,7 @@
 import React from "react";
-import React from "react";
 import AnimatedComponentLeft from "../../animations/AnimationLeft";
 import AnimationBottom from "../../animations/AnimationBottom";
-import AnimatedComponentRight from "../../animations/AnimationRight";
+import AnimatedComponentRight from "../../animations/AnimationRigth";
 
 export default function MiddleSchoolLifeImages() {
   return (
