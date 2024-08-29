@@ -5,7 +5,7 @@ import { MiddleAbout } from "../components/middleSchool/middleAbout/MiddleAbout"
 import LifeAtMiddleSchool from "../components/middleSchool/lifeAtMiddleSchool/LifeAtMiddleSchool";
 import MiddleSchoolLifeImages from "../components/middleSchool/middleSchoolLifeImages/MiddleSchoolLifeImages";
 import MeetTeachers from "../components/middleSchool/meetTeachers/MeetTeachers";
-import { TeacherSlider } from "../components/middleSchool/TeacherSlider/TeacherSlider";
+import { TeacherSlider } from "../components/middleSchool/teacherSlider/TeacherSlider";
 import MiddleSchoolPackeges from "../components/middleSchool/middleSchoolPackeges/MiddleSchoolPackeges";
 import ThreeSubjectPackage from "../components/middleSchool/threeSubjectPackage/ThreeSubjectPackage";
 import MiddleStudentStories from "../components/middleSchool/middleStudentStories/MiddleStudentStories";
