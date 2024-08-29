@@ -11,7 +11,6 @@ import ThreeSubjectPackage from "../components/middleSchool/threeSubjectPackage/
 import MiddleStudentStories from "../components/middleSchool/middleStudentStories/MiddleStudentStories";
 import MiddleParents from "../components/middleSchool/middleParents/MiddleParents";
 import MiddleSchoolInsight from "../components/middleSchool/middleSchoolInsight/MiddleSchoolInsight";
-import MiddleSchoolGallery from "../components/middleSchool/middleSchoolGallery/MiddleSchoolGallery";
 import MiddleSchoolFaqs from "../components/middleSchool/middleSchoolFaqs/MiddleSchoolFaqs";
 import MiddleSignUpEvent from "../components/middleSchool/middleSignUpEvent/MiddleSignUpEvent";
 import MiddleContactForm from "../components/middleSchool/middleContactForm/MiddleContactForm";
