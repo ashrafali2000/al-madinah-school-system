@@ -91,36 +91,28 @@ export default function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="pt-5 mt-28">
+    <div className="pt-5 mt-20">
       <div className="relative isolate px-6 lg:px-8">
         <div
-          className="max-w-7xl rounded-[40px] h-[550px] relative mx-auto animate-zoomFadeIn animate-backgroundMove"
+          className="max-w-9xl rounded-[40px] w-full h-[550px] relative mx-auto "
           style={{
-            backgroundImage: "url(./bannerHero2.jpg)",
-            backgroundSize: "cover",
+            backgroundImage: "url(./Al-Madinah.png)",
+            backgroundSize: " 100% 95%", // Adjust this percentage to decrease the height
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
+            borderRadius: "40px",
           }}
         >
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 mx-auto w-11/12 sm:py-10">
+          <div className="absolute mt-3 top-2/3 left-1/2 transform -translate-x-1/2 mx-auto w-11/12 sm:py-10">
             <div className="text-center space-y-4">
               <AnimationPopUp>
-                <h2 className="text-lg font-semibold tracking-tight text-indigo md:text-2xl lg:text-4xl leading-tight animate-slideToCenter">
+                <h2 className="text-lg font-semibold tracking-tight text-black md:text-2xl lg:text-4xl leading-tight animate-slideToCenter">
                   Academic Excellence Meets Islamic Values
                 </h2>
                 <h2 className="text-lg font-semibold tracking-tight text-indigo md:text-2xl lg:text-4xl animate-blink leading-tight ">
                   Learn Anywhere, Anytime.
                 </h2>
               </AnimationPopUp>
-            </div>
-            <div className="flex justify-center mt-10 animate-imageTranslate">
-              {/* <Image
-                src="/heroSecImg.png"
-                className="w-7/12 h-90 animate-imageMove"
-                alt="heroImage"
-                width={900}
-                height={200}
-              /> */}
             </div>
           </div>
         </div>
