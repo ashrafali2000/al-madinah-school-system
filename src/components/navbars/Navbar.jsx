@@ -12,6 +12,12 @@ export const Navbar = () => {
   const drawerHandler = () => {
     setOpen(!open);
   };
+  const [activeTab, setActiveTab] = useState("/");
+
+  const handleTabClick = (path) => {
+    setActiveTab(path);
+  };
+
   return (
     <>
       <nav className="border-gray-200 bg-gray-100 fixed w-full top-0  left-0 z-40">
@@ -50,37 +56,54 @@ export const Navbar = () => {
           <div className=" hidden w-full lg:block md:w-auto">
             <ul className="font-medium flex flex-col p-4 border-gray-100 rounded-lg md:flex-row  lg:space-x-2 xl:space-x-6 rtl:space-x-reverse ">
               <li>
-                <a
-                  href="#"
-                  className=" transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 xl:text-lg  md:text-blue-400 "
-                  aria-current="page"
+                <Link
+                  href="/"
+                  onClick={() => handleTabClick("/")}
+                  className={`transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 xl:text-lg ${
+                    activeTab === "/" ? "text-sky-400" : "md:text-black"
+                  }`}
                 >
                   Secondary
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
-                  href="/about-us"
-                  className=" transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400  "
+                  href={"/about-us"}
+                  onClick={() => handleTabClick("/about-us")}
+                  className={`transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 ${
+                    activeTab === "/about-us"
+                      ? "text-sky-400"
+                      : "md:hover:text-blue-400"
+                  }`}
                 >
                   About us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/contact-us"
-                  className=" transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400  "
+                  href={`/contact-us`}
+                  onClick={() => handleTabClick("/contact-us")}
+                  className={`transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 ${
+                    activeTab === "/contact-us"
+                      ? "text-sky-400"
+                      : "md:hover:text-blue-400"
+                  }`}
                 >
                   Contact us
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className=" transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-400  "
+                <Link
+                  href={"/how-we-teach"}
+                  onClick={() => handleTabClick("/how-we-teach")}
+                  className={`transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 ${
+                    activeTab === "/how-we-teach"
+                      ? "text-sky-400"
+                      : "md:hover:text-blue-400"
+                  }`}
                 >
                   How we teach
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
