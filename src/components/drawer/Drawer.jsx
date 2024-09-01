@@ -11,10 +11,10 @@ import Link from "next/link";
 export default function Drawer({ open, drawerHandler }) {
   const navigationList = [
     { link: "/", title: "Secondary" },
-    { link: "/", title: "About us" },
-    { link: "/", title: "How we teach" },
+    { link: "/about-us", title: "About us" },
+    { link: "/how-we-teach", title: "How we teach" },
     { link: "/", title: "Login" },
-    { link: "/", title: "Contact" },
+    { link: "/contact-us", title: "Contact" },
     { link: "/", title: "Register Now" },
     { link: "/", title: "Support" },
   ];
@@ -61,7 +61,11 @@ export default function Drawer({ open, drawerHandler }) {
                       {item.title}
                     </Link>
                   ))}
-                  <Link href={"/Enquiry"} onClick={drawerHandler} className="justify-end bg-sky-900 transition duration-1000 border hover:text-gray-800 hover:bg-gray-100 hover:border-sky-600 text-gray-100 text-sm xl:text-base uppercase  py-2  px-4 rounded-md font-bold ">
+                  <Link
+                    href={"/Enquiry"}
+                    onClick={drawerHandler}
+                    className="justify-end bg-sky-900 transition duration-1000 border hover:text-gray-800 hover:bg-gray-100 hover:border-sky-600 text-gray-100 text-sm xl:text-base uppercase  py-2  px-4 rounded-md font-bold "
+                  >
                     enquire
                   </Link>
                 </div>
