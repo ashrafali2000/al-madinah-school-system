@@ -18,7 +18,7 @@ import Link from "next/link";
 export const SeniorTeacherSlider = () => {
   const data = [
     {
-      img: "./family.jpg",
+      img: "./Family.jpg",
       link: "Joel A. Hofer",
       title: "Head of Mddile School",
     },
@@ -29,7 +29,7 @@ export const SeniorTeacherSlider = () => {
       title: " Leader of learning Science",
     },
     {
-      img: "./family.jpg",
+      img: "./Family.jpg",
       link: "Alan",
       title: "Leader of Bussiness and Economics",
     },
@@ -39,7 +39,7 @@ export const SeniorTeacherSlider = () => {
       title: "Head of faculty-English",
     },
     {
-      img: "./family.jpg",
+      img: "./Family.jpg",
       link: "farhan Ahmed",
       title: "Leader of Bussiness and Economics",
     },
