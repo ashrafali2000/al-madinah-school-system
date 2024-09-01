@@ -18,7 +18,7 @@ export const SchoolCard = () => {
       schoolName: "Senior School (GCSE)",
       key_stage: "Key Stage 4",
       year: "Years 10–11 | Ages 14–16",
-      link: "/",
+      link: "seniorSchool/",
       linkTitle: "Senior School",
     },
   ];
