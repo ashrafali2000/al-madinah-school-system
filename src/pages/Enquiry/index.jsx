@@ -130,6 +130,27 @@ export default function Enquiry() {
     if (Object.keys(validationErrors).length === 0) {
       // Handle form submission
       console.log("Form data:", formData);
+      axios
+        .post("/api/message/contactus", {
+          email: formData.email,
+          parentFirstName: formData.parentFirstName,
+          parentLastName: formData.parentLastName,
+          streetAddress: formData.streetAddress,
+          city: formData.city,
+          postalCode: formData.postalCode,
+          phoneNumber: formData.phoneNumber,
+          studentFirstName: formData.studentFirstName,
+          studentLastName: formData.studentLastName,
+          studentDOB: formData.studentDOB,
+          schoolYear: formData.schoolYear,
+          enrolDate: formData.enrolDate,
+        })
+        .then(function (response) {
+          console.log("user response", response);
+        })
+        .catch(function (error) {
+          console.log("error--->", error);
+        });
       setFormData(initialFormData);
       // You can send formData to an API or handle it as needed
     } else {
