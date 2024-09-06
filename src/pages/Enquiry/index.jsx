@@ -131,7 +131,7 @@ export default function Enquiry() {
       // Handle form submission
       console.log("Form data:", formData);
       axios
-        .post("/api/message/contactus", {
+        .post("/api/contactus", {
           email: formData.email,
           parentFirstName: formData.parentFirstName,
           parentLastName: formData.parentLastName,
