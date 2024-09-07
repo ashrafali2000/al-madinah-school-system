@@ -2,8 +2,9 @@
 import Link from "next/link";
 import { IoStar } from "react-icons/io5";
 import { PiCalendarStar } from "react-icons/pi";
-
+import axios from "axios";
 import { useState } from "react";
+import { adminMailer, registration } from "../../libs/api";
 
 export default function Enquiry() {
   const products = [
@@ -124,33 +125,15 @@ export default function Enquiry() {
     schoolYear: "",
     enrolDate: "",
   });
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       // Handle form submission
       console.log("Form data:", formData);
-      axios
-        .post("/api/contactus", {
-          email: formData.email,
-          parentFirstName: formData.parentFirstName,
-          parentLastName: formData.parentLastName,
-          streetAddress: formData.streetAddress,
-          city: formData.city,
-          postalCode: formData.postalCode,
-          phoneNumber: formData.phoneNumber,
-          studentFirstName: formData.studentFirstName,
-          studentLastName: formData.studentLastName,
-          studentDOB: formData.studentDOB,
-          schoolYear: formData.schoolYear,
-          enrolDate: formData.enrolDate,
-        })
-        .then(function (response) {
-          console.log("user response", response);
-        })
-        .catch(function (error) {
-          console.log("error--->", error);
-        });
+      await registration(formData);
+      await adminMailer(formData);
+
       setFormData(initialFormData);
       // You can send formData to an API or handle it as needed
     } else {
