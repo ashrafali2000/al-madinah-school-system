@@ -7,13 +7,6 @@ import Header from "../../components/admin/dashboard/components/Header";
 import Sidebar from "../../components/admin/dashboard/components/Sidebar";
 
 import { useState, useEffect } from "react";
-// import Sidebar from "@/components/newUi/dashboard/sidebar";
-// import Loader from "@/components/newUi/dashboard/components/common/Loader";
-// import Header from "@/components/newUi/dashboard/components/Header";
-// import Sidebar from "@/components/newUi/dashboard/components/Sidebar";
-// import DashboardProvider from "@/components/newUi/contextApi/dashboardProvider";
-// import AuthForm from "@/components/newUi/dashboard/components/authModal";
-// import ContentProvider from "@/components/newUi/contextApi/contentProvider";
 
 export default function RootLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -27,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        {/* <div className="bg-gray-200">
+        <div className="bg-gray-200">
           {loading ? (
             <Loader />
           ) : (
@@ -57,7 +50,7 @@ export default function RootLayout({ children }) {
               </DashboardProvider>
             </ContentProvider>
           )}
-        </div> */}
+        </div>
       </body>
     </html>
   );

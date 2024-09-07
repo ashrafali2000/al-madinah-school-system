@@ -2,22 +2,21 @@
 
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-// import PropagateLoader from "react-spinners/PropagateLoader";
-// import {
-//   addDoc,
-//   collection,
-//   deleteDoc,
-//   doc,
-//   getDoc,
-//   getDocs,
-//   setDoc,
-//   updateDoc,
-// } from "firebase/firestore";
-// import { db, storage } from "@/components/newUi/config/firebase";
-// import { ref, uploadBytes, getDownloadURL } from "@firebase/storage";
+import PropagateLoader from "react-spinners/PropagateLoader";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
+import { db, storage } from "../../../../../config/firebase";
+import { ref, uploadBytes, getDownloadURL } from "@firebase/storage";
 import { useDashboardContext } from "../../../contextApi/dashboardContext";
 import { useContentContext } from "../../../contextApi/contentContext";
-
 export default function UpdateForm() {
   const dataContext = useDashboardContext();
   const mainSection = dataContext.mainSection;
@@ -27,6 +26,8 @@ export default function UpdateForm() {
   const [section, setSection] = useState("");
   const [sectionName, setSectionName] = useState("");
   const [text, setText] = useState("");
+  const [news, setNews] = useState("");
+  const [date, setDate] = useState("");
   const [counter1, setCounter1] = useState("");
   const [counter1Text, setCounter1Text] = useState("");
   const [counter2, setCounter2] = useState("");
@@ -182,14 +183,14 @@ export default function UpdateForm() {
       let a = Math.random();
       if (sec === "Donation") {
         try {
-          //   const newCollectionRef = collection(db, "contents");
-          //   const newDocRef = doc(newCollectionRef);
-          //   const storageRef1 = ref(
-          //     storage,
-          //     "images/" + photo1?.name + a.toString().slice(2, 10)
-          //   );
-          //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-          //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+          const newCollectionRef = collection(db, "contents");
+          const newDocRef = doc(newCollectionRef);
+          const storageRef1 = ref(
+            storage,
+            "images/" + photo1?.name + a.toString().slice(2, 10)
+          );
+          const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+          const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
           const mainSection = {
             content: {
               sec: sectionName,
@@ -200,10 +201,10 @@ export default function UpdateForm() {
                 .join("-")}`,
               text: text,
               switch: "true",
-              //   photo: titleImageUrl1,
+              photo: titleImageUrl1,
             },
           };
-          //   await setDoc(newDocRef, mainSection, { merge: true });
+          await setDoc(newDocRef, mainSection, { merge: true });
           if (mainSection !== undefined) {
             console.log("Ok ki report hai bahi");
           }
@@ -212,26 +213,26 @@ export default function UpdateForm() {
         }
       } else if (sec === "Appeals") {
         try {
-          //   const newCollectionRef = collection(db, "contents");
-          //   const newDocRef = doc(newCollectionRef);
-          //   const storageRef1 = ref(
-          //     storage,
-          //     "images/" + photo1?.name + a.toString().slice(2, 10)
-          //   );
-          //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-          //   const appeal1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
-          //   const storageRef2 = ref(
-          //     storage,
-          //     "images/" + photo2?.name + a.toString().slice(2, 10)
-          //   );
-          //   const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-          //   const appeal2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
-          //   const videosRef1 = ref(storage, "videos/" + video1?.name);
-          //   const titleVideos1 = await uploadBytes(videosRef1, video1);
-          //   const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-          //   const videosRef2 = ref(storage, "videos/" + video2?.name);
-          //   const titleVideos2 = await uploadBytes(videosRef2, video2);
-          //   const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+          const newCollectionRef = collection(db, "contents");
+          const newDocRef = doc(newCollectionRef);
+          const storageRef1 = ref(
+            storage,
+            "images/" + photo1?.name + a.toString().slice(2, 10)
+          );
+          const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+          const appeal1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
+          const storageRef2 = ref(
+            storage,
+            "images/" + photo2?.name + a.toString().slice(2, 10)
+          );
+          const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+          const appeal2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
+          const videosRef1 = ref(storage, "videos/" + video1?.name);
+          const titleVideos1 = await uploadBytes(videosRef1, video1);
+          const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+          const videosRef2 = ref(storage, "videos/" + video2?.name);
+          const titleVideos2 = await uploadBytes(videosRef2, video2);
+          const videoUrl2 = await getDownloadURL(titleVideos2.ref);
           const mainSection = {
             content: {
               sec: sectionName,
@@ -242,12 +243,12 @@ export default function UpdateForm() {
                 .join("-")}`,
               text: text,
               switch: "true",
-              //   video: [videoUrl1, videoUrl2],
-              //   photo: [appeal1ImageUrl, appeal2ImageUrl],
+              video: [videoUrl1, videoUrl2],
+              photo: [appeal1ImageUrl, appeal2ImageUrl],
               slider: urlList,
             },
           };
-          //   await setDoc(newDocRef, mainSection, { merge: true });
+          await setDoc(newDocRef, mainSection, { merge: true });
           if (mainSection !== undefined) {
             console.log("Ok ki report hai bahi");
           }
@@ -256,23 +257,23 @@ export default function UpdateForm() {
         }
       } else if (sec === "Our Department") {
         try {
-          //   const newCollectionRef = collection(db, "contents");
-          //   const newDocRef = doc(newCollectionRef);
-          //   const storageRef1 = ref(
-          //     storage,
-          //     "images/" + bannerPhoto?.name + a.toString().slice(2, 10)
-          //   );
-          //   const titleSnapshot1 = await uploadBytes(storageRef1, bannerPhoto);
-          //   const ourDepartment1Url = await getDownloadURL(titleSnapshot1.ref);
-          //   const storageRef2 = ref(
-          //     storage,
-          //     "images/" + heroPhoto?.name + a.toString().slice(2, 10)
-          //   );
-          //   const titleSnapshot2 = await uploadBytes(storageRef2, heroPhoto);
-          //   const ourDepartment2Url = await getDownloadURL(titleSnapshot2.ref);
-          //   const videosRef1 = ref(storage, "videos/" + video1?.name);
-          //   const titleVideos1 = await uploadBytes(videosRef1, video1);
-          //   const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+          const newCollectionRef = collection(db, "contents");
+          const newDocRef = doc(newCollectionRef);
+          const storageRef1 = ref(
+            storage,
+            "images/" + bannerPhoto?.name + a.toString().slice(2, 10)
+          );
+          const titleSnapshot1 = await uploadBytes(storageRef1, bannerPhoto);
+          const ourDepartment1Url = await getDownloadURL(titleSnapshot1.ref);
+          const storageRef2 = ref(
+            storage,
+            "images/" + heroPhoto?.name + a.toString().slice(2, 10)
+          );
+          const titleSnapshot2 = await uploadBytes(storageRef2, heroPhoto);
+          const ourDepartment2Url = await getDownloadURL(titleSnapshot2.ref);
+          const videosRef1 = ref(storage, "videos/" + video1?.name);
+          const titleVideos1 = await uploadBytes(videosRef1, video1);
+          const videoUrl1 = await getDownloadURL(titleVideos1.ref);
           const mainSection = {
             content: {
               sec: sectionName,
@@ -284,12 +285,12 @@ export default function UpdateForm() {
               text: text,
               switch: "true",
               slider: urlList,
-              //   video: videoUrl1,
-              //   bannerImg: ourDepartment1Url,
-              //   heroSecImg: ourDepartment2Url,
+              video: videoUrl1,
+              bannerImg: ourDepartment1Url,
+              heroSecImg: ourDepartment2Url,
             },
           };
-          //   await setDoc(newDocRef, mainSection, { merge: true });
+          await setDoc(newDocRef, mainSection, { merge: true });
           if (mainSection !== undefined) {
             console.log("Ok ki report hai bahi");
           }
@@ -299,1085 +300,1087 @@ export default function UpdateForm() {
       }
     } else {
       let a = Math.random();
-      //   const dataRef = collection(db, "contents");
-      //   const querySnapshot = await getDocs(dataRef);
-      //   querySnapshot.forEach(async (docs) => {
-      // const docsData = docs.data();
-      // const chooseSec = docsData.content.sec;
-      // const chooseContent = docsData.content;
-      if (mainSection === "Our Department") {
-        //   if (chooseSec === sec) {
-        //     let bannerImageUrl;
-        //     let heroImageUrl;
-        //     let videoUrl;
-        // if (bannerPhoto) {
-        //   const storageRef1 = ref(
-        //     storage,
-        //     "images/" + bannerPhoto?.name + a.toString().slice(2, 10)
-        //   );
-        //   const bannerSnapShot = await uploadBytes(
-        //     storageRef1,
-        //     bannerPhoto
-        //   );
-        //   bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
-        // } else {
-        //   bannerImageUrl = undefined;
-        // }
-        //         if (heroPhoto) {
-        //           const storageRef2 = ref(
-        //             storage,
-        //             "images/" + heroPhoto?.name + a.toString().slice(2, 10)
-        //           );
-        //           const heroSnapShot = await uploadBytes(storageRef2, heroPhoto);
-        //           heroImageUrl = await getDownloadURL(heroSnapShot.ref);
-        //         } else {
-        //           heroImageUrl = undefined;
-        //         }
-        //         if (video1) {
-        //           const videosRef = ref(storage, "videos/" + video1?.name);
-        //           const titleVideos = await uploadBytes(videosRef, video1);
-        //           videoUrl = await getDownloadURL(titleVideos.ref);
-        //         } else {
-        //           videoUrl = undefined;
-        //         }
-        //         const docsId = docs.id;
-        //         const docRef = doc(db, "contents", docsId);
-        //         await updateDoc(docRef, {
-        //           content: {
-        //             bannerImg: bannerImageUrl
-        //               ? bannerImageUrl
-        //               : chooseContent.bannerImg,
-        //             heroSecImg: heroImageUrl
-        //               ? heroImageUrl
-        //               : chooseContent.heroSecImg,
-        //             sec: sec || chooseContent.sec,
-        //             text: text ? text : chooseContent.text,
-        //             slider: urlList.length > 0 ? urlList : chooseContent.slider,
-        //             video: videoUrl ? videoUrl : chooseContent.video,
-        //             mainSec: "Our Department" || chooseContent.mainSec,
-        //             switch: chooseContent.switch,
-        //             url: chooseContent.url,
-        //           },
-        //         });
-        //       }
-        //     }
-        //     if (mainSection === "Appeals") {
-        //       if (chooseSec === sec) {
-        //         let a = Math.random();
-        //         let firstImageUrl;
-        //         let secondImageUrl;
-        //         let videoUrl1;
-        //         let videoUrl2;
-        //         if (photo1) {
-        //           const storageRef1 = ref(
-        //             storage,
-        //             "images/" + photo1?.name + a.toString().slice(2, 10)
-        //           );
-        //           const firstImageSnapShot = await uploadBytes(storageRef1, photo1);
-        //           firstImageUrl = await getDownloadURL(firstImageSnapShot.ref);
-        //         } else {
-        //           firstImageUrl = undefined;
-        //         }
-        //         if (photo2) {
-        //           const storageRef2 = ref(
-        //             storage,
-        //             "images/" + photo2?.name + a.toString().slice(2, 10)
-        //           );
-        //           const secondImageSnapShot = await uploadBytes(
-        //             storageRef2,
-        //             photo2
-        //           );
-        //           secondImageUrl = await getDownloadURL(secondImageSnapShot.ref);
-        //         } else {
-        //           secondImageUrl = undefined;
-        //         }
-        //         if (video1) {
-        //           const videosRef1 = ref(storage, "videos/" + video1?.name);
-        //           const titleVideos1 = await uploadBytes(videosRef1, video1);
-        //           videoUrl1 = await getDownloadURL(titleVideos1.ref);
-        //         } else {
-        //           videoUrl1 = undefined;
-        //         }
-        //         if (video2) {
-        //           const videosRef2 = ref(storage, "videos/" + video2?.name);
-        //           const titleVideos2 = await uploadBytes(videosRef2, video2);
-        //           videoUrl2 = await getDownloadURL(titleVideos2.ref);
-        //         } else {
-        //           videoUrl2 = undefined;
-        //         }
-        //         const docsId = docs.id;
-        //         const docRef = doc(db, "contents", docsId);
-        //         await updateDoc(docRef, {
-        //           content: {
-        //             photo: [
-        //               firstImageUrl ? firstImageUrl : chooseContent.photo[0],
-        //               secondImageUrl ? secondImageUrl : chooseContent.photo[1],
-        //             ],
-        //             sec: sec || chooseContent.sec,
-        //             mainSec: "Appeals" || chooseContent.mainSec,
-        //             text: text ? text : chooseContent.text,
-        //             slider: urlList.length > 0 ? urlList : chooseContent.slider,
-        //             video:
-        //               videoUrl1 && videoUrl2
-        //                 ? [videoUrl1, videoUrl2]
-        //                 : chooseContent.video,
-        //             url: chooseContent.url,
-        //             switch: chooseContent.switch,
-        //           },
-        //         });
-        //       }
-        //     }
-        //     if (mainSection === "Donations") {
-        //       if (chooseSec === sec) {
-        //         let titleImageUrl1;
-        //         if (photo1) {
-        //           const storageRef1 = ref(
-        //             storage,
-        //             "images/" + photo1?.name + a.toString().slice(2, 10)
-        //           );
-        //           const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-        //           titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-        //         } else {
-        //           titleImageUrl1 = undefined;
-        //         }
-        //         const docsId = docs.id;
-        //         const docRef = doc(db, "contents", docsId);
-        //         await updateDoc(docRef, {
-        //           content: {
-        //             sec: sec || chooseContent.sec,
-        //             text: text || chooseContent.text,
-        //             photo: titleImageUrl1 ? titleImageUrl1 : chooseContent.photo,
-        //             switch: chooseContent.switch,
-        //             url: chooseContent.url,
-        //             mainSec: "Donation" || chooseContent.mainSec,
-        //           },
-        //         });
-        //       }
-        //     }
-        //     if (mainSection === "Main Page") {
-        //       if (chooseSec === sec) {
-        //         let a = Math.random();
-        //         let counter1ImageUrl;
-        //         let counter2ImageUrl;
-        //         let videoUrl1;
-        //         let videoUrl2;
-        //         let videoUrl3;
-        //         if (photo1) {
-        //           const storageRef1 = ref(
-        //             storage,
-        //             "images/" + photo1?.name + a.toString().slice(2, 10)
-        //           );
-        //           const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-        //           counter1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
-        //         } else {
-        //           counter1ImageUrl = undefined;
-        //         }
-        //         if (photo2) {
-        //           const storageRef2 = ref(
-        //             storage,
-        //             "images/" + photo2?.name + a.toString().slice(2, 10)
-        //           );
-        //           const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-        //           counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
-        //         } else {
-        //           counter2ImageUrl = undefined;
-        //         }
-        //         if (video1) {
-        //           const videosRef1 = ref(storage, "videos/" + video1?.name);
-        //           const titleVideos1 = await uploadBytes(videosRef1, video1);
-        //           videoUrl1 = await getDownloadURL(titleVideos1.ref);
-        //         } else {
-        //           videoUrl1 = undefined;
-        //         }
-        //         if (video2) {
-        //           const videosRef2 = ref(storage, "videos/" + video2?.name);
-        //           const titleVideos2 = await uploadBytes(videosRef2, video2);
-        //           videoUrl2 = await getDownloadURL(titleVideos2.ref);
-        //         } else {
-        //           videoUrl2 = undefined;
-        //         }
-        //         if (video3) {
-        //           const videosRef3 = ref(storage, "videos/" + video3?.name);
-        //           const titleVideos3 = await uploadBytes(videosRef3, video3);
-        //           videoUrl3 = await getDownloadURL(titleVideos3.ref);
-        //         } else {
-        //           videoUrl3 = undefined;
-        //         }
-        //         const docsId = docs.id;
-        //         const docRef = doc(db, "contents", docsId);
-        //         await updateDoc(docRef, {
-        //           content: {
-        //             sec: sec || chooseContent.sec,
-        //             switch: chooseContent.switch,
-        //             // sec: sec,
-        //             text: text ? text : chooseContent.text,
-        //             // text: text,
-        //             mainSlider:
-        //               mainBannerUrlList.length > 0
-        //                 ? mainBannerUrlList
-        //                 : chooseContent.mainSlider,
-        //             // mainSlider: mainBannerUrlList,
-        //             ourDepartmentSlider:
-        //               ourDepartmentUrlList.length > 0
-        //                 ? ourDepartmentUrlList
-        //                 : chooseContent.ourDepartmentSlider,
-        //             // ourDepartmentSlider: ourDepartmentUrlList,
-        //             ramazanSlider: {
-        //               ramazanSlider:
-        //                 ramazanUrlList.length > 0
-        //                   ? ramazanUrlList
-        //                   : chooseContent.ramazanSlider.ramazanSlider,
-        //               switch: chooseContent.ramazanSlider.switch,
-        //             },
-        //             // ramazanSlider: ramazanUrlList,
-        //             zakatSlider: {
-        //               zakatSlider:
-        //                 zakatUrlList.length > 0
-        //                   ? zakatUrlList
-        //                   : chooseContent.zakatSlider.zakatSlider,
-        //               switch: chooseContent.zakatSlider.switch,
-        //             },
-        //             // foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
-        //             // foodboxSlider: foodBoxUrlList,
-        //             foodboxSlider: {
-        //               foodboxSlider:
-        //                 foodBoxUrlList.length > 0
-        //                   ? foodBoxUrlList
-        //                   : chooseContent.foodboxSlider.foodboxSlider,
-        //               switch: chooseContent.foodboxSlider.switch,
-        //             },
-        //             // winterSlider: winterUrlList || chooseContent.winterSlider,
-        //             // winterSlider: winterUrlList,
-        //             winterSlider: {
-        //               winterSlider:
-        //                 winterUrlList.length > 0
-        //                   ? winterUrlList
-        //                   : chooseContent.winterSlider.winterSlider,
-        //               switch: chooseContent.winterSlider.switch,
-        //             },
-        //             // palestineSlider:
-        //             //   palestineUrlList || chooseContent.palestineSlider,
-        //             // palestineSlider: palestineUrlList,
-        //             palestineSlider: {
-        //               palestineSlider:
-        //                 palestineUrlList.length > 0
-        //                   ? palestineUrlList
-        //                   : chooseContent.palestineSlider.palestineSlider,
-        //               switch: chooseContent.palestineSlider.switch,
-        //             },
-        //             // orphanSlider: orphanUrlList || chooseContent.orphanSlider,
-        //             // orphanSlider: orphanUrlList,
-        //             orphanSlider: {
-        //               orphanSlider:
-        //                 orphanUrlList.length > 0
-        //                   ? orphanUrlList
-        //                   : chooseContent.orphanSlider.orphanSlider,
-        //               switch: chooseContent.orphanSlider.switch,
-        //             },
-        //             // handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
-        //             // handPumpSlider: handPumpUrlList,
-        //             handPumpSlider: {
-        //               handPumpSlider:
-        //                 handPumpUrlList.length > 0
-        //                   ? handPumpUrlList
-        //                   : chooseContent.handPumpSlider.handPumpSlider,
-        //               switch: chooseContent.handPumpSlider.switch,
-        //             },
-        //             // waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
-        //             // waterWellSlider: waterUrlList,
-        //             waterWellSlider: {
-        //               waterWellSlider:
-        //                 waterUrlList.length > 0
-        //                   ? waterUrlList
-        //                   : chooseContent.waterWellSlider.waterWellSlider,
-        //               switch: chooseContent.waterWellSlider.switch,
-        //             },
-        //             // masjidSlider: masjidUrlList || chooseContent.masjidSlider,
-        //             // masjidSlider: masjidUrlList,
-        //             masjidSlider: {
-        //               masjidSlider:
-        //                 masjidUrlList.length > 0
-        //                   ? masjidUrlList
-        //                   : chooseContent.masjidSlider.masjidSlider,
-        //               switch: chooseContent.masjidSlider.switch,
-        //             },
-        //             achievementSlider:
-        //               achievementUrlList.length > 0
-        //                 ? achievementUrlList
-        //                 : chooseContent.achievementSlider,
-        //             // achievementSlider: achievementUrlList,
-        //             gallerySlider:
-        //               galleryUrlList.length > 0
-        //                 ? galleryUrlList
-        //                 : chooseContent.gallerySlider,
-        //             // gallerySlider: galleryUrlList,
-        //             newVideos:
-        //               videoUrl1 && videoUrl2 && videoUrl3
-        //                 ? [videoUrl1, videoUrl2, videoUrl3]
-        //                 : chooseContent.newVideos,
-        //             // newVideos: [videoUrl1, videoUrl2, videoUrl3],
-        //             newsVideoSlider:
-        //               newsVideoUrlList.length > 0
-        //                 ? newsVideoUrlList
-        //                 : chooseContent.newsVideoSlider,
-        //             // newsVideoSlider: newsVideoUrlList,
-        //             counters:
-        //               [
-        //                 {
-        //                   counter1Text: counter1Text
-        //                     ? counter1Text
-        //                     : chooseContent.counters[0].counter1Text,
-        //                   counter1: counter1
-        //                     ? counter1
-        //                     : chooseContent.counters[0].counter1,
-        //                   counter1ImageUrl: counter1ImageUrl
-        //                     ? counter1ImageUrl
-        //                     : chooseContent.counters[0].counter1ImageUrl,
-        //                 },
-        //                 {
-        //                   counter2Text: counter2Text
-        //                     ? counter2Text
-        //                     : chooseContent.counters[1].counter2Text,
-        //                   counter2: counter2
-        //                     ? counter2
-        //                     : chooseContent.counters[1].counter2,
-        //                   counter2ImageUrl: counter2ImageUrl
-        //                     ? counter2ImageUrl
-        //                     : chooseContent.counters[1].counter2ImageUrl,
-        //                 },
-        //               ] || chooseContent.counters,
-        //             // counters: [
-        //             //   { counter1Text, counter1, counter1ImageUrl },
-        //             //   { counter2Text, counter2, counter2ImageUrl },
-        //             // ],
-        //           },
-        //         });
-        //       }
-        //     }
-        //   });
+      const dataRef = collection(db, "contents");
+      const querySnapshot = await getDocs(dataRef);
+      querySnapshot.forEach(async (docs) => {
+        const docsData = docs.data();
+        const chooseSec = docsData.content.sec;
+        const chooseContent = docsData.content;
+        if (mainSection === "Our Department") {
+          if (chooseSec === sec) {
+            let bannerImageUrl;
+            let heroImageUrl;
+            let videoUrl;
+            if (bannerPhoto) {
+              const storageRef1 = ref(
+                storage,
+                "images/" + bannerPhoto?.name + a.toString().slice(2, 10)
+              );
+              const bannerSnapShot = await uploadBytes(
+                storageRef1,
+                bannerPhoto
+              );
+              bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
+            } else {
+              bannerImageUrl = undefined;
+            }
+            if (heroPhoto) {
+              const storageRef2 = ref(
+                storage,
+                "images/" + heroPhoto?.name + a.toString().slice(2, 10)
+              );
+              const heroSnapShot = await uploadBytes(storageRef2, heroPhoto);
+              heroImageUrl = await getDownloadURL(heroSnapShot.ref);
+            } else {
+              heroImageUrl = undefined;
+            }
+            if (video1) {
+              const videosRef = ref(storage, "videos/" + video1?.name);
+              const titleVideos = await uploadBytes(videosRef, video1);
+              videoUrl = await getDownloadURL(titleVideos.ref);
+            } else {
+              videoUrl = undefined;
+            }
+            const docsId = docs.id;
+            const docRef = doc(db, "contents", docsId);
+            await updateDoc(docRef, {
+              content: {
+                bannerImg: bannerImageUrl
+                  ? bannerImageUrl
+                  : chooseContent.bannerImg,
+                heroSecImg: heroImageUrl
+                  ? heroImageUrl
+                  : chooseContent.heroSecImg,
+                sec: sec || chooseContent.sec,
+                text: text ? text : chooseContent.text,
+                slider: urlList.length > 0 ? urlList : chooseContent.slider,
+                video: videoUrl ? videoUrl : chooseContent.video,
+                mainSec: "Our Department" || chooseContent.mainSec,
+                switch: chooseContent.switch,
+                url: chooseContent.url,
+              },
+            });
+          }
+        }
+        if (mainSection === "Appeals") {
+          if (chooseSec === sec) {
+            let a = Math.random();
+            let firstImageUrl;
+            let secondImageUrl;
+            let videoUrl1;
+            let videoUrl2;
+            if (photo1) {
+              const storageRef1 = ref(
+                storage,
+                "images/" + photo1?.name + a.toString().slice(2, 10)
+              );
+              const firstImageSnapShot = await uploadBytes(storageRef1, photo1);
+              firstImageUrl = await getDownloadURL(firstImageSnapShot.ref);
+            } else {
+              firstImageUrl = undefined;
+            }
+            if (photo2) {
+              const storageRef2 = ref(
+                storage,
+                "images/" + photo2?.name + a.toString().slice(2, 10)
+              );
+              const secondImageSnapShot = await uploadBytes(
+                storageRef2,
+                photo2
+              );
+              secondImageUrl = await getDownloadURL(secondImageSnapShot.ref);
+            } else {
+              secondImageUrl = undefined;
+            }
+            if (video1) {
+              const videosRef1 = ref(storage, "videos/" + video1?.name);
+              const titleVideos1 = await uploadBytes(videosRef1, video1);
+              videoUrl1 = await getDownloadURL(titleVideos1.ref);
+            } else {
+              videoUrl1 = undefined;
+            }
+            if (video2) {
+              const videosRef2 = ref(storage, "videos/" + video2?.name);
+              const titleVideos2 = await uploadBytes(videosRef2, video2);
+              videoUrl2 = await getDownloadURL(titleVideos2.ref);
+            } else {
+              videoUrl2 = undefined;
+            }
+            const docsId = docs.id;
+            const docRef = doc(db, "contents", docsId);
+            await updateDoc(docRef, {
+              content: {
+                photo: [
+                  firstImageUrl ? firstImageUrl : chooseContent.photo[0],
+                  secondImageUrl ? secondImageUrl : chooseContent.photo[1],
+                ],
+                sec: sec || chooseContent.sec,
+                mainSec: "Appeals" || chooseContent.mainSec,
+                text: text ? text : chooseContent.text,
+                slider: urlList.length > 0 ? urlList : chooseContent.slider,
+                video:
+                  videoUrl1 && videoUrl2
+                    ? [videoUrl1, videoUrl2]
+                    : chooseContent.video,
+                url: chooseContent.url,
+                switch: chooseContent.switch,
+              },
+            });
+          }
+        }
+        if (mainSection === "Donations") {
+          if (chooseSec === sec) {
+            let titleImageUrl1;
+            if (photo1) {
+              const storageRef1 = ref(
+                storage,
+                "images/" + photo1?.name + a.toString().slice(2, 10)
+              );
+              const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+              titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+            } else {
+              titleImageUrl1 = undefined;
+            }
+            const docsId = docs.id;
+            const docRef = doc(db, "contents", docsId);
+            await updateDoc(docRef, {
+              content: {
+                sec: sec || chooseContent.sec,
+                text: text || chooseContent.text,
+                photo: titleImageUrl1 ? titleImageUrl1 : chooseContent.photo,
+                switch: chooseContent.switch,
+                url: chooseContent.url,
+                mainSec: "Donation" || chooseContent.mainSec,
+              },
+            });
+          }
+        }
+        if (mainSection === "Main Page") {
+          if (chooseSec === sec) {
+            let a = Math.random();
+            let counter1ImageUrl;
+            let counter2ImageUrl;
+            let videoUrl1;
+            let videoUrl2;
+            let videoUrl3;
+            if (photo1) {
+              const storageRef1 = ref(
+                storage,
+                "images/" + photo1?.name + a.toString().slice(2, 10)
+              );
+              const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+              counter1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
+            } else {
+              counter1ImageUrl = undefined;
+            }
+            if (photo2) {
+              const storageRef2 = ref(
+                storage,
+                "images/" + photo2?.name + a.toString().slice(2, 10)
+              );
+              const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+              counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
+            } else {
+              counter2ImageUrl = undefined;
+            }
+            if (video1) {
+              const videosRef1 = ref(storage, "videos/" + video1?.name);
+              const titleVideos1 = await uploadBytes(videosRef1, video1);
+              videoUrl1 = await getDownloadURL(titleVideos1.ref);
+            } else {
+              videoUrl1 = undefined;
+            }
+            if (video2) {
+              const videosRef2 = ref(storage, "videos/" + video2?.name);
+              const titleVideos2 = await uploadBytes(videosRef2, video2);
+              videoUrl2 = await getDownloadURL(titleVideos2.ref);
+            } else {
+              videoUrl2 = undefined;
+            }
+            if (video3) {
+              const videosRef3 = ref(storage, "videos/" + video3?.name);
+              const titleVideos3 = await uploadBytes(videosRef3, video3);
+              videoUrl3 = await getDownloadURL(titleVideos3.ref);
+            } else {
+              videoUrl3 = undefined;
+            }
+            const docsId = docs.id;
+            const docRef = doc(db, "contents", docsId);
+            await updateDoc(docRef, {
+              content: {
+                sec: sec || chooseContent.sec,
+                switch: chooseContent.switch,
+                // sec: sec,
+                text: text ? text : chooseContent.text,
+                // text: text,
+                mainSlider:
+                  mainBannerUrlList.length > 0
+                    ? mainBannerUrlList
+                    : chooseContent.mainSlider,
+                // mainSlider: mainBannerUrlList,
+                ourDepartmentSlider:
+                  ourDepartmentUrlList.length > 0
+                    ? ourDepartmentUrlList
+                    : chooseContent.ourDepartmentSlider,
+                // ourDepartmentSlider: ourDepartmentUrlList,
+                ramazanSlider: {
+                  ramazanSlider:
+                    ramazanUrlList.length > 0
+                      ? ramazanUrlList
+                      : chooseContent.ramazanSlider.ramazanSlider,
+                  switch: chooseContent.ramazanSlider.switch,
+                },
+                // ramazanSlider: ramazanUrlList,
+
+                zakatSlider: {
+                  zakatSlider:
+                    zakatUrlList.length > 0
+                      ? zakatUrlList
+                      : chooseContent.zakatSlider.zakatSlider,
+                  switch: chooseContent.zakatSlider.switch,
+                },
+                // foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
+                // foodboxSlider: foodBoxUrlList,
+                foodboxSlider: {
+                  foodboxSlider:
+                    foodBoxUrlList.length > 0
+                      ? foodBoxUrlList
+                      : chooseContent.foodboxSlider.foodboxSlider,
+                  switch: chooseContent.foodboxSlider.switch,
+                },
+                // winterSlider: winterUrlList || chooseContent.winterSlider,
+                // winterSlider: winterUrlList,
+                winterSlider: {
+                  winterSlider:
+                    winterUrlList.length > 0
+                      ? winterUrlList
+                      : chooseContent.winterSlider.winterSlider,
+                  switch: chooseContent.winterSlider.switch,
+                },
+                // palestineSlider:
+                //   palestineUrlList || chooseContent.palestineSlider,
+                // palestineSlider: palestineUrlList,
+                palestineSlider: {
+                  palestineSlider:
+                    palestineUrlList.length > 0
+                      ? palestineUrlList
+                      : chooseContent.palestineSlider.palestineSlider,
+                  switch: chooseContent.palestineSlider.switch,
+                },
+                // orphanSlider: orphanUrlList || chooseContent.orphanSlider,
+                // orphanSlider: orphanUrlList,
+                orphanSlider: {
+                  orphanSlider:
+                    orphanUrlList.length > 0
+                      ? orphanUrlList
+                      : chooseContent.orphanSlider.orphanSlider,
+                  switch: chooseContent.orphanSlider.switch,
+                },
+                // handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
+                // handPumpSlider: handPumpUrlList,
+                handPumpSlider: {
+                  handPumpSlider:
+                    handPumpUrlList.length > 0
+                      ? handPumpUrlList
+                      : chooseContent.handPumpSlider.handPumpSlider,
+                  switch: chooseContent.handPumpSlider.switch,
+                },
+                // waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
+                // waterWellSlider: waterUrlList,
+                waterWellSlider: {
+                  waterWellSlider:
+                    waterUrlList.length > 0
+                      ? waterUrlList
+                      : chooseContent.waterWellSlider.waterWellSlider,
+                  switch: chooseContent.waterWellSlider.switch,
+                },
+                // masjidSlider: masjidUrlList || chooseContent.masjidSlider,
+                // masjidSlider: masjidUrlList,
+                masjidSlider: {
+                  masjidSlider:
+                    masjidUrlList.length > 0
+                      ? masjidUrlList
+                      : chooseContent.masjidSlider.masjidSlider,
+                  switch: chooseContent.masjidSlider.switch,
+                },
+                achievementSlider:
+                  achievementUrlList.length > 0
+                    ? achievementUrlList
+                    : chooseContent.achievementSlider,
+                // achievementSlider: achievementUrlList,
+
+                gallerySlider:
+                  galleryUrlList.length > 0
+                    ? galleryUrlList
+                    : chooseContent.gallerySlider,
+                // gallerySlider: galleryUrlList,
+
+                newVideos:
+                  videoUrl1 && videoUrl2 && videoUrl3
+                    ? [videoUrl1, videoUrl2, videoUrl3]
+                    : chooseContent.newVideos,
+                // newVideos: [videoUrl1, videoUrl2, videoUrl3],
+                newsVideoSlider:
+                  newsVideoUrlList.length > 0
+                    ? newsVideoUrlList
+                    : chooseContent.newsVideoSlider,
+                // newsVideoSlider: newsVideoUrlList,
+                counters:
+                  [
+                    {
+                      counter1Text: counter1Text
+                        ? counter1Text
+                        : chooseContent.counters[0].counter1Text,
+                      counter1: counter1
+                        ? counter1
+                        : chooseContent.counters[0].counter1,
+                      counter1ImageUrl: counter1ImageUrl
+                        ? counter1ImageUrl
+                        : chooseContent.counters[0].counter1ImageUrl,
+                    },
+                    {
+                      counter2Text: counter2Text
+                        ? counter2Text
+                        : chooseContent.counters[1].counter2Text,
+                      counter2: counter2
+                        ? counter2
+                        : chooseContent.counters[1].counter2,
+                      counter2ImageUrl: counter2ImageUrl
+                        ? counter2ImageUrl
+                        : chooseContent.counters[1].counter2ImageUrl,
+                    },
+                  ] || chooseContent.counters,
+                // counters: [
+                //   { counter1Text, counter1, counter1ImageUrl },
+                //   { counter2Text, counter2, counter2ImageUrl },
+                // ],
+              },
+            });
+          }
+        }
+      });
+    }
+  };
+  // end update code
+
+  // create code for Main Page
+  // const createHandler = async (e: any) => {
+  //   e.preventDefault();
+  //   try {
+  //     const newCollectionRef = collection(db, "contents");
+  //     const newDocRef = doc(newCollectionRef);
+  //     const storageRef1 = ref(storage, "images/" + photo1?.name);
+  //     const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+  //     const counter1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
+  //     const storageRef2 = ref(storage, "images/" + photo2?.name);
+  //     const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+  //     const counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
+  //     const videosRef1 = ref(storage, "videos/" + video1?.name);
+  //     const titleVideos1 = await uploadBytes(videosRef1, video1);
+  //     const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+  //     const videosRef2 = ref(storage, "videos/" + video2?.name);
+  //     const titleVideos2 = await uploadBytes(videosRef2, video2);
+  //     const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+  //     const videosRef3 = ref(storage, "videos/" + video3?.name);
+  //     const titleVideos3 = await uploadBytes(videosRef3, video3);
+  //     const videoUrl3 = await getDownloadURL(titleVideos3.ref);
+  //     const mainSection = {
+  //       content: {
+  //         sec: sec,
+  //         text: text,
+  //         mainSlider: mainBannerUrlList,
+  //         ourDepartmentSlider: ourDepartmentUrlList,
+  //         ramazanSlider: ramazanUrlList,
+  //         zakatSlider: zakatUrlList,
+  //         foodboxSlider: foodBoxUrlList,
+  //         winterSlider: winterUrlList,
+  //         palestineSlider: palestineUrlList,
+  //         orphanSlider: orphanUrlList,
+  //         handPumpSlider: handPumpUrlList,
+  //         waterWellSlider: waterUrlList,
+  //         masjidSlider: masjidUrlList,
+  //         achievementSlider: achievementUrlList,
+  //         gallerySlider: galleryUrlList,
+  //         newVideos: [videoUrl1, videoUrl2, videoUrl3],
+  //         newsVideoSlider: newsVideoUrlList,
+  //         counters: [
+  //           { counter1Text, counter1, counter1ImageUrl },
+  //           { counter2Text, counter2, counter2ImageUrl },
+  //         ],
+  //       },
+  //     };
+
+  //     await setDoc(newDocRef, mainSection, { merge: true });
+  //     if (mainSection !== undefined) {
+  //       console.log("Ok ki report hai bahi");
+  //     }
+  //   } catch (error) {
+  //     console.error("Roko bahi firebaser error arha hai--->", error);
+  //   }
+  // };
+  //   console.log("photo---->", photo1);
+  // };
+
+  // create code for main Page Section
+  // try {
+  //   const newCollectionRef = collection(db, "contents");
+  //   const newDocRef = doc(newCollectionRef);
+  //   const storageRef1 = ref(storage, "images/" + photo1?.name);
+  //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+  //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+  //   const storageRef2 = ref(storage, "images/" + photo2?.name);
+  //   const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+  //   const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
+  //   const videosRef1 = ref(storage, "videos/" + video1?.name);
+  //   const titleVideos1 = await uploadBytes(videosRef1, video1);
+  //   const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+  //   const videosRef2 = ref(storage, "videos/" + video2?.name);
+  //   const titleVideos2 = await uploadBytes(videosRef2, video2);
+  //   const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+  //   const videosRef3 = ref(storage, "videos/" + video3?.name);
+  //   const titleVideos3 = await uploadBytes(videosRef3, video3);
+  //   const videoUrl3 = await getDownloadURL(titleVideos3.ref);
+  //   const mainSection = {
+  //     content: {
+  //       sec,
+  //       text,
+  //       newsVideos: newsVideoUrlList,
+  //       newsVideo: [videoUrl1, videoUrl2, videoUrl3],
+  //       mainBannerSlider: mainBannerUrlList,
+  //       ourDepartmentSlider: ourDepartmentUrlList,
+  //       achievement: achievementUrlList,
+  //       ramazan: ramazanUrlList,
+  //       zakat: zakatUrlList,
+  //       foobox: foodBoxUrlList,
+  //       winter: winterUrlList,
+  //       palestine: palestineUrlList,
+  //       orphan: orphanUrlList,
+  //       handPump: handPumpUrlList,
+  //       waterWell: waterUrlList,
+  //       masjid: masjidUrlList,
+  //     },
+  //   };
+
+  //   await setDoc(newDocRef, mainSection, { merge: true });
+  //   if (mainSection !== undefined) {
+  //     console.log("Ok ki report hai bahi");
+  //   }
+  // } catch (error) {
+  //   console.error("Roko bahi firebaser error arha hai--->", error);
+  // }
+
+  // create code for Donation Sections
+  // try {
+  //   const newCollectionRef = collection(db, "contents");
+  //   const newDocRef = doc(newCollectionRef);
+  //   const storageRef1 = ref(storage, "images/" + photo1?.name);
+  //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+  //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+  //   const mainSection = {
+  //     content: {
+  //       sec,
+  //       text,
+  //       photo: titleImageUrl1,
+  //     },
+  //   };
+
+  //   await setDoc(newDocRef, mainSection, { merge: true });
+  //   if (mainSection !== undefined) {
+  //     console.log("Ok ki report hai bahi");
+  //   }
+  // } catch (error) {
+  //   console.error("Roko bahi firebaser error arha hai--->", error);
+  // }
+
+  const bannerPhotoHandler = (e: any) => {
+    const bannerFile = e.target.files[0];
+    setBannerPhoto(bannerFile);
+  };
+  const heroPhotoHandler = (e: any) => {
+    const heroFile = e.target.files[0];
+    setHeroPhoto(heroFile);
+  };
+  const photoHandler = (e: any) => {
+    const file1 = e.target.files[0];
+    setPhoto1(file1);
+    const file2 = e.target.files[1];
+    setPhoto2(file2);
+    console.log("file1,file2", file1, file2);
+  };
+
+  const sliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploading1(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        if (mainSection === "Main Page") {
+          setMainBannerUrlList((prev: any) => [...prev, downloadURL]);
+        } else {
+          setUrlList((prev: any) => [...prev, downloadURL]);
+        }
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
       }
     }
-    // end update code
+    setUploading1(false);
+  };
 
-    // create code for Main Page
-    // const createHandler = async (e: any) => {
-    //   e.preventDefault();
-    //   try {
-    //     const newCollectionRef = collection(db, "contents");
-    //     const newDocRef = doc(newCollectionRef);
-    //     const storageRef1 = ref(storage, "images/" + photo1?.name);
-    //     const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-    //     const counter1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
-    //     const storageRef2 = ref(storage, "images/" + photo2?.name);
-    //     const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-    //     const counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
-    //     const videosRef1 = ref(storage, "videos/" + video1?.name);
-    //     const titleVideos1 = await uploadBytes(videosRef1, video1);
-    //     const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-    //     const videosRef2 = ref(storage, "videos/" + video2?.name);
-    //     const titleVideos2 = await uploadBytes(videosRef2, video2);
-    //     const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-    //     const videosRef3 = ref(storage, "videos/" + video3?.name);
-    //     const titleVideos3 = await uploadBytes(videosRef3, video3);
-    //     const videoUrl3 = await getDownloadURL(titleVideos3.ref);
-    //     const mainSection = {
-    //       content: {
-    //         sec: sec,
-    //         text: text,
-    //         mainSlider: mainBannerUrlList,
-    //         ourDepartmentSlider: ourDepartmentUrlList,
-    //         ramazanSlider: ramazanUrlList,
-    //         zakatSlider: zakatUrlList,
-    //         foodboxSlider: foodBoxUrlList,
-    //         winterSlider: winterUrlList,
-    //         palestineSlider: palestineUrlList,
-    //         orphanSlider: orphanUrlList,
-    //         handPumpSlider: handPumpUrlList,
-    //         waterWellSlider: waterUrlList,
-    //         masjidSlider: masjidUrlList,
-    //         achievementSlider: achievementUrlList,
-    //         gallerySlider: galleryUrlList,
-    //         newVideos: [videoUrl1, videoUrl2, videoUrl3],
-    //         newsVideoSlider: newsVideoUrlList,
-    //         counters: [
-    //           { counter1Text, counter1, counter1ImageUrl },
-    //           { counter2Text, counter2, counter2ImageUrl },
-    //         ],
-    //       },
-    //     };
+  // For Main page
+  const counter1PhotoHandler = (e: any) => {
+    const file1 = e.target.files[0];
+    setPhoto1(file1);
+  };
+  const counter2PhotoHandler = (e: any) => {
+    const file2 = e.target.files[0];
+    setPhoto2(file2);
+  };
+  const ourDepartmentSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingOurDepartmentSlider(true);
 
-    //     await setDoc(newDocRef, mainSection, { merge: true });
-    //     if (mainSection !== undefined) {
-    //       console.log("Ok ki report hai bahi");
-    //     }
-    //   } catch (error) {
-    //     console.error("Roko bahi firebaser error arha hai--->", error);
-    //   }
-    // };
-    //   console.log("photo---->", photo1);
-    // };
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-    // create code for main Page Section
-    // try {
-    //   const newCollectionRef = collection(db, "contents");
-    //   const newDocRef = doc(newCollectionRef);
-    //   const storageRef1 = ref(storage, "images/" + photo1?.name);
-    //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-    //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-    //   const storageRef2 = ref(storage, "images/" + photo2?.name);
-    //   const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-    //   const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
-    //   const videosRef1 = ref(storage, "videos/" + video1?.name);
-    //   const titleVideos1 = await uploadBytes(videosRef1, video1);
-    //   const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-    //   const videosRef2 = ref(storage, "videos/" + video2?.name);
-    //   const titleVideos2 = await uploadBytes(videosRef2, video2);
-    //   const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-    //   const videosRef3 = ref(storage, "videos/" + video3?.name);
-    //   const titleVideos3 = await uploadBytes(videosRef3, video3);
-    //   const videoUrl3 = await getDownloadURL(titleVideos3.ref);
-    //   const mainSection = {
-    //     content: {
-    //       sec,
-    //       text,
-    //       newsVideos: newsVideoUrlList,
-    //       newsVideo: [videoUrl1, videoUrl2, videoUrl3],
-    //       mainBannerSlider: mainBannerUrlList,
-    //       ourDepartmentSlider: ourDepartmentUrlList,
-    //       achievement: achievementUrlList,
-    //       ramazan: ramazanUrlList,
-    //       zakat: zakatUrlList,
-    //       foobox: foodBoxUrlList,
-    //       winter: winterUrlList,
-    //       palestine: palestineUrlList,
-    //       orphan: orphanUrlList,
-    //       handPump: handPumpUrlList,
-    //       waterWell: waterUrlList,
-    //       masjid: masjidUrlList,
-    //     },
-    //   };
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-    //   await setDoc(newDocRef, mainSection, { merge: true });
-    //   if (mainSection !== undefined) {
-    //     console.log("Ok ki report hai bahi");
-    //   }
-    // } catch (error) {
-    //   console.error("Roko bahi firebaser error arha hai--->", error);
-    // }
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setOurDepartmentUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingOurDepartmentSlider(false);
+  };
+  const ramzanSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingRamzanSlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-    // create code for Donation Sections
-    // try {
-    //   const newCollectionRef = collection(db, "contents");
-    //   const newDocRef = doc(newCollectionRef);
-    //   const storageRef1 = ref(storage, "images/" + photo1?.name);
-    //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-    //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-    //   const mainSection = {
-    //     content: {
-    //       sec,
-    //       text,
-    //       photo: titleImageUrl1,
-    //     },
-    //   };
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-    //   await setDoc(newDocRef, mainSection, { merge: true });
-    //   if (mainSection !== undefined) {
-    //     console.log("Ok ki report hai bahi");
-    //   }
-    // } catch (error) {
-    //   console.error("Roko bahi firebaser error arha hai--->", error);
-    // }
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setRamazanUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingRamzanSlider(false);
+  };
+  const zakatSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingZakatSlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-    const bannerPhotoHandler = (e: any) => {
-      const bannerFile = e.target.files[0];
-      setBannerPhoto(bannerFile);
-    };
-    const heroPhotoHandler = (e: any) => {
-      const heroFile = e.target.files[0];
-      setHeroPhoto(heroFile);
-    };
-    const photoHandler = (e: any) => {
-      const file1 = e.target.files[0];
-      setPhoto1(file1);
-      const file2 = e.target.files[1];
-      setPhoto2(file2);
-      console.log("file1,file2", file1, file2);
-    };
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-    const sliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploading1(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setZakatUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingZakatSlider(false);
+  };
+  const foodBoxSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingFoodBoxSlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     if (mainSection === "Main Page") {
-      //       setMainBannerUrlList((prev: any) => [...prev, downloadURL]);
-      //     } else {
-      //       setUrlList((prev: any) => [...prev, downloadURL]);
-      //     }
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploading1(false);
-    };
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setFoodBoxUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingFoodBoxSlider(false);
+  };
+  const winterSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingWinterSlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-    // For Main page
-    const counter1PhotoHandler = (e: any) => {
-      const file1 = e.target.files[0];
-      setPhoto1(file1);
-    };
-    const counter2PhotoHandler = (e: any) => {
-      const file2 = e.target.files[0];
-      setPhoto2(file2);
-    };
-    const ourDepartmentSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingOurDepartmentSlider(true);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setWinterUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingWinterSlider(false);
+  };
+  const palestineSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingPalestineSlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setOurDepartmentUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingOurDepartmentSlider(false);
-    };
-    const ramzanSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingRamzanSlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setPalestineUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingPalestineSlider(false);
+  };
+  const orphanSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingOrphanSlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setRamazanUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingRamzanSlider(false);
-    };
-    const zakatSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingZakatSlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setOrphanUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingOrphanSlider(false);
+  };
+  const handPumpSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingHandPumpSlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setZakatUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingZakatSlider(false);
-    };
-    const foodBoxSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingFoodBoxSlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setHandPumpUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingHandPumpSlider(false);
+  };
+  const waterWellSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingWaterWellSlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setFoodBoxUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingFoodBoxSlider(false);
-    };
-    const winterSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingWinterSlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setWaterUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingWaterWellSlider(false);
+  };
+  const masjidSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingMasjidSlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setWinterUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingWinterSlider(false);
-    };
-    const palestineSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingPalestineSlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setMasjidUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingMasjidSlider(false);
+  };
+  const gallerySliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingGallerySlider(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setPalestineUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingPalestineSlider(false);
-    };
-    const orphanSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingOrphanSlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setGalleryUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingGallerySlider(false);
+  };
+  const sliderVideosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingVideosSlider(true);
+    for (const file of files) {
+      const storageRef = ref(storage, `videos/${file.name}`);
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setOrphanUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingOrphanSlider(false);
-    };
-    const handPumpSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingHandPumpSlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setnewsVideoUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingVideosSlider(false);
+  };
+  const achievementPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingAchievementImages(true);
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setHandPumpUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingHandPumpSlider(false);
-    };
-    const waterWellSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingWaterWellSlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setAchievementUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingAchievementImages(false);
+  };
+  const videoHandler = (e: any) => {
+    const file1 = e.target.files[0];
+    setVideo1(file1);
+    const file2 = e.target.files[1];
+    setVideo2(file2);
+    const file3 = e.target.files[2];
+    setVideo3(file3);
+    console.log("file1,file2", file1, file2, file3);
+  };
+  const hideHandler = async (data: any) => {
+    const dataRef = collection(db, "contents");
+    const querySnapshot = await getDocs(dataRef);
+    querySnapshot.forEach(async (docs) => {
+      const docsData = docs.data();
+      const chooseSec = docsData.content.sec;
+      if (chooseSec === data) {
+        const docsId = docs.id;
+        const docRef = doc(db, "contents", docsId);
+        const updatedContent = {
+          ...docsData.content,
+          switch: docsData.content.switch === "false" ? "true" : "false",
+        };
+        await updateDoc(docRef, {
+          content: updatedContent,
+        });
+      }
+    });
+  };
+  const deleteHandler = async (data: any) => {
+    const dataRef = collection(db, "contents");
+    const querySnapshot = await getDocs(dataRef);
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+    querySnapshot.forEach(async (docs) => {
+      const docsData = docs.data();
+      const chooseSec = docsData.content.sec;
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setWaterUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingWaterWellSlider(false);
-    };
-    const masjidSliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingMasjidSlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+      if (chooseSec === data) {
+        const docsId = docs.id;
+        const docRef = doc(db, "contents", docsId);
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+        // Delete the document
+        await deleteDoc(docRef);
+      }
+    });
+  };
+  const allData = data.filter(
+    (title: any) => "Main Page" === title.content.sec
+  );
+  const content = allData[0]?.content;
+  const foodboxSlider = allData[0]?.content?.foodboxSlider?.foodboxSlider;
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setMasjidUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingMasjidSlider(false);
-    };
-    const gallerySliderPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingGallerySlider(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
+  const hideHandler1 = async (switcherSlider: any) => {
+    const dataRef = collection(db, "contents");
+    const querySnapshot = await getDocs(dataRef);
+    querySnapshot.forEach(async (docs) => {
+      const docsData = docs.data();
+      const chooseSec = docsData.content.sec;
+      if (chooseSec === "Main Page") {
+        const docsId = docs.id;
+        const docRef = doc(db, "contents", docsId);
+        if (switcherSlider === "foodboxSlider") {
+          const foodboxSlider = docsData.content.foodboxSlider.foodboxSlider;
+          const updatedContent = {
+            ...docsData.content,
+            foodboxSlider: {
+              foodboxSlider,
+              switch:
+                docsData.content.foodboxSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "handPumpSlider") {
+          const handPumpSlider = docsData.content.handPumpSlider.handPumpSlider;
+          const updatedContent = {
+            ...docsData.content,
+            handPumpSlider: {
+              handPumpSlider,
+              switch:
+                docsData.content.handPumpSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "masjidSlider") {
+          const masjidSlider = docsData.content.masjidSlider.masjidSlider;
+          const updatedContent = {
+            ...docsData.content,
+            masjidSlider: {
+              masjidSlider,
+              switch:
+                docsData.content.masjidSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "orphanSlider") {
+          const orphanSlider = docsData.content.orphanSlider.orphanSlider;
+          const updatedContent = {
+            ...docsData.content,
+            orphanSlider: {
+              orphanSlider,
+              switch:
+                docsData.content.orphanSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "palestineSlider") {
+          const palestineSlider =
+            docsData.content.palestineSlider.palestineSlider;
+          const updatedContent = {
+            ...docsData.content,
+            palestineSlider: {
+              palestineSlider,
+              switch:
+                docsData.content.palestineSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "ramazanSlider") {
+          const ramazanSlider = docsData.content.ramazanSlider.ramazanSlider;
+          const updatedContent = {
+            ...docsData.content,
+            ramazanSlider: {
+              ramazanSlider,
+              switch:
+                docsData.content.ramazanSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "waterWellSlider") {
+          const waterWellSlider =
+            docsData.content.waterWellSlider.waterWellSlider;
+          const updatedContent = {
+            ...docsData.content,
+            waterWellSlider: {
+              waterWellSlider,
+              switch:
+                docsData.content.waterWellSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "winterSlider") {
+          const winterSlider = docsData.content.winterSlider.winterSlider;
+          const updatedContent = {
+            ...docsData.content,
+            winterSlider: {
+              winterSlider,
+              switch:
+                docsData.content.winterSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "zakatSlider") {
+          const zakatSlider = docsData.content.zakatSlider.zakatSlider;
+          const updatedContent = {
+            ...docsData.content,
+            zakatSlider: {
+              zakatSlider,
+              switch:
+                docsData.content.zakatSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+      }
+    });
+  };
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+  const deleteHandler1 = async (data: any) => {
+    const dataRef = collection(db, "contents");
+    const querySnapshot = await getDocs(dataRef);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setGalleryUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingGallerySlider(false);
-    };
-    const sliderVideosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingVideosSlider(true);
-      // for (const file of files) {
-      //   const storageRef = ref(storage, `videos/${file.name}`);
+    querySnapshot.forEach(async (docs) => {
+      const docsData = docs.data();
+      const chooseSec = docsData.content.sec;
 
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
+      if (chooseSec === data) {
+        const docsId = docs.id;
+        const docRef = doc(db, "contents", docsId);
 
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setnewsVideoUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingVideosSlider(false);
-    };
-    const achievementPhotosHandler = async (
-      e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files: File[] = Array.from(e.target.files || []);
-      setUploadingAchievementImages(true);
-      // for (const file of files) {
-      //   let a = Math.random();
-      //   const storageRef = ref(
-      //     storage,
-      //     `images/slider/${file.name}${a.toString().slice(2, 10)}`
-      //   );
-
-      //   try {
-      //     const snapshot = await uploadBytes(storageRef, file);
-
-      //     const downloadURL = await getDownloadURL(snapshot.ref);
-      //     setAchievementUrlList((prev: any) => [...prev, downloadURL]);
-      //     console.log("File uploaded successfully:", downloadURL);
-      //   } catch (error) {
-      //     console.error("Error uploading1 file:", error);
-      //   }
-      // }
-      setUploadingAchievementImages(false);
-    };
-    const videoHandler = (e: any) => {
-      const file1 = e.target.files[0];
-      setVideo1(file1);
-      const file2 = e.target.files[1];
-      setVideo2(file2);
-      const file3 = e.target.files[2];
-      setVideo3(file3);
-      console.log("file1,file2", file1, file2, file3);
-    };
-    //   const hideHandler = async (data: any) => {
-    //     const dataRef = collection(db, "contents");
-    //     const querySnapshot = await getDocs(dataRef);
-    //     querySnapshot.forEach(async (docs) => {
-    //       const docsData = docs.data();
-    //       const chooseSec = docsData.content.sec;
-    //       if (chooseSec === data) {
-    //         const docsId = docs.id;
-    //         const docRef = doc(db, "contents", docsId);
-    //         const updatedContent = {
-    //           ...docsData.content,
-    //           switch: docsData.content.switch === "false" ? "true" : "false",
-    //         };
-    //         await updateDoc(docRef, {
-    //           content: updatedContent,
-    //         });
-    //       }
-    //     });
-    //   };
-    //   const deleteHandler = async (data: any) => {
-    //     const dataRef = collection(db, "contents");
-    //     const querySnapshot = await getDocs(dataRef);
-
-    //     querySnapshot.forEach(async (docs) => {
-    //       const docsData = docs.data();
-    //       const chooseSec = docsData.content.sec;
-
-    //       if (chooseSec === data) {
-    //         const docsId = docs.id;
-    //         const docRef = doc(db, "contents", docsId);
-
-    //         // Delete the document
-    //         await deleteDoc(docRef);
-    //       }
-    //     });
-    //   };
-    const allData = data.filter(
-      (title: any) => "Main Page" === title.content.sec
-    );
-    const content = allData[0]?.content;
-    const foodboxSlider = allData[0]?.content?.foodboxSlider?.foodboxSlider;
-
-    //   const hideHandler1 = async (switcherSlider: any) => {
-    //     const dataRef = collection(db, "contents");
-    //     const querySnapshot = await getDocs(dataRef);
-    //     querySnapshot.forEach(async (docs) => {
-    //       const docsData = docs.data();
-    //       const chooseSec = docsData.content.sec;
-    //       if (chooseSec === "Main Page") {
-    //         const docsId = docs.id;
-    //         const docRef = doc(db, "contents", docsId);
-    //         if (switcherSlider === "foodboxSlider") {
-    //           const foodboxSlider = docsData.content.foodboxSlider.foodboxSlider;
-    //           const updatedContent = {
-    //             ...docsData.content,
-    //             foodboxSlider: {
-    //               foodboxSlider,
-    //               switch:
-    //                 docsData.content.foodboxSlider.switch === "false"
-    //                   ? "true"
-    //                   : "false",
-    //             },
-    //           };
-    //           await updateDoc(docRef, {
-    //             content: updatedContent,
-    //           });
-    //         }
-    //         if (switcherSlider === "handPumpSlider") {
-    //           const handPumpSlider = docsData.content.handPumpSlider.handPumpSlider;
-    //           const updatedContent = {
-    //             ...docsData.content,
-    //             handPumpSlider: {
-    //               handPumpSlider,
-    //               switch:
-    //                 docsData.content.handPumpSlider.switch === "false"
-    //                   ? "true"
-    //                   : "false",
-    //             },
-    //           };
-    //           await updateDoc(docRef, {
-    //             content: updatedContent,
-    //           });
-    //         }
-    //         if (switcherSlider === "masjidSlider") {
-    //           const masjidSlider = docsData.content.masjidSlider.masjidSlider;
-    //           const updatedContent = {
-    //             ...docsData.content,
-    //             masjidSlider: {
-    //               masjidSlider,
-    //               switch:
-    //                 docsData.content.masjidSlider.switch === "false"
-    //                   ? "true"
-    //                   : "false",
-    //             },
-    //           };
-    //           await updateDoc(docRef, {
-    //             content: updatedContent,
-    //           });
-    //         }
-    //         if (switcherSlider === "orphanSlider") {
-    //           const orphanSlider = docsData.content.orphanSlider.orphanSlider;
-    //           const updatedContent = {
-    //             ...docsData.content,
-    //             orphanSlider: {
-    //               orphanSlider,
-    //               switch:
-    //                 docsData.content.orphanSlider.switch === "false"
-    //                   ? "true"
-    //                   : "false",
-    //             },
-    //           };
-    //           await updateDoc(docRef, {
-    //             content: updatedContent,
-    //           });
-    //         }
-    //         if (switcherSlider === "palestineSlider") {
-    //           const palestineSlider =
-    //             docsData.content.palestineSlider.palestineSlider;
-    //           const updatedContent = {
-    //             ...docsData.content,
-    //             palestineSlider: {
-    //               palestineSlider,
-    //               switch:
-    //                 docsData.content.palestineSlider.switch === "false"
-    //                   ? "true"
-    //                   : "false",
-    //             },
-    //           };
-    //           await updateDoc(docRef, {
-    //             content: updatedContent,
-    //           });
-    //         }
-    //         if (switcherSlider === "ramazanSlider") {
-    //           const ramazanSlider = docsData.content.ramazanSlider.ramazanSlider;
-    //           const updatedContent = {
-    //             ...docsData.content,
-    //             ramazanSlider: {
-    //               ramazanSlider,
-    //               switch:
-    //                 docsData.content.ramazanSlider.switch === "false"
-    //                   ? "true"
-    //                   : "false",
-    //             },
-    //           };
-    //           await updateDoc(docRef, {
-    //             content: updatedContent,
-    //           });
-    //         }
-    //         if (switcherSlider === "waterWellSlider") {
-    //           const waterWellSlider =
-    //             docsData.content.waterWellSlider.waterWellSlider;
-    //           const updatedContent = {
-    //             ...docsData.content,
-    //             waterWellSlider: {
-    //               waterWellSlider,
-    //               switch:
-    //                 docsData.content.waterWellSlider.switch === "false"
-    //                   ? "true"
-    //                   : "false",
-    //             },
-    //           };
-    //           await updateDoc(docRef, {
-    //             content: updatedContent,
-    //           });
-    //         }
-    //         if (switcherSlider === "winterSlider") {
-    //           const winterSlider = docsData.content.winterSlider.winterSlider;
-    //           const updatedContent = {
-    //             ...docsData.content,
-    //             winterSlider: {
-    //               winterSlider,
-    //               switch:
-    //                 docsData.content.winterSlider.switch === "false"
-    //                   ? "true"
-    //                   : "false",
-    //             },
-    //           };
-    //           await updateDoc(docRef, {
-    //             content: updatedContent,
-    //           });
-    //         }
-    //         if (switcherSlider === "zakatSlider") {
-    //           const zakatSlider = docsData.content.zakatSlider.zakatSlider;
-    //           const updatedContent = {
-    //             ...docsData.content,
-    //             zakatSlider: {
-    //               zakatSlider,
-    //               switch:
-    //                 docsData.content.zakatSlider.switch === "false"
-    //                   ? "true"
-    //                   : "false",
-    //             },
-    //           };
-    //           await updateDoc(docRef, {
-    //             content: updatedContent,
-    //           });
-    //         }
-    //       }
-    //     });
-    //   };
-
-    //   const deleteHandler1 = async (data: any) => {
-    //     const dataRef = collection(db, "contents");
-    //     const querySnapshot = await getDocs(dataRef);
-
-    //     querySnapshot.forEach(async (docs) => {
-    //       const docsData = docs.data();
-    //       const chooseSec = docsData.content.sec;
-
-    //       if (chooseSec === data) {
-    //         const docsId = docs.id;
-    //         const docRef = doc(db, "contents", docsId);
-
-    //         // Delete the document
-    //         await deleteDoc(docRef);
-    //       }
-    //     });
-    //   };
+        // Delete the document
+        await deleteDoc(docRef);
+      }
+    });
   };
   return (
     <form onSubmit={submitHandler}>
@@ -1462,7 +1465,7 @@ export default function UpdateForm() {
                           <div className="flex gap-3 md:gap-8 items-center">
                             <button
                               type="button"
-                              //   onClick={() => deleteHandler(i.content.sec)}
+                              onClick={() => deleteHandler(i.content.sec)}
                               className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-xs md:text-sm px-2 md:px-5 py-1  md:py-2.5 text-center me-2 my-2"
                             >
                               Delete Page
@@ -1476,7 +1479,7 @@ export default function UpdateForm() {
                                   className="sr-only peer"
                                   onChange={() => {
                                     handleToggleChangePage(index);
-                                    // hideHandler(i.content.sec);
+                                    hideHandler(i.content.sec);
                                   }}
                                 />
                                 <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-teal-500 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-green-600"></div>
@@ -1496,7 +1499,7 @@ export default function UpdateForm() {
                           <div className="flex gap-3 md:gap-8 items-center">
                             <button
                               type="button"
-                              //   onClick={() => deleteHandler(i.content.sec)}
+                              onClick={() => deleteHandler(i.content.sec)}
                               className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-xs md:text-sm px-2 md:px-5 py-1  md:py-2.5 text-center me-2 my-2"
                             >
                               Delete Page
@@ -1513,7 +1516,7 @@ export default function UpdateForm() {
                                   onChange={() => {
                                     handleToggleChangePage1(index);
                                     setSwitchPageArr(true);
-                                    // hideHandler(i.content.sec);
+                                    hideHandler(i.content.sec);
                                   }}
                                 />
                                 <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-teal-500 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-green-600"></div>
@@ -1590,7 +1593,7 @@ export default function UpdateForm() {
                           id="banner-file"
                           name="banner-file"
                           type="file"
-                          //   onChange={bannerPhotoHandler}
+                          onChange={bannerPhotoHandler}
                           className="sr-only"
                         />
                       </label>
@@ -1628,7 +1631,7 @@ export default function UpdateForm() {
                           id="hero-file"
                           name="hero-file"
                           type="file"
-                          //   onChange={heroPhotoHandler}
+                          onChange={heroPhotoHandler}
                           className="sr-only"
                         />
                       </label>
@@ -1672,7 +1675,7 @@ export default function UpdateForm() {
                             name="file-upload"
                             type="file"
                             multiple
-                            // onChange={photoHandler}
+                            onChange={photoHandler}
                             className="sr-only"
                           />
                         </label>
@@ -1713,7 +1716,7 @@ export default function UpdateForm() {
                             name="file-upload"
                             type="file"
                             multiple
-                            // onChange={photoHandler}
+                            onChange={photoHandler}
                             className="sr-only"
                           />
                         </label>
@@ -1759,7 +1762,7 @@ export default function UpdateForm() {
                             type="file"
                             multiple
                             accept="video/*"
-                            // onChange={videoHandler}
+                            onChange={videoHandler}
                             className="sr-only"
                           />
                         </label>
@@ -1802,7 +1805,7 @@ export default function UpdateForm() {
                             name="file-upload2"
                             type="file"
                             multiple
-                            // onChange={sliderPhotosHandler}
+                            onChange={sliderPhotosHandler}
                             className="sr-only"
                           />
                         </label>
@@ -1815,13 +1818,13 @@ export default function UpdateForm() {
                           </>
                         ) : (
                           <div className="flex flex-wrap gap-5">
-                            {/* <PropagateLoader
+                            <PropagateLoader
                               color={"#36d7b7"}
                               loading={uploading1}
                               size={20}
                               aria-label="Loading Spinner"
                               data-testid="loader"
-                            /> */}
+                            />
                             <p className="text-teal-500">
                               uploading1 Images ...
                             </p>
@@ -1859,7 +1862,7 @@ export default function UpdateForm() {
                           name="main-banner-slider"
                           type="file"
                           multiple
-                          //   onChange={sliderPhotosHandler}
+                          onChange={sliderPhotosHandler}
                           className="sr-only"
                         />
                       </label>
@@ -1872,13 +1875,13 @@ export default function UpdateForm() {
                         </>
                       ) : (
                         <div className="flex flex-wrap gap-5">
-                          {/* <PropagateLoader
+                          <PropagateLoader
                             color={"#36d7b7"}
                             loading={uploading1}
                             size={20}
                             aria-label="Loading Spinner"
                             data-testid="loader"
-                          /> */}
+                          />
                           <p className="text-teal-500">uploading1 Images ...</p>
                         </div>
                       )}
@@ -1913,7 +1916,7 @@ export default function UpdateForm() {
                           name="our-department"
                           type="file"
                           multiple
-                          //   onChange={ourDepartmentSliderPhotosHandler}
+                          onChange={ourDepartmentSliderPhotosHandler}
                           className="sr-only"
                         />
                       </label>
@@ -1926,13 +1929,13 @@ export default function UpdateForm() {
                         </>
                       ) : (
                         <div className="flex flex-wrap gap-5">
-                          {/* <PropagateLoader
+                          <PropagateLoader
                             color={"#36d7b7"}
                             loading={uploadingOurDepartmentSlider}
                             size={20}
                             aria-label="Loading Spinner"
                             data-testid="loader"
-                          /> */}
+                          />
                           <p className="text-teal-500">uploading1 Images ...</p>
                         </div>
                       )}
@@ -1975,7 +1978,7 @@ export default function UpdateForm() {
                               name="ramazan-slider"
                               type="file"
                               multiple
-                              //   onChange={ramzanSliderPhotosHandler}
+                              onChange={ramzanSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
@@ -1988,13 +1991,13 @@ export default function UpdateForm() {
                             </>
                           ) : (
                             <div className="flex flex-wrap gap-5">
-                              {/* <PropagateLoader
+                              <PropagateLoader
                                 color={"#36d7b7"}
                                 loading={uploadingRamzanSlider}
                                 size={12}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
-                              /> */}
+                              />
                               <p className="text-teal-500 text-sm">
                                 uploading Images ...
                               </p>
@@ -2033,7 +2036,7 @@ export default function UpdateForm() {
                               name="zakat-slider"
                               type="file"
                               multiple
-                              //   onChange={zakatSliderPhotosHandler}
+                              onChange={zakatSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
@@ -2046,13 +2049,13 @@ export default function UpdateForm() {
                             </>
                           ) : (
                             <div className="flex flex-wrap gap-5">
-                              {/* <PropagateLoader
+                              <PropagateLoader
                                 color={"#36d7b7"}
                                 loading={uploadingZakatSlider}
                                 size={12}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
-                              /> */}
+                              />
                               <p className="text-teal-500 text-sm">
                                 uploading Images ...
                               </p>
@@ -2091,7 +2094,7 @@ export default function UpdateForm() {
                               name="foodBox-slider"
                               type="file"
                               multiple
-                              //   onChange={foodBoxSliderPhotosHandler}
+                              onChange={foodBoxSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
@@ -2104,13 +2107,13 @@ export default function UpdateForm() {
                             </>
                           ) : (
                             <div className="flex flex-wrap gap-5">
-                              {/* <PropagateLoader
+                              <PropagateLoader
                                 color={"#36d7b7"}
                                 loading={uploadingFoodBoxSlider}
                                 size={12}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
-                              /> */}
+                              />
                               <p className="text-teal-500 text-sm">
                                 uploading Images ...
                               </p>
@@ -2149,7 +2152,7 @@ export default function UpdateForm() {
                               name="winter-slider"
                               type="file"
                               multiple
-                              //   onChange={winterSliderPhotosHandler}
+                              onChange={winterSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
@@ -2162,13 +2165,13 @@ export default function UpdateForm() {
                             </>
                           ) : (
                             <div className="flex flex-wrap gap-5">
-                              {/* <PropagateLoader
+                              <PropagateLoader
                                 color={"#36d7b7"}
                                 loading={uploadingWinterSlider}
                                 size={12}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
-                              /> */}
+                              />
                               <p className="text-teal-500 text-sm">
                                 uploading Images ...
                               </p>
@@ -2207,7 +2210,7 @@ export default function UpdateForm() {
                               name="palestine-slider"
                               type="file"
                               multiple
-                              //   onChange={palestineSliderPhotosHandler}
+                              onChange={palestineSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
@@ -2220,13 +2223,13 @@ export default function UpdateForm() {
                             </>
                           ) : (
                             <div className="flex flex-wrap gap-5">
-                              {/* <PropagateLoader
+                              <PropagateLoader
                                 color={"#36d7b7"}
                                 loading={uploadingPalestineSlider}
                                 size={12}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
-                              /> */}
+                              />
                               <p className="text-teal-500 text-sm">
                                 uploading Images ...
                               </p>
@@ -2265,7 +2268,7 @@ export default function UpdateForm() {
                               name="orphan-slider"
                               type="file"
                               multiple
-                              //   onChange={orphanSliderPhotosHandler}
+                              onChange={orphanSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
@@ -2278,13 +2281,13 @@ export default function UpdateForm() {
                             </>
                           ) : (
                             <div className="flex flex-wrap gap-5">
-                              {/* <PropagateLoader
+                              <PropagateLoader
                                 color={"#36d7b7"}
                                 loading={uploadingOrphanSlider}
                                 size={12}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
-                              /> */}
+                              />
                               <p className="text-teal-500 text-sm">
                                 uploading Images ...
                               </p>
@@ -2323,7 +2326,7 @@ export default function UpdateForm() {
                               name="handpump-file"
                               type="file"
                               multiple
-                              //   onChange={handPumpSliderPhotosHandler}
+                              onChange={handPumpSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
@@ -2336,13 +2339,13 @@ export default function UpdateForm() {
                             </>
                           ) : (
                             <div className="flex flex-wrap gap-5">
-                              {/* <PropagateLoader
+                              <PropagateLoader
                                 color={"#36d7b7"}
                                 loading={uploadingHandPumpSlider}
                                 size={12}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
-                              /> */}
+                              />
                               <p className="text-teal-500 text-sm">
                                 uploading Images ...
                               </p>
@@ -2381,7 +2384,7 @@ export default function UpdateForm() {
                               name="waterwell-file"
                               type="file"
                               multiple
-                              //   onChange={waterWellSliderPhotosHandler}
+                              onChange={waterWellSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
@@ -2394,13 +2397,13 @@ export default function UpdateForm() {
                             </>
                           ) : (
                             <div className="flex flex-wrap gap-5">
-                              {/* <PropagateLoader
+                              <PropagateLoader
                                 color={"#36d7b7"}
                                 loading={uploadingWaterWellSlider}
                                 size={12}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
-                              /> */}
+                              />
                               <p className="text-teal-500 text-sm">
                                 uploading Images ...
                               </p>
@@ -2439,7 +2442,7 @@ export default function UpdateForm() {
                               name="masjid-slider"
                               type="file"
                               multiple
-                              //   onChange={masjidSliderPhotosHandler}
+                              onChange={masjidSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
@@ -2452,13 +2455,13 @@ export default function UpdateForm() {
                             </>
                           ) : (
                             <div className="flex flex-wrap gap-5">
-                              {/* <PropagateLoader
+                              <PropagateLoader
                                 color={"#36d7b7"}
                                 loading={uploadingMasjidSlider}
                                 size={12}
                                 aria-label="Loading Spinner"
                                 data-testid="loader"
-                              /> */}
+                              />
                               <p className="text-teal-500 text-sm">
                                 uploading Images ...
                               </p>
@@ -2497,7 +2500,7 @@ export default function UpdateForm() {
                           name="achievement-file"
                           type="file"
                           multiple
-                          //   onChange={achievementPhotosHandler}
+                          onChange={achievementPhotosHandler}
                           className="sr-only"
                         />
                       </label>
@@ -2510,13 +2513,13 @@ export default function UpdateForm() {
                         </>
                       ) : (
                         <div className="flex flex-wrap gap-5">
-                          {/* <PropagateLoader
+                          <PropagateLoader
                             color={"#36d7b7"}
                             loading={uploadingAchievementImages}
                             size={12}
                             aria-label="Loading Spinner"
                             data-testid="loader"
-                          /> */}
+                          />
                           <p className="text-teal-500 text-sm">
                             uploading Images ...
                           </p>
@@ -2548,7 +2551,7 @@ export default function UpdateForm() {
                             id="counter1-file"
                             name="counter1-file"
                             type="file"
-                            // onChange={counter1PhotoHandler}
+                            onChange={counter1PhotoHandler}
                             className="sr-only"
                           />
                         </label>
@@ -2589,7 +2592,7 @@ export default function UpdateForm() {
                             id="counter2-file"
                             name="counter2-file"
                             type="file"
-                            // onChange={counter2PhotoHandler}
+                            onChange={counter2PhotoHandler}
                             className="sr-only"
                           />
                         </label>
@@ -2641,7 +2644,7 @@ export default function UpdateForm() {
                           name="gallery"
                           type="file"
                           multiple
-                          //   onChange={gallerySliderPhotosHandler}
+                          onChange={gallerySliderPhotosHandler}
                           className="sr-only"
                         />
                       </label>
@@ -2654,13 +2657,13 @@ export default function UpdateForm() {
                         </>
                       ) : (
                         <div className="flex flex-wrap gap-5">
-                          {/* <PropagateLoader
+                          <PropagateLoader
                             color={"#36d7b7"}
                             loading={uploadingGallerySlider}
                             size={12}
                             aria-label="Loading Spinner"
                             data-testid="loader"
-                          /> */}
+                          />
                           <p className="text-teal-500 text-sm">
                             uploading Images ...
                           </p>
@@ -2698,7 +2701,7 @@ export default function UpdateForm() {
                           type="file"
                           multiple
                           accept="video/*"
-                          //   onChange={videoHandler}
+                          onChange={videoHandler}
                           className="sr-only"
                         />
                       </label>
@@ -2739,7 +2742,7 @@ export default function UpdateForm() {
                           type="file"
                           multiple
                           accept="video/*"
-                          //   onChange={sliderVideosHandler}
+                          onChange={sliderVideosHandler}
                           className="sr-only"
                         />
                       </label>
@@ -2752,13 +2755,13 @@ export default function UpdateForm() {
                         </>
                       ) : (
                         <div className="flex flex-wrap gap-5">
-                          {/* <PropagateLoader
+                          <PropagateLoader
                             color={"#36d7b7"}
                             loading={uploadingVideosSlider}
                             size={12}
                             aria-label="Loading Spinner"
                             data-testid="loader"
-                          /> */}
+                          />
                           <p className="text-teal-500 text-sm">
                             uploading Images ...
                           </p>
@@ -2770,6 +2773,43 @@ export default function UpdateForm() {
               </div>
             )}
           </div>
+        </div>
+      </div>
+
+      {/* news, media, posters */}
+      <div className="col-span-full">
+        <div className="mt-2">
+          <input
+            id="news"
+            name="news"
+            value={news}
+            onChange={(e: any) => setNews(e.target.value)}
+            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            placeholder={"News"}
+          />
+        </div>
+        <div className="mt-2">
+          <input
+            id="date"
+            name="date"
+            type="date"
+            value={date}
+            onChange={(e: any) => setDate(e.target.value)}
+            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+      <div className="col-span-full">
+        <div className="mt-2">
+          <textarea
+            id="description"
+            name="description"
+            value={text}
+            onChange={(e: any) => setText(e.target.value)}
+            rows={2}
+            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            placeholder="Description"
+          />
         </div>
       </div>
 
@@ -2823,7 +2863,7 @@ export default function UpdateForm() {
                     <div className="flex gap-3 md:gap-8 items-center">
                       <button
                         type="button"
-                        // onClick={() => deleteHandler(i.title)}
+                        onClick={() => deleteHandler(i.title)}
                         className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-xs md:text-sm px-2 md:px-5 py-1  md:py-2.5 text-center me-2 my-2"
                       >
                         Delete Slider
@@ -2837,7 +2877,7 @@ export default function UpdateForm() {
                             className="sr-only peer"
                             onChange={() => {
                               handleToggleChange(index);
-                              //   hideHandler1(i.title);
+                              hideHandler1(i.title);
                             }}
                           />
                           <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-teal-500 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-green-600"></div>
@@ -2857,7 +2897,7 @@ export default function UpdateForm() {
                     <div className="flex gap-3 md:gap-8 items-center">
                       <button
                         type="button"
-                        // onClick={() => deleteHandler(i.title)}
+                        onClick={() => deleteHandler(i.title)}
                         className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-xs md:text-sm px-2 md:px-5 py-1  md:py-2.5 text-center me-2 my-2"
                       >
                         Delete Slider
@@ -2871,7 +2911,7 @@ export default function UpdateForm() {
                             className="sr-only peer"
                             onChange={() => {
                               handleToggleChange1(index);
-                              //   hideHandler1(i.title);
+                              hideHandler1(i.title);
                               setMySwitch(true);
                             }}
                           />
