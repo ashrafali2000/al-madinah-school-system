@@ -17,7 +17,7 @@ export const SchoolCard = () => {
       studentImg: "./boy.png",
       schoolName: (
         <>
-          Senior School <span className="text-md">(GCSE)</span>
+          Senior School <span className="text-sm">(GCSE)</span>
         </>
       ),
       key_stage: "Key Stage 4",
