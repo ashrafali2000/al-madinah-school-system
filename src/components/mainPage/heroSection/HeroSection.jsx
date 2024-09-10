@@ -20,10 +20,10 @@ export default function HeroSection() {
             borderRadius: "40px",
           }}
         >
-          <div className="absolute mt-3 top-2/3 left-1/4 transform -translate-x-1/2 mx-auto w-11/12 sm:py-10">
-            <div className="text-center space-y-4">
+          <div className="absolute mt-2 top-2/3 left-1/4 transform -translate-x-1/2 mx-auto w-11/12 sm:py-10">
+            <div className="text-center  text-blue-900 space-y-4">
               <AnimationPopUp>
-                <h2 className="text-lg font-semibold tracking-tight text-blue-900 md:text-2xl lg:text-2xl leading-tight animate-slideToCenter">
+                <h2 className="text-lg font-semibold tracking-tight  text-blue-900 md:text-2xl lg:text-3xl leading-tight animate-slideToCenter">
                   Where Academic Excellence Meets Islamic Values
                 </h2>
                 <h2 className="text-lg font-semibold tracking-tight   text-blue-900  md:text-2xl lg:text-2xl leading-tight ">
