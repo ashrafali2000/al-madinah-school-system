@@ -11,22 +11,22 @@ export default function HeroSection() {
     <div className="pt-5 mt-20">
       <div className="relative isolate px-6 lg:px-8">
         <div
-          className="max-w-7xl rounded-[40px] w-full h-[550px] relative mx-auto "
+          className="max-w-7xl rounded-[40px] w-full h-[600px] relative mx-auto "
           style={{
-            backgroundImage: "url(./Al-MadinahNew.png)",
+            backgroundImage: "url(./Al-MadinahN.png)",
             backgroundSize: " 100% 100%", // Adjust this percentage to decrease the height
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             borderRadius: "40px",
           }}
         >
-          <div className="absolute mt-3 top-2/3 left-1/2 transform -translate-x-1/2 mx-auto w-11/12 sm:py-10">
+          <div className="absolute mt-3 top-2/3 left-1/4 transform -translate-x-1/2 mx-auto w-11/12 sm:py-10">
             <div className="text-center space-y-4">
               <AnimationPopUp>
-                <h2 className="text-lg font-semibold tracking-tight text-white md:text-2xl lg:text-4xl leading-tight animate-slideToCenter">
+                <h2 className="text-lg font-semibold tracking-tight text-blue-900 md:text-2xl lg:text-2xl leading-tight animate-slideToCenter">
                   Where Academic Excellence Meets Islamic Values
                 </h2>
-                <h2 className="text-lg font-semibold tracking-tight  text-white md:text-2xl lg:text-4xl animate-blink leading-tight ">
+                <h2 className="text-lg font-semibold tracking-tight   text-blue-900  md:text-2xl lg:text-2xl leading-tight ">
                   Learn Anywhere, Anytime.
                 </h2>
               </AnimationPopUp>
