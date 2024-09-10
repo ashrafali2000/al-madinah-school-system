@@ -18,11 +18,9 @@ export const Footer = () => {
             </div>
             <div className="flex pl-10 flex-col items-center gap-4">
               <div className="flex flex-col  gap-3 pt-10 ">
+                <p className="text-md text-gray-800 text-center">07878165910</p>
                 <p className="text-md text-gray-800 text-center">
-                  +44 (0)1873 777 444
-                </p>
-                <p className="text-md text-gray-800 text-center">
-                  contact@kingsinterhigh.co.uk
+                  info@almadinahonline.co.uk
                 </p>
               </div>
 
@@ -248,44 +246,12 @@ export const Footer = () => {
             <div className="flex gap-3 bg-gray-200 p-4">
               <img src="./cambridge_assessment.svg" alt="image" />
               <p className="text-xs">
-                King's InterHigh is a registered online Cambridge International
+                Al Madinah School is a registered online Cambridge International
                 School.
               </p>
             </div>
-            <div className="flex gap-3 bg-gradient-to-tl bg-sky-50 p-4">
-              <img src="./diploma_programme.svg" alt="image" />
-              <p className="text-xs">
-                King's InterHigh is proud to offer the world's first online
-                International Baccalaureate® (IB) Diploma Programme.
-              </p>
-            </div>
-            <div className="flex gap-5 items-center flex-wrap justify-center py-5">
-              <span className="text-md">Excellent</span>
-              <div className="flex gap-1">
-                <span className="bg-green-600 p-1">
-                  <RiStarFill className="text-white w-3 h-3" />
-                </span>
-                <span className="bg-green-600 p-1">
-                  <RiStarFill className="text-white w-3 h-3" />
-                </span>
-                <span className="bg-green-600 p-1">
-                  <RiStarFill className="text-white w-3 h-3" />
-                </span>
-                <span className="bg-green-600 p-1">
-                  <RiStarFill className="text-white w-3 h-3" />
-                </span>
-                <span className="bg-green-600 p-1">
-                  <RiStarFill className="text-white w-3 h-3" />
-                </span>
-              </div>
-
-              <div className="flex justify-center items-center gap-1 ">
-                <RiStarFill className="text-green-600 w-5 h-5" />
-                <span className="text-sm">TrustPilot</span>
-              </div>
-            </div>
           </div>
-          <div className="flex flex-col gap-4">
+          {/* <div className="flex flex-col gap-4">
             <div>
               <span className="text-xs ">Exam Boards</span>
               <div className="grid grid-cols-4 pt-4">
@@ -313,7 +279,7 @@ export const Footer = () => {
                 <img src="./cobis.svg" alt="image" />{" "}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         {/* last footer */}
       </div>

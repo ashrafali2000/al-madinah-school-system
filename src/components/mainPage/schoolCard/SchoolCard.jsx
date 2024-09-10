@@ -15,7 +15,11 @@ export const SchoolCard = () => {
     },
     {
       studentImg: "./boy.png",
-      schoolName: "Senior School (GCSE)",
+      schoolName: (
+        <>
+          Senior School <span className="text-md">(GCSE)</span>
+        </>
+      ),
       key_stage: "Key Stage 4",
       year: "Years 10–11 | Ages 14–16",
       link: "seniorSchool/",
@@ -31,19 +35,19 @@ export const SchoolCard = () => {
             className={`
             ${
               item.schoolName === "Middle School"
-                ? "bg-[#153254]"
+                ? "bg-[#153254]  "
                 : item.schoolName === "Senior School (GCSE)"
-                ? "bg-[#397bce]"
-                : "bg-blue-400"
+                ? "bg-[#397bce] "
+                : "bg-blue-400 "
             } w-full py-10 max-w-xl border border-sky-200 rounded-lg shadow
           `}
           >
-            <div className="flex flex-col items-center ">
+            <div className="flex flex-col  items-center ">
               <div
                 className={` ${
                   item.schoolName === "Middle School"
-                    ? "bg-[#153254]"
-                    : "bg-[#397bce]"
+                    ? "bg-[#153254] "
+                    : "bg-[#397bce]  "
                 }
            flex justify-center items-center
                   `}
@@ -54,7 +58,7 @@ export const SchoolCard = () => {
                   alt="Bonnie image"
                 />
               </div>
-              <h5 className="py-3 text-4xl font-bold text-gray-900 dark:text-white">
+              <h5 className="py-3 text-4xl font-bold  text-white">
                 {item.schoolName}
               </h5>
               <span className="text-xl font-medium py-3 text-gray-200 ">

@@ -17,7 +17,11 @@ export const StudentLifeImages = () => {
           <img className="h-80 w-64 rotate-6" src="/03.jpg" alt="image" />
         </AnimationBottom>
         <AnimatedComponentRight>
-          <img className="h-80 w-72 -rotate-6" src="/05.jpg" alt="image" />
+          <img
+            className="h-80 w-72 -rotate-6"
+            src="/hijab-girl.jpg"
+            alt="image"
+          />
         </AnimatedComponentRight>
       </div>
     </div>

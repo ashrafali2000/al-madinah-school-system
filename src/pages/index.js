@@ -29,8 +29,8 @@ export default function Home() {
       <StudentSupport />
       <SchoolCategories />
       <MapSection />
-      <SchoolInsights />
-      <GallerySection />
+      {/* <SchoolInsights /> */}
+      {/* <GallerySection /> */}
       <OnlineSchoolFaqs />
       <SignUpForOurNext />
     </div>

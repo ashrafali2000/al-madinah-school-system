@@ -152,7 +152,8 @@ import React from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import AnimatedComponentLeft from "../../animations/AnimationLeft";
 import AnimatedComponentRight from "../../animations/AnimationRigth";
-
+import AnimationPopUp from "../../animations/AnimationPopup";
+import { Button } from "../button/Button";
 export const FamiliesLoveSec = () => {
   return (
     <div className=" bg-slate-100 pb-15 px-5">
@@ -176,19 +177,24 @@ export const FamiliesLoveSec = () => {
         </AnimatedComponentLeft>
         <AnimatedComponentRight>
           <div className="flex flex-col gap-5 px-5">
-            <p className="w-60 font-bold text-blue-500 py-2 px-4 border-1 border-sky-400 rounded-full bg-slate-200">
+            {/* <p className="w-60 font-bold text-blue-500 py-2 px-4 border-1 border-sky-400 rounded-full bg-slate-200">
               What makes us different?
-            </p>
+            </p> */}
+            <AnimationPopUp>
+              <div>
+                <Button link={""} title={"What makes us different?"} />
+              </div>
+            </AnimationPopUp>
             {/* <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-700">
               Why families love our online school
             </h2> */}
-            <p className="text-xl md:text-1xl lg:text-2xl font-bold text-gray-700">
-              Choose Al-Madinah Online School for an education that combines
-              academic excellence with the flexibility and support of online
-              learning, all within a framework of strong Islamic values.
+            <p className="text-xl md:text-1xl lg:text-2xl font-semibold text-gray-700">
+              Choose Al-Madinah Online School For An Education That Combines
+              Academic Excellence With The Flexibility And Support Of Online
+              Learning, All Within A Frame Work Of Strong Islamic Values.
             </p>
 
-            <p className="text-lg font-semibold">
+            <p className="text-lg ">
               At Al Madinah online school, school life is designed to be
               enriching, balanced, and supportive. We foster an environment
               where academic excellence goes hand in hand with personal and

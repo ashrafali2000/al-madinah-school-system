@@ -3,6 +3,8 @@ import React from "react";
 
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { BorderButton } from "../borderButton/BorderButton";
+import AnimationPopUp from "../../animations/AnimationPopup";
+import { Button } from "../button/Button";
 export const HowWeTeach = () => {
   return (
     <div>
@@ -16,9 +18,9 @@ export const HowWeTeach = () => {
       >
         <div className="mx-auto w-9/12  grid grid-cols-1 gap-20 lg:gap-5 lg:grid-cols-5 py-20 lg:py-32 ">
           <div className="lg:col-span-2">
-            <p className="font-bold text-blue-500 w-36 py-2 px-4 border-1 border-sky-400 rounded-full bg-slate-200">
-              How we teach
-            </p>
+            <AnimationPopUp>
+              <Button link={"#"} title={"  How we teach"}></Button>
+            </AnimationPopUp>
             <div className="text-start pt-5">
               <h1 className="text-3xl font-bold tracking-tight text-white lg:text-4xl">
                 How we teach at our online school
@@ -29,7 +31,9 @@ export const HowWeTeach = () => {
               </p>
             </div>
             <div className="pt-8">
-              <BorderButton title={"How We Teach"} link={"/"} border="white" />
+              <AnimationPopUp>
+                <Button link={"/how-we-teach"} title={"  Click Here "}></Button>
+              </AnimationPopUp>
             </div>
           </div>
           <div className="lg:col-span-3 flex flex-col py-10 bg-white rounded-xl px-5 lg:px-10">
