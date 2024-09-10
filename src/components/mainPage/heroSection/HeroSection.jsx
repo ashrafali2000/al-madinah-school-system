@@ -11,10 +11,10 @@ export default function HeroSection() {
     <div className="pt-5 mt-20">
       <div className="relative isolate px-6 lg:px-8">
         <div
-          className="max-w-9xl rounded-[40px] w-full h-[550px] relative mx-auto "
+          className="max-w-7xl rounded-[40px] w-full h-[550px] relative mx-auto "
           style={{
             backgroundImage: "url(./Al-MadinahNew.png)",
-            backgroundSize: " 100% 95%", // Adjust this percentage to decrease the height
+            backgroundSize: " 100% 100%", // Adjust this percentage to decrease the height
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             borderRadius: "40px",
