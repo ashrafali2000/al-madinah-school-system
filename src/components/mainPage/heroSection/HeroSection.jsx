@@ -205,7 +205,7 @@ export default function HeroSection() {
     //     </div>
     //   </div>
     // </div>
-    // <div className="pt-5 mt-20">
+
     //   <div className="relative isolate px-6 lg:px-8">
     //     <div
     //       className="max-w-7xl rounded-[40px] w-full h-[600px] relative mx-auto transition-transform duration-500 hover:rotate-3 hover:scale-105"
@@ -251,55 +251,7 @@ export default function HeroSection() {
     //           </AnimationPopUp>
     //         </div>
     //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-    // <div className="pt-5 mt-20">
-    //   <div className="relative isolate px-6 lg:px-8">
-    //     <div
-    //       className="max-w-7xl rounded-[40px] w-full h-[600px] relative mx-auto transition-transform duration-500 hover:rotate-3 hover:scale-105"
-    //       style={{
-    //         backgroundImage: "url(./Al-MadinahN.png)",
-    //         backgroundSize: "100% 100%",
-    //         backgroundPosition: "center",
-    //         backgroundRepeat: "no-repeat",
-    //         borderRadius: "40px",
-    //         perspective: "1000px", // Perspective for 3D effect
-    //         transformStyle: "preserve-3d", // 3D effect is preserved in child elements
-    //         transition: "transform 0.6s ease",
-    //       }}
-    //     >
-    //       <div className="absolute mt-2 top-2/3 left-1/4 transform -translate-x-1/2 mx-auto w-11/12 sm:py-10">
-    //         <div className="text-center grid grid-flow-col space-y-4">
-    //           <AnimationPopUp>
-    //             <h2
-    //               className="text-base sm:text-xs md:text-xl lg:text-2xl font-semibold tracking-wider text-[#ff9a08] leading-tight transition-transform duration-700 hover:rotateX-6 hover:rotateY-6 hover:skewY-3 hover:blur-sm hover:text-blue-600"
-    //               style={{
-    //                 textShadow:
-    //                   "0 0 10px #00477e, 0 0 20px #00477e, 0 0 30px rgba(0, 71, 126, 0.8)", // Neon glow effect
-    //                 transform: "translateZ(40px) skewX(5deg) rotateY(10deg)", // Skew and rotation
-    //               }}
-    //             >
-    //               Where Academic Excellence Meets Islamic Values
-    //             </h2>
-
-    //             <h2
-    //               className="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold tracking-wider text-[#ff9a08] leading-tight transition-transform duration-700 hover:rotateX-6 hover:rotateY-6 hover:skewY-3 hover:blur-sm hover:text-blue-600"
-    //               style={{
-    //                 textShadow:
-    //                   "0 0 10px #00477e, 0 0 20px #00477e, 0 0 30px rgba(0, 71, 126, 0.8)", // Neon glow effect
-    //                 transform: "translateZ(40px) skewX(5deg) rotateY(10deg)", // Skew and rotation
-    //                 letterSpacing: "0.1em", // Increased letter spacing for readability
-    //               }}
-    //             >
-    //               Learn Anywhere, Anytime.
-    //             </h2>
-    //           </AnimationPopUp>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+    //
     <div className="pt-5 mt-20">
       <div className="relative isolate px-6 lg:px-8">
         <div
