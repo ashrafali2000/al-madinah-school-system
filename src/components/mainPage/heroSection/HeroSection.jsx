@@ -13,7 +13,7 @@ export default function HeroSection() {
         <div
           className="max-w-9xl rounded-[40px] w-full h-[550px] relative mx-auto "
           style={{
-            backgroundImage: "url(./Al-Madinah2.png)",
+            backgroundImage: "url(./Al-MadinahNew.png)",
             backgroundSize: " 100% 95%", // Adjust this percentage to decrease the height
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -24,7 +24,7 @@ export default function HeroSection() {
             <div className="text-center space-y-4">
               <AnimationPopUp>
                 <h2 className="text-lg font-semibold tracking-tight text-white md:text-2xl lg:text-4xl leading-tight animate-slideToCenter">
-                  Academic Excellence Meets Islamic Values
+                  Where Academic Excellence Meets Islamic Values
                 </h2>
                 <h2 className="text-lg font-semibold tracking-tight  text-white md:text-2xl lg:text-4xl animate-blink leading-tight ">
                   Learn Anywhere, Anytime.
