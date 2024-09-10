@@ -30,10 +30,10 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       {/* <SmallNavbar /> */}
-      {pathName !== "/admin/dashboard" ? <Navbar /> : null}
+      {pathName !== "/admin" ? <Navbar /> : null}
       {loading && <Loader />}
       <Component {...pageProps} />
-      {pathName !== "/admin/dashboard" ? <Footer /> : null}
+      {pathName !== "/admin" ? <Footer /> : null}
     </>
   );
 }

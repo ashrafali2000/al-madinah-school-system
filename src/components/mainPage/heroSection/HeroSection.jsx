@@ -23,10 +23,10 @@ export default function HeroSection() {
           <div className="absolute mt-3 top-2/3 left-1/2 transform -translate-x-1/2 mx-auto w-11/12 sm:py-10">
             <div className="text-center space-y-4">
               <AnimationPopUp>
-                <h2 className="text-lg font-semibold tracking-tight text-black md:text-2xl lg:text-4xl leading-tight animate-slideToCenter">
+                <h2 className="text-lg font-semibold tracking-tight text-white md:text-2xl lg:text-4xl leading-tight animate-slideToCenter">
                   Academic Excellence Meets Islamic Values
                 </h2>
-                <h2 className="text-lg font-semibold tracking-tight text-indigo md:text-2xl lg:text-4xl animate-blink leading-tight ">
+                <h2 className="text-lg font-semibold tracking-tight  text-white md:text-2xl lg:text-4xl animate-blink leading-tight ">
                   Learn Anywhere, Anytime.
                 </h2>
               </AnimationPopUp>

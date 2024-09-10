@@ -14,7 +14,7 @@ export const SchoolCard = () => {
       linkTitle: "Middle School",
     },
     {
-      studentImg: "./boy1.jpg",
+      studentImg: "./boy.png",
       schoolName: "Senior School (GCSE)",
       key_stage: "Key Stage 4",
       year: "Years 10–11 | Ages 14–16",
