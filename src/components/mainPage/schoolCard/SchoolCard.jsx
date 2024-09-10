@@ -6,7 +6,7 @@ import AnimationPopUp from "../../animations/AnimationPopup";
 export const SchoolCard = () => {
   const schoolCardList = [
     {
-      studentImg: "./girl.jpg",
+      studentImg: "./girl1.png",
       schoolName: "Middle School",
       key_stage: "Key Stage 3",
       year: "Years 7–9 | Ages 11–14",
@@ -14,7 +14,7 @@ export const SchoolCard = () => {
       linkTitle: "Middle School",
     },
     {
-      studentImg: "./boy.jpg",
+      studentImg: "./boy1.jpg",
       schoolName: "Senior School (GCSE)",
       key_stage: "Key Stage 4",
       year: "Years 10–11 | Ages 14–16",
