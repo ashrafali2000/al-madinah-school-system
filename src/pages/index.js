@@ -19,7 +19,6 @@ export default function Home() {
   return (
     <div className="">
       <HeroSection />
-      <Rating />
       <KeyStagesText />
       <SchoolCard />
       <FamiliesLoveSec />
