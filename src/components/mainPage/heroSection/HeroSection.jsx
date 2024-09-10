@@ -96,7 +96,7 @@ export default function HeroSection() {
         <div
           className="max-w-9xl rounded-[40px] w-full h-[550px] relative mx-auto "
           style={{
-            backgroundImage: "url(./Al-Madinah.png)",
+            backgroundImage: "url(./Al-Madinah2.png)",
             backgroundSize: " 100% 95%", // Adjust this percentage to decrease the height
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
