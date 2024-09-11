@@ -395,14 +395,14 @@ export default function HeroSection() {
           }}
         >
           {/* Grid container to manage two equal-size divs */}
-          <div className="absolute top-3/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 mt-7 w-11/12 ">
+          <div className="absolute top-3/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 mt-7 w-11/12">
             <div className="grid grid-rows-1 md:grid-rows-2 sm:grid-flow-row-3 gap-4 w-full h-full">
               {/* First Equal Size Div */}
-              <div className="flex items-center flex-col w-[50%] sm:w-[50%] md:w-[50%] justify-center mt-9 ">
-                <h2 className="text-xs sm:text-sm text-center md:text-xl lg:text-2xl font-bold  text-[#00477e] ">
+              <div className="flex items-center flex-col w-[50%] sm:w-[50%] md:w-[50%] justify-center mt-9">
+                <h2 className="cursor-pointer text-xs sm:text-sm text-center md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
                   Where Academic Excellence Meets Islamic Values
                 </h2>
-                <h2 className="text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] ">
+                <h2 className=" cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
                   Learn Anywhere, Anytime.
                 </h2>
               </div>
