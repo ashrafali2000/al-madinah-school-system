@@ -6,7 +6,7 @@ export const AboutSchool = ({ title, buttonTile, subtitle, describe }) => {
   return (
     <div className="">
       <div className="flex gap-5 max-w-4xl mx-auto flex-col items-center">
-        <p className="font-bold py-2 px-4 border-1 rounded-full ">
+        <p className="font-bold py-2  px-4 border-1 rounded-full ">
           <AnimationPopUp>
             {" "}
             <Button link={"/#"} title={" Life at an online school "}>
@@ -15,19 +15,18 @@ export const AboutSchool = ({ title, buttonTile, subtitle, describe }) => {
             </Button>
           </AnimationPopUp>
         </p>
-        <p className=" md:text-2xl lg:text-4xl font-semibold lg:font-bold text-center text-gray-800">
+        <p className=" mt-4 md:text-2xl lg:text-4xl font-semibold lg:font-bold text-center text-gray-800">
           {subtitle}
         </p>
         {describe ? (
-          <p className="text-xl  text-center text-gray-800">{describe}</p>
+          <p className="text-xl mt-4 text-center text-gray-800">{describe}</p>
         ) : null}
-        <AnimationPopUp>
+        {/* <AnimationPopUp className="mt-9">
           {" "}
-          <Button link={"/#"} title={" Student Life "}>
-            {" "}
+          <Button link={"/#"} title={" Student's Life "}>
             Life at an online school{" "}
           </Button>
-        </AnimationPopUp>
+        </AnimationPopUp> */}
       </div>
     </div>
   );

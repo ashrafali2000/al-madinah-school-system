@@ -3,7 +3,7 @@ import AnimationPopUp from "../../animations/AnimationPopup";
 import { Button } from "../button/Button";
 export const KeyStagesText = () => {
   return (
-    <div id="key-Stages" className="mx-auto max-w-3xl py-10 sm:py-20">
+    <div id="key-Stages" className="mx-auto  max-w-5xl py-10 sm:py-20">
       <div className="flex justify-center">
         <AnimationPopUp>
           <div>
@@ -12,11 +12,11 @@ export const KeyStagesText = () => {
         </AnimationPopUp>
       </div>
 
-      <div className="text-center pt-3">
-        <h1 className="text-xl font-semibold tracking-tight text-gray-900 md:text-2xl lg:text-2xl">
+      <div className="text-center gap-8 pt-3">
+        <h1 className="text-xl mt-9  font-semibold tracking-tight text-gray-900 md:text-2xl lg:text-2xl">
           Nurturing Your Child’s Potential At Every Stage Of Their Education
         </h1>
-        <p className="mt-6 text-md lg:text-lg  leading-8 text-gray-700">
+        <p className="mt-9 text-md lg:text-lg  leading-8 text-gray-700">
           Welcome To Al-Madinah Online Secondary School, An Islamic institution
           where academic excellence nurtures the growth of confident and
           compassionate individuals, Guided by the principles of Islam.

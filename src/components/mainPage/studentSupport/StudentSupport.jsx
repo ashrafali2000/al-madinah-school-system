@@ -6,7 +6,7 @@ import { Button } from "../button/Button";
 export const StudentSupport = () => {
   return (
     <div className="bg-slate-100">
-      <div className="grid grid-cols-1 place-items-center max-w-7xl mx-auto lg:grid-cols-2  py-32 px-20 gap-10 mt-20">
+      <div className="grid grid-cols-1 place-items-center max-w-8xl mx-auto lg:grid-cols-2  py-32 px-20 gap-10 mt-20">
         <AnimatedComponentLeft>
           <div>
             <img className="-rotate-6 rounded-xl" src="/08.jpg" alt="image" />
@@ -23,10 +23,10 @@ export const StudentSupport = () => {
                 title={"     Student Support "}
               ></Button>
             </AnimationPopUp>
-            <p className="text-2xl lg:text-4xl font-bold text-zinc-800">
+            <p className="text-2xl mt-6 lg:text-4xl font-bold text-zinc-800">
               Student Support
             </p>
-            <p className="text-md text-gray-700 font-bold">
+            <p className="text-lg mt-5 text-gray-700 font-bold">
               Every Student Should Feel Nurtured, Celebrated, and Supported To
               Learn And Grow, Which Is Why Wellbeing Is Our Utmost Priority At
               Al-Madinah School.

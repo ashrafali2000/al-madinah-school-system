@@ -161,25 +161,22 @@ export const FamiliesLoveSec = () => {
         <AnimatedComponentLeft>
           <div className="grid grid-cols-2 place-items-center lg:block lg:relative">
             <img
-              className="w-72 h-96 lg:w-60 lg:h-80 -rotate-3"
+              className="w-80 h-96 lg:w-60 lg:h-80 -rotate-12"
               // src="https://www.shutterstock.com/image-photo/mother-teenager-girl-laptop-computer-260nw-74632564.jpg"
               // src="https://image1.masterfile.com/getImage/NjMwLTA2NzIzMDE3ZW4uMDAwMDAwMDA=AJfl5r/630-06723017en_Masterfile.jpg"
               src={"/07.jpg"}
               alt="familyImage"
             />
             <img
-              className="w-70 h-96 lg:absolute lg:w-64 lg:h-80 rotate-12 top-6 left-56"
+              className="w-80 h-96 lg:absolute lg:w-64 lg:h-80 rotate-12 top-6 left-56"
               // src="https://www.shutterstock.com/image-photo/mother-teenager-girl-laptop-computer-260nw-74632564.jpg"
-              src={"/Family.jpg"}
+              src={"/hijab-girl.jpg"}
               alt="familyImage"
             />
           </div>
         </AnimatedComponentLeft>
         <AnimatedComponentRight>
           <div className="flex flex-col gap-5 px-5">
-            {/* <p className="w-60 font-bold text-blue-500 py-2 px-4 border-1 border-sky-400 rounded-full bg-slate-200">
-              What makes us different?
-            </p> */}
             <AnimationPopUp>
               <div>
                 <Button link={""} title={"What makes us different?"} />
@@ -188,13 +185,13 @@ export const FamiliesLoveSec = () => {
             {/* <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-700">
               Why families love our online school
             </h2> */}
-            <p className="text-xl md:text-1xl lg:text-2xl font-semibold text-gray-700">
+            <p className="text-xl mt-9  font-semibold tracking-tight text-gray-900 md:text-2xl lg:text-2x">
               Choose Al-Madinah Online School For An Education That Combines
               Academic Excellence With The Flexibility And Support Of Online
               Learning, All Within A Frame Work Of Strong Islamic Values.
             </p>
 
-            <p className="text-lg ">
+            <p className=" text-md lg:text-lg  leading-8 text-gray-700">
               At Al Madinah online school, school life is designed to be
               enriching, balanced, and supportive. We foster an environment
               where academic excellence goes hand in hand with personal and
@@ -211,7 +208,7 @@ export const FamiliesLoveSec = () => {
             <IoCheckmarkSharp className="w-6 h-6  text-white" />
           </span>
           <p className="text-xl lg:text-xl font-bold text-sky-900">
-            Education tailoured for your child
+            Education Tailoured For Your Child
           </p>
           <p className="text-base font-light   ">
             Al-Madinah Online School is accredited by the world-renowned
@@ -224,7 +221,7 @@ export const FamiliesLoveSec = () => {
             <IoCheckmarkSharp className="w-6 h-6 text-white" />
           </span>
           <p className="text-xl lg:text-xl font-bold text-sky-900">
-            Qualified and motivated Teachers
+            Qualified And Motivated Teachers
           </p>
           <p className="text-base font-light">
             At Al-Madinah, we understand that each student has unique learning
@@ -255,7 +252,7 @@ export const FamiliesLoveSec = () => {
             <IoCheckmarkSharp className="w-6 h-6 text-white" />
           </span>
           <p className="text-xl lg:text-xl font-bold text-sky-900">
-            Focus on Child spiritual growth and wellbeing
+            Focus On Child Spiritual Growth And Wellbeing
           </p>
           <p className="text-base font-light max-w-md">
             Our online platform allows students to study from anywhere, whether
@@ -270,7 +267,7 @@ export const FamiliesLoveSec = () => {
               <IoCheckmarkSharp className="w-6 h-6 text-white" />
             </span>
             <p className="text-xl lg:text-xl font-bold text-sky-900">
-              Qualified and motivated Teachers
+              Qualified And Motivated Teachers
             </p>
             <p className="text-base font-light">
               At Al-Madinah, we understand that each student has unique learning

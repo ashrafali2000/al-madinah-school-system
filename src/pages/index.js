@@ -28,11 +28,11 @@ export default function Home() {
       <HowWeTeach />
       <StudentSupport />
       <SchoolCategories />
-      <MapSection />
-      {/* <SchoolInsights /> */}
+      {/* <MapSection />
+      <SchoolInsights /> */}
       {/* <GallerySection /> */}
-      <OnlineSchoolFaqs />
-      <SignUpForOurNext />
+      {/* <OnlineSchoolFaqs />
+      <SignUpForOurNext /> */}
     </div>
   );
 }

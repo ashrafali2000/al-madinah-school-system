@@ -385,7 +385,7 @@ export default function HeroSection() {
     <div className="pt-5 mt-20">
       <div className="relative isolate px-4 lg:px-2">
         <div
-          className="max-w-7xl rounded-[40px] w-full h-[300px] sm:h-[400px] md:h-[550px] lg:h-[630px] relative mx-auto"
+          className="max-w-7xl rounded-[40px] w-full h-[300px] sm:h-[400px] md:h-[550px] lg:h-[680px] relative mx-auto"
           style={{
             backgroundImage: "url(./Al-Madinah-L.png)",
             backgroundSize: "cover", // Ensure the background image scales properly
