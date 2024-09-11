@@ -255,7 +255,7 @@ export const Footer = () => {
         {/* last footer */}
       </div>
       <div className="bg-gray-200">
-        <div className=" mx-auto py-4 max-w-7xl text-lg p-3">
+        <div className=" mx-auto py-4 max-w-7xl text-sm p-3">
           {/* <div className="flex text-center  gap-4">
             {/* <Link href={"/"}>Privacy policy</Link> */}
           {/* <Link href={"/"}>Terms of Use</Link> */}

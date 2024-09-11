@@ -5,10 +5,10 @@ export default function AboutUs() {
       <div>
         <h3 className="text-2xl text-gray-700 font-semibold">Introduction</h3>
         <p className="text-gray-700 pt-3 pb-5">
-          At almadinah online school, we are dedicated to providing an education
-          that fosters academic excellence and personal growth. Our curriculum
-          is designed to challenge and inspire students, preparing them for
-          future success while instilling strong Islamic values.
+          At Al-madinah Online School, We are dedicated to providing an
+          education that fosters academic excellence and personal growth. Our
+          curriculum is designed to challenge and inspire students, preparing
+          them for future success while instilling strong Islamic values.
         </p>
         <h3 className="text-2xl text-gray-700 font-semibold">
           Overview of the Cambridge Curriculum
