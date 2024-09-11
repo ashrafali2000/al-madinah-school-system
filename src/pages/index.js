@@ -27,7 +27,7 @@ export default function Home() {
       <StudentLifeImages />
       <HowWeTeach />
       <StudentSupport />
-      <SchoolCategories />
+      {/* <SchoolCategories /> */}
       {/* <MapSection />
       <SchoolInsights /> */}
       {/* <GallerySection /> */}

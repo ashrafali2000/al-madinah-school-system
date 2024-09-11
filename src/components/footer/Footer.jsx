@@ -61,7 +61,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+          {/* <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
             <div>
               <h2 className="mb-6 text-lg font-bold text-gray-800 uppercase">
                 Partners
@@ -195,7 +195,7 @@ export const Footer = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         {/* <div className="sm:flex sm:items-center sm:justify-between">
@@ -284,101 +284,21 @@ export const Footer = () => {
         {/* last footer */}
       </div>
       <div className="bg-gray-200">
-        <div className=" mx-auto py-4 max-w-7xl text-xs p-3">
-          <div className="flex flex-wrap gap-4">
-            <Link href={"/"}>Privacy policy</Link>
-            <Link href={"/"}>Terms of Use</Link>
-            <Link href={"/"}>Refundes</Link>
-            <Link href={"/"}>Website by Bawdicsoft</Link>
-            {/* <Link href={"/"}>Show Company details</Link> */}
-            {/* <Link href={"/"}>Show Company details</Link> */}
-            <button
-              type="button"
-              onClick={() => setDropDown(!dropdown)}
-              className="inline-flex items-center   font-medium rounded-lg border  text-gray-800 "
-            >
-              Show Company details
-              <svg
-                className="hs-dropdown-open:rotate-180 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
+        <div className=" mx-auto py-4 max-w-7xl text-xl p-3">
+          {/* <div className="flex text-center  gap-4">
+            {/* <Link href={"/"}>Privacy policy</Link> */}
+          {/* <Link href={"/"}>Terms of Use</Link> */}
+          {/* <Link href={"/"}>Refundes</Link> */}
+          {/* <Link href={"/"}>Website by Bawdicsoft</Link> */}
+          {/* <Link href={"/"}>Show Company details</Link> */}
+          {/* <Link href={"/"}>Show Company details</Link> */}
 
-            {dropdown ? (
-              <div className="transition duration gap-5 max-w-7xl grid grid-cols-4 rounded-lg p-2 mt-2 ">
-                <div className="flex flex-col">
-                  <p className="text-sm font-semibold">
-                    Company's UK Registration name:
-                  </p>
-                  <span className="text-xs">
-                    Reddam House (Berkshire) Limited T/A Kings InterHigh
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <p className="text-sm font-semibold">
-                    Company’s UK place of registration:
-                  </p>
-                  <span className="text-xs">
-                    Reddam House, Bearwood, Wokingham, Berkshire, RG41 5BG
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <p className="text-sm font-semibold">
-                    Company’s UK registered office:
-                  </p>
-                  <span className="text-xs">
-                    Reddam House, Bearwood, Wokingham, Berkshire, RG41 5BG
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <p className="text-sm font-semibold">
-                    Company’s UK registered number:
-                  </p>
-                  <span className="text-xs">09093739</span>
-                </div>
-                <div className="flex flex-col">
-                  <p className="text-sm font-semibold">
-                    Company's International Registration name
-                  </p>
-                  <span className="text-xs">
-                    InterHigh International W.L.L T/A Kings InterHigh
-                    International
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <p className="text-sm font-semibold">
-                    Company’s International registered office:
-                  </p>
-                  <span className="text-xs">
-                    Office 1652, Entrance 1565, Road 1722,Diplomatic Area 0317,
-                    Kingdom of Bahrain
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <p className="text-sm font-semibold">
-                    Company’s International registered number:
-                  </p>
-                  <span className="text-xs">147446 – 1</span>
-                </div>
-              </div>
-            ) : null}
-            <div>
-              <p>
-                This site is protected by reCAPTCHA and the Google Privacy
-                Policy and Google Terms of Service apply.
-              </p>
-            </div>
-          </div>
+          {/* </div>  */}
+          <p className="text-center">
+            {" "}
+            All Rights Are Reserved By{" "}
+            <span className="text-[#00477e]">Al-Madinah School</span>{" "}
+          </p>
         </div>
       </div>
     </footer>
