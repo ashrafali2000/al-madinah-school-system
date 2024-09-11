@@ -1,14 +1,32 @@
 "use client";
+import AnimationPopUp from "../../components/animations/AnimationPopup";
+import { Button } from "../../components/mainPage/button/Button";
+import { motion } from "framer-motion";
+
 export default function AboutUs() {
   return (
     <div className="my-32 mx-10">
       <div>
-        <h3 className="text-2xl text-gray-700 font-semibold">Introduction</h3>
+        {/* <h3 className="text-2xl text-gray-700 font-semibold transform transition-transform duration-300 hover:scale-110">
+          Introduction
+        </h3> */}
+        <motion.h3
+          className="cursor-pointer text-3xl rounded w-auto p-4 inline-block bg-[rgb(250,204,20)] text-gray-700 font-semibold "
+          initial={{ opacity: 0, scale: 0.2 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 20, // removed quotes around the duration
+            delay: 0.3,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
+          Introduction
+        </motion.h3>
         <p className="text-gray-700 pt-3 pb-5">
-          At Al-madinah Online School, We are dedicated to providing an
-          education that fosters academic excellence and personal growth. Our
-          curriculum is designed to challenge and inspire students, preparing
-          them for future success while instilling strong Islamic values.
+          At Al-Madinah Online School, We Are Dedicated To Providing An
+          Education That Fosters Academic Excellence And Personal Growth. Our
+          Curriculum Is Designed To Challenge And Inspire Students, Preparing
+          Them For Future Success While Instilling Strong Islamic Values.
         </p>
         <h3 className="text-2xl text-gray-700 font-semibold">
           Overview of the Cambridge Curriculum
@@ -195,33 +213,59 @@ export default function AboutUs() {
         </ul>
       </div>
       <div className="pt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center gap-5 lg:gap-10">
-        <div className="p-7 h-80 border  border-gray-600 bg-white rounded-lg">
-          <h3 className="text-2xl text-gray-700 font-semibold">School Life</h3>
-          <p className="text-gray-700 pt-3">
-            At Al Madinah online school,school life is designed to be
+        <div className="p-7 h-80  border-2  border-[#ffa500] bg-white rounded-lg">
+          {/* <h3 className="text-2xl text-gray-700 font-semibold">School Life
+
+
+
+          </h3> */}
+          <div className="">
+            <AnimationPopUp>
+              <div>
+                <Button link={""} title={"School Life"} />
+              </div>
+            </AnimationPopUp>
+          </div>
+
+          <p className="text-gray-700 mt-5 pt-3">
+            At Al-Madinah online school,School life is designed to be
             enriching,balanced,and supportive.We foster an environment where
             academic excellence goes hand in hand with personal and spiritual
             growth.Our students thrive in a community that values respect,
             responsibility,and the pursuit of knowledge.
           </p>
         </div>
-        <div className="p-7 h-80 border  border-gray-600 bg-white rounded-lg">
-          <h3 className="text-2xl text-gray-700 font-semibold">
+        <div className="p-7 h-80   border-2  border-[#ffa500] bg-white rounded-lg">
+          {/* <h3 className="text-2xl text-gray-700 font-semibold">
             Daily Schedule
-          </h3>
-          <p className="text-gray-700 pt-3">
+          </h3> */}
+          <div className="">
+            <AnimationPopUp>
+              <div>
+                <Button link={""} title={"Daily Schedule"} />
+              </div>
+            </AnimationPopUp>
+          </div>
+          <p className=" mt-5 text-gray-700 pt-3">
             A typical school day at our school starts at 8:30 and ends at
             3:30.Our schedule includes time for academic classes,
             prayers,breaks,and extracurricular activities.Each day is structured
             to provide a balanced mix of learning,reflection,and recreation.
           </p>
         </div>
-        <div className="p-7 h-80 border  border-gray-600 bg-white rounded-lg">
-          <h3 className="text-2xl text-gray-700 font-semibold">
+        <div className="p-7 h-80 border-2  border-[#ffa500] bg-white rounded-lg">
+          {/* <h3 className="text-2xl text-gray-700 font-semibold">
             {" "}
             Extracurricular Activities
-          </h3>
-          <p className="text-gray-700 pt-3">
+          </h3> */}
+          <div className="">
+            <AnimationPopUp>
+              <div>
+                <Button link={""} title={"Daily Schedule"} />
+              </div>
+            </AnimationPopUp>
+          </div>
+          <p className="mt-4 text-gray-700 pt-3">
             We offer a wide range of extracurricular activities to complement
             our academic programs:
           </p>
@@ -236,11 +280,18 @@ export default function AboutUs() {
             </li>
           </ul>
         </div>
-        <div className="p-7 h-80 border  border-gray-600 bg-white rounded-lg">
-          <h3 className="text-2xl text-gray-700 font-semibold">
+        <div className="p-7 h-80 border-2  border-[#ffa500] bg-white rounded-lg">
+          {/* <h3 className="text-2xl text-gray-700 font-semibold">
             Support Services
-          </h3>
-          <p className="text-gray-700 pt-3">
+          </h3> */}
+          <div className="">
+            <AnimationPopUp>
+              <div>
+                <Button link={""} title={"Support Services"} />
+              </div>
+            </AnimationPopUp>
+          </div>
+          <p className="mt-5 text-gray-700 pt-3">
             We provide comprehensive support services to ensure the well-being
             of our students:
           </p>
@@ -260,22 +311,36 @@ export default function AboutUs() {
             </li>
           </ul>
         </div>
-        <div className="p-7 h-80 border  border-gray-600 bg-white rounded-lg">
-          <h3 className="text-2xl text-gray-700 font-semibold">
-            Community and Culture
-          </h3>
-          <p className="text-gray-700 pt-3">
+        <div className="p-7 h-80 border-2  border-[#ffa500] bg-white rounded-lg">
+          {/* <h3 className="text-2xl text-gray-700 font-semibold">
+           
+          </h3> */}
+          <div className="">
+            <AnimationPopUp>
+              <div>
+                <Button link={""} title={"Community and Culture"} />
+              </div>
+            </AnimationPopUp>
+          </div>
+          <p className="mt-4 text-gray-700 pt-3">
             Our school community is built on the principles of mutual
             respect,collaboration, and a share commitment to Islamic values.We
             celebrate diversity and encourage students to engage with and
             contribute to the community through various events.
           </p>
         </div>
-        <div className="p-7 h-80 border  border-gray-600 bg-white rounded-lg">
-          <h3 className="text-2xl text-gray-700 font-semibold">
+        <div className="p-7 h-80 border-2  border-[#ffa500]  bg-white rounded-lg">
+          {/* <h3 className="text-2xl text-gray-700 font-semibold">
             Parental Involvement
-          </h3>
-          <p className="text-gray-700 pt-3">
+          </h3> */}
+          <div className="">
+            <AnimationPopUp>
+              <div>
+                <Button link={""} title={"Parental Involvement"} />
+              </div>
+            </AnimationPopUp>
+          </div>
+          <p className="mt-4 text-gray-700 pt-3">
             We believe in Strong partnerships between the school and
             parents.Parents are encouraged to participate in the Volunteer for
             school events,and stay engaged through regular communication
