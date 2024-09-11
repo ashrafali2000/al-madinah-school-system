@@ -45,9 +45,7 @@ export const SchoolCard = () => {
             <div className="flex flex-col  items-center ">
               <div
                 className={` ${
-                  item.schoolName === "Middle School"
-                    ? "bg-[#153254] "
-                    : "bg-[#397bce]  "
+                  item.schoolName === "Middle School" ? "bg-[#153254] " : "  "
                 }
            flex justify-center items-center
                   `}
