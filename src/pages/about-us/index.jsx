@@ -11,7 +11,7 @@ export default function AboutUs() {
           Introduction
         </h3> */}
         <motion.h3
-          className="cursor-pointer text-3xl rounded w-auto p-4 inline-block bg-[rgb(250,204,20)] text-gray-700 font-semibold "
+          className="cursor-pointer text-3xl rounded w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
           initial={{ opacity: 0, scale: 0.2 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
