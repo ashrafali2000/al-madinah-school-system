@@ -402,7 +402,7 @@ export default function HeroSection() {
                 <h2 className="cursor-pointer text-xs sm:text-sm text-center md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
                   Where Academic Excellence Meets Islamic Values
                 </h2>
-                <h2 className=" cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+                <h2 className="text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
                   Learn Anywhere, Anytime.
                 </h2>
               </div>
