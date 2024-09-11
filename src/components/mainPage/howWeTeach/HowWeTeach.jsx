@@ -22,7 +22,7 @@ export const HowWeTeach = () => {
               <Button link={"#"} title={"  How we teach"}></Button>
             </AnimationPopUp>
             <div className="text-start pt-5">
-              <h1 className="text-3xl font-bold tracking-tight text-white lg:text-4xl">
+              <h1 className="text-3xl font-bold tracking-tight text-white lg:text-2xl">
                 How we teach at our online school
               </h1>
               <p className="mt-6 text-xl font-semibold leading-8 text-gray-200">

@@ -27,9 +27,9 @@ export const StudentSupport = () => {
               Student Support
             </p>
             <p className="text-md text-gray-700 font-bold">
-              Every student should feel nurtured, celebrated, and supported to
-              learn and grow, which is why wellbeing is our utmost priority at
-              King’s InterHigh.
+              Every Student Should Feel Nurtured, Celebrated, and Supported To
+              Learn And Grow, Which Is Why Wellbeing Is Our Utmost Priority At
+              Al-Madinah School.
             </p>
           </div>
         </AnimatedComponentRight>
