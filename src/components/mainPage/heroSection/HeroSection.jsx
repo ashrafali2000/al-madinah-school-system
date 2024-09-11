@@ -3,7 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import AnimationPopUp from "../../animations/AnimationPopup";
-
+import AnimationBottom from "../../animations/AnimationBottom";
+import AnimationLeft from "../../animations/AnimationLeft";
+import AnimationRigth from "../../animations/AnimationRigth";
+import { Button } from "../../middleSchool/button/Button";
 export default function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -382,33 +385,173 @@ export default function HeroSection() {
     //     </div>
     //   </div>
     // </div>
+    // <div className="pt-5 mt-20">
+    //   <div className="relative isolate px-4 lg:px-2">
+    //     <div
+    //       className="max-w-7xl rounded-[40px] w-full h-[300px] sm:h-[400px] md:h-[550px] lg:h-[600px] relative mx-auto"
+    //       style={{
+    //         backgroundImage: "url(./Herobanner1.png)",
+    //         backgroundSize: "cover", // Ensure the background image scales properly
+    //         backgroundPosition: "center",
+    //         backgroundRepeat: "no-repeat",
+    //         borderRadius: "40px",
+    //       }}
+    //     >
+    //       {/* Grid container to manage two equal-size divs */}
+    //       <div className="">
+    //         <div className="grid grid-cols-1 md:grid-cols-2 sm:grid-flow-cols-3 gap-4 w-full h-full">
+    //           {/* First Equal Size Div */}
+    //           <div className="flex items-center flex-col justify-center mt-9">
+    //             <h2 className="cursor-pointer text-xs sm:text-sm text-center md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+    //               Where Academic Excellence Meets Islamic Values
+    //             </h2>
+    //             <h2 className="text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+    //               Learn Anywhere, Anytime.
+    //             </h2>
+    //           </div>
+
+    //           {/* Second Equal Size Div */}
+    //           <div className="flex items-center justify-center rounded-lg p-8">
+    //             <img
+    //               src="/herobanner2.png"
+    //               alt="herobanner2"
+    //               className="h-114 w-108 object-cover"
+    //             />
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+    // <div className="pt-5 mt-20">
+    //   <div className="relative isolate px-2 lg:px-2">
+    //     <div
+    //       className="max-w-7xl rounded-[40px] w-full h-[300px] sm:h-[400px] md:h-[550px] lg:h-[590px] relative mx-auto"
+    //       style={{
+    //         backgroundImage: "url(./Herobanner1.png)",
+    //         backgroundSize: "cover",
+    //         backgroundPosition: "center",
+    //         backgroundRepeat: "no-repeat",
+    //         borderRadius: "40px",
+    //       }}
+    //     >
+    //       <div className="">
+    //         <div className="grid grid-cols-1 md:grid-cols-2 sm:grid-flow-cols-3  w-full h-full">
+    //           {/* First Equal Size Div */}
+    //           <div className="flex grid-cols-1 md:grid-cols-2 sm:grid-flow-cols-3 items-center flex-col justify-center ">
+    //             <div>
+    //               <img
+    //                 src="/bannerImage3.png"
+    //                 alt="herobanner2.png"
+    //                 className="h-[550px] w-[650px]"
+    //               />
+    //             </div>
+    //             <div>
+    //               <h2 className="cursor-pointer text-center text-xs sm:text-sm  md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+    //                 Where Academic Excellence Meets Islamic Values
+    //               </h2>
+    //               <h2 className="text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+    //                 Learn Anywhere, Anytime.
+    //               </h2>
+    //             </div>
+    //           </div>
+
+    //           {/* Second Equal Size Div */}
+    //           <div className="flex items-center justify-center rounded-lg p-4">
+    //             <div>
+    //               <img
+    //                 src="/herobanner2.png"
+    //                 alt="herobanner2"
+    //                 className="h-[550px] w-[650px] " // Custom height and width
+    //               />
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+    // <div className="pt-5 mt-20">
+    //   <div className="relative isolate px-4 overflow-hidden">
+    //     <div
+    //       className="max-w-7xl rounded-[40px] h-[600px] relative mx-auto overflow-hidden"
+    //       style={{
+    //         backgroundImage: "url(./Herobanner1.png)",
+    //         backgroundSize: "cover",
+    //         backgroundRepeat: "no-repeat",
+    //       }}
+    //     >
+    //       <div className="grid grid-rows-1 md:grid-rows-2 items-center justify-center ">
+    //         {/* Left Side - Image */}
+    //         <div className="w-full flex  ">
+    //           <AnimationLeft>
+    //             <Image
+    //               src={"/bannerImage3.png"}
+    //               className="mx-auto w-full h-full rounded-[40px]"
+    //               alt="heroImage"
+    //               width={3000000}
+    //               height={2000000}
+    //             />
+    //           </AnimationLeft>
+    //         </div>
+    //         <div className="w-full ">
+    //           <h2 className="cursor-pointer text-center text-xs sm:text-sm  md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+    //             Where Academic Excellence Meets Islamic Values{" "}
+    //           </h2>{" "}
+    //           <h2 className="text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+    //             Learn Anywhere, Anytime.{" "}
+    //           </h2>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
     <div className="pt-5 mt-20">
-      <div className="relative isolate px-4 lg:px-2">
+      <div className="relative isolate px-4 overflow-hidden">
         <div
-          className="max-w-7xl rounded-[40px] w-full h-[300px] sm:h-[400px] md:h-[550px] lg:h-[680px] relative mx-auto"
+          className="max-w-7xl rounded-[40px] h-[600px] relative mx-auto "
           style={{
-            backgroundImage: "url(./Al-Madinah-L.png)",
-            backgroundSize: "cover", // Ensure the background image scales properly
-            backgroundPosition: "center",
+            backgroundImage: "url(./Herobanner1.png)",
+            backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
-            borderRadius: "40px",
           }}
         >
-          {/* Grid container to manage two equal-size divs */}
-          <div className="absolute top-3/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 mt-7 w-11/12">
-            <div className="grid grid-rows-1 md:grid-rows-2 sm:grid-flow-row-3 gap-4 w-full h-full">
-              {/* First Equal Size Div */}
-              <div className="flex items-center flex-col w-[50%] sm:w-[50%] md:w-[50%] justify-center mt-9">
-                <h2 className="cursor-pointer text-xs sm:text-sm text-center md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+          {/* Two Equal Divs */}
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center h-full">
+            {/* Left Side - Image */}
+            <div className="flex flex-col items-center ">
+              <div className="w-full flex justify-center">
+                {/* <AnimationLeft> */}
+                <Image
+                  src={"/bannerImage3.png"}
+                  className="w-80 h-[300px]"
+                  alt="heroImage"
+                  width={3000000}
+                  height={2000000}
+                />
+                {/* </AnimationLeft> */}
+              </div>
+              <div>
+                <h2 className="cursor-pointer text-center text-xs sm:text-sm md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
                   Where Academic Excellence Meets Islamic Values
                 </h2>
-                <h2 className="text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+                <h2 className="text-xs sm:text-sm text-center md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105 mt-4">
                   Learn Anywhere, Anytime.
                 </h2>
               </div>
+            </div>
 
-              {/* Second Equal Size Div */}
-              <div className="flex items-center justify-center rounded-lg p-4"></div>
+            {/* Right Side - Text */}
+            <div className="flex justify-center">
+              <AnimationRigth>
+                <Image
+                  src={"/herobanner2.png"}
+                  alt="heroImage"
+                  className="w-96 h-[550px]"
+                  width={3000000}
+                  height={2000000}
+                />
+              </AnimationRigth>
             </div>
           </div>
         </div>

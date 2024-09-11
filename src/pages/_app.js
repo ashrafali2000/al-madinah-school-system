@@ -28,12 +28,17 @@ export default function App({ Component, pageProps }) {
   }, [router]);
   console.log("pathName-------->", pathName);
   return (
-    <>
+    <div
+      className="    "
+      style={{
+        backgroundImage: "url(./main-bg.jpeg)",
+      }}
+    >
       {/* <SmallNavbar /> */}
       {pathName !== "/admin" ? <Navbar /> : null}
       {loading && <Loader />}
       <Component {...pageProps} />
       {pathName !== "/admin" ? <Footer /> : null}
-    </>
+    </div>
   );
 }
