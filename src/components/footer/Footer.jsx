@@ -10,7 +10,7 @@ export const Footer = () => {
     <footer className="bg-white border-t">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
-          <div className="flex flex-col ">
+          <div className="flex flex-col  ">
             <div className="mb-6 md:mb-0 ml-20">
               <a href="/" className="">
                 <img src="./logo.png" className="h-32 " alt="FlowBite Logo" />
@@ -197,7 +197,7 @@ export const Footer = () => {
             </div>
           </div> */}
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        {/* <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" /> */}
         {/* <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm  sm:text-center text-gray-700">
             © 2024{" "}
@@ -240,7 +240,7 @@ export const Footer = () => {
         </div> */}
 
         {/* mid footer */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10">
           <div className="flex flex-col gap-3 ">
             <span className="text-xs">Accreditations</span>
             <div className="flex gap-3 bg-gray-200 p-4">
@@ -251,40 +251,11 @@ export const Footer = () => {
               </p>
             </div>
           </div>
-          {/* <div className="flex flex-col gap-4">
-            <div>
-              <span className="text-xs ">Exam Boards</span>
-              <div className="grid grid-cols-4 pt-4">
-                <img src="./ocr.svg" alt="image" />{" "}
-                <img src="./aqa.svg" alt="image" />{" "}
-                <img src="./wjec.svg" alt="image" />{" "}
-                <img src="./edexcel.svg" alt="image" />{" "}
-              </div>
-            </div>
-            <div>
-              <span className="text-xs ">Endorsements</span>
-              <div className="grid grid-cols-5 pt-4">
-                <img src="./good_schools_guide.svg" alt="image" />{" "}
-                <img
-                  src="./top_schools_award.png"
-                  className="w-20 h-16"
-                  alt="image"
-                />{" "}
-                <img
-                  src="./muddy_stilettos.png"
-                  className="w-20 h-16"
-                  alt="image"
-                />{" "}
-                <img src="./besa.svg" alt="image" />{" "}
-                <img src="./cobis.svg" alt="image" />{" "}
-              </div>
-            </div>
-          </div> */}
-        </div>
+        </div> */}
         {/* last footer */}
       </div>
       <div className="bg-gray-200">
-        <div className=" mx-auto py-4 max-w-7xl text-xl p-3">
+        <div className=" mx-auto py-4 max-w-7xl text-lg p-3">
           {/* <div className="flex text-center  gap-4">
             {/* <Link href={"/"}>Privacy policy</Link> */}
           {/* <Link href={"/"}>Terms of Use</Link> */}

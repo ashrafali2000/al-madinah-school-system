@@ -192,7 +192,7 @@ export const FamiliesLoveSec = () => {
             </p>
 
             <p className=" text-md lg:text-lg  leading-8 text-gray-700">
-              At Al Madinah online school, school life is designed to be
+              At Al-Madinah online school, school life is designed to be
               enriching, balanced, and supportive. We foster an environment
               where academic excellence goes hand in hand with personal and
               spiritual growth. Our students thrive in a community that values
