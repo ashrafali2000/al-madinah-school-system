@@ -209,7 +209,7 @@ export const FamiliesLoveSec = () => {
             <IoCheckmarkSharp className="w-6 h-6  text-white" />
           </span>
           <p className="text-xl lg:text-xl font-bold text-sky-900">
-            Accredited by Cambridge International
+            Accredited By Cambridge International
           </p>
           <p className="text-base font-light   ">
             Al-Madinah Online School is accredited by the world-renowned
@@ -236,7 +236,7 @@ export const FamiliesLoveSec = () => {
             <IoCheckmarkSharp className="w-6 h-6 text-white" />
           </span>
           <p className="text-xl lg:text-xl font-bold text-sky-900">
-            Access to the Cambridge International Curriculum
+            Access To The Cambridge International Curriculum
           </p>
           <p className="text-base font-light">
             Even if there isn't a Cambridge school nearby, students can access
@@ -253,7 +253,7 @@ export const FamiliesLoveSec = () => {
             <IoCheckmarkSharp className="w-6 h-6  text-white" />
           </span>
           <p className="text-xl lg:text-xl font-bold text-sky-900">
-            Flexibility and Accessibility
+            Flexibility And Accessibility
           </p>
           <p className="text-base font-light   ">
             Our online platform allows students to study from anywhere, whether
@@ -267,7 +267,7 @@ export const FamiliesLoveSec = () => {
             <IoCheckmarkSharp className="w-6 h-6 text-white" />
           </span>
           <p className="text-xl lg:text-xl font-bold text-sky-900">
-            Wide Range of Subjects
+            Wide Range Of Subjects
           </p>
           <p className="text-base font-light">
             Al-Madinah Online School offers a variety of subjects that may not
@@ -281,7 +281,7 @@ export const FamiliesLoveSec = () => {
             <IoCheckmarkSharp className="w-6 h-6 text-white" />
           </span>
           <p className="text-xl lg:text-xl font-bold text-sky-900">
-            Supportive and Inclusive Environment
+            Supportive And Inclusive Environment
           </p>
           <p className="text-base font-light">
             We believe in providing a supportive and inclusive environment where
@@ -297,7 +297,7 @@ export const FamiliesLoveSec = () => {
             <IoCheckmarkSharp className="w-6 h-6 text-white" />
           </span>
           <p className="text-xl lg:text-xl font-bold text-sky-900">
-            Adapted to Modern Needs
+            Adapted To Modern Needs
           </p>
           <p className="text-base font-light max-w-md">
             Our approach to online education is designed to meet the needs of
