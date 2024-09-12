@@ -64,7 +64,7 @@ export default function App({ Component, pageProps }) {
           backgroundImage: "url(./main-bg.jpeg)",
           // backgroundSize: "cover", // Makes the background cover the entire div
           // backgroundPosition: "center", // Centers the background image
-          filter: "blur(4px)", // Applies blur effect to the background image
+          filter: "blur(8px)", // Applies blur effect to the background image
           zIndex: -2, // Keeps the background behind the content
         }}
       />

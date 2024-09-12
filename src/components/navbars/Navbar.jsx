@@ -63,7 +63,7 @@ export const Navbar = () => {
                     activeTab === "/" ? "text-sky-400" : "md:text-black"
                   }`}
                 >
-                  Secondary
+                  Home
                 </Link>
               </li>
               <li>

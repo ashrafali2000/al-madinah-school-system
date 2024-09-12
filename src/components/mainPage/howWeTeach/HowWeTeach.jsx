@@ -101,7 +101,7 @@ export const HowWeTeach = () => {
 
         {/* Main content */}
         <div className="relative mx-auto w-9/12 grid grid-cols-1 gap-20 lg:gap-5 lg:grid-cols-5 py-20 lg:py-32 ">
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 mt-5">
             <AnimationPopUp>
               <Button link={"#"} title={"  How we teach"}></Button>
             </AnimationPopUp>
@@ -120,50 +120,52 @@ export const HowWeTeach = () => {
               </AnimationPopUp>
             </div>
           </div>
-          <div className="lg:col-span-3 flex flex-col py-10 bg-white rounded-xl px-5 lg:px-10">
+          <div className="lg:col-span-3  flex flex-col py-10 bg-white rounded-xl px-7 lg:px-10">
             <p className="text-2xl text-gray-700 font-semibold lg:font-bold">
               Live, timetabled lessons — plus lesson recordings!
             </p>
-            <span className="flex justify-between py-5">
-              <span className="font-bold text-gray-700">
+            <span className="flex justify-between py-3">
+              <span className="mt-3 font-bold text-center text-gray-700">
                 Virtual classrooms
               </span>
-              <span>
-                <IoCheckmarkSharp className="w-6 h-6 lg:w-8 lg:h-8 text-green-500" />
+              <span className="w-12 h-12 bg-green-600 rounded-full p-3">
+                <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
             </span>
             <hr className="h-[1px] bg-gray-300" />
-            <span className="flex justify-between py-5">
-              <span className="font-bold text-gray-700">Small class sizes</span>
-              <span>
-                <IoCheckmarkSharp className="w-6 h-6 lg:w-8 lg:h-8 text-green-500" />
+            <span className="flex justify-between py-3">
+              <span className="mt-3  font-bold text-gray-700">
+                Small class sizes
+              </span>
+              <span className="w-12 h-12 bg-green-600 rounded-full p-3">
+                <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
             </span>
             <hr className="h-[1px] bg-gray-300" />
-            <span className="flex justify-between py-5">
-              <span className="font-bold text-gray-700">
+            <span className="flex justify-between py-3">
+              <span className="mt-3  font-bold text-gray-700">
                 Collaborative learning
               </span>
-              <span>
-                <IoCheckmarkSharp className="w-6 h-6 lg:w-8 lg:h-8 text-green-500" />
+              <span className="w-12 h-12 bg-green-600 rounded-full p-3">
+                <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
             </span>
             <hr className="h-[1px] bg-gray-300" />
-            <span className="flex justify-between py-5">
-              <span className="font-bold text-gray-700">
+            <span className="flex justify-between py-3">
+              <span className="mt-3  font-bold text-gray-700">
                 Valuable teacher feedback
               </span>
-              <span>
-                <IoCheckmarkSharp className="w-6 h-6 lg:w-8 lg:h-8 text-green-500" />
+              <span className="w-12 h-12 bg-green-600 rounded-full p-3">
+                <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
             </span>
             <hr className="h-[1px] bg-gray-300" />
-            <span className="flex justify-between py-5">
-              <span className="font-bold text-gray-700">
+            <span className="flex justify-between py-3">
+              <span className="mt-3  font-bold text-gray-700">
                 Making learning inclusive with technology
               </span>
-              <span>
-                <IoCheckmarkSharp className="w-6 h-6 lg:w-8 lg:h-8 text-green-500" />
+              <span className="w-12 h-12 bg-green-600 rounded-full p-3">
+                <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
             </span>
             <hr className="h-[1px] bg-gray-300" />
