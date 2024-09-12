@@ -103,71 +103,96 @@ export const HowWeTeach = () => {
         <div className="relative mx-auto w-9/12 grid grid-cols-1 gap-20 lg:gap-5 lg:grid-cols-5 py-20 lg:py-32 ">
           <div className="lg:col-span-2 mt-5">
             <AnimationPopUp>
-              <Button link={"#"} title={"  How we teach"}></Button>
+              <Button link={"#"} title={"Teaching Methodology"}></Button>
             </AnimationPopUp>
             <div className="text-start pt-5">
-              <h1 className="text-3xl font-bold tracking-tight text-white lg:text-2xl">
+              {/* <h1 className="text-3xl font-bold tracking-tight text-white lg:text-2xl">
                 How we teach at our online school
-              </h1>
+              </h1> */}
               <p className="mt-6 text-xl font-semibold leading-8 text-gray-200">
-                Our teachers combine innovative technologies with engaging
-                lesson content to help students learn in the best way.
+                Our teaching methods are designed to engage students actively in
+                their learning journey. We employ a variety of instructional
+                strategies, including:
               </p>
             </div>
-            <div className="pt-8">
+            {/* <div className="pt-8">
               <AnimationPopUp>
                 <Button link={"/how-we-teach"} title={"  Click Here "}></Button>
               </AnimationPopUp>
-            </div>
+            </div> */}
           </div>
           <div className="lg:col-span-3  flex flex-col py-10 bg-white rounded-xl px-7 lg:px-10">
             <p className="text-2xl text-gray-700 font-semibold lg:font-bold">
               Live, timetabled lessons — plus lesson recordings!
             </p>
-            <span className="flex justify-between py-3">
-              <span className="mt-3 font-bold text-center text-gray-700">
-                Virtual classrooms
-              </span>
-              <span className="w-12 h-12 bg-green-600 rounded-full p-3">
+            <span className="flex justify-between py-2">
+              <div className="flex flex-col">
+                <span className="mt-3 font-bold  text-gray-700">
+                  Interactive Lessons
+                </span>
+                <span className="mt-1 font-base  text-gray-700">
+                  Use of technology and multimedia to make lessons dynamic and
+                  engaging.
+                </span>
+              </div>
+              <span className="mt-3 w-12 h-12 bg-green-600 rounded-full p-3">
                 <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
             </span>
             <hr className="h-[1px] bg-gray-300" />
             <span className="flex justify-between py-3">
-              <span className="mt-3  font-bold text-gray-700">
-                Small class sizes
-              </span>
-              <span className="w-12 h-12 bg-green-600 rounded-full p-3">
+              <div className="flex flex-col">
+                <span className="mt-3 font-bold  text-gray-700">
+                  Collaborative Learning
+                </span>
+                <span className="mt-1 font-base  text-gray-700">
+                  Group work and discussions to foster teamwork and
+                  communication skills.
+                </span>
+              </div>
+              <span className="mt-3 w-12 h-12 bg-green-600 rounded-full p-3">
                 <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
             </span>
             <hr className="h-[1px] bg-gray-300" />
             <span className="flex justify-between py-3">
-              <span className="mt-3  font-bold text-gray-700">
-                Collaborative learning
-              </span>
-              <span className="w-12 h-12 bg-green-600 rounded-full p-3">
+              <div className="flex flex-col">
+                <span className="mt-3 font-bold  text-gray-700">
+                  Inquiry-Based Learning
+                </span>
+                <span className="mt-1 font-base  text-gray-700">
+                  Encouraging students to ask questions and explore topics in
+                  depth.
+                </span>
+              </div>
+              <span className="mt-3 w-12 h-12 bg-green-600 rounded-full p-3">
                 <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
             </span>
             <hr className="h-[1px] bg-gray-300" />
             <span className="flex justify-between py-3">
-              <span className="mt-3  font-bold text-gray-700">
-                Valuable teacher feedback
-              </span>
-              <span className="w-12 h-12 bg-green-600 rounded-full p-3">
+              <div className="flex flex-col">
+                <span className="mt-3 font-bold  text-gray-700">
+                  Continuous Feedback
+                </span>
+                <span className="mt-1 font-base  text-gray-700">
+                  Regular assessments and feedback to support student growth and
+                  improvement.
+                </span>
+              </div>
+              <span className="mt-3 w-12 h-12 bg-green-600 rounded-full p-3">
                 <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
             </span>
             <hr className="h-[1px] bg-gray-300" />
-            <span className="flex justify-between py-3">
+            {/* <span className="flex justify-between py-3">
               <span className="mt-3  font-bold text-gray-700">
                 Making learning inclusive with technology
               </span>
               <span className="w-12 h-12 bg-green-600 rounded-full p-3">
                 <IoCheckmarkSharp className="w-6 h-6  text-white" />
               </span>
-            </span>
+            </span> */}
             <hr className="h-[1px] bg-gray-300" />
           </div>
         </div>

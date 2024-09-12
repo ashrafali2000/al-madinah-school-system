@@ -9,9 +9,9 @@ export const AboutSchool = ({ title, buttonTile, subtitle, describe }) => {
         <p className="font-bold py-2  px-4 border-1 rounded-full ">
           <AnimationPopUp>
             {" "}
-            <Button link={"/#"} title={" Life at an online school "}>
+            <Button link={"#"} title={" learning journey  "}>
               {" "}
-              Life at an online school{" "}
+              learning journey
             </Button>
           </AnimationPopUp>
         </p>
