@@ -28,7 +28,7 @@ export const SchoolCard = () => {
   ];
   return (
     <AnimationBottom>
-      <div className="flex flex-wrap gap-8 justify-center">
+      <div className="flex flex-wrap gap-8 mt-7  justify-center">
         {schoolCardList.map((item, index) => (
           <div
             key={index}
@@ -39,10 +39,10 @@ export const SchoolCard = () => {
                 : item.schoolName === "Senior School (GCSE)"
                 ? "bg-[#397bce] "
                 : "bg-blue-400 "
-            } w-full py-10 max-w-xl border border-sky-200 rounded-lg shadow
+            } w-full py-10 max-w-xl border-8 border-[#ffa500] rounded-lg shadow
           `}
           >
-            <div className="flex flex-col  items-center ">
+            <div className="flex flex-col   items-center ">
               <div
                 className={` ${
                   item.schoolName === "Middle School" ? "bg-[#153254] " : "  "

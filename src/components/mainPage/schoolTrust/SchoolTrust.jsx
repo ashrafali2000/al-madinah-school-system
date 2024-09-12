@@ -17,8 +17,8 @@ export const SchoolTrust = () => {
             </div>
           </AnimationPopUp>
         </div>
-        <div className="text-center pt-9 pb-5">
-          <h1 className="text-xl mt-4 font-semibold tracking-tight text-gray-900 md:text-2xl lg:text-2xl">
+        <div className="text-center mt-6 rounded-lg border border-gray-700 bg-white pt-6 pb-5">
+          <h1 className="text-xl  font-semibold tracking-tight text-gray-900 md:text-2xl lg:text-2xl">
             We Are The Original Online School, Where Learning Revolves Around
             Every Unique Student.
           </h1>
