@@ -28,7 +28,7 @@ export const SchoolCard = () => {
   ];
   return (
     <AnimationBottom>
-      <div className="flex flex-wrap gap-8 mt-7  justify-center">
+      <div className="flex flex-wrap gap-16     mt-7  justify-center">
         {schoolCardList.map((item, index) => (
           <div
             key={index}
@@ -39,7 +39,7 @@ export const SchoolCard = () => {
                 : item.schoolName === "Senior School (GCSE)"
                 ? "bg-[#397bce] "
                 : "bg-blue-400 "
-            } w-full py-10 max-w-xl border-8 border-[#ffa500] rounded-lg shadow
+            } w-full py-10 max-w-xl border-8 rounded-[40px] border-[#ffa500]  shadow
           `}
           >
             <div className="flex flex-col   items-center ">

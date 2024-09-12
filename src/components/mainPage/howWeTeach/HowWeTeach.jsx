@@ -89,7 +89,7 @@ export const HowWeTeach = () => {
     // </div>
     <div className="pb-10">
       <div
-        className="max-w-7xl rounded-[40px] relative mx-auto"
+        className="max-w-7xl  border-4 border-gray-700  rounded-[40px] relative mx-auto"
         style={{
           backgroundImage: "url(./nnn.png)",
           backgroundSize: "cover",
@@ -101,7 +101,7 @@ export const HowWeTeach = () => {
 
         {/* Main content */}
         <div className="relative mx-auto w-9/12 grid grid-cols-1 gap-20 lg:gap-5 lg:grid-cols-5 py-20 lg:py-32 ">
-          <div className="lg:col-span-2 mt-5">
+          <div className="lg:col-span-2 mt-8">
             <AnimationPopUp>
               <Button link={"#"} title={"Teaching Methodology"}></Button>
             </AnimationPopUp>

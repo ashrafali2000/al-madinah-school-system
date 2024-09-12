@@ -17,7 +17,7 @@ export const SchoolTrust = () => {
             </div>
           </AnimationPopUp> */}
         </div>
-        <div className="text-center mt-6 rounded-lg border border-gray-700 bg-white pt-6 pb-5">
+        <div className="text-center mt-6 rounded-lg border-4 border-gray-700  bg-white pt-6 pb-5">
           <h1 className="text-xl  font-semibold tracking-tight text-gray-900 md:text-2xl lg:text-2xl">
             Building Brighter Futures through Faith and Virtual Learning.
           </h1>
@@ -31,9 +31,9 @@ export const SchoolTrust = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 place-items-center gap-5 md:grid-cols-3 lg:gap-8 pt-10">
+      <div className="grid grid-cols-1 place-items-center  gap-5 md:grid-cols-3 lg:gap-8 pt-10">
         <AnimatedComponentLeft>
-          <div className="bg-[#00477e] text-gray-800 gap-5  p-8 rounded-lg w-64 h-64 lg:w-96 lg:h-96 flex flex-col justify-center items-center">
+          <div className="bg-[#00477e] text-gray-800 gap-5 border-4 border-[#ffa500]   p-8 rounded-lg w-64 h-64 lg:w-96 lg:h-96 flex flex-col justify-center items-center">
             {/* <p className="md:text-3xl lg:text-5xl font-bold">
              
             </p> */}
@@ -43,7 +43,7 @@ export const SchoolTrust = () => {
           </div>
         </AnimatedComponentLeft>
         <AnimationTop>
-          <div className="bg-[#ffa500] text-gray-100  gap-5 p-8 rounded-lg w-64 h-64 lg:w-96 lg:h-96 flex flex-col justify-center items-center">
+          <div className="bg-[#ffa500] text-gray-100  border-4 border-[#00477e] gap-5 p-8 rounded-lg w-64 h-64 lg:w-96 lg:h-96 flex flex-col justify-center items-center">
             <p className="md:text-3xl lg:text-5xl font-bold"></p>
             <p className="text-xl lg:text-3xl font-semibold text-center">
               Interactive and Engaging Islamic Learning
@@ -51,7 +51,7 @@ export const SchoolTrust = () => {
           </div>
         </AnimationTop>
         <AnimatedComponentRight>
-          <div className="bg-sky-400  text-gray-100  gap-5  p-8 rounded-lg w-64 h-64 lg:w-96 lg:h-96 flex flex-col justify-center items-center">
+          <div className="bg-sky-400  text-gray-100  gap-5  border-4 border-white p-8 rounded-lg w-64 h-64 lg:w-96 lg:h-96 flex flex-col justify-center items-center">
             {/* <p className="md:text-3xl lg:text-5xl font-bold">
               Backed by 10+ Years
             </p> */}

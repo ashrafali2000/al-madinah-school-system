@@ -7,8 +7,8 @@ import Link from "next/link";
 export const Footer = () => {
   const [dropdown, setDropDown] = useState(false);
   return (
-    <footer className="bg-white border-t">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <footer className="rounded-[40px]  bg-white max-w-7xl border-4  border-gray-700   mx-auto">
+      <div className="mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="flex flex-col  ">
             <div className="mb-6 md:mb-0 ml-20">
@@ -254,7 +254,8 @@ export const Footer = () => {
         </div> */}
         {/* last footer */}
       </div>
-      <div className="bg-gray-200">
+      <hr className="h-[2px] bg-gray-300" />
+      <div className="">
         <div className=" mx-auto py-4 max-w-7xl text-sm p-3">
           {/* <div className="flex text-center  gap-4">
             {/* <Link href={"/"}>Privacy policy</Link> */}

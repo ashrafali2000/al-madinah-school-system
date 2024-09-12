@@ -571,7 +571,7 @@ export default function HeroSection() {
     //     </div>
     //   </div>
     // </div>
-    <div className="relative pt-10 pb-5 mt-20 mb-6">
+    <div className=" relative pt-10 pb-5 mt-20 mb-6">
       {/* Blurred Background Image */}
       {/* <div
         style={{
@@ -589,9 +589,9 @@ export default function HeroSection() {
       ></div> */}
 
       {/* Foreground Content */}
-      <div className="relative isolate px-4 overflow-hidden">
+      <div className="relative   isolate px-4 overflow-hidden">
         <div
-          className="max-w-7xl rounded-[40px] h-[560px] relative mx-auto"
+          className="max-w-7xl border-4 border-gray-700   rounded-[40px] h-[560px] relative mx-auto"
           style={{
             backgroundImage: "url(./herobanner1.png)",
             backgroundSize: "cover",
