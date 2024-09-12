@@ -591,7 +591,7 @@ export default function HeroSection() {
       {/* Foreground Content */}
       <div className="relative isolate px-4 overflow-hidden">
         <div
-          className="max-w-7xl rounded-[40px] h-[600px] relative mx-auto"
+          className="max-w-7xl rounded-[40px] h-[560px] relative mx-auto"
           style={{
             backgroundImage: "url(./herobanner1.png)",
             backgroundSize: "cover",
