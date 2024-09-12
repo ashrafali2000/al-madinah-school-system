@@ -87,7 +87,7 @@ export const HowWeTeach = () => {
     //     </div>
     //   </div>
     // </div>
-    <div>
+    <div className="pb-10">
       <div
         className="max-w-7xl rounded-[40px] relative mx-auto"
         style={{
