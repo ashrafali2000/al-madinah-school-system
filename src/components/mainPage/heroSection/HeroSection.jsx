@@ -573,7 +573,7 @@ export default function HeroSection() {
     // </div>
     <div className="relative pt-10 pb-5 mt-20 mb-6">
       {/* Blurred Background Image */}
-      <div
+      {/* <div
         style={{
           position: "absolute",
           top: 0,
@@ -586,14 +586,14 @@ export default function HeroSection() {
           // filter: "blur(4px)", // Applies blur effect to the background image
           // zIndex: -1, // Keeps the background behind the content
         }}
-      ></div>
+      ></div> */}
 
       {/* Foreground Content */}
       <div className="relative isolate px-4 overflow-hidden">
         <div
           className="max-w-7xl rounded-[40px] h-[600px] relative mx-auto"
           style={{
-            backgroundImage: "url(./Herobanner1.png)",
+            backgroundImage: "url(./herobanner1.png)",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
           }}
@@ -625,7 +625,7 @@ export default function HeroSection() {
             <div className="flex justify-center">
               <AnimationRigth>
                 <Image
-                  src={"/herobanner2.png"}
+                  src={"/Herobanner2.png"}
                   alt="heroImage"
                   className="w-96 h-[550px]  animate-slide-in-right"
                   width={3000000}
