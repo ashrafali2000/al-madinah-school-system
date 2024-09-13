@@ -257,7 +257,7 @@ export default function indexSchoolLife() {
             <div>
               <img
                 className="-rotate-3 rounded-xl"
-                src="/school.jpg"
+                src="/School.jpg"
                 alt="image"
               />
             </div>
