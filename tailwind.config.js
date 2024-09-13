@@ -33,11 +33,16 @@ module.exports = {
             opacity: "1",
           },
         },
+        scaleUp: {
+          "0%": { opacity: "1", transform: "scale(1)" },
+          "100%": { opacity: "2", transform: "scale(0.2)" },
+        },
       },
       animation: {
         "fade-in": "fade-in 3.9s ease-in-out",
         "slide-in-left": "slide-in-left 1s ease-out", // You can adjust the duration
         "slide-in-right": "slide-in-right 1s ease-out",
+        scaleUp: "scaleUp 10s ease-in-out 0.3s backward",
       },
     },
   },

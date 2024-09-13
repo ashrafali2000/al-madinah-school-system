@@ -255,14 +255,14 @@ export default function SupprtServices() {
         <div className="grid grid-cols-1   mx-auto  lg:grid-cols-2  px-10 gap-10 mt-20">
           <AnimatedComponentLeft>
             <div>
-              <img className="-rotate-3 rounded-xl" src="/08.jpg" alt="image" />
+              <img className=" rounded-xl" src="/08.jpg" alt="image" />
             </div>
           </AnimatedComponentLeft>
           <AnimatedComponentRight>
             <div className="flex flex-col gap-4">
               <div className="flex  items-start  ">
                 <motion.h3
-                  className="cursor-pointer text-3xl rounded w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
+                  className="cursor-pointer text-3xl  border-2 border-gray-700 rounded-lg w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
                   initial={{ opacity: 0, scale: 0.2 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
