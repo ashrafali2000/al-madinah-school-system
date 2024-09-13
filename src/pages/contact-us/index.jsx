@@ -38,7 +38,7 @@ export default function AboutUs() {
           <div className="flex flex-col gap-2">
             <div className="flex   ">
               <motion.h3
-                className="cursor-pointer text-3xl rounded w-auto p-4 inline-block rounded-lg  bg-[rgb(250,204,20)] text-black font-semibold "
+                className="cursor-pointer text-3xl  w-auto p-4 inline-block rounded-lg  bg-[rgb(250,204,20)] text-black font-semibold "
                 initial={{ opacity: 0, scale: 0.2 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{

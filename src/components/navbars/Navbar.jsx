@@ -20,16 +20,13 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="border-gray-200 bg-gray-100 fixed w-full top-0  left-0 z-40">
-        <div className="max-w-screen-2xl lg:px-10 flex  items-center justify-between mx-auto py-1 px-2">
+      <nav className="border-gray-200 bg-gray-100 fixed w-full top-0 left-0 z-40">
+        <div className="max-w-screen-2xl lg:px-10 flex items-center justify-between mx-auto py-1 px-2">
           <a
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img src="./logo.png" className="h-20" alt="Flowbite Logo" />
-            {/* <span className="self-center text-xl  xl:text-2xl font-semibold whitespace-nowrap dark:text-gray-900">
-              Al Madina School System
-            </span> */}
           </a>
           <button
             type="button"
@@ -53,8 +50,8 @@ export const Navbar = () => {
               />
             </svg>
           </button>
-          <div className=" hidden w-full lg:block md:w-auto">
-            <ul className="font-medium flex flex-col p-4 border-gray-100 rounded-lg md:flex-row  lg:space-x-2 xl:space-x-6 rtl:space-x-reverse ">
+          <div className="hidden w-full lg:block md:w-auto">
+            <ul className="font-medium flex flex-col p-4 border-gray-100 rounded-lg md:flex-row lg:space-x-2 xl:space-x-6 rtl:space-x-reverse">
               <li>
                 <Link
                   href="/"
@@ -66,11 +63,11 @@ export const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
+              <li className="relative z-20 group">
                 <Link
-                  href={"/about-us"}
+                  href="/about-us"
                   onClick={() => handleTabClick("/about-us")}
-                  className={`transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 ${
+                  className={`transition duration-500 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 ${
                     activeTab === "/about-us"
                       ? "text-sky-400"
                       : "md:hover:text-blue-400"
@@ -78,7 +75,76 @@ export const Navbar = () => {
                 >
                   About us
                 </Link>
+
+                {/* Sub-tabs */}
+                <ul className="absolute left-0 flex w-max-5xl place-items-center justify-between hidden group-hover:flex bg-gray-100 rounded-lg shadow-lg p-16 space-x-4">
+                  {/* Left-side sub-tabs */}
+                  <div className="flex flex-col    inline-block  space-y-2">
+                    <li>
+                      <Link
+                        href="/school-life"
+                        onClick={() => handleTabClick("/school-life")}
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        School Life
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/daily-schedule"
+                        onClick={() => handleTabClick("/daily-schedule")}
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        Daily Schedule
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/extracurricular-activities"
+                        onClick={() =>
+                          handleTabClick("/extracurricular-activities")
+                        }
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        Extracurricular Activities
+                      </Link>
+                    </li>
+                  </div>
+                  <div className="border-l-2 border-gray-400 h-40"></div>
+
+                  {/* Right-side sub-tabs */}
+                  <div className="flex  flex-col inline-block place-items-center ">
+                    <li>
+                      <Link
+                        href="/support-services"
+                        onClick={() => handleTabClick("/support-services")}
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        Support Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/community-and-culture "
+                        onClick={() => handleTabClick("/community-and-culture")}
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        Community and Culture
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/parental-involvement "
+                        onClick={() => handleTabClick("/parental-involvement")}
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        Parental Involvement
+                      </Link>
+                    </li>
+                  </div>
+                </ul>
               </li>
+
               <li>
                 <Link
                   href={`/contact-us`}
@@ -107,19 +173,16 @@ export const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="hidden  lg:flex items-center gap-3  xl:gap-6">
-            {/* <button className="hover:scale-105 bg-sky-900 transition duration-1000 border hover:text-gray-800 hover:bg-gray-100 hover:border-sky-600 text-gray-100 text-sm xl:text-base uppercase  py-2 px-4 rounded-md font-bold ">
-              enquire
-            </button> */}
-
+          <div className="hidden lg:flex items-center gap-3 xl:gap-6">
             <Button link="/Enquiry" title={"enquire"} />
-
             <BorderButton link="/" title={"register now"} />
           </div>
         </div>
       </nav>
-      {/* Drawer */}
       <Drawer open={open} drawerHandler={drawerHandler} />
+
+      {/* Drawer */}
+      {/* <Drawer open={open} drawerHandler={drawerHandler} /> */}
     </>
   );
 };
