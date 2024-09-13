@@ -311,6 +311,118 @@ const SlidingImageSection = () => {
           {/* </div> */}
         </div>
       </div>
+      <div className="border-4  mx-28 mt-36 mb-6 rounded-[40px] border-gray-700  bg-white ">
+        <div className="  flex flex-col gap-8 md:flex-cols-2 w-full ">
+          {/* Text Section */}
+          <div className="flex-1 mt-6 text-black text-center   p-6">
+            <h2 className="text-4xl font-bold mb-4">
+              Assessment and Evaluation{" "}
+            </h2>
+            <p className="text-lg">
+              We use a comprehensive assessment system to evaluate student
+              progress and achievement. This includes:
+            </p>
+
+            <div className="space-y-8">
+              {[
+                {
+                  color: "bg-sky-600",
+                  title: "Examinations",
+                  description:
+                    "Formal exams to assess understanding and knowledge retention. ",
+                },
+                {
+                  color: "bg-orange-600",
+                  title: "Coursework ",
+                  description:
+                    "Assignments and projects that allow students to apply their learning in practical ways",
+                },
+                {
+                  color: "bg-yellow-600",
+                  title: "Formative Assessments ",
+                  description:
+                    "Regular quizzes and class activities to monitor ongoing progress. ",
+                },
+                // {
+                //   color: "bg-green-600",
+                //   title: "Continuous Feedback",
+                //   description:
+                //     "Regular assessments and feedback to support student growth and improvement.",
+                // },
+                // {
+                //   color: "bg-sky-600",
+                //   title: "Catch up on lessons with our lesson library",
+                //   description:
+                //     "Once class wraps up, a full recording is uploaded to our lesson library, along with all the resources from the day. Students can revisit these materials at any time to reinforce their knowledge.",
+                // },
+                // {
+                //   color: "bg-orange-600",
+                //   title: "Apply your knowledge after class",
+                //   description:
+                //     "Then, learners get to apply what they’ve learned through homework tasks, with regular low-pressure assessments designed to build their confidence.",
+                // },
+              ].map((item, index) => (
+                <div key={index} className="flex pt-10  items-center">
+                  <span
+                    className={`${item.color} w-24 h-24 rounded-full p-6 flex items-center justify-center shadow-lg`}
+                  >
+                    <IoCheckmarkSharp className="w-16 h-16 text-white" />
+                  </span>
+                  <div className="px-2 ">
+                    <p className="text-xl text-left lg:text-xl font-bold text-gray-800">
+                      {item.title}
+                    </p>
+                    <p className="text-base mt-1 text-gray-600">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Image Slider Section */}
+          {/* <div className="flex-2 mt-12 items-center overflow-y-hidden overflow-x-hidden flex w-full h-80">
+            <div className="flex space-x-8">
+              <img
+                src="/Family.jpg"
+                alt="Image 1"
+                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
+              />
+              <img
+                src="/family2.jpg"
+                alt="Image 2"
+                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
+              />
+              <img
+                src="/Family.jpg"
+                alt="Image 3"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
+              />
+              <img
+                src="/family2.jpg"
+                alt="Image 4"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
+              />
+              <img
+                src="/Family.jpg"
+                alt="Image 5"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
+              />
+              <img
+                src="/family2.jpg"
+                alt="Image 6"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
+              />
+              <img
+                src="/Family.jpg"
+                alt="Image 7"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
+              />
+              {/* Add more images as needed */}
+          {/* </div> */}
+          {/* </div> */}
+        </div>
+      </div>
       {/* <div className="bg-slate-100 py-10 relative">
         {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
          
@@ -833,7 +945,7 @@ const SlidingImageSection = () => {
           </p>
         </div> */}
       {/* </div>  */}
-      <AnimationBottom>
+      {/* <AnimationBottom>
         {/* <div className="flex flex-wrap gap-8 justify-center">
           {schoolCardList.map((item, index) => (
             <div
@@ -878,7 +990,7 @@ const SlidingImageSection = () => {
               >
                 {item.linkTitle}
               </a> */}
-        {/* <AnimationPopUp>
+      {/* <AnimationPopUp>
                     <div>
                       <Button link={item.link} title={item.linkTitle} />
                     </div>
@@ -888,8 +1000,8 @@ const SlidingImageSection = () => {
             </div>
           ))}
         </div> */}
-      </AnimationBottom>
-      <div className="pt-5 mt-20">
+      {/* </AnimationBottom> */}
+      {/* <div className="pt-5 mt-20">
         <div className="relative isolate px-4 overflow-hidden">
           <div
             className="max-w-8xl rounded-[40px] relative mx-auto overflow-hidden"
@@ -901,7 +1013,7 @@ const SlidingImageSection = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center overflow-hidden">
               {/* Left Side - Image */}
-              <div className="w-full overflow-hidden">
+      {/* <div className="w-full overflow-hidden">
                 <AnimationBottom>
                   <Image
                     src={"/NextEventBookingImage1.png"}
@@ -911,38 +1023,38 @@ const SlidingImageSection = () => {
                     height={200}
                   />
                 </AnimationBottom>
-              </div>
+              </div> */}
 
-              {/* Middle Card */}
-              <div className="flex justify-center items-center w-full md:col-span-1 md:absolute md:left-2/3 md:top-1/2 md:transform md:-translate-y-1/2 md:-translate-x-1/2">
-                <div className="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[60%] xl:w-[50%] bg-white rounded-xl shadow-lg p-8 sm:p-8 md:p-20 lg:p-16 min-h-[300px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[400px] overflow-hidden">
-                  <div className="flex justify-center">
+      {/* Middle Card */}
+      {/* <div className="flex justify-center items-center w-full md:col-span-1 md:absolute md:left-2/3 md:top-1/2 md:transform md:-translate-y-1/2 md:-translate-x-1/2">
+                {/* <div className="w-[90%] sm:w-[70%] md:w-[60%] lg:w-[60%] xl:w-[50%] bg-white rounded-xl shadow-lg p-8 sm:p-8 md:p-20 lg:p-16 min-h-[300px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-[400px] overflow-hidden">
+                  {/* <div className="flex justify-center">
                     <p className="font-bold text-blue-500 py-2 px-4 border-1 border-sky-400 rounded-full bg-slate-200">
                       What next
                     </p>
-                  </div>
-                  <div className="text-center">
-                    <h2 className="text-3xl font-semibold text-gray-800 sm:text-xl md:text-2xl lg:text-4xl">
+                  </div> */}
+      {/* <div className="text-center">
+                    {/* <h2 className="text-3xl font-semibold text-gray-800 sm:text-xl md:text-2xl lg:text-4xl">
                       Join our school at any time
-                    </h2>
-                    <p className="mt-8 text-base text-gray-600 sm:text-xl md:text-2xl lg:text-xl">
+                    </h2> */}
+      {/* <p className="mt-8 text-base text-gray-600 sm:text-xl md:text-2xl lg:text-xl">
                       Enrol today, and join lessons within days! <br />
-                    </p>
-                    <p className="mt-2 text-base text-gray-600 sm:text-xl md:text-xxl lg:text-xl">
+                    </p> */}
+      {/* <p className="mt-2 text-base text-gray-600 sm:text-xl md:text-xxl lg:text-xl">
                       Al Madinah is open for enrolment all year round. We
                       kickstart each student’s online learning experience with a
                       welcoming induction process to make the transition smooth.
-                    </p>
-                    <div className="mt-8 text-sm sm:text-base md:text-lg lg:text-xl">
+                    </p> */}
+      {/* <div className="mt-8 text-sm sm:text-base md:text-lg lg:text-xl">
                       <Button link={"/"} title={"Book A Call"} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                    </div> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
     </div>
   );
 };
