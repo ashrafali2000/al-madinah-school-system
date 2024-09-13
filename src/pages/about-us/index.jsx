@@ -7,49 +7,89 @@ export default function AboutUs() {
   return (
     <div className="my-32 mx-10">
       <div className="mx-auto">
-        <div className="bg-white p-4 border-4 mx-auto rounded-lg border-gray-700">
+        <div className="bg-white p-4 border-4 mx-auto rounded-[40px] border-gray-700">
           {" "}
           {/* <h3 className="text-2xl text-gray-700 font-semibold transform transition-transform duration-300 hover:scale-110">
         //   Introduction
         // </h3> */}
-          <motion.h3
-            className="cursor-pointer text-3xl rounded w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
-            initial={{ opacity: 0, scale: 0.2 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 20, // removed quotes around the duration
-              delay: 0.3,
-              ease: [0, 0.71, 0.2, 1.01],
-            }}
-          >
-            Introduction
-          </motion.h3>
+          <div className="flex justify-center items-center  ">
+            <motion.h3
+              className="cursor-pointer text-3xl rounded w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
+              initial={{ opacity: 0, scale: 0.2 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 20, // removed quotes around the duration
+                delay: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
+              Mission Statement
+            </motion.h3>
+          </div>
           <p className="text-gray-700 pt-3 pb-5">
-            At Al-Madinah Online School, We Are Dedicated To Providing An
-            Education That Fosters Academic Excellence And Personal Growth. Our
-            Curriculum Is Designed To Challenge And Inspire Students, Preparing
-            Them For Future Success While Instilling Strong Islamic Values.
+            At Al-Madinah Online School, our mission is to provide an
+            exceptional and varied education that nurtures the intellectual,
+            spiritual, and moral development of every child. We are committed to
+            fostering a love for learning grounded in strong ethical values,
+            while also offering a broad curriculum that prepares students for
+            all aspects of life. By cultivating compassionate, confident
+            individuals who are ready to contribute positively to society, we
+            aim to inspire and empower our students to achieve their full
+            potential in both their academic and personal journeys. Through a
+            comprehensive curriculum, personalised support, and a vibrant online
+            community, we strive to create a holistic educational experience.
           </p>
-          <h3 className="text-2xl text-gray-700 font-semibold">
-            Overview of the Cambridge Curriculum
-          </h3>
+          <div className="flex justify-center items-center">
+            <motion.h3
+              className="cursor-pointer text-3xl rounded w-auto p-4 px-7 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
+              initial={{ opacity: 0, scale: 0.2 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 20, // removed quotes around the duration
+                delay: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
+              Vision
+            </motion.h3>
+          </div>
           <p className="text-gray-700 pt-3 pb-5">
-            We are proud to fully implement the Cambridge curriculum, which is
-            recognized worldwide for its rigorous academic standards and
-            comprehensive approach to education. The Cambridge curriculum
-            emphasizes critical thinking, problem-solving, and a deep
-            understanding of subjects, preparing students for higher education
-            and beyond.
+            At Al-Madinah Online School, we are committed to providing a
+            comprehensive education that integrates core academic subjects such
+            as Maths, English, Science, and Islamic studies with the ethical
+            framework and principles of Islam. Our mission is to empower
+            students with the knowledge and skills to excel academically while
+            nurturing a strong foundation in Islamic values such as compassion,
+            integrity, and social responsibility. Through innovative teaching
+            methodologies and personalised learning experiences in both academic
+            and Islamic studies, we prepare students to impact society and
+            thrive in a diverse global community positively.
           </p>
-          <h3 className="text-2xl text-gray-700 font-semibold">
-            Key Stage 3 Subjects
-          </h3>
+          <div className="flex justify-center items-center">
+            <motion.h3
+              className="cursor-pointer text-3xl rounded w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold"
+              initial={{ opacity: 0, scale: 0.2 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 20,
+                delay: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
+              Values
+            </motion.h3>
+          </div>
           <p className="text-gray-700 pt-3">
-            In Years 7 to 9, our students engage in a broad range of subjects
-            that form the foundation of their secondary education. These
-            subjects include:
+            At Al-Madinah Online School, Islamic values shape our nurturing
+            environment. We emphasise respectful behaviour and good manners in
+            all interactions, fostering virtues such as honesty, kindness,
+            humility, and patience. Our commitment to excellence is guided by
+            sincerity, fairness, and empathy towards all. Encouraging
+            cooperation and support within our community, we instil
+            accountability and responsibility in our students, preparing them to
+            contribute to society positively.
           </p>
-          <ul className="pb-5">
+          {/* <ul className="pb-5">
             <li>
               <span className="font-semibold ">
                 English Language and Literature
@@ -92,16 +132,16 @@ export default function AboutUs() {
               Regular physical activity promotes health and well-being, with a
               focus on teamwork.
             </li>
-          </ul>
-          <h3 className="text-2xl text-gray-700 font-semibold">
+          </ul> */}
+          {/* <h3 className="text-2xl text-gray-700 font-semibold">
             Integration with Islamic Studies
-          </h3>
-          <p className="text-gray-700 pt-3">
+          </h3> */}
+          {/* <p className="text-gray-700 pt-3">
             Our curriculum seamlessly integrates Islamic studies, ensuring that
             students receive a balanced education that nurtures their spiritual
             and moral development. Key Islamic subjects include:
-          </p>
-          <ul className="pb-5">
+          </p> */}
+          {/* <ul className="pb-5">
             <li>
               <span className="font-semibold ">Quranic Studies</span> Students
               understand the Quran, learning its application in daily life.
@@ -139,16 +179,16 @@ export default function AboutUs() {
               Regular physical activity promotes health and well-being, with a
               focus on teamwork.
             </li>
-          </ul>
-          <h3 className="text-2xl text-gray-700 font-semibold">
-            Teaching Methodology
-          </h3>
-          <p className="text-gray-700 pt-3">
+          // </ul> */}
+          {/* // <h3 className="text-2xl text-gray-700 font-semibold">
+          //   Teaching Methodology
+          // </h3> */}
+          {/* <p className="text-gray-700 pt-3">
             Our teaching methods are designed to engage students actively in
             their learning journey. We employ a variety of instructional
             strategies, including:
-          </p>
-          <ul className="pb-5">
+          </p> */}
+          {/* <ul className="pb-5">
             <li>
               <span className="font-semibold ">Interactive Lessons</span> Use of
               technology and multimedia to make lessons dynamic and engaging.
@@ -167,15 +207,15 @@ export default function AboutUs() {
               Regular assessments and feedback to support student growth and
               improvement.
             </li>
-          </ul>
-          <h3 className="text-2xl text-gray-700 font-semibold">
+          </ul> */}
+          {/* <h3 className="text-2xl text-gray-700 font-semibold">
             Assessment and Evaluation
-          </h3>
-          <p className="text-gray-700 pt-3">
+          </h3> */}
+          {/* <p className="text-gray-700 pt-3">
             We use a comprehensive assessment system to evaluate student
             progress and achievement. This includes:
-          </p>
-          <ul className="pb-5">
+          </p> */}
+          {/* <ul className="pb-5">
             <li>
               <span className="font-semibold ">Examinations</span> Formal exams
               to assess understanding and knowledge retention.
@@ -189,17 +229,17 @@ export default function AboutUs() {
               <span className="font-semibold ">Formative Assessments </span>{" "}
               Regular quizzes and class activities to monitor ongoing progress.
             </li>
-          </ul>
-          <h3 className="text-2xl text-gray-700 font-semibold">
+          </ul> */}
+          {/* <h3 className="text-2xl text-gray-700 font-semibold">
             Extracurricular Enrichment
-          </h3>
-          <p className="text-gray-700 pt-3">
+          </h3> */}
+          {/* <p className="text-gray-700 pt-3">
             Beyond the classroom, we offer a variety of extracurricular
             activities that complement our academic program. These activities
             provide opportunities for students to explore their interests and
             develop new skills:
-          </p>
-          <ul className="pb-5">
+          </p> */}
+          {/* <ul className="pb-5">
             <li>
               <span className="font-semibold ">Clubs and Societies</span>{" "}
               Science Club, Debate Team, Art Club, Quran Recitation Group.
@@ -213,11 +253,11 @@ export default function AboutUs() {
               Participation in academic competitions, sports meets, and cultural
               events.
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
       <div className="pt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center gap-5 lg:gap-10">
-        <div className="p-7 h-80  border-2  border-[#ffa500] bg-white rounded-lg">
+        <div className="p-7 h-80  rounded-[40px] border-4 border-gray-700 bg-white ">
           <div className="">
             <AnimationPopUp>
               <div>
@@ -234,7 +274,7 @@ export default function AboutUs() {
             responsibility,and the pursuit of knowledge.
           </p>
         </div>
-        <div className="p-7 h-80   border-2  border-[#ffa500] bg-white rounded-lg">
+        <div className="p-7 h-80   rounded-[40px] border-4 border-gray-700 bg-white ">
           {/* <h3 className="text-2xl text-gray-700 font-semibold">
             Daily Schedule
           </h3> */}
@@ -252,7 +292,7 @@ export default function AboutUs() {
             to provide a balanced mix of learning,reflection,and recreation.
           </p>
         </div>
-        <div className="p-7 h-80 border-2  border-[#ffa500] bg-white rounded-lg">
+        <div className="p-7 h-80 rounded-[40px] border-4 border-gray-700 bg-white ">
           {/* <h3 className="text-2xl text-gray-700 font-semibold">
             {" "}
             Extracurricular Activities
@@ -279,7 +319,7 @@ export default function AboutUs() {
             </li>
           </ul>
         </div>
-        <div className="p-7 h-80 border-2  border-[#ffa500] bg-white rounded-lg">
+        <div className="p-7 h-80 rounded-[40px] border-4 border-gray-700 bg-white ">
           {/* <h3 className="text-2xl text-gray-700 font-semibold">
             Support Services
           </h3> */}
@@ -310,7 +350,7 @@ export default function AboutUs() {
             </li>
           </ul>
         </div>
-        <div className="p-7 h-80 border-2  border-[#ffa500] bg-white rounded-lg">
+        <div className="p-7 h-80 rounded-[40px] border-4 border-gray-700 bg-white ">
           {/* <h3 className="text-2xl text-gray-700 font-semibold">
            
           </h3> */}
@@ -328,7 +368,7 @@ export default function AboutUs() {
             contribute to the community through various events.
           </p>
         </div>
-        <div className="p-7 h-80 border-2  border-[#ffa500]  bg-white rounded-lg">
+        <div className="p-7 h-80 rounded-[40px] border-4 border-gray-700 bg-white ">
           {/* <h3 className="text-2xl text-gray-700 font-semibold">
             Parental Involvement
           </h3> */}
