@@ -101,26 +101,21 @@ export const HowWeTeach = () => {
 
         {/* Main content */}
         <div className="relative mx-auto w-9/12 grid grid-cols-1 gap-20 lg:gap-5 lg:grid-cols-5 py-20 lg:py-32 ">
-          <div className="lg:col-span-2 mt-8">
-            <AnimationPopUp>
-              <Button link={"#"} title={"Teaching Methodology"}></Button>
-            </AnimationPopUp>
+          <div className="lg:col-span-2 flex flex-col place-items-start justify-center">
+            <div className=" text-">
+              <AnimationPopUp>
+                <Button link={"#"} title={"Teaching Methodology"}></Button>
+              </AnimationPopUp>
+            </div>
             <div className="text-start pt-5">
-              {/* <h1 className="text-3xl font-bold tracking-tight text-white lg:text-2xl">
-                How we teach at our online school
-              </h1> */}
               <p className="mt-6 text-xl font-semibold leading-8 text-gray-200">
                 Our teaching methods are designed to engage students actively in
                 their learning journey. We employ a variety of instructional
                 strategies, including:
               </p>
             </div>
-            {/* <div className="pt-8">
-              <AnimationPopUp>
-                <Button link={"/how-we-teach"} title={"  Click Here "}></Button>
-              </AnimationPopUp>
-            </div> */}
           </div>
+
           <div className="lg:col-span-3  flex flex-col py-10 bg-white rounded-xl px-7 lg:px-10">
             <p className="text-2xl text-gray-700 font-semibold lg:font-bold">
               Live, timetabled lessons — plus lesson recordings!

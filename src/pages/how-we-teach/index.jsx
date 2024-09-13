@@ -68,21 +68,76 @@ const SlidingImageSection = () => {
   ];
   return (
     <div>
-      <div className="border-2 mx-4 mt-24 rounded-[40px] bg-[url('/middle_School_Banner.jpg')] bg-cover bg-center overflow-auto">
-        <div className=" bg-opacity-80 flex flex-col gap-8 md:flex-cols-2 w-full ">
+      <div className="border-4  mx-28 mt-36 mb-6 rounded-[40px] border-gray-700  bg-white ">
+        <div className="  flex flex-col gap-8 md:flex-cols-2 w-full ">
           {/* Text Section */}
-          <div className="flex-1 mt-6 text-white text-center   p-6">
-            <h2 className="text-6xl font-bold mb-4">
-              How we teach at our <br /> online school
-            </h2>
+          <div className="flex-1 mt-6 text-black text-center   p-6">
+            <h2 className="text-4xl font-bold mb-4">Teaching Methodology</h2>
             <p className="text-lg">
-              Individualised, flexible learning for every type of student — it’s
-              why we love being <br /> an online school.
+              Our teaching methods are designed to engage students actively in
+              their learning journey. We employ a variety of instructional
+              strategies, including:
             </p>
-          </div>
 
+            <div className="space-y-8">
+              {[
+                {
+                  color: "bg-sky-600",
+                  title: "Interactive Lessons",
+                  description:
+                    "Use of technology and multimedia to make lessons dynamic and engaging.",
+                },
+                {
+                  color: "bg-orange-600",
+                  title: "Collaborative Learning",
+                  description:
+                    " Group work and discussions to foster teamwork and communication skills.",
+                },
+                {
+                  color: "bg-yellow-600",
+                  title: "Inquiry-Based Learning",
+                  description:
+                    "Encouraging students to ask questions and explore topics in depth.",
+                },
+                {
+                  color: "bg-green-600",
+                  title: "Continuous Feedback",
+                  description:
+                    "Regular assessments and feedback to support student growth and improvement.",
+                },
+                // {
+                //   color: "bg-sky-600",
+                //   title: "Catch up on lessons with our lesson library",
+                //   description:
+                //     "Once class wraps up, a full recording is uploaded to our lesson library, along with all the resources from the day. Students can revisit these materials at any time to reinforce their knowledge.",
+                // },
+                // {
+                //   color: "bg-orange-600",
+                //   title: "Apply your knowledge after class",
+                //   description:
+                //     "Then, learners get to apply what they’ve learned through homework tasks, with regular low-pressure assessments designed to build their confidence.",
+                // },
+              ].map((item, index) => (
+                <div key={index} className="flex pt-10  items-center">
+                  <span
+                    className={`${item.color} w-24 h-24 rounded-full p-6 flex items-center justify-center shadow-lg`}
+                  >
+                    <IoCheckmarkSharp className="w-16 h-16 text-white" />
+                  </span>
+                  <div className="px-2 ">
+                    <p className="text-xl text-left lg:text-xl font-bold text-gray-800">
+                      {item.title}
+                    </p>
+                    <p className="text-base mt-1 text-gray-600">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
           {/* Image Slider Section */}
-          <div className="flex-2 mt-12 items-center overflow-y-hidden overflow-x-hidden flex w-full h-80">
+          {/* <div className="flex-2 mt-12 items-center overflow-y-hidden overflow-x-hidden flex w-full h-80">
             <div className="flex space-x-8">
               <img
                 src="/Family.jpg"
@@ -120,11 +175,11 @@ const SlidingImageSection = () => {
                 className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
               />
               {/* Add more images as needed */}
-            </div>
-          </div>
+          {/* </div> */}
+          {/* </div> */}
         </div>
       </div>
-
+      {/* 
       <div className="mx-4 mt-4 mb-8 flex flex-col items-center justify-center text-center space-y-4">
         <div className=" font-bold bg-blue-200 rounded-full text-blue-500 w-auto max-w-md p-2">
           Getting your education online
@@ -143,11 +198,122 @@ const SlidingImageSection = () => {
         <div className="border-2 w-auto max-w-md p-3 font-bold cursor-pointer hover:bg-gray-200 transition">
           VIEW EXAMPLE TIMETABLE
         </div>
-      </div>
+      </div> */}
+      <div className="border-4  mx-28 mt-36 mb-6 rounded-[40px] border-gray-700  bg-white ">
+        <div className="  flex flex-col gap-8 md:flex-cols-2 w-full ">
+          {/* Text Section */}
+          <div className="flex-1 mt-6 text-black text-center   p-6">
+            <h2 className="text-4xl font-bold mb-4">
+              Assessment and Evaluation{" "}
+            </h2>
+            <p className="text-lg">
+              We use a comprehensive assessment system to evaluate student
+              progress and achievement. This includes:
+            </p>
 
-      <div className="bg-slate-100 py-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* First Div: Sticky Content */}
+            <div className="space-y-8">
+              {[
+                {
+                  color: "bg-sky-600",
+                  title: "Examinations",
+                  description:
+                    "Formal exams to assess understanding and knowledge retention. ",
+                },
+                {
+                  color: "bg-orange-600",
+                  title: "Coursework ",
+                  description:
+                    "Assignments and projects that allow students to apply their learning in practical ways",
+                },
+                {
+                  color: "bg-yellow-600",
+                  title: "Formative Assessments ",
+                  description:
+                    "Regular quizzes and class activities to monitor ongoing progress. ",
+                },
+                // {
+                //   color: "bg-green-600",
+                //   title: "Continuous Feedback",
+                //   description:
+                //     "Regular assessments and feedback to support student growth and improvement.",
+                // },
+                // {
+                //   color: "bg-sky-600",
+                //   title: "Catch up on lessons with our lesson library",
+                //   description:
+                //     "Once class wraps up, a full recording is uploaded to our lesson library, along with all the resources from the day. Students can revisit these materials at any time to reinforce their knowledge.",
+                // },
+                // {
+                //   color: "bg-orange-600",
+                //   title: "Apply your knowledge after class",
+                //   description:
+                //     "Then, learners get to apply what they’ve learned through homework tasks, with regular low-pressure assessments designed to build their confidence.",
+                // },
+              ].map((item, index) => (
+                <div key={index} className="flex pt-10  items-center">
+                  <span
+                    className={`${item.color} w-24 h-24 rounded-full p-6 flex items-center justify-center shadow-lg`}
+                  >
+                    <IoCheckmarkSharp className="w-16 h-16 text-white" />
+                  </span>
+                  <div className="px-2 ">
+                    <p className="text-xl text-left lg:text-xl font-bold text-gray-800">
+                      {item.title}
+                    </p>
+                    <p className="text-base mt-1 text-gray-600">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Image Slider Section */}
+          {/* <div className="flex-2 mt-12 items-center overflow-y-hidden overflow-x-hidden flex w-full h-80">
+            <div className="flex space-x-8">
+              <img
+                src="/Family.jpg"
+                alt="Image 1"
+                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
+              />
+              <img
+                src="/family2.jpg"
+                alt="Image 2"
+                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
+              />
+              <img
+                src="/Family.jpg"
+                alt="Image 3"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
+              />
+              <img
+                src="/family2.jpg"
+                alt="Image 4"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
+              />
+              <img
+                src="/Family.jpg"
+                alt="Image 5"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
+              />
+              <img
+                src="/family2.jpg"
+                alt="Image 6"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
+              />
+              <img
+                src="/Family.jpg"
+                alt="Image 7"
+                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
+              />
+              {/* Add more images as needed */}
+          {/* </div> */}
+          {/* </div> */}
+        </div>
+      </div>
+      {/* <div className="bg-slate-100 py-10 relative">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+         
           <div className="sticky top-0 mx-auto px-4 h-screen flex items-center">
             <div className="flex flex-col items-center text-center bg-white p-10 rounded-lg shadow-xl">
               <h1 className="text-5xl font-bold text-gray-800">
@@ -165,70 +331,69 @@ const SlidingImageSection = () => {
           </div>
 
           {/* Second Div: Scrollable Content */}
-          <div className="mx-auto px-4">
-            <div className="space-y-8">
-              {[
-                {
-                  color: "bg-sky-600",
-                  title: "Login to your Student Hub",
-                  description:
-                    "The school day begins when students log into their Student Hub to check their timetables and join their virtual classrooms.",
-                },
-                {
-                  color: "bg-orange-600",
-                  title: "Experience engaging teacher-led lessons",
-                  description:
-                    "Each lesson is brought to life by one of our expert teachers, who delivers engaging classes to give our students the best understanding.",
-                },
-                {
-                  color: "bg-yellow-600",
-                  title: "Join in and participate online",
-                  description:
-                    "Lessons, which last 40 minutes each, are filled with activities like quizzes to test knowledge, breakout rooms for group work, and lots of opportunities to participate by typing or talking.",
-                },
-                {
-                  color: "bg-green-600",
-                  title:
-                    "Deepen your understanding with various lesson formats",
-                  description:
-                    "We offer various lesson formats for consolidated learning. Some lessons will introduce students to new concepts, while others are designed to explore a specific topic in more detail.",
-                },
-                {
-                  color: "bg-sky-600",
-                  title: "Catch up on lessons with our lesson library",
-                  description:
-                    "Once class wraps up, a full recording is uploaded to our lesson library, along with all the resources from the day. Students can revisit these materials at any time to reinforce their knowledge.",
-                },
-                {
-                  color: "bg-orange-600",
-                  title: "Apply your knowledge after class",
-                  description:
-                    "Then, learners get to apply what they’ve learned through homework tasks, with regular low-pressure assessments designed to build their confidence.",
-                },
-              ].map((item, index) => (
-                <div key={index} className="flex items-center">
-                  <span
-                    className={`${item.color} w-32 h-28 rounded-full p-6 flex items-center justify-center shadow-lg`}
-                  >
-                    <IoCheckmarkSharp className="w-16 h-16 text-white" />
-                  </span>
-                  <div className="ml-6">
-                    <p className="text-xl lg:text-2xl font-bold text-gray-800">
-                      {item.title}
-                    </p>
-                    <p className="text-base mt-4 text-gray-600">
-                      {item.description}
-                    </p>
-                  </div>
+      {/* <div className="mx-auto px-4">
+          <div className="space-y-8">
+            {[
+              {
+                color: "bg-sky-600",
+                title: "Login to your Student Hub",
+                description:
+                  "The school day begins when students log into their Student Hub to check their timetables and join their virtual classrooms.",
+              },
+              {
+                color: "bg-orange-600",
+                title: "Experience engaging teacher-led lessons",
+                description:
+                  "Each lesson is brought to life by one of our expert teachers, who delivers engaging classes to give our students the best understanding.",
+              },
+              {
+                color: "bg-yellow-600",
+                title: "Join in and participate online",
+                description:
+                  "Lessons, which last 40 minutes each, are filled with activities like quizzes to test knowledge, breakout rooms for group work, and lots of opportunities to participate by typing or talking.",
+              },
+              {
+                color: "bg-green-600",
+                title: "Deepen your understanding with various lesson formats",
+                description:
+                  "We offer various lesson formats for consolidated learning. Some lessons will introduce students to new concepts, while others are designed to explore a specific topic in more detail.",
+              },
+              {
+                color: "bg-sky-600",
+                title: "Catch up on lessons with our lesson library",
+                description:
+                  "Once class wraps up, a full recording is uploaded to our lesson library, along with all the resources from the day. Students can revisit these materials at any time to reinforce their knowledge.",
+              },
+              {
+                color: "bg-orange-600",
+                title: "Apply your knowledge after class",
+                description:
+                  "Then, learners get to apply what they’ve learned through homework tasks, with regular low-pressure assessments designed to build their confidence.",
+              },
+            ].map((item, index) => (
+              <div key={index} className="flex items-center">
+                <span
+                  className={`${item.color} w-32 h-28 rounded-full p-6 flex items-center justify-center shadow-lg`}
+                >
+                  <IoCheckmarkSharp className="w-16 h-16 text-white" />
+                </span>
+                <div className="ml-6">
+                  <p className="text-xl lg:text-2xl font-bold text-gray-800">
+                    {item.title}
+                  </p>
+                  <p className="text-base mt-4 text-gray-600">
+                    {item.description}
+                  </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-        </div>
-      </div>
-      <div className=" bg-slate-100 pb-10 px-5">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20  lg:gap-5 mx-auto my-20 py-20 max-w-6xl">
-          <AnimatedComponentLeft>
+        </div> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* <div className=" bg-slate-100 pb-10 px-5">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-20  lg:gap-5 mx-auto my-20 py-20 max-w-6xl"> */}
+      {/* <AnimatedComponentLeft>
             <div className="grid grid-cols-2 place-items-center lg:block lg:relative">
               <img
                 className="w-72 h-96 lg:w-60 lg:h-80 -rotate-3"
@@ -244,29 +409,30 @@ const SlidingImageSection = () => {
                 alt="familyImage"
               />
             </div>
-          </AnimatedComponentLeft>
-          <AnimatedComponentRight>
-            <div className="flex flex-col gap-5 px-5">
-              <p className="w-60 font-bold text-blue-500 py-2 px-4 border-1 border-sky-400 rounded-full bg-slate-200">
+          </AnimatedComponentLeft> */}
+
+      {/* <AnimatedComponentRight> */}
+      {/* <div className="flex flex-col gap-5 px-5">
+              {/* <p className="w-60 font-bold text-blue-500 py-2 px-4 border-1 border-sky-400 rounded-full bg-slate-200">
                 Our learning platform
-              </p>
-              {/* <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-700">
+              </p> */}
+      {/* <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-gray-700">
               Why families love our online school
             </h2> */}
-              <p className="text-xl md:text-1xl lg:text-5xl font-bold text-gray-700">
+      {/* <p className="text-xl md:text-1xl lg:text-5xl font-bold text-gray-700">
                 Full school environment in one virtual space
-              </p>
+              </p> */}
 
-              <p className="text-lg font-semibold">
+      {/* <p className="text-lg font-semibold">
                 At Al Madinah online school, Our comprehensive online learning
                 platform means everything is in one place, and students have all
                 the resources they need at their fingertips.
-              </p>
-            </div>
-          </AnimatedComponentRight>
-        </div>
+              </p> */}
+      {/* </div> */}
+      {/* </AnimatedComponentRight> */}
+      {/* </div> */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center max-w-6xl  mx-auto">
+      {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center max-w-6xl  mx-auto">
           <div className="flex flex-col gap-5">
             <span className="w-12 h-12 bg-green-600 rounded-full p-3">
               <IoCheckmarkSharp className="w-6 h-6  text-white" />
@@ -349,9 +515,9 @@ const SlidingImageSection = () => {
               tech features, events, competitions, celebrations, and much more.
             </p>
           </div>
-        </div>
-      </div>
-      <div className=" bg-slate-100 pb-10 px-5">
+        </div> */}
+      {/* </div> */}
+      {/* <div className=" bg-slate-100 pb-10 px-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20  lg:gap-5 mx-auto my-20 py-20 max-w-6xl">
           <AnimatedComponentLeft>
             <div className="grid grid-cols-2 place-items-center lg:block lg:relative">
@@ -469,8 +635,8 @@ const SlidingImageSection = () => {
           </div>
         </div>
       </div> */}
-      </div>
-      <div className=" bg-slate-100 pb-10 px-5">
+      {/* </div> */}
+      {/* <div className=" bg-slate-100 pb-10 px-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20  lg:gap-5 mx-auto my-20 py-20 max-w-6xl">
           <AnimatedComponentLeft>
             <div className="grid grid-cols-2 place-items-center lg:block lg:relative">
@@ -555,9 +721,9 @@ const SlidingImageSection = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div class="bg-white p-6 rounded-lg">
+      {/* <div class="bg-white p-6 rounded-lg">
         <div class="bg-white  rounded-lg ">
           <div className="flex flex-col items-center justify-center gap-5 text-center px-5">
             <p className="w-60 font-bold text-blue-500 py-2 px-4 border border-sky-400 rounded-full bg-slate-200">
@@ -569,10 +735,10 @@ const SlidingImageSection = () => {
             </p>
           </div>
         </div>
-      </div>
-      <div className="grid grid-cols-9 gap-4 mx-auto pb-8 pt-16 px-5">
+      </div> */}
+      {/* <div className="grid grid-cols-9 gap-4 mx-auto pb-8 pt-16 px-5">
         {/* Second Div - Swiper */}
-        <div className="flex flex-row gap-1 col-span-9 pb-8">
+      {/* <div className="flex flex-row gap-1 col-span-9 pb-8">
           <Swiper
             slidesPerView={3} // Default to showing 3 slides at a time
             spaceBetween={20} // Space between slides
@@ -635,28 +801,28 @@ const SlidingImageSection = () => {
             ))}
 
             {/* Navigation Buttons */}
-            <div
+      {/* <div
               id="swiper-button-prev"
               className="bg-white !absolute left-2 top-1/2 z-10 rounded-full group hover:bg-teal-500 transition duration-500"
             >
               <BsArrowLeftCircleFill className="text-gray w-8 h-8 font-extrabold cursor-pointer group-hover:text-white transition duration-500" />
-            </div>
-            <div
+            </div> */}
+      {/* <div
               id="swiper-button-next"
               className="bg-white !absolute top-1/2 z-10 right-2 rounded-full group hover:bg-teal-500 transition duration-500"
             >
               <BsArrowRightCircleFill className="text-gray w-8 h-8 font-extrabold cursor-pointer group-hover:text-white transition duration-500" />
-            </div>
-          </Swiper>
-        </div>
-      </div>
-      <div id="key-Stages" className="mx-auto max-w-3xl py-10 sm:py-20">
-        <div className="flex justify-center">
+            </div> */}
+      {/* </Swiper> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* <div id="key-Stages" className="mx-auto max-w-3xl py-10 sm:py-20">
+        {/* <div className="flex justify-center">
           <p className="font-bold text-blue-500 py-2 px-4 border-1 border-sky-400 rounded-full bg-slate-200">
             Key Stages
           </p>
-        </div>
-        <div className="text-center pt-3">
+        </div> */}
+      {/* <div className="text-center pt-3">
           <h1 className="text-xl font-semibold tracking-tight text-gray-900 md:text-2xl lg:text-4xl">
             Study with us and discover your love for learning
           </h1>
@@ -665,10 +831,10 @@ const SlidingImageSection = () => {
             where academic achievement fosters the development of confident,
             compassionate individuals guided by Islamic principles.
           </p>
-        </div>
-      </div>
+        </div> */}
+      {/* </div>  */}
       <AnimationBottom>
-        <div className="flex flex-wrap gap-8 justify-center">
+        {/* <div className="flex flex-wrap gap-8 justify-center">
           {schoolCardList.map((item, index) => (
             <div
               key={index}
@@ -712,7 +878,7 @@ const SlidingImageSection = () => {
               >
                 {item.linkTitle}
               </a> */}
-                  <AnimationPopUp>
+        {/* <AnimationPopUp>
                     <div>
                       <Button link={item.link} title={item.linkTitle} />
                     </div>
@@ -721,7 +887,7 @@ const SlidingImageSection = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </AnimationBottom>
       <div className="pt-5 mt-20">
         <div className="relative isolate px-4 overflow-hidden">
