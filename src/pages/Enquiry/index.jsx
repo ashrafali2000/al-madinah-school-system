@@ -196,39 +196,37 @@ export default function Enquiry() {
   ];
   return (
     <div>
-      <div className="pt-5 mt-28">
-        <div className="border-gray-300 border-4 rounded-2xl bg-gray-50  p-10 ml-8 flex flex-col items-start justify-start max-w-8xl mr-8  ">
-          <Link href={`/`} className="text-lg font-bold mb-2">
+      {/* <div className="pt-5 mt-28"> */}
+      {/* <div className="border-gray-300 border-4 rounded-2xl bg-gray-50  p-10 ml-8 flex flex-col items-start justify-start max-w-8xl mr-8  "> */}
+      {/* <Link href={`/`} className="text-lg font-bold mb-2">
             Admissions
-          </Link>
-          <h1 className="text-4xl font-bold mb-4">Join us</h1>
-          <p className="text-lg font-bold mb-2">
+          </Link> */}
+      {/* <h1 className="text-4xl font-bold mb-4">Join us</h1> */}
+      {/* <p className="text-lg font-bold mb-2">
             We’re a Top 4% British Private
-          </p>
-          <p className="text-lg font-bold mb-6">
-            Independent School based on A*/A <br /> grades
-          </p>
-          {/* <hr className="my-18 border-yellow-300 " /> */}
-        </div>
-      </div>
-
-      <div className="pt-0 mt-0">
+          </p> */}
+      {/* <p className="text-lg font-bold mb-6"> */}
+      {/* </p> */}
+      {/* <hr className="my-18 border-yellow-300 " /> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* <div className="pt-0 ">
         <hr className="my-18 border-yellow-300 border-t-8 w-full max-w-9xl mx-auto" />
-      </div>
-      <div className="   p-10  ml-8  ">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12  ">
-          <div className="md:col-span-2 bg-white p-4 md:p-8 flex flex-row items-center justify-center">
+      </div> */}
+      <div className=" mt-28  p-10  ml-8  ">
+        <div className="mx-auto grid grid-cols-1  md:grid-cols-3 gap-12 max-w-7xl ">
+          <div className="md:col-span-2 w-auto rounded-[40px] border-4 border-gray-700 h-[1550px] bg-white p-4 md:p-8 flex flex-col  ">
             <div className="flex flex-col">
-              <h1 className="text-2xl text-blue-950  font-bold">
+              {/* <h1 className="text-2xl text-blue-950  font-bold">
                 Current Enrolment: Sept 2024/2025 Academic Year
-              </h1>
-              <p className="text-xl text-black mt-4">
+              </h1> */}
+              {/* <p className="text-xl text-black mt-4">
                 Please use this form to complete your application to Cambridge
                 Home School Online. Follow the link to pay our registration fee
                 at the end of the form and a member of our admissions team will
                 be in touch.{" "}
-              </p>
-              <p className="text-xl text-black mt-4">
+              </p> */}
+              {/* <p className="text-xl text-black mt-4">
                 If you are not ready to apply yet and would like an informal
                 chat with our admissions team{" "}
                 <Link href={`/`}>
@@ -241,14 +239,14 @@ export default function Enquiry() {
                   <u className="text-blue-800"> contact us</u>
                 </Link>{" "}
                 and we will be glad to help.
-              </p>
-              <div className=" bg-blue-950 text-white font-semibold text-2xl mt-4 pb-10 max-w-8xl gap-3 ">
+              </p> */}
+              <div className=" bg-blue-950 rounded-[40px] border-4 border-[#ffa500] text-white font-semibold  text-2xl mt-4 pb-10 gap-3 ">
                 <h1 className="ml-20 pb-10  text-2xl lg:text-4xl mt-6">
                   {" "}
                   Application Form{" "}
                 </h1>
 
-                <div className="max-w-2xl mx-auto p-8 bg-white text-black shadow-lg rounded-lg mt-6">
+                <div className="max-w-2xl mx-auto p-8  bg-white text-black shadow-lg rounded-lg mt-6">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label
@@ -527,10 +525,10 @@ export default function Enquiry() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-1 bg-white p-4">
+          <div className="md:col-span-1 border-4 border-gray-700 rounded-[40px] bg-white p-4">
             {" "}
             <div className="grid grid-cols-1 gap-4">
-              <Link href={`/`}>
+              {/* <Link href={`/`}>
                 <div className="relative z-0 w-64 h-64">
                   <div className="p-0 z-0">
                     <img
@@ -566,7 +564,7 @@ export default function Enquiry() {
                     <button className="w-full text-white">Learn More</button>
                   </div>
                 </div>
-              </Link>
+              </Link> */}
 
               {cardData.map((card, index) => {
                 // Define an array of colors you want to use for the buttons
@@ -585,7 +583,7 @@ export default function Enquiry() {
                   <Link href={"/"}>
                     <div
                       key={card.id}
-                      className="relative z-0 w-64 h-64 bg-blu "
+                      className="relative z-0 w-90 h-96 border-8 border-gray-700 rounded-lg "
                     >
                       <div className="p-0 z-0">
                         <img
@@ -595,18 +593,18 @@ export default function Enquiry() {
                         />
                       </div>
                       <div className="absolute inset-0 bg-opacity-50 bg-black text-white p-4 flex items-left justify-center">
-                        <h3 className="text-xl font-bold">{card.title}</h3>
-                        <p className="text-base ml font-bold">
+                        {/* <h3 className="text-xl font-bold">{card.title}</h3> */}
+                        {/* <p className="text-base ml font-bold">
                           {card.description}
-                        </p>
+                        </p> */}
                       </div>
                       <div className="absolute bottom-0 left-0 w-full bg-opacity-50 bg-black items-left justify-center">
-                        <button
+                        {/* <button
                           // color="primary"
                           className={`w-full text-white ${buttonColor}`}
                         >
                           {card.btnText}
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                   </Link>
@@ -616,11 +614,11 @@ export default function Enquiry() {
           </div>
         </div>
       </div>
-      <div className="bg-amber-700 max ">
-        <div className="p-1 flex flex-wrap items-center justify-center">
-          {/* Card 1 */}
-          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg group">
-            <svg
+      {/* <div className="bg-amber-700 max "> */}
+      {/* <div className="p-1 flex flex-wrap items-center justify-center"> */}
+      {/* Card 1 */}
+      {/* <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg group"> */}
+      {/* <svg
               className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
               viewBox="0 0 375 283"
               fill="none"
@@ -643,41 +641,151 @@ export default function Enquiry() {
                 transform="rotate(-45 0 107.48)"
                 fill="white"
               />
-            </svg>
-            <div className="relative pt-0 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <div
+            </svg> */}
+      {/* <div className="relative pt-0 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              {/* <div
                 className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
                 style={{
                   background: "radial-gradient(black, transparent 60%)",
                   transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
                   opacity: 0.2,
                 }}
-              ></div>
-              {/* <img
+              ></div> */}
+      {/* <img
                 className="relative w-s"
                 src={`./family2.jpg`}
                 alt="Peace Lily"
                 width={160}
                 height={160}
               /> */}
-            </div>
-            <div className="relative text-white px-4 pb-5 mt-4">
-              {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
-              <div className="flex flex-col  gap-7 justify-between">
-                <div>
+      {/* </div>  */}
+      {/* <div className="relative text-white px-4 pb-5 mt-4"> */}
+      {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
+      {/* <div className="flex flex-col  gap-7 justify-between">
+                {/* <div>
+                  <img src={`./family2.jpg`} alt="" />
+                </div> */}
+      {/* <span className=" font-semibold text-xl">22nd August 2024</span> */}
+      {/* <span className=" rounded-full text-white text-xl font-bold px-0 py-2 leading-none flex items-center"> */}{" "}
+      {/* The Importance of taster Days in Online Education{" "} */}
+      {/* </span> */}
+      {/* </div>  */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* Card 2 */}
+      {/* <div className="flex-shrink-0 m-6 relative overflow-hidden  bg-teal-500 rounded-lg max-w-xs shadow-lg group"> */}
+      {/* <svg
+              className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
+              viewBox="0 0 375 283"
+              fill="none"
+              style={{ opacity: 0.1 }}
+            >
+              <rect
+                x="159.52"
+                y="175"
+                width="152"
+                height="152"
+                rx="8"
+                transform="rotate(-45 159.52 175)"
+                fill="white"
+              />
+              <rect
+                y="107.48"
+                width="152"
+                height="152"
+                rx="8"
+                transform="rotate(-45 0 107.48)"
+                fill="white"
+              />
+            </svg> */}
+      {/* <div className="relative pt-0 px-10 flex items-center justify-center group-hover:scale-110 transition-transform"> */}
+      {/* <div
+                className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                style={{
+                  background: "radial-gradient(black, transparent 60%)",
+                  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
+                  opacity: 0.2,
+                }}
+              ></div> */}
+      {/* <img
+                className="relative w-s"
+                src={`./family2.jpg`}
+                alt="Peace Lily"
+                // width={160}
+                // height={160}
+              /> */}
+      {/* </div> */}
+      {/* <div className="relative text-white px-4 pb-5 mt-4"> */}
+      {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
+      {/* <div className="flex flex-col  gap-7 justify-between"> */}
+      {/* <div>
+                  <img src={`./family2.jpg`} alt="" />
+                </div> */}
+      {/* <span className=" font-semibold text-xl">19th August 2024</span> */}
+      {/* <span className=" rounded-full text-white text-xl font-bold px-0 py-2 leading-none flex items-center"> */}{" "}
+      {/* The Importance of taster Days in Online Education{" "} */}
+      {/* </span> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* Card 3 */}
+      {/* <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg group"> */}
+      {/* <svg
+              className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
+              viewBox="0 0 375 283"
+              fill="none"
+              style={{ opacity: 0.1 }}
+            >
+              <rect
+                x="159.52"
+                y="175"
+                width="152"
+                height="152"
+                rx="8"
+                transform="rotate(-45 159.52 175)"
+                fill="white"
+              />
+              <rect
+                y="107.48"
+                width="152"
+                height="152"
+                rx="8"
+                transform="rotate(-45 0 107.48)"
+                fill="white"
+              />
+            </svg> */}
+      {/* <div className="relative pt-0 px-10 flex items-center justify-center group-hover:scale-110 transition-transform"> */}
+      {/* <div
+                className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+                style={{
+                  background: "radial-gradient(black, transparent 60%)",
+                  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
+                  opacity: 0.2,
+                }}
+              ></div> */}
+      {/* <img
+                className="relative w-s"
+                src={`./family2.jpg`}
+                alt="Peace Lily"
+                // width={160}
+                // height={160}
+              /> */}
+      {/* </div> */}
+      {/* <div className="relative text-white px-4 pb-5 mt-4"> */}
+      {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
+      {/* <div className="flex flex-col  gap-7 justify-between"> */}
+      {/* <div>
                   <img src={`./family2.jpg`} alt="" />
                 </div>
-                <span className=" font-semibold text-xl">22nd August 2024</span>
-                <span className=" rounded-full text-white text-xl font-bold px-0 py-2 leading-none flex items-center">
-                  {" "}
-                  The Importance of taster Days in Online Education{" "}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="flex-shrink-0 m-6 relative overflow-hidden  bg-teal-500 rounded-lg max-w-xs shadow-lg group">
+                <span className=" font-semibold text-xl">22nd August 2024</span> */}
+      {/* <span className=" rounded-full text-white text-xl font-bold px-0 py-2 leading-none flex items-center"> */}{" "}
+      {/* The Importance of taster Days in Online Education{" "} */}
+      {/* </span> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* </div> */}
+      {/* Card 4 */}
+      {/* <div className="flex-shrink-0 m-6 relative overflow-hidden  bg-teal-500 rounded-lg max-w-xs shadow-lg group">
             <svg
               className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
               viewBox="0 0 375 283"
@@ -718,67 +826,10 @@ export default function Enquiry() {
                 // width={160}
                 // height={160}
               /> */}
-            </div>
+      {/* </div>
             <div className="relative text-white px-4 pb-5 mt-4">
               {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
-              <div className="flex flex-col  gap-7 justify-between">
-                <div>
-                  <img src={`./family2.jpg`} alt="" />
-                </div>
-                <span className=" font-semibold text-xl">19th August 2024</span>
-                <span className=" rounded-full text-white text-xl font-bold px-0 py-2 leading-none flex items-center">
-                  {" "}
-                  The Importance of taster Days in Online Education{" "}
-                </span>
-              </div>
-            </div>
-          </div>
-          {/* Card 3 */}
-          <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg group">
-            <svg
-              className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
-              viewBox="0 0 375 283"
-              fill="none"
-              style={{ opacity: 0.1 }}
-            >
-              <rect
-                x="159.52"
-                y="175"
-                width="152"
-                height="152"
-                rx="8"
-                transform="rotate(-45 159.52 175)"
-                fill="white"
-              />
-              <rect
-                y="107.48"
-                width="152"
-                height="152"
-                rx="8"
-                transform="rotate(-45 0 107.48)"
-                fill="white"
-              />
-            </svg>
-            <div className="relative pt-0 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <div
-                className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                style={{
-                  background: "radial-gradient(black, transparent 60%)",
-                  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
-                  opacity: 0.2,
-                }}
-              ></div>
-              {/* <img
-                className="relative w-s"
-                src={`./family2.jpg`}
-                alt="Peace Lily"
-                // width={160}
-                // height={160}
-              /> */}
-            </div>
-            <div className="relative text-white px-4 pb-5 mt-4">
-              {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
-              <div className="flex flex-col  gap-7 justify-between">
+      {/* <div className="flex flex-col  gap-7 justify-between">
                 <div>
                   <img src={`./family2.jpg`} alt="" />
                 </div>
@@ -788,68 +839,10 @@ export default function Enquiry() {
                   The Importance of taster Days in Online Education{" "}
                 </span>
               </div>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="flex-shrink-0 m-6 relative overflow-hidden  bg-teal-500 rounded-lg max-w-xs shadow-lg group">
-            <svg
-              className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
-              viewBox="0 0 375 283"
-              fill="none"
-              style={{ opacity: 0.1 }}
-            >
-              <rect
-                x="159.52"
-                y="175"
-                width="152"
-                height="152"
-                rx="8"
-                transform="rotate(-45 159.52 175)"
-                fill="white"
-              />
-              <rect
-                y="107.48"
-                width="152"
-                height="152"
-                rx="8"
-                transform="rotate(-45 0 107.48)"
-                fill="white"
-              />
-            </svg>
-            <div className="relative pt-0 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <div
-                className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                style={{
-                  background: "radial-gradient(black, transparent 60%)",
-                  transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
-                  opacity: 0.2,
-                }}
-              ></div>
-              {/* <img
-                className="relative w-s"
-                src={`./family2.jpg`}
-                alt="Peace Lily"
-                // width={160}
-                // height={160}
-              /> */}
-            </div>
-            <div className="relative text-white px-4 pb-5 mt-4">
-              {/* <span className="block opacity-75 -mb-1">Indoor</span> */}
-              <div className="flex flex-col  gap-7 justify-between">
-                <div>
-                  <img src={`./family2.jpg`} alt="" />
-                </div>
-                <span className=" font-semibold text-xl">22nd August 2024</span>
-                <span className=" rounded-full text-white text-xl font-bold px-0 py-2 leading-none flex items-center">
-                  {" "}
-                  The Importance of taster Days in Online Education{" "}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </div> */}
+      {/* </div>  */}
+      {/* </div> */}
+      {/* </div> */}
     </div>
   );
 }

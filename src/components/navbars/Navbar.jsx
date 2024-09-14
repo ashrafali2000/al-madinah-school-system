@@ -174,8 +174,8 @@ export const Navbar = () => {
             </ul>
           </div>
           <div className="hidden lg:flex items-center gap-3 xl:gap-6">
-            <Button link="/Enquiry" title={"enquire"} />
-            <BorderButton link="/" title={"register now"} />
+            <Button link="/Enquiry" title={"register now"} />
+            <BorderButton link="/" title={"enquire"} />
           </div>
         </div>
       </nav>

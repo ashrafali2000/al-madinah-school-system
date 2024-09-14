@@ -38,7 +38,8 @@ export default function AboutUs() {
           <div className="mt-4 flex flex-col gap-2">
             <p className="text-gray-700 pt-3 font-medium text-xl">
               Have a question or need more information? Please fill out the form
-              ,and we will get back to you as soon as possible.
+              ,and <br />
+              we will get back to you as soon as possible.
             </p>
             <div className="flex   ">
               <motion.h3
