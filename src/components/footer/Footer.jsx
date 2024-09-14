@@ -4,19 +4,65 @@ import { ImYoutube } from "react-icons/im";
 import { FaFacebook } from "react-icons/fa6";
 import { RiStarFill } from "react-icons/ri";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
+import {
+  Pagination,
+  Navigation,
+  Autoplay,
+  Mousewheel,
+  Keyboard,
+} from "swiper/modules";
 export const Footer = () => {
   const [dropdown, setDropDown] = useState(false);
+  const data = [
+    {
+      img: "./family.jpg",
+      link: "Joel A. Hofer",
+      title: "Head of Mddile School",
+    },
+
+    {
+      img: "./family2.jpg",
+      link: "Abraham",
+      title: " Leader of learning Science",
+    },
+    {
+      img: "./family.jpg",
+      link: "Alan",
+      title: "Leader of Bussiness and Economics",
+    },
+    {
+      img: "./family2.jpg",
+      link: "Eva Snap ",
+      title: "Head of faculty-English",
+    },
+    {
+      img: "./family.jpg",
+      link: "farhan Ahmed",
+      title: "Leader of Bussiness and Economics",
+    },
+    {
+      img: "./family2.jpg",
+      link: "Sea Edward",
+      title: "Leader of Learnng History",
+    },
+  ];
   return (
     <footer className="rounded-[40px]  bg-white max-w-7xl border-4  border-gray-700   mx-auto">
-      <div className="mx-auto w-full max-w-7xl p-4 py-6 lg:py-8">
-        <div className="md:flex md:justify-between">
-          <div className="flex flex-col  ">
-            <div className="mb-6 md:mb-0 ml-20">
+      <div className="mx-auto w-full  py-4 lg:py-4">
+        <div className="md:flex ">
+          <div className=" flex flex-col  ">
+            <div className="  md:mb-0 ml-20">
               <a href="/" className="">
                 <img src="./logo.png" className="h-32 " alt="FlowBite Logo" />
               </a>
             </div>
-            <div className="flex pl-10 flex-col items-center gap-4">
+            <div className="flex pl-10 flex-col items-center gap-2">
               <div className="flex flex-col  gap-3 pt-10 ">
                 <p className="text-md text-gray-800 text-center">07878165910</p>
                 <p className="text-md text-gray-800 text-center">
@@ -60,9 +106,10 @@ export const Footer = () => {
               </div>
             </div>
           </div>
+          <div className="ml-10 border-l-2 border-gray-700 h-72"></div>
 
-          {/* <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
-            <div>
+          {/* <div className=" mx-auto px-4 grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4"> */}
+          {/* <div>
               <h2 className="mb-6 text-lg font-bold text-gray-800 uppercase">
                 Partners
               </h2>
@@ -194,10 +241,92 @@ export const Footer = () => {
                   </a>
                 </li>
               </ul>
+            </div> */}
+          <div className="grid grid-cols-9 gap-4   ">
+            {/* First Div */}
+
+            {/* Second Div - Swiper */}
+            <div className="flex flex-row gap-1  col-span-9 pb-8">
+              <Swiper
+                slidesPerView={3} // Default to showing 3 slides at a time
+                spaceBetween={20} // Space between slides
+                speed={1000}
+                navigation={{
+                  prevEl: "#swiper-button-prev",
+                  nextEl: "#swiper-button-next",
+                }}
+                modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                className="!relative"
+                style={{
+                  "--swiper-navigation-color": "#fff",
+                  "--swiper-navigation-size": "25px",
+                }}
+                breakpoints={{
+                  320: {
+                    // Mobile screens
+                    slidesPerView: 1, // Show 1 slide at a time
+                    spaceBetween: 10, // Adjust space between slides for mobile
+                  },
+                  640: {
+                    // Small screens and up
+                    slidesPerView: 2,
+                    spaceBetween: 15,
+                  },
+                  768: {
+                    // Medium screens and up
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                  },
+                  1024: {
+                    // Large screens and up
+                    slidesPerView: 3, // Adjust as needed for larger screens
+                    spaceBetween: 20,
+                  },
+                }}
+              >
+                {data.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="lg:px-5 py-6  transform transition-transform duration-300 hover:-rotate-3">
+                      <Link href={`/`}>
+                        <div className="flex flex-col border border-gray-400 items-center gap-3 bg-white p-6 rounded-lg shadow-lg">
+                          <div className="w-auto h-auto flex items-center justify-center overflow-hidden">
+                            <img
+                              src={item.img}
+                              alt={`Image ${index}`}
+                              className="w-full h-full object-cover rounded-lg"
+                            />
+                          </div>
+                          <h4 className="text-center text-lg font-bold leading-none text-black mt-2">
+                            {/* {item.link} */}
+                          </h4>
+                          <p className="text-center text-sm leading-none text-gray-500 mt-2">
+                            {/* {item.title} */}
+                          </p>
+                        </div>
+                      </Link>
+                    </div>
+                  </SwiperSlide>
+                ))}
+
+                {/* Navigation Buttons */}
+                <div
+                  id="swiper-button-prev"
+                  className="bg-white !absolute left-2 top-1/2 z-10 rounded-full group hover:bg-teal-500 transition duration-500"
+                >
+                  <BsArrowLeftCircleFill className="text-gray w-8 h-8 font-extrabold cursor-pointer group-hover:text-white transition duration-500" />
+                </div>
+                <div
+                  id="swiper-button-next"
+                  className="bg-white !absolute top-1/2 z-10 right-2 rounded-full group hover:bg-teal-500 transition duration-500"
+                >
+                  <BsArrowRightCircleFill className="text-gray w-8 h-8 font-extrabold cursor-pointer group-hover:text-white transition duration-500" />
+                </div>
+              </Swiper>
             </div>
-          </div> */}
+          </div>
+          {/* </div> */}
         </div>
-        {/* <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" /> */}
+        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         {/* <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm  sm:text-center text-gray-700">
             © 2024{" "}
@@ -254,18 +383,17 @@ export const Footer = () => {
         </div> */}
         {/* last footer */}
       </div>
-      <hr className="h-[2px] bg-gray-300" />
+      {/* <hr className="h-[1px] bg-gray-300" /> */}
       <div className="">
         <div className=" mx-auto py-4 max-w-7xl text-sm p-3">
-          {/* <div className="flex text-center  gap-4">
-            {/* <Link href={"/"}>Privacy policy</Link> */}
+          {/* <div className="flex text-center  gap-4"> */}
+          {/* <Link href={"/"}>Privacy policy</Link> */}
           {/* <Link href={"/"}>Terms of Use</Link> */}
           {/* <Link href={"/"}>Refundes</Link> */}
           {/* <Link href={"/"}>Website by Bawdicsoft</Link> */}
           {/* <Link href={"/"}>Show Company details</Link> */}
           {/* <Link href={"/"}>Show Company details</Link> */}
-
-          {/* </div>  */}
+          {/* </div> */}
           <p className="text-center">
             {" "}
             All Rights Are Reserved By{" "}

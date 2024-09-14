@@ -182,7 +182,7 @@ export const Navbar = () => {
       <Drawer open={open} drawerHandler={drawerHandler} />
 
       {/* Drawer */}
-      {/* <Drawer open={open} drawerHandler={drawerHandler} /> */}
+      <Drawer open={open} drawerHandler={drawerHandler} />
     </>
   );
 };
