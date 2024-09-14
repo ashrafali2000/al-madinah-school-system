@@ -75,8 +75,8 @@ const SlidingImageSection = () => {
             <h2 className="text-4xl font-bold mb-4">Teaching Methodology</h2>
             <p className="text-lg">
               Our teaching methods are designed to engage students actively in
-              their learning journey. We employ a variety of instructional
-              strategies, including:
+              their learning journey.
+              <br /> We employ a variety of instructional strategies, Including
             </p>
 
             <div className="space-y-8">
@@ -208,7 +208,7 @@ const SlidingImageSection = () => {
             </h2>
             <p className="text-lg">
               We use a comprehensive assessment system to evaluate student
-              progress and achievement. This includes:
+              progress and achievement. This Includes:
             </p>
 
             <div className="space-y-8">
@@ -316,32 +316,33 @@ const SlidingImageSection = () => {
           {/* Text Section */}
           <div className="flex-1 mt-6 text-black text-center   p-6">
             <h2 className="text-4xl font-bold mb-4">
-              Assessment and Evaluation{" "}
+              Extracurricular Enrichment
             </h2>
             <p className="text-lg">
-              We use a comprehensive assessment system to evaluate student
-              progress and achievement. This includes:
+              Beyond the classroom, we offer a variety of extracurricular
+              activities that complement our academic program.
+              <br /> These activities provide opportunities for students to
+              explore their interests and develop new skills
             </p>
 
             <div className="space-y-8">
               {[
                 {
                   color: "bg-sky-600",
-                  title: "Examinations",
+                  title: "Clubs and Societies",
                   description:
-                    "Formal exams to assess understanding and knowledge retention. ",
+                    "Science Club, Debate Team, Art Club, Quran Recitation Group.",
                 },
                 {
                   color: "bg-orange-600",
-                  title: "Coursework ",
-                  description:
-                    "Assignments and projects that allow students to apply their learning in practical ways",
+                  title: "Sports Teams ",
+                  description: "Soccer, Basketball, Swimming, Athletics.",
                 },
                 {
                   color: "bg-yellow-600",
-                  title: "Formative Assessments ",
+                  title: "Competitions and Events",
                   description:
-                    "Regular quizzes and class activities to monitor ongoing progress. ",
+                    " Participation in academic competitions, sports meet, and cultural events.",
                 },
                 // {
                 //   color: "bg-green-600",

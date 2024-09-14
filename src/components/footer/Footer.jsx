@@ -326,7 +326,7 @@ export const Footer = () => {
           </div>
           {/* </div> */}
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className=" border-gray-200 sm:mx-auto dark:border-gray-700 " />
         {/* <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm  sm:text-center text-gray-700">
             © 2024{" "}
@@ -385,7 +385,7 @@ export const Footer = () => {
       </div>
       {/* <hr className="h-[1px] bg-gray-300" /> */}
       <div className="">
-        <div className=" mx-auto py-4 max-w-7xl text-sm p-3">
+        <div className=" mx-auto  max-w-7xl text-sm p-2">
           {/* <div className="flex text-center  gap-4"> */}
           {/* <Link href={"/"}>Privacy policy</Link> */}
           {/* <Link href={"/"}>Terms of Use</Link> */}

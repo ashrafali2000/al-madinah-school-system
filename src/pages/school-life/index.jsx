@@ -262,7 +262,7 @@ export default function indexSchoolLife() {
             <div className="flex flex-col gap-4">
               <div className="flex  items-start  ">
                 <motion.h3
-                  className=" border-2 border-gray-700 rounded-lg cursor-pointer text-3xl rounded w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
+                  className=" border-2 border-gray-700 rounded-lg cursor-pointer text-3xl  w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
                   initial={{ opacity: 0, scale: 0.2 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{

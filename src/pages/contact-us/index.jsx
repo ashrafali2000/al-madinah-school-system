@@ -4,13 +4,13 @@ export default function AboutUs() {
   return (
     <div className="my-32 mx-10">
       <div>
-        <div className=" border-4 border-gray-700 rounded-[40px] bg-white p-6">
-          <p className="text-gray-700 text-xl pt-3 pb-5">
+        <div className="  border-4 border-gray-700 rounded-[40px] bg-white p-6">
+          <p className="text-gray-700 font-medium text-xl pt-3 ">
             We welcome you to get in touch with us for any questions, additional
-            information, or to arrange a call. Our team is here to assist you
-            and provide all the details you need about our school.
+            information, or to arrange a call. <br /> Our team is here to assist
+            you and provide all the details you need about our school.
           </p>
-          <div className="flex   ">
+          {/* <div className="flex   ">
             <motion.h3
               className="cursor-pointer text-3xl  w-auto p-4 inline-block rounded-lg  bg-[rgb(250,204,20)] text-black font-semibold "
               initial={{ opacity: 0, scale: 0.2 }}
@@ -23,19 +23,23 @@ export default function AboutUs() {
             >
               Contact Information
             </motion.h3>
-          </div>
-          <ul className="pb-5 mt-5">
+          </div> */}
+          <ul className=" mt-5">
             <li>
-              <span className="font-semibold ">Phone:</span> 07878165910
+              <span className="font-semibold ">Phone </span>: 07878165910
             </li>
             <li>
-              <span className="font-semibold ">Email:</span>{" "}
+              <span className="font-semibold ">Email</span> :
               info@almadinahonline.co.uk
             </li>
           </ul>
         </div>
-        <div className="mt-8 bg-white  grid grid-cols-2 gap-5 p-6 border-4 border-gray-700 rounded-[40px]">
-          <div className="flex flex-col gap-2">
+        <div className="mt-12 bg-white  grid grid-cols-2 gap-5 p-6 border-4 border-gray-700 rounded-[40px]">
+          <div className="mt-4 flex flex-col gap-2">
+            <p className="text-gray-700 pt-3 font-medium text-xl">
+              Have a question or need more information? Please fill out the form
+              ,and we will get back to you as soon as possible.
+            </p>
             <div className="flex   ">
               <motion.h3
                 className="cursor-pointer text-3xl  w-auto p-4 inline-block rounded-lg  bg-[rgb(250,204,20)] text-black font-semibold "
@@ -50,10 +54,6 @@ export default function AboutUs() {
                 Get In Touch
               </motion.h3>
             </div>
-            <p className="text-gray-700 pt-3 text-xl">
-              Have a question or need more information? Please fill out the form
-              ,and we will get back to you as soon as possible.
-            </p>
           </div>
           <div className="bg-sky-400 px-10 py-5 rounded-3xl max-w-3xl mt-5">
             <form className="max-w-md mx-auto">
