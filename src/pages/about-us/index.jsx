@@ -258,7 +258,7 @@ export default function AboutUs() {
         <div className="grid grid-cols-1   mx-auto  lg:grid-cols-2  px-10 gap-10 mt-20">
           <AnimatedComponentLeft>
             <div>
-              <img className=" rounded-xl" src="/08.jpg" alt="image" />
+              <img className=" rounded-xl" src="/02.jpg" alt="image" />
             </div>
           </AnimatedComponentLeft>
           <AnimatedComponentRight>
@@ -300,7 +300,7 @@ export default function AboutUs() {
         <div className="grid grid-cols-1      mx-auto  lg:grid-cols-2  px-10 gap-10 mt-20">
           <AnimatedComponentLeft>
             <div>
-              <img className=" rounded-xl" src="/08.jpg" alt="image" />
+              <img className=" rounded-xl" src="/03.jpg" alt="image" />
             </div>
           </AnimatedComponentLeft>
           <AnimatedComponentRight>

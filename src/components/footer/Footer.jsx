@@ -21,7 +21,7 @@ export const Footer = () => {
   const [dropdown, setDropDown] = useState(false);
   const data = [
     {
-      img: "./family.jpg",
+      img: "./Family.jpg",
       link: "Joel A. Hofer",
       title: "Head of Mddile School",
     },
@@ -32,7 +32,7 @@ export const Footer = () => {
       title: " Leader of learning Science",
     },
     {
-      img: "./family.jpg",
+      img: "./Family.jpg",
       link: "Alan",
       title: "Leader of Bussiness and Economics",
     },
@@ -42,7 +42,7 @@ export const Footer = () => {
       title: "Head of faculty-English",
     },
     {
-      img: "./family.jpg",
+      img: "./Family.jpg",
       link: "farhan Ahmed",
       title: "Leader of Bussiness and Economics",
     },
