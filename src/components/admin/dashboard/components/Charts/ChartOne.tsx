@@ -169,7 +169,8 @@ const ChartOne: React.FC = () => {
             </span>
             <div className=" w-full">
               <p className="font-semibold text-teal-500">Total Students</p>
-              <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p>
+              {/* <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p> */}
+              <p className="text-sm font-medium">0</p>
             </div>
           </div>
           <div className="flex min-w-72">
@@ -178,7 +179,8 @@ const ChartOne: React.FC = () => {
             </span>
             <div className="w-full">
               <p className="font-semibold text-indigo-600">Total Faculty</p>
-              <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p>
+              {/* <p className="text-sm font-medium">12.04.2022 - 12.05.2022</p> */}
+              <p className="text-sm font-medium">0 </p>
             </div>
           </div>
         </div>

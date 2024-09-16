@@ -123,7 +123,7 @@ const DashBoard = () => {
   return (
     <div className="">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4">
-        <CardDataStats title="Total views" total="£3.456K" rate="0.43%" levelUp>
+        <CardDataStats title="Total views" total="0" rate="0" levelUp>
           <svg
             className="fill-blue-500 "
             width="22"
@@ -142,18 +142,13 @@ const DashBoard = () => {
             />
           </svg>
         </CardDataStats>
-        <CardDataStats
-          title="Total Students"
-          total="£45,2K"
-          rate="4.35%"
-          levelUp
-        >
+        <CardDataStats title="Total Students" total="0" rate="0%" levelUp>
           <FaGraduationCap className="w-6 h-6 text-blue-500" />
         </CardDataStats>
-        <CardDataStats title="Total Faculty" total="2.450" rate="2.59%" levelUp>
+        <CardDataStats title="Total Faculty" total="0" rate="0" levelUp>
           <FaChalkboardTeacher className="w-6 h-6 text-blue-500" />
         </CardDataStats>
-        <CardDataStats title="Total Users" total="3.456" rate="0.95%" levelDown>
+        <CardDataStats title="Total Users" total="0" rate="0" levelDown>
           <svg
             className="fill-blue-500 "
             width="22"

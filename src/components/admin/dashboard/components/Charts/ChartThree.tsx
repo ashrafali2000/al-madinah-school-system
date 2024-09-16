@@ -115,7 +115,7 @@ const ChartThree: React.FC = () => {
             <span className="mr-2 block h-3 w-full max-w-[13px] rounded-full bg-indigo-500"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black ">
               <span> Desktop </span>
-              <span> 65% </span>
+              <span> 0% </span>
             </p>
           </div>
         </div>
@@ -124,7 +124,7 @@ const ChartThree: React.FC = () => {
             <span className="mr-2 block h-3 w-full max-w-[13px] rounded-full bg-[#6577F3]"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black ">
               <span> Tablet </span>
-              <span> 34% </span>
+              <span> 0% </span>
             </p>
           </div>
         </div>
@@ -133,7 +133,7 @@ const ChartThree: React.FC = () => {
             <span className="mr-2 block h-3 w-full max-w-[13px] rounded-full bg-[#8FD0EF]"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black ">
               <span> Mobile </span>
-              <span> 45% </span>
+              <span> 0% </span>
             </p>
           </div>
         </div>
@@ -142,7 +142,7 @@ const ChartThree: React.FC = () => {
             <span className="mr-2 block h-3 w-full max-w-[13px] rounded-full bg-[#0FADCF]"></span>
             <p className="flex w-full justify-between text-sm font-medium text-black">
               <span> Unknown </span>
-              <span> 12% </span>
+              <span> 0% </span>
             </p>
           </div>
         </div>

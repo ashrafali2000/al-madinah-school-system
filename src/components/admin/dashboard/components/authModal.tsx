@@ -1,14 +1,15 @@
 "use client";
 import React, { Fragment, useEffect, useRef, useState } from "react";
-// import {
-//   signInWithEmailAndPassword,
-//   GoogleAuthProvider,
-//   signInWithPopup,
-//   FacebookAuthProvider,
-//   getRedirectResult,
-//   TwitterAuthProvider,
-// } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  FacebookAuthProvider,
+  getRedirectResult,
+  TwitterAuthProvider,
+} from "firebase/auth";
 // import { auth } from "@/app/firebase";
+import { auth } from "../../../../config/firebase";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 // import { useImageContext } from "../contextApi/imageContext";
@@ -61,43 +62,84 @@ const AuthForm: React.FC<AuthFormProps> = ({
   //   console.log("admin logged in----->");
   // }, [admin]);
 
+  // const submitHandler = (e: any) => {
+  //   e.preventDefault();
+  //   const email = emailRef.current.value;
+  //   const password = passwordRef.current.value;
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       const user = userCredential.user;
+  //       if (user) {
+  //         // setOpen(false);
+  //         if (user.photoURL) {
+  //           setImage(user?.photoURL);
+  //         } else {
+  //           setImage(user.email?.slice(0, 1) ?? "");
+  //         }
+  //       } else {
+  //         // setOpen(true);
+  //       }
+  //       console.log("user--->", user);
+
+  //       localStorage.setItem("Auth-admin", JSON.stringify(user));
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       console.log("errorMessage--->", errorMessage);
+  //       console.log("errorCode--->", errorCode);
+  //     });
+
+  //   // sign in Admin
+  //   if (email === "Almadinah25@gmail.com" && password === "Almadinah-Online") {
+  //     setMyOpen(false);
+  //   }
+
+  //   if (signIn && signInHandler !== undefined) {
+  //     signInHandler(email, password);
+  //   }
+  // };
   const submitHandler = (e: any) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    // signInWithEmailAndPassword(auth, email, password)
-    //   .then((userCredential) => {
-    //     const user = userCredential.user;
-    //     if (user) {
-    //       setOpen(false);
-    //       if (user.photoURL) {
-    //         setImage(user?.photoURL);
-    //       } else {
-    //         setImage(user.email?.slice(0, 1) ?? "");
-    //       }
-    //     } else {
-    //       // setOpen(true);
-    //     }
-    //     console.log("user--->", user);
 
-    //     localStorage.setItem("Auth-admin", JSON.stringify(user));
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     console.log("errorMessage--->", errorMessage);
-    //     console.log("errorCode--->", errorCode);
-    //   });
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if (user) {
+          // Store email and password in localStorage
+          localStorage.setItem("userEmail", email);
+          localStorage.setItem("userPassword", password);
 
-    // sign in Admin
-    if (email === "fgrf25@gmail.com" && password === "faizan@12globaladmin") {
+          // Set user image or email initials
+          if (user.photoURL) {
+            setImage(user?.photoURL);
+          } else {
+            setImage(user.email?.slice(0, 1) ?? "");
+          }
+        }
+
+        console.log("user--->", user);
+        localStorage.setItem("Auth-admin", JSON.stringify(user));
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("errorMessage--->", errorMessage);
+        console.log("errorCode--->", errorCode);
+      });
+
+    // Sign in Admin check
+    if (email === "Almadinah25@gmail.com" && password === "Almadinah-Online") {
       setMyOpen(false);
     }
 
-    // if (signIn && signInHandler !== undefined) {
-    //   signInHandler(email, password);
-    // }
+    if (signIn && signInHandler !== undefined) {
+      signInHandler(email, password);
+    }
   };
+
   //   const provider = new GoogleAuthProvider();
   //   const signInWithGoogle = async () => {
   //     try {
