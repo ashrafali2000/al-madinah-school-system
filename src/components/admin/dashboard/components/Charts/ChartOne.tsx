@@ -182,7 +182,7 @@ const ChartOne: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* <div className="flex w-full max-w-44 justify-end">
+        <div className="flex w-full max-w-44 justify-end">
           <div className="inline-flex items-center rounded-md bg-whiter p-1.5 dark:bg-meta-4">
             <button className="rounded  py-1 px-3 text-xs font-medium text-black shadow-card hover:bg-white hover:shadow-card">
               Day
@@ -194,7 +194,7 @@ const ChartOne: React.FC = () => {
               Month
             </button>
           </div>
-        </div> */}
+        </div>
       </div>
 
       <div>

@@ -1,55 +1,131 @@
 "use client";
-// import { ApexOptions } from "apexcharts";
+import { ApexOptions } from "apexcharts";
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-// const ReactApexChart = dynamic(() => import("react-apexcharts"), {
-//   ssr: false,
-// });
+const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
 
-// interface ChartThreeState {
-//   series: number[];
-// }
+interface ChartThreeState {
+  series: number[];
+}
 
-const options = {
-  chart: {
-    type: "donut",
-  },
-  colors: ["#10B981", "#375E83", "#259AE6", "#FFA70B"],
-  labels: ["Remote", "Hybrid", "Onsite", "Leave"],
+const options: ApexOptions = {
   legend: {
-    show: true,
-    position: "bottom",
+    show: false,
+    position: "top",
+    horizontalAlign: "left",
   },
+  colors: ["#3C50E0", "#80CAEE"],
+  chart: {
+    events: {
+      beforeMount: (chart) => {
+        chart.windowResizeHandler();
+      },
+    },
+    fontFamily: "Satoshi, sans-serif",
+    height: 335,
+    type: "area",
+    dropShadow: {
+      enabled: true,
+      color: "#623CEA14",
+      top: 10,
+      blur: 4,
+      left: 0,
+      opacity: 0.1,
+    },
 
-  plotOptions: {
-    pie: {
-      donut: {
-        size: "65%",
-        background: "transparent",
+    toolbar: {
+      show: false,
+    },
+  },
+  responsive: [
+    {
+      breakpoint: 1024,
+      options: {
+        chart: {
+          height: 300,
+        },
+      },
+    },
+    {
+      breakpoint: 1366,
+      options: {
+        chart: {
+          height: 350,
+        },
+      },
+    },
+  ],
+  stroke: {
+    width: [2, 2],
+    curve: "straight",
+  },
+  // labels: {
+  //   show: false,
+  //   position: "top",
+  // },
+  grid: {
+    xaxis: {
+      lines: {
+        show: true,
+      },
+    },
+    yaxis: {
+      lines: {
+        show: true,
       },
     },
   },
   dataLabels: {
     enabled: false,
   },
-  responsive: [
-    {
-      breakpoint: 2600,
-      options: {
-        chart: {
-          width: 380,
-        },
+  markers: {
+    size: 4,
+    colors: "#fff",
+    strokeColors: ["#3056D3", "#80CAEE"],
+    strokeWidth: 3,
+    strokeOpacity: 0.9,
+    strokeDashArray: 0,
+    fillOpacity: 1,
+    discrete: [],
+    hover: {
+      size: undefined,
+      sizeOffset: 5,
+    },
+  },
+  xaxis: {
+    type: "category",
+    categories: [
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+    ],
+    axisBorder: {
+      show: false,
+    },
+    axisTicks: {
+      show: false,
+    },
+  },
+  yaxis: {
+    title: {
+      style: {
+        fontSize: "0px",
       },
     },
-    {
-      breakpoint: 640,
-      options: {
-        chart: {
-          width: 200,
-        },
-      },
-    },
-  ],
+    min: 0,
+    max: 100,
+  },
 };
 
 const ChartThree = () => {

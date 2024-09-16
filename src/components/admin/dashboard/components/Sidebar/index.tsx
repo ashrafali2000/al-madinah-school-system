@@ -66,72 +66,72 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
   // new Code
   const disasterManagementLst = [
-    "Covid-19",
-    "Pakistan Flood",
-    "Turkey & Syria Earthquake",
-    "Morocco Earthquake",
-    "Palestine",
+    // "Covid-19",
+    // "Pakistan Flood",
+    // "Turkey & Syria Earthquake",
+    // "Morocco Earthquake",
+    // "Palestine",
   ];
   const healthCareLst = [
-    "Eye Camps",
-    "Blood Donation",
-    "Madical Van",
-    "Faizan Rehabilitation Center",
-    "Madical Clinic",
+    // "Eye Camps",
+    // "Blood Donation",
+    // "Madical Van",
+    // "Faizan Rehabilitation Center",
+    // "Madical Clinic",
   ];
   const environmentDepartmentLst = ["Plantation"];
 
   const appealLst = [
-    "Ramadan 2024",
-    "Zakat",
-    "Sadaqah",
-    "Palestine Emergency",
-    "Winter Emergency",
-    "Food Box",
-    "Hand Pump Project",
-    "Water Well Project",
-    "Orphan Kind",
-    "Masjid Project",
+    // "Ramadan 2024",
+    // "Zakat",
+    // "Sadaqah",
+    // "Palestine Emergency",
+    // "Winter Emergency",
+    // "Food Box",
+    // "Hand Pump Project",
+    // "Water Well Project",
+    // "Orphan Kind",
+    // "Masjid Project",
   ];
   const donationLst = [
-    "Iftar Donation",
-    "Zakat Donation",
-    "Food Box Donation",
-    "Winter Emergency Donation",
-    "Palestine Emergency Donation",
-    "Orphan Donation",
-    "Hand Pump Donation",
-    "Water Well Donation",
-    "Masjid Donation",
+    // "Iftar Donation",
+    // "Zakat Donation",
+    // "Food Box Donation",
+    // "Winter Emergency Donation",
+    // "Palestine Emergency Donation",
+    // "Orphan Donation",
+    // "Hand Pump Donation",
+    // "Water Well Donation",
+    // "Masjid Donation",
   ];
   const ourDepartmentList = [
-    "Disaster Management",
-    "Health Care",
-    "Environment Department",
-    "Water Project",
-    "Orphan",
-    "Masjid",
-    "Education & Skills",
+    // "Disaster Management",
+    // "Health Care",
+    // "Environment Department",
+    // "Water Project",
+    // "Orphan",
+    // "Masjid",
+    // "Education & Skills",
   ];
   const ourDepartmentAllList = [
     {
       title: "Disaster Management",
       data: [
-        "Covid-19",
-        "Pakistan Flood",
-        "Turkey & Syria Earthquake",
-        "Morocco Earthquake",
-        "Palestine",
+        // "Covid-19",
+        // "Pakistan Flood",
+        // "Turkey & Syria Earthquake",
+        // "Morocco Earthquake",
+        // "Palestine",
       ],
     },
     {
       title: "Health Care",
       data: [
-        "Eye Camps",
-        "Blood Donation",
-        "Madical Van",
-        "Faizan Rehabilitation Center",
-        "Madical Clinic",
+        // "Eye Camps",
+        // "Blood Donation",
+        // "Madical Van",
+        // "Faizan Rehabilitation Center",
+        // "Madical Clinic",
       ],
     },
     {
@@ -533,7 +533,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </ul>
           </div>
           {/* new page  */}
-          <div
+          {/* <div
             className={`flex items-center gap-3 py-2 mb-4 ml-4 ${
               pathname === "/" && "bg-sky-900"
             } `}
@@ -549,9 +549,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             >
               Create New Page
             </Link>
-          </div>
+          </div> */}
           {/* hide page  */}
-          <div
+          {/* <div
             className={`flex items-center gap-3 py-2 mb-4 ml-4 ${
               pathname === "/" && "bg-sky-900"
             } `}
@@ -567,7 +567,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             >
               Hide / Delete Page
             </Link>
-          </div>
+          </div> */}
         </nav>
       </div>
     </aside>
