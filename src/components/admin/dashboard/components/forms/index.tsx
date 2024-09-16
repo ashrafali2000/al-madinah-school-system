@@ -4260,7 +4260,7 @@ export default function UpdateForm() {
               )}
 
               {/* Key Stages */}
-
+              {/* 
               {mainSection == "Main Page" ? (
                 <>
                   <h2 className="pb-4">KEY STAGES</h2>
@@ -4336,7 +4336,7 @@ export default function UpdateForm() {
                 </>
               ) : null}
               {/* School Cards */}
-              {mainSection === "Main Page" && (
+              {/* {mainSection === "Main Page" && (
                 <div className="">
                   <div className="col-span-full">
                     <label
@@ -4593,8 +4593,8 @@ export default function UpdateForm() {
                     />
                   </div>
                 </div>
-              )}
-
+              )} */}
+              {/* 
               {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   A school you trust
@@ -5250,8 +5250,8 @@ export default function UpdateForm() {
                     />
                   </div>
                 </div>
-              )}
-
+              )} */}
+              {/* 
               {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   <label
@@ -5306,9 +5306,9 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
 
-              {mainSection === "Main Page" && (
+              {/* {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   <label
                     htmlFor="main-banner-slider"
@@ -5398,7 +5398,7 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </>
-              ) : null}
+              ) : null} */}
             </div>
           </div>
         </div>
