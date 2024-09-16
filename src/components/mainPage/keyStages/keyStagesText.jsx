@@ -16,7 +16,7 @@ export const KeyStagesText = () => {
       </div>
 
       <div className="text-center gap-8 pt-3 mt-5 rounded-[40px]">
-        <p className="mt-4 text-md lg:text-lg  font-bold leading-8  text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105 text-gray-700">
+        <p className="mt-4 text-md lg:text-lg  font-bold leading-8  text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
           Welcome To Al-Madinah Online Secondary School, An Islamic institution
           where academic excellence nurtures <br /> the growth of confident and
           compassionate individuals, Guided by the principles of Islam.

@@ -20,23 +20,23 @@ import SeniorContactForm from "../components/seniorSchool/seniorContactForm/Seni
 export default function seniorSchool() {
   return (
     <div>
-      <HeroSection />
-      <Rating />
+      {/* <HeroSection /> */}
+      {/* <Rating /> */}
       <SeniorAbout />
-      <SeniorSchoolPackages />
-      <ThreeSubjectPackage />
-      <ComparionOFGrades />
-      <TeacherInsights />
-      <SeniorTeacherSlider />
-      <SeniorSchoolGallery />
-      <SeniorSchoolStories />
-      <SeniorSchoolparents />
-      <SeniorSchoolInsights />
-      <AdviceAndGuidance />
-      <GCSECommunity />
-      <SeniorSchoolFaqs />
-      <SeniorSignUpEvent />
-      <SeniorContactForm />
+      {/* <SeniorSchoolPackages /> */}
+      {/* <ThreeSubjectPackage /> */}
+      {/* <ComparionOFGrades /> */}
+      {/* <TeacherInsights /> */}
+      {/* <SeniorTeacherSlider /> */}
+      {/* <SeniorSchoolGallery /> */}
+      {/* <SeniorSchoolStories /> */}
+      {/* <SeniorSchoolparents /> */}
+      {/* <SeniorSchoolInsights /> */}
+      {/* <AdviceAndGuidance /> */}
+      {/* <GCSECommunity /> */}
+      {/* <SeniorSchoolFaqs /> */}
+      {/* <SeniorSignUpEvent /> */}
+      {/* <SeniorContactForm /> */}
     </div>
   );
 }

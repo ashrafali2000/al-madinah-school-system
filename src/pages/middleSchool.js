@@ -18,21 +18,21 @@ import MiddleContactForm from "../components/middleSchool/middleContactForm/Midd
 function middleSchool() {
   return (
     <div>
-      <HeroSection />
-      <Rating />
+      {/* <HeroSection /> */}
+      {/* <Rating /> */}
       <MiddleAbout />
-      <LifeAtMiddleSchool />
-      <MiddleSchoolLifeImages />
-      <MeetTeachers />
-      <TeacherSlider />
-      <MiddleSchoolPackeges />
-      <ThreeSubjectPackage />
-      <MiddleStudentStories />
-      <MiddleParents />
-      <MiddleSchoolInsight />
-      <MiddleSchoolFaqs />
-      <MiddleSignUpEvent />
-      <MiddleContactForm />
+      {/* <LifeAtMiddleSchool /> */}
+      {/* <MiddleSchoolLifeImages /> */}
+      {/* <MeetTeachers /> */}
+      {/* <TeacherSlider /> */}
+      {/* <MiddleSchoolPackeges /> */}
+      {/* <ThreeSubjectPackage /> */}
+      {/* <MiddleStudentStories /> */}
+      {/* <MiddleParents /> */}
+      {/* <MiddleSchoolInsight /> */}
+      {/* <MiddleSchoolFaqs /> */}
+      {/* <MiddleSignUpEvent /> */}
+      {/* <MiddleContactForm /> */}
     </div>
   );
 }
