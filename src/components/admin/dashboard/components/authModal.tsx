@@ -8,7 +8,7 @@ import {
   getRedirectResult,
   TwitterAuthProvider,
 } from "firebase/auth";
-// import { auth } from "@/app/firebase";
+//  import { auth } from "@/app/firebase";
 import { auth } from "../../../../config/firebase";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";

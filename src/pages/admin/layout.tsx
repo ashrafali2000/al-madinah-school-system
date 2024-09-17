@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           ) : (
             <ContentProvider>
               <DashboardProvider>
-                {/* <AuthForm /> */}
+                <AuthForm />
 
                 <div className="flex h-screen overflow-hidden">
                   <Sidebar

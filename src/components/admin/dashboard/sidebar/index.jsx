@@ -3,7 +3,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SidebarLinkGroup from "./sidebarLinkGroup";
 import Image from "next/image";
-s;
 
 // interface SidebarProps {
 //   sidebarOpen: boolean;
