@@ -104,12 +104,12 @@
 //     "Plantation",
 //   ];
 
-//   const mainSectionList = [
-//     "Select An Option",
-//     "Our Department",
-//     "Appeals",
-//     "Donation",
-//   ];
+const mainSectionList = [
+  "Select An Option",
+  "Our Department",
+  "Appeals",
+  "Donation",
+];
 //   const [numbIndex, setNumIndex] = useState(null);
 //   const [switchPageArr, setSwitchPageArr] = useState(false);
 //   const [mySwitch, setMySwitch] = useState(false);
@@ -2927,7 +2927,6 @@
 //   );
 // }
 
-"use client";
 import { useDashboardContext } from "../../../contextApi/dashboardContext";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
@@ -2943,7 +2942,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db, storage } from "../../../../../config/firebase";
-import { ref, uploadBytes, getDownloadURL } from "@firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useContentContext } from "../../../contextApi/contentContext";
 export default function UpdateForm() {
   const dataContext = useDashboardContext();
@@ -4061,8 +4060,8 @@ export default function UpdateForm() {
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
             <h2 className="text-base font-semibold leading-7 text-gray-900">
-              {mainSection} {midSection && "/"} {midSection}{" "}
-              {childSection && "/"} {childSection}
+              {/* {mainSection} {midSection && "/"} {midSection}{" "} */}
+              {/* {childSection && "/"} {childSection} */}
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">
               This Contents will be displayed publicly so be careful what you
@@ -4070,7 +4069,7 @@ export default function UpdateForm() {
             </p>
 
             <div className="mt-10 gap-x-6 gap-y-8">
-              {mainSection !== "Hide Page" && (
+              {/* {mainSection !== "Hide Page" && (
                 <div className="sm:col-span-3">
                   <label
                     htmlFor="country"
@@ -4111,51 +4110,16 @@ export default function UpdateForm() {
                     </select>
                   </div>
                 </div>
-              )}
-              {/* toggle */}
-              {midSection === "Hide Page" &&
-                mainSection === "Hide Page" &&
-                childSection === "Hide Page" && (
-                  <>
-                    {midSection === "Hide Page" && (
-                      <div className="flex justify-between md:grid grid-cols-4 p-2 py-3 border border-teal-300">
-                        <span className="font-bold col-span-3">Pages</span>
+              )} */}
 
-                        <div className="flex justify-between items-center gap-2 md:gap-0">
-                          <span className="font-bold">Delete</span>
-                          <span className="text-xs md:text-sm">Hide/Show</span>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                )}
-              {mainSection === "New Page" && (
-                <div className="col-span-full py-2">
-                  <label
-                    htmlFor="myInput"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Section Name
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="myInput"
-                      name="myInput"
-                      value={sectionName}
-                      onChange={(e: any) => setSectionName(e.target.value)}
-                      className="block w-2/4 rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      placeholder="Type Section Name here ..."
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection !== "Hide Page" && (
-                <div className="col-span-full">
+              {mainSection === "Main Page" && (
+                <div className="col-span-full mt-9">
+                  main section
                   <label
                     htmlFor="about"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Contents 1
+                    Contents
                   </label>
                   <div className="mt-2">
                     <textarea
@@ -4170,39 +4134,6 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {/* Banner photos */}
-
-              {/* heroSec photos */}
-
-              {/* Header photos */}
-
-              {/* Down Videos photos */}
-
-              {/* Slider Photos */}
-
-              {/* Main Page */}
-              {/* banner Slider images */}
               {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   <label
@@ -4259,18 +4190,130 @@ export default function UpdateForm() {
                 </div>
               )}
 
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  Right image
+                  <label
+                    htmlFor="main-banner-slider"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Add Hero Section Image
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="main-banner-slider"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="main-banner-slider"
+                            name="main-banner-slider"
+                            type="file"
+                            onChange={heroImageMainPageHandler}
+                            multiple
+                            className="sr-only"
+                          />
+                        </label>
+                        {!uploading1 ? (
+                          <>
+                            <p className="pl-1">or drag and drop</p>
+                            <p className="text-xs leading-5 text-gray-600">
+                              PNG, JPG, GIF up to 10MB
+                            </p>
+                          </>
+                        ) : (
+                          <div className="flex flex-wrap gap-5">
+                            <PropagateLoader
+                              color={"#36d7b7"}
+                              loading={uploading1}
+                              size={20}
+                              aria-label="Loading Spinner"
+                              data-testid="loader"
+                            />
+                            <p className="text-teal-500">
+                              uploading1 Images ...
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  left image
+                  <label
+                    htmlFor="main-banner-slider"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Add Hero Section Image
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="main-banner-slider"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="main-banner-slider"
+                            name="main-banner-slider"
+                            type="file"
+                            onChange={heroImageMainPageHandler}
+                            multiple
+                            className="sr-only"
+                          />
+                        </label>
+                        {!uploading1 ? (
+                          <>
+                            <p className="pl-1">or drag and drop</p>
+                            <p className="text-xs leading-5 text-gray-600">
+                              PNG, JPG, GIF up to 10MB
+                            </p>
+                          </>
+                        ) : (
+                          <div className="flex flex-wrap gap-5">
+                            <PropagateLoader
+                              color={"#36d7b7"}
+                              loading={uploading1}
+                              size={20}
+                              aria-label="Loading Spinner"
+                              data-testid="loader"
+                            />
+                            <p className="text-teal-500">
+                              uploading1 Images ...
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
               {/* Key Stages */}
-              {/* 
               {mainSection == "Main Page" ? (
                 <>
-                  <h2 className="pb-4">KEY STAGES</h2>
+                  <h2 className="pb-4"> Introduction </h2>
                   {mainSection !== "Hide Page" && (
                     <div className="col-span-full">
                       <label
                         htmlFor="about"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Title
+                        Title text
                       </label>
                       <div className="mt-2">
                         <textarea
@@ -4288,12 +4331,13 @@ export default function UpdateForm() {
                     </div>
                   )}
                   {mainSection === "Main Page" && (
+                    // Introduction paragraph
                     <div className="col-span-full">
                       <label
                         htmlFor="about"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Sub-Heading
+                        paragraph
                       </label>
                       <div className="mt-2">
                         <textarea
@@ -4310,33 +4354,10 @@ export default function UpdateForm() {
                       </div>
                     </div>
                   )}
-                  {mainSection !== "Hide Page" && (
-                    <div className="col-span-full">
-                      <label
-                        htmlFor="about"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        Paragraph
-                      </label>
-                      <div className="mt-2">
-                        <textarea
-                          id="about"
-                          name="about"
-                          value={keyStageStext3}
-                          onChange={(e: any) =>
-                            SetkeyStageStext3(e.target.value)
-                          }
-                          rows={3}
-                          className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                          // defaultValue={""}
-                        />
-                      </div>
-                    </div>
-                  )}
                 </>
               ) : null}
               {/* School Cards */}
-              {/* {mainSection === "Main Page" && (
+              {mainSection === "Main Page" && (
                 <div className="">
                   <div className="col-span-full">
                     <label
@@ -4457,7 +4478,7 @@ export default function UpdateForm() {
                       htmlFor="makes-different"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
-                      what makes us different section
+                      WHY CHOOSE AL-MADINAH ONLINE SCHOOL ? section
                     </label>
                     Picture 1
                     <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
@@ -4504,51 +4525,6 @@ export default function UpdateForm() {
                         </div>
                       </div>
                     </div>
-                    picture 2
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
-                        <PhotoIcon
-                          className="mx-auto h-12 w-12 text-gray-300"
-                          aria-hidden="true"
-                        />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                          <label
-                            htmlFor="middle-school"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="middle-school"
-                              name="middle-school"
-                              type="file"
-                              multiple
-                              className="sr-only"
-                            />
-                          </label>
-                          {!uploadingRamzanSlider ? (
-                            <>
-                              <p className="pl-1">or drag and drop</p>
-                              <p className="text-xs leading-5 text-gray-600">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </>
-                          ) : (
-                            <div className="flex flex-wrap gap-5">
-                              <PropagateLoader
-                                color={"#36d7b7"}
-                                loading={uploadingRamzanSlider}
-                                size={12}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                              />
-                              <p className="text-teal-500 text-sm">
-                                uploading Images ...
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               )}
@@ -4593,11 +4569,10 @@ export default function UpdateForm() {
                     />
                   </div>
                 </div>
-              )} */}
-              {/* 
+              )}
               {mainSection === "Main Page" && (
                 <div className="col-span-full">
-                  A school you trust
+                  7 Points
                   <label
                     htmlFor="about"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -4619,7 +4594,7 @@ export default function UpdateForm() {
               )}
               {mainSection === "Main Page" && (
                 <div className="col-span-full">
-                  A school you trust
+                  7 Points
                   <label
                     htmlFor="about"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -4641,7 +4616,139 @@ export default function UpdateForm() {
               )}
               {mainSection === "Main Page" && (
                 <div className="col-span-full">
-                  A school you trust
+                  7 Points
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Contents 3
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  7 Points
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Contents 4
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  7 Points
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Contents 5
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  7 Points
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Contents 6
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  7 Points
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Contents 7
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  Building Brighter Futures through Faith and Virtual Learning.
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    main Heading
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  square Box 1
                   <label
                     htmlFor="about"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -4663,56 +4770,56 @@ export default function UpdateForm() {
               )}
               {mainSection === "Main Page" && (
                 <div className="col-span-full">
-                  A school you trust
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  life at an online school
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  life at an online school
+                  square Box 2
                   <label
                     htmlFor="about"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
                     Contents 2
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  square Box 3
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Contents 3
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Main Page" && (
+                <div className="col-span-full">
+                  learning Journey Heading
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Contents 1
                   </label>
                   <div className="mt-2">
                     <textarea
@@ -4734,7 +4841,7 @@ export default function UpdateForm() {
                       htmlFor="makes-different"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
-                      Life at an online school
+                      Gallery
                     </label>
                     Picture 1
                     <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
@@ -5015,306 +5122,100 @@ export default function UpdateForm() {
                       onChange={(e: any) => setText2(e.target.value)}
                       rows={3}
                       className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
+                      defaultValue={""}
                     />
                   </div>
                 </div>
               )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  <label
-                    htmlFor="main-banner-slider"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Add Student Support Image
-                  </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
-                      <PhotoIcon
-                        className="mx-auto h-12 w-12 text-gray-300"
-                        aria-hidden="true"
-                      />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="main-banner-slider"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="main-banner-slider"
-                            name="main-banner-slider"
-                            type="file"
-                            onChange={heroImageMainPageHandler}
-                            multiple
-                            className="sr-only"
-                          />
-                        </label>
-                        {!uploading1 ? (
-                          <>
-                            <p className="pl-1">or drag and drop</p>
-                            <p className="text-xs leading-5 text-gray-600">
-                              PNG, JPG, GIF up to 10MB
-                            </p>
-                          </>
-                        ) : (
-                          <div className="flex flex-wrap gap-5">
-                            <PropagateLoader
-                              color={"#36d7b7"}
-                              loading={uploading1}
-                              size={20}
-                              aria-label="Loading Spinner"
-                              data-testid="loader"
-                            />
-                            <p className="text-teal-500">
-                              uploading1 Images ...
-                            </p>
-                          </div>
-                        )}
+              {/* toggle */}
+              {midSection === "Hide Page" &&
+                mainSection === "Hide Page" &&
+                childSection === "Hide Page" && (
+                  <>
+                    {midSection === "Hide Page" && (
+                      <div className="flex justify-between md:grid grid-cols-4 p-2 py-3 border border-teal-300">
+                        <span className="font-bold col-span-3">Pages</span>
+
+                        <div className="flex justify-between items-center gap-2 md:gap-0">
+                          <span className="font-bold">Delete</span>
+                          <span className="text-xs md:text-sm">Hide/Show</span>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  Student Support
+                    )}
+                  </>
+                )}
+              {/* {mainSection === "New Page" && (
+                <div className="col-span-full py-2">
                   <label
-                    htmlFor="about"
+                    htmlFor="myInput"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Title
+                    Section Name
                   </label>
                   <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  Student Support
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    paragraph
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  Time table UK
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Title
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  Time Table UK
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    paragraph
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  Time table Middle East
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Title
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  Time table Middle East
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    paragraph
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  Time table South Asia
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Title
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  Time table South Asia
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    paragraph
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
+                    <input
+                      id="myInput"
+                      name="myInput"
+                      value={sectionName}
+                      onChange={(e: any) => setSectionName(e.target.value)}
+                      className="block w-2/4 rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      placeholder="Type Section Name here ..."
                     />
                   </div>
                 </div>
               )} */}
-              {/* 
-              {mainSection === "Main Page" && (
+
+              {mainSection === "Our Department" && (
                 <div className="col-span-full">
+                  Mission Statement
                   <label
-                    htmlFor="main-banner-slider"
+                    htmlFor="about"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Add next School Right side Image
+                    Heading
                   </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
-                      <PhotoIcon
-                        className="mx-auto h-12 w-12 text-gray-300"
-                        aria-hidden="true"
-                      />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="main-banner-slider"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="main-banner-slider"
-                            name="main-banner-slider"
-                            type="file"
-                            onChange={heroImageMainPageHandler}
-                            multiple
-                            className="sr-only"
-                          />
-                        </label>
-                        {!uploading1 ? (
-                          <>
-                            <p className="pl-1">or drag and drop</p>
-                            <p className="text-xs leading-5 text-gray-600">
-                              PNG, JPG, GIF up to 10MB
-                            </p>
-                          </>
-                        ) : (
-                          <div className="flex flex-wrap gap-5">
-                            <PropagateLoader
-                              color={"#36d7b7"}
-                              loading={uploading1}
-                              size={20}
-                              aria-label="Loading Spinner"
-                              data-testid="loader"
-                            />
-                            <p className="text-teal-500">
-                              uploading1 Images ...
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
                   </div>
                 </div>
-              )} */}
-
-              {/* {mainSection === "Main Page" && (
+              )}
+              {mainSection === "Our Department" && (
+                <div className="col-span-full">
+                  Mission Statement
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    paragraph
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Our Department" && (
                 <div className="col-span-full">
                   <label
                     htmlFor="main-banner-slider"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Add next event photo left side Image
+                    Add Mission Statement Image
                   </label>
                   <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <div className="text-center">
@@ -5363,42 +5264,690 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-              {mainSection == "Main Page" ? (
-                <>
-                  <h2 className="pb-4">Next Event Section </h2>
-                  <div className="flex gap-4 pb-4">
-                    <div className="relative h-10 w-full min-w-[100px] ">
-                      main heading
-                      <input
-                        type="text"
-                        placeholder="Title"
-                        onChange={(e) => SetkeyStageStext1(e.target.value)}
-                        className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+              {mainSection === "Our Department" && (
+                <div className="col-span-full">
+                  Vision
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Heading
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Our Department" && (
+                <div className="col-span-full">
+                  Vision
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    paragraph
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Our Department" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="main-banner-slider"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Add Vision Image
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
                       />
-                    </div>
-
-                    <div className="relative h-10 w-full min-w-[100px] ">
-                      description
-                      <input
-                        type="text"
-                        placeholder="Description"
-                        onChange={(e) => SetkeyStageStext3(e.target.value)}
-                        className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                      />
-                    </div>
-
-                    <div className="relative h-10 w-full min-w-[100px] ">
-                      Days
-                      <input
-                        type="number"
-                        placeholder="Counter"
-                        onChange={(e) => setRatingText4(e.target.value)}
-                        className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="main-banner-slider"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="main-banner-slider"
+                            name="main-banner-slider"
+                            type="file"
+                            onChange={heroImageMainPageHandler}
+                            multiple
+                            className="sr-only"
+                          />
+                        </label>
+                        {!uploading1 ? (
+                          <>
+                            <p className="pl-1">or drag and drop</p>
+                            <p className="text-xs leading-5 text-gray-600">
+                              PNG, JPG, GIF up to 10MB
+                            </p>
+                          </>
+                        ) : (
+                          <div className="flex flex-wrap gap-5">
+                            <PropagateLoader
+                              color={"#36d7b7"}
+                              loading={uploading1}
+                              size={20}
+                              aria-label="Loading Spinner"
+                              data-testid="loader"
+                            />
+                            <p className="text-teal-500">
+                              uploading1 Images ...
+                            </p>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </>
-              ) : null} */}
+                </div>
+              )}
+              {mainSection === "Our Department" && (
+                <div className="col-span-full">
+                  Value Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Heading
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Our Department" && (
+                <div className="col-span-full">
+                  Value Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    paragraph
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Our Department" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="main-banner-slider"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Add Value section Image
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="main-banner-slider"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="main-banner-slider"
+                            name="main-banner-slider"
+                            type="file"
+                            onChange={heroImageMainPageHandler}
+                            multiple
+                            className="sr-only"
+                          />
+                        </label>
+                        {!uploading1 ? (
+                          <>
+                            <p className="pl-1">or drag and drop</p>
+                            <p className="text-xs leading-5 text-gray-600">
+                              PNG, JPG, GIF up to 10MB
+                            </p>
+                          </>
+                        ) : (
+                          <div className="flex flex-wrap gap-5">
+                            <PropagateLoader
+                              color={"#36d7b7"}
+                              loading={uploading1}
+                              size={20}
+                              aria-label="Loading Spinner"
+                              data-testid="loader"
+                            />
+                            <p className="text-teal-500">
+                              uploading1 Images ...
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* How We teach */}
+
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Teaching Methodology Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Heading
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Teaching Methodology Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub Heading 1
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Teaching Methodology Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 1
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Teaching Methodology Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub Heading 2
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Teaching Methodology Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 2
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Teaching Methodology Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub Heading 3
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Teaching Methodology Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 3
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Teaching Methodology Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub Heading 4
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Teaching Methodology Section
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 4
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Assessment and Evaluation
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    paragraph
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Assessment and Evaluation
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point 1
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Assessment and Evaluation
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 1
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Assessment and Evaluation
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point 2
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Assessment and Evaluation
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 2
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Assessment and Evaluation
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point 3
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Assessment and Evaluation
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 3
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Extracurricular Enrichment
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point 1
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Extracurricular Enrichment
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 1
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Extracurricular Enrichment
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point 2
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Extracurricular Enrichment
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 2
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Extracurricular Enrichment
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point 3
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {mainSection === "Appeals" && (
+                <div className="col-span-full">
+                  Extracurricular Enrichment
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Sub point description 3
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={text2}
+                      onChange={(e: any) => setText2(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
