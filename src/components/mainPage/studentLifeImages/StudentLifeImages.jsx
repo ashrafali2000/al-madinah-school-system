@@ -17,17 +17,25 @@ export const StudentLifeImages = () => {
       {/* </div> * */}
       <div className="grid md:grid-cols-2 place-items-center max-w-7xl mx-auto lg:grid-cols-4 pt-20 pb-32 px-5">
         <AnimatedComponentLeft>
-          <img className="h-80 w-64 rotate-6" src="/07.jpg" alt="image" />
+          <img
+            className="h-64 w-64 rotate-6"
+            src="/newImges/1.jpg"
+            alt="image"
+          />
         </AnimatedComponentLeft>
         <AnimationBottom>
-          <img className="h-80 w-72 -rotate-3" src="/02.jpg" alt="image" />
+          <img
+            className="h-64 w-72 -rotate-3"
+            src="/newImges/3.jpg"
+            alt="image"
+          />
         </AnimationBottom>
         <AnimationBottom>
-          <img className="h-80 w-64 rotate-6" src="/03.jpg" alt="image" />
+          <img className="h-64 w-64 rotate-6" src="/03.jpg" alt="image" />
         </AnimationBottom>
         <AnimatedComponentRight>
           <img
-            className="h-80 w-72 -rotate-6"
+            className="h-64 w-72 -rotate-6"
             src="/hijab-girl.jpg"
             alt="image"
           />
