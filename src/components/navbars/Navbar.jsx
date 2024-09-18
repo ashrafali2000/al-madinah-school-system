@@ -77,7 +77,7 @@ export const Navbar = () => {
                 </Link>
 
                 {/* Sub-tabs */}
-                <ul className="absolute left-0 flex w-max-5xl place-items-center justify-between hidden group-hover:flex bg-gray-100 rounded-lg shadow-lg p-16 space-x-4">
+                <ul className="absolute -left-24 flex w-[500px] place-items-center justify-between hidden group-hover:flex bg-gray-100 rounded-lg shadow-lg p-5 space-x-2">
                   {/* Left-side sub-tabs */}
                   <div className="flex flex-col    inline-block  space-y-2">
                     <li>
@@ -110,7 +110,7 @@ export const Navbar = () => {
                       </Link>
                     </li>
                   </div>
-                  <div className="border-l-2 border-gray-400 h-40"></div>
+                  <div className="border-l-2 border-gray-400 h-32"></div>
 
                   {/* Right-side sub-tabs */}
                   <div className="flex  flex-col inline-block place-items-center ">
