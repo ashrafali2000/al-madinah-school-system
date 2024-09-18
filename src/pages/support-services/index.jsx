@@ -251,22 +251,22 @@ export default function SupprtServices() {
       </ul> */}
       {/* </div> */}
       {/* </div> */}
-      <div className="bg-white   place-items-center rounded-[40px] max-w-7xl h-[550px] border-4 border-gray-700 ">
-        <div className="grid grid-cols-1   mx-auto  lg:grid-cols-2  px-10 gap-10 mt-20">
+      <div className="bg-white place-items-center rounded-[40px] max-w-7xl h-auto border-4 border-gray-700 mx-4 md:mx-0">
+        <div className="grid grid-cols-1 mx-auto lg:pb-4 lg:grid-cols-2 px-6 lg:px-10 gap-6 mt-10 lg:mt-20">
           <AnimatedComponentLeft>
-            <div>
-              <img className=" rounded-xl" src="/08.jpg" alt="image" />
+            <div className="flex justify-center">
+              <img src="/08.jpg" alt="image" />
             </div>
           </AnimatedComponentLeft>
           <AnimatedComponentRight>
             <div className="flex flex-col gap-4">
-              <div className="flex  items-start  ">
+              <div className="flex items-start">
                 <motion.h3
-                  className="cursor-pointer text-3xl  border-2 border-gray-700 rounded-lg w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
+                  className="cursor-pointer text-xl sm:text-2xl md:text-3xl border-2 border-gray-700 rounded-lg w-auto p-3 md:p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold"
                   initial={{ opacity: 0, scale: 0.2 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
-                    duration: 20, // removed quotes around the duration
+                    duration: 20,
                     delay: 0.3,
                     ease: [0, 0.71, 0.2, 1.01],
                   }}
@@ -274,26 +274,26 @@ export default function SupprtServices() {
                   Support Services
                 </motion.h3>
               </div>
-              <p className="text-lg mt-5 text-gray-700 font-bold">
+              <p className="text-base sm:text-lg md:text-lg mt-4 text-gray-700 font-bold">
                 We provide comprehensive support services to ensure the
                 well-being of our students:
               </p>
-              <ul className=" gap-4">
+              <ul className="list-disc ml-5 gap-4">
                 <li>
-                  <span className="font-semibold">Academic Support</span> :
+                  <span className="font-semibold">Academic Support</span>:
                   Tutoring, homework help, study skills workshops.
                 </li>
                 <li>
-                  <span className="font-semibold"> Counseling</span> :
+                  <span className="font-semibold">Counseling</span>:
                   Professional counselors available for personal and academic
-                  guidance.{" "}
+                  guidance.
                 </li>
                 <li>
-                  <span className="font-semibold"> Personal Development</span> :
+                  <span className="font-semibold">Personal Development</span>:
                   Workshops on time management, leadership, and spiritual
                   growth.
                 </li>
-              </ul>{" "}
+              </ul>
             </div>
           </AnimatedComponentRight>
         </div>

@@ -68,15 +68,17 @@ const SlidingImageSection = () => {
   ];
   return (
     <div>
-      <div className="border-4  mx-28 mt-36 mb-6 rounded-[40px] border-gray-700  bg-white ">
-        <div className="  flex flex-col gap-8 md:flex-cols-2 w-full ">
+      <div className="border-4 mx-4 md:mx-28 mt-12 mb-6 rounded-[40px] border-gray-700 bg-white">
+        <div className="flex flex-col gap-8 md:flex-cols-2 w-full">
           {/* Text Section */}
-          <div className="flex-1 mt-6 text-black text-center   p-6">
-            <h2 className="text-4xl font-bold mb-4">Teaching Methodology</h2>
-            <p className="text-xl font-bold">
+          <div className="flex-1 mt-6 text-black text-center p-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Teaching Methodology
+            </h2>
+            <p className="text-lg md:text-xl font-bold">
               Our teaching methods are designed to engage students actively in
               their learning journey.
-              <br /> We employ a variety of instructional strategies, Including
+              <br /> We employ a variety of instructional strategies, including:
             </p>
 
             <div className="space-y-8">
@@ -91,7 +93,7 @@ const SlidingImageSection = () => {
                   color: "bg-orange-600",
                   title: "Collaborative Learning",
                   description:
-                    " Group work and discussions to foster teamwork and communication skills.",
+                    "Group work and discussions to foster teamwork and communication skills.",
                 },
                 {
                   color: "bg-yellow-600",
@@ -105,27 +107,15 @@ const SlidingImageSection = () => {
                   description:
                     "Regular assessments and feedback to support student growth and improvement.",
                 },
-                // {
-                //   color: "bg-sky-600",
-                //   title: "Catch up on lessons with our lesson library",
-                //   description:
-                //     "Once class wraps up, a full recording is uploaded to our lesson library, along with all the resources from the day. Students can revisit these materials at any time to reinforce their knowledge.",
-                // },
-                // {
-                //   color: "bg-orange-600",
-                //   title: "Apply your knowledge after class",
-                //   description:
-                //     "Then, learners get to apply what they’ve learned through homework tasks, with regular low-pressure assessments designed to build their confidence.",
-                // },
               ].map((item, index) => (
-                <div key={index} className="flex pt-10  items-center">
+                <div key={index} className="flex pt-10 items-center">
                   <span
-                    className={`${item.color} w-24 h-24 rounded-full p-6 flex items-center justify-center shadow-lg`}
+                    className={`${item.color} w-16 h-16 md:w-24 md:h-24 rounded-full p-6 flex items-center justify-center shadow-lg`}
                   >
-                    <IoCheckmarkSharp className="w-16 h-16 text-white" />
+                    <IoCheckmarkSharp className="w-10 h-10 md:w-16 md:h-16 text-white" />
                   </span>
-                  <div className="px-2 ">
-                    <p className="text-xl text-left lg:text-xl font-bold text-gray-800">
+                  <div className="px-2">
+                    <p className="text-lg md:text-xl text-left font-bold text-gray-800">
                       {item.title}
                     </p>
                     <p className="text-base mt-1 text-gray-600">
@@ -136,49 +126,27 @@ const SlidingImageSection = () => {
               ))}
             </div>
           </div>
-          {/* Image Slider Section */}
+
+          {/* Optional Image Slider Section */}
+          {/* Uncomment and customize this section if needed */}
           {/* <div className="flex-2 mt-12 items-center overflow-y-hidden overflow-x-hidden flex w-full h-80">
-            <div className="flex space-x-8">
-              <img
-                src="/Family.jpg"
-                alt="Image 1"
-                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              <img
-                src="/family2.jpg"
-                alt="Image 2"
-                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
-              />
-              <img
-                src="/Family.jpg"
-                alt="Image 3"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              <img
-                src="/family2.jpg"
-                alt="Image 4"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
-              />
-              <img
-                src="/Family.jpg"
-                alt="Image 5"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              <img
-                src="/family2.jpg"
-                alt="Image 6"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
-              />
-              <img
-                src="/Family.jpg"
-                alt="Image 7"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              {/* Add more images as needed */}
-          {/* </div> */}
-          {/* </div> */}
+      <div className="flex space-x-8">
+        <img
+          src="/Family.jpg"
+          alt="Image 1"
+          className="rounded-[40px] w-72 h-56 object-contain flex-shrink-0 snap-center rotate-6"
+        />
+        <img
+          src="/family2.jpg"
+          alt="Image 2"
+          className="rounded-[40px] w-72 h-56 object-contain flex-shrink-0 snap-center -rotate-6"
+        />
+        {/* Add more images as needed */}
+          {/* </div>
+    </div> */}
         </div>
       </div>
+
       {/* 
       <div className="mx-4 mt-4 mb-8 flex flex-col items-center justify-center text-center space-y-4">
         <div className=" font-bold bg-blue-200 rounded-full text-blue-500 w-auto max-w-md p-2">
@@ -199,16 +167,16 @@ const SlidingImageSection = () => {
           VIEW EXAMPLE TIMETABLE
         </div>
       </div> */}
-      <div className="border-4  mx-28 mt-36 mb-6 rounded-[40px] border-gray-700  bg-white ">
-        <div className="  flex flex-col gap-8 md:flex-cols-2 w-full ">
+      <div className="border-4 mx-4 md:mx-28 mt-12 mb-6 rounded-[40px] border-gray-700 bg-white">
+        <div className="flex flex-col gap-8 md:flex-cols-2 w-full">
           {/* Text Section */}
-          <div className="flex-1 mt-6 text-black text-center   p-6">
-            <h2 className="text-4xl font-bold mb-4">
-              Assessment and Evaluation{" "}
+          <div className="flex-1 mt-6 text-black text-center p-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Assessment and Evaluation
             </h2>
-            <p className="text-xl font-bold">
+            <p className="text-lg md:text-xl font-bold">
               We use a comprehensive assessment system to evaluate student
-              progress and achievement. This Includes:
+              progress and achievement. This includes:
             </p>
 
             <div className="space-y-8">
@@ -217,47 +185,29 @@ const SlidingImageSection = () => {
                   color: "bg-sky-600",
                   title: "Examinations",
                   description:
-                    "Formal exams to assess understanding and knowledge retention. ",
+                    "Formal exams to assess understanding and knowledge retention.",
                 },
                 {
                   color: "bg-orange-600",
-                  title: "Coursework ",
+                  title: "Coursework",
                   description:
-                    "Assignments and projects that allow students to apply their learning in practical ways",
+                    "Assignments and projects that allow students to apply their learning in practical ways.",
                 },
                 {
                   color: "bg-yellow-600",
-                  title: "Formative Assessments ",
+                  title: "Formative Assessments",
                   description:
-                    "Regular quizzes and class activities to monitor ongoing progress. ",
+                    "Regular quizzes and class activities to monitor ongoing progress.",
                 },
-                // {
-                //   color: "bg-green-600",
-                //   title: "Continuous Feedback",
-                //   description:
-                //     "Regular assessments and feedback to support student growth and improvement.",
-                // },
-                // {
-                //   color: "bg-sky-600",
-                //   title: "Catch up on lessons with our lesson library",
-                //   description:
-                //     "Once class wraps up, a full recording is uploaded to our lesson library, along with all the resources from the day. Students can revisit these materials at any time to reinforce their knowledge.",
-                // },
-                // {
-                //   color: "bg-orange-600",
-                //   title: "Apply your knowledge after class",
-                //   description:
-                //     "Then, learners get to apply what they’ve learned through homework tasks, with regular low-pressure assessments designed to build their confidence.",
-                // },
               ].map((item, index) => (
-                <div key={index} className="flex pt-10  items-center">
+                <div key={index} className="flex pt-10 items-center">
                   <span
-                    className={`${item.color} w-24 h-24 rounded-full p-6 flex items-center justify-center shadow-lg`}
+                    className={`${item.color} w-16 h-16 md:w-24 md:h-24 rounded-full p-6 flex items-center justify-center shadow-lg`}
                   >
-                    <IoCheckmarkSharp className="w-16 h-16 text-white" />
+                    <IoCheckmarkSharp className="w-10 h-10 md:w-16 md:h-16 text-white" />
                   </span>
-                  <div className="px-2 ">
-                    <p className="text-xl text-left lg:text-xl font-bold text-gray-800">
+                  <div className="px-2">
+                    <p className="text-lg md:text-xl text-left font-bold text-gray-800">
                       {item.title}
                     </p>
                     <p className="text-base mt-1 text-gray-600">
@@ -268,61 +218,39 @@ const SlidingImageSection = () => {
               ))}
             </div>
           </div>
-          {/* Image Slider Section */}
+
+          {/* Optional Image Slider Section */}
+          {/* Uncomment and customize this section if needed */}
           {/* <div className="flex-2 mt-12 items-center overflow-y-hidden overflow-x-hidden flex w-full h-80">
-            <div className="flex space-x-8">
-              <img
-                src="/Family.jpg"
-                alt="Image 1"
-                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              <img
-                src="/family2.jpg"
-                alt="Image 2"
-                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
-              />
-              <img
-                src="/Family.jpg"
-                alt="Image 3"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              <img
-                src="/family2.jpg"
-                alt="Image 4"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
-              />
-              <img
-                src="/Family.jpg"
-                alt="Image 5"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              <img
-                src="/family2.jpg"
-                alt="Image 6"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
-              />
-              <img
-                src="/Family.jpg"
-                alt="Image 7"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              {/* Add more images as needed */}
-          {/* </div> */}
-          {/* </div> */}
+      <div className="flex space-x-8">
+        <img
+          src="/Family.jpg"
+          alt="Image 1"
+          className="rounded-[40px] w-72 h-56 object-contain flex-shrink-0 snap-center rotate-6"
+        />
+        <img
+          src="/family2.jpg"
+          alt="Image 2"
+          className="rounded-[40px] w-72 h-56 object-contain flex-shrink-0 snap-center -rotate-6"
+        />
+        {/* Add more images as needed */}
+          {/* </div>
+    </div> */}
         </div>
       </div>
-      <div className="border-4  mx-28 mt-36 mb-6 rounded-[40px] border-gray-700  bg-white ">
-        <div className="  flex flex-col gap-8 md:flex-cols-2 w-full ">
+
+      <div className="border-4 mx-4 md:mx-28 mt-12 mb-6 rounded-[40px] border-gray-700 bg-white">
+        <div className="flex flex-col gap-8 w-full">
           {/* Text Section */}
-          <div className="flex-1 mt-6 text-black text-center   p-6">
-            <h2 className="text-4xl font-bold mb-4">
+          <div className="flex-1 mt-6 text-black text-center p-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Extracurricular Enrichment
             </h2>
-            <p className="text-xl font-bold">
+            <p className="text-lg md:text-xl font-bold">
               Beyond the classroom, we offer a variety of extracurricular
               activities that complement our academic program.
               <br /> These activities provide opportunities for students to
-              explore their interests and develop new skills
+              explore their interests and develop new skills.
             </p>
 
             <div className="space-y-8">
@@ -335,42 +263,24 @@ const SlidingImageSection = () => {
                 },
                 {
                   color: "bg-orange-600",
-                  title: "Sports Teams ",
+                  title: "Sports Teams",
                   description: "Soccer, Basketball, Swimming, Athletics.",
                 },
                 {
                   color: "bg-yellow-600",
                   title: "Competitions and Events",
                   description:
-                    " Participation in academic competitions, sports meet, and cultural events.",
+                    "Participation in academic competitions, sports meets, and cultural events.",
                 },
-                // {
-                //   color: "bg-green-600",
-                //   title: "Continuous Feedback",
-                //   description:
-                //     "Regular assessments and feedback to support student growth and improvement.",
-                // },
-                // {
-                //   color: "bg-sky-600",
-                //   title: "Catch up on lessons with our lesson library",
-                //   description:
-                //     "Once class wraps up, a full recording is uploaded to our lesson library, along with all the resources from the day. Students can revisit these materials at any time to reinforce their knowledge.",
-                // },
-                // {
-                //   color: "bg-orange-600",
-                //   title: "Apply your knowledge after class",
-                //   description:
-                //     "Then, learners get to apply what they’ve learned through homework tasks, with regular low-pressure assessments designed to build their confidence.",
-                // },
               ].map((item, index) => (
-                <div key={index} className="flex pt-10  items-center">
+                <div key={index} className="flex pt-10 items-center">
                   <span
-                    className={`${item.color} w-24 h-24 rounded-full p-6 flex items-center justify-center shadow-lg`}
+                    className={`${item.color} w-16 h-16 md:w-24 md:h-24 rounded-full p-6 flex items-center justify-center shadow-lg`}
                   >
-                    <IoCheckmarkSharp className="w-16 h-16 text-white" />
+                    <IoCheckmarkSharp className="w-10 h-10 md:w-16 md:h-16 text-white" />
                   </span>
-                  <div className="px-2 ">
-                    <p className="text-xl text-left lg:text-xl font-bold text-gray-800">
+                  <div className="px-2">
+                    <p className="text-lg md:text-xl text-left font-bold text-gray-800">
                       {item.title}
                     </p>
                     <p className="text-base mt-1 text-gray-600">
@@ -381,49 +291,27 @@ const SlidingImageSection = () => {
               ))}
             </div>
           </div>
-          {/* Image Slider Section */}
+
+          {/* Optional Image Slider Section */}
+          {/* Uncomment and customize this section if needed */}
           {/* <div className="flex-2 mt-12 items-center overflow-y-hidden overflow-x-hidden flex w-full h-80">
-            <div className="flex space-x-8">
-              <img
-                src="/Family.jpg"
-                alt="Image 1"
-                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              <img
-                src="/family2.jpg"
-                alt="Image 2"
-                className=" rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
-              />
-              <img
-                src="/Family.jpg"
-                alt="Image 3"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              <img
-                src="/family2.jpg"
-                alt="Image 4"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
-              />
-              <img
-                src="/Family.jpg"
-                alt="Image 5"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              <img
-                src="/family2.jpg"
-                alt="Image 6"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center -rotate-6"
-              />
-              <img
-                src="/Family.jpg"
-                alt="Image 7"
-                className="rounded-[40px] w-96 h-72 object-contain flex-shrink-0 snap-center rotate-6"
-              />
-              {/* Add more images as needed */}
-          {/* </div> */}
-          {/* </div> */}
+      <div className="flex space-x-8">
+        <img
+          src="/Family.jpg"
+          alt="Image 1"
+          className="rounded-[40px] w-72 h-56 object-contain flex-shrink-0 snap-center rotate-6"
+        />
+        <img
+          src="/family2.jpg"
+          alt="Image 2"
+          className="rounded-[40px] w-72 h-56 object-contain flex-shrink-0 snap-center -rotate-6"
+        />
+        {/* Add more images as needed */}
+          {/* </div>
+    </div> */}
         </div>
       </div>
+
       {/* <div className="bg-slate-100 py-10 relative">
         {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
          

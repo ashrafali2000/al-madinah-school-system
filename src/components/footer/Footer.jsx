@@ -126,7 +126,6 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="ml-10 border-l-2 border-gray-700 h-72"></div>
 
           {/* <div className=" mx-auto px-4 grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4"> */}
           {/* <div>

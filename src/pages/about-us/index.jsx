@@ -254,8 +254,8 @@ export default function AboutUs() {
           </ul> */}
       {/* </div> */}
       {/* </div> */}
-      <div className="bg-white   place-items-center rounded-[40px] max-w-7xl h-[550px] border-4 border-gray-700 ">
-        <div className="grid grid-cols-1   mx-auto  lg:grid-cols-2  px-10 gap-10 mt-20">
+      <div className="bg-white place-items-center rounded-[40px] max-w-7xl h-auto border-4 border-gray-700">
+        <div className="grid grid-cols-1 mx-auto lg:grid-cols-2 px-5 lg:px-10 gap-8 mt-10">
           <AnimatedComponentLeft>
             <div>
               <img className=" rounded-xl" src="/newImges/11.jpg" alt="image" />
@@ -263,13 +263,13 @@ export default function AboutUs() {
           </AnimatedComponentLeft>
           <AnimatedComponentRight>
             <div className="flex flex-col gap-4">
-              <div className="flex  items-center  ">
+              <div className="flex items-center">
                 <motion.h3
-                  className="cursor-pointer text-3xl  rounded-xl border-2 border-gray-700 w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
+                  className="cursor-pointer text-3xl rounded-xl border-2 border-gray-700 w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold"
                   initial={{ opacity: 0, scale: 0.2 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
-                    duration: 20, // removed quotes around the duration
+                    duration: 0.6, // Adjusted for a smoother effect
                     delay: 0.3,
                     ease: [0, 0.71, 0.2, 1.01],
                   }}
@@ -278,7 +278,7 @@ export default function AboutUs() {
                 </motion.h3>
               </div>
 
-              <p className="text-lg mt-5 text-gray-700 font-bold">
+              <p className="text-base md:text-lg mt-4 text-gray-700 font-bold">
                 At Al-Madinah Online School, our mission is to provide an
                 exceptional and varied education that nurtures the intellectual,
                 spiritual, and moral development of every child. We are
@@ -296,8 +296,9 @@ export default function AboutUs() {
           </AnimatedComponentRight>
         </div>
       </div>
-      <div className="bg-white  mt-10   place-items-center rounded-[40px] max-w-7xl h-[550px] border-4 border-gray-700 ">
-        <div className="grid grid-cols-1      mx-auto  lg:grid-cols-2  px-10 gap-10 mt-20">
+
+      <div className="bg-white mt-10 place-items-center rounded-[40px] max-w-7xl h-auto border-4 border-gray-700">
+        <div className="grid grid-cols-1 mx-auto lg:grid-cols-2 px-5 lg:px-10 gap-8 mt-10">
           <AnimatedComponentLeft>
             <div>
               <img className=" rounded-xl" src="/newImges/4.jpg" alt="image" />
@@ -305,13 +306,13 @@ export default function AboutUs() {
           </AnimatedComponentLeft>
           <AnimatedComponentRight>
             <div className="flex flex-col gap-4">
-              <div className="flex  items-center ">
+              <div className="flex items-center">
                 <motion.h3
-                  className="  border-2 border-gray-700 rounded-lg tracking-wider space-x-2  cursor-pointer text-3xl  w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
+                  className="border-2 border-gray-700 rounded-lg tracking-wider cursor-pointer text-3xl w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold"
                   initial={{ opacity: 0, scale: 0.2 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
-                    duration: 20, // removed quotes around the duration
+                    duration: 0.6, // Adjusted for smoother effect
                     delay: 0.3,
                     ease: [0, 0.71, 0.2, 1.01],
                   }}
@@ -320,7 +321,7 @@ export default function AboutUs() {
                 </motion.h3>
               </div>
 
-              <p className="text-lg mt-5 text-gray-700 font-bold">
+              <p className="text-base md:text-lg mt-4 text-gray-700 font-bold">
                 At Al-Madinah Online School, we are committed to providing a
                 comprehensive education that integrates core academic subjects
                 such as Maths, English, Science, and Islamic studies with the
@@ -337,22 +338,27 @@ export default function AboutUs() {
           </AnimatedComponentRight>
         </div>
       </div>
-      <div className="bg-white  mt-10    tracking-wider space-x-2  place-items-center rounded-[40px] max-w-7xl h-[550px] border-4 border-gray-700 ">
-        <div className="grid grid-cols-1   mx-auto  lg:grid-cols-2  px-10 gap-10 mt-20">
+
+      <div className="bg-white mt-10 tracking-wider rounded-[40px] max-w-7xl h-auto border-4 border-gray-700">
+        <div className="grid grid-cols-1 mx-auto lg:grid-cols-2 px-5 lg:px-10 gap-8 mt-10">
           <AnimatedComponentLeft>
             <div>
-              <img className=" rounded-xl" src="/08.jpg" alt="image" />
+              <img
+                className="rounded-xl w-full h-auto"
+                src="/08.jpg"
+                alt="image"
+              />
             </div>
           </AnimatedComponentLeft>
           <AnimatedComponentRight>
             <div className="flex flex-col gap-4">
-              <div className="flex  items-start  ">
+              <div className="flex items-start">
                 <motion.h3
-                  className=" animate-scaleUp cursor-pointer text-3xl rounded-xl border-2 border-gray-700 w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold "
+                  className="animate-scaleUp cursor-pointer text-3xl rounded-xl border-2 border-gray-700 w-auto p-4 inline-block bg-[rgb(250,204,20)] text-black font-semibold"
                   initial={{ opacity: 0, scale: 0.2 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{
-                    duration: 20, // removed quotes around the duration
+                    duration: 0.6, // Adjusted duration for a smoother effect
                     delay: 0.3,
                     ease: [0, 0.71, 0.2, 1.01],
                   }}
@@ -360,8 +366,7 @@ export default function AboutUs() {
                   Values
                 </motion.h3>
               </div>
-
-              <p className="text-lg mt-5 text-gray-700 font-bold">
+              <p className="text-base md:text-lg mt-4 text-gray-700 font-bold">
                 At Al-Madinah Online School, Islamic values shape our nurturing
                 environment. We emphasise respectful behaviour and good manners
                 in all interactions, fostering virtues such as honesty,
