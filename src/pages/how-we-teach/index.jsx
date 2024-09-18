@@ -73,7 +73,7 @@ const SlidingImageSection = () => {
           {/* Text Section */}
           <div className="flex-1 mt-6 text-black text-center   p-6">
             <h2 className="text-4xl font-bold mb-4">Teaching Methodology</h2>
-            <p className="text-lg">
+            <p className="text-xl font-bold">
               Our teaching methods are designed to engage students actively in
               their learning journey.
               <br /> We employ a variety of instructional strategies, Including
@@ -206,7 +206,7 @@ const SlidingImageSection = () => {
             <h2 className="text-4xl font-bold mb-4">
               Assessment and Evaluation{" "}
             </h2>
-            <p className="text-lg">
+            <p className="text-xl font-bold">
               We use a comprehensive assessment system to evaluate student
               progress and achievement. This Includes:
             </p>
@@ -318,7 +318,7 @@ const SlidingImageSection = () => {
             <h2 className="text-4xl font-bold mb-4">
               Extracurricular Enrichment
             </h2>
-            <p className="text-lg">
+            <p className="text-xl font-bold">
               Beyond the classroom, we offer a variety of extracurricular
               activities that complement our academic program.
               <br /> These activities provide opportunities for students to
@@ -432,7 +432,7 @@ const SlidingImageSection = () => {
               <h1 className="text-5xl font-bold text-gray-800">
                 What happens in an online lesson?
               </h1>
-              <p className="mt-4 max-w-xl text-lg text-gray-600">
+              <p className="mt-4 max-w-xl text-2xl font-bold text-gray-600">
                 Discover what happens in an online lesson with Al Madinah
                 School. Our goal is to make it as simple as possible for
                 students to login, learn, and love their education.
