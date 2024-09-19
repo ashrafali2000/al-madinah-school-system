@@ -6,15 +6,11 @@ export const AboutSchool = ({ title, buttonTile, subtitle, describe }) => {
   return (
     <div className="">
       <div className="flex gap-5 max-w-4xl mx-auto flex-col items-center">
-        <p className="font-bold py-2  px-4 border-1 rounded-full ">
+        <div className="font-bold py-2  px-4 border-1 rounded-full ">
           <AnimationPopUp>
-            {" "}
-            <Button link={"#"} title={" learning journey  "}>
-              {" "}
-              learning journey
-            </Button>
+            <Button link={"#"} title={" learning journey  "} />
           </AnimationPopUp>
-        </p>
+        </div>
         <p className=" mt-4 md:text-2xl lg:text-4xl font-semibold lg:font-bold text-center text-gray-800">
           {subtitle}
         </p>

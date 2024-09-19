@@ -298,10 +298,14 @@ export default function AboutUs() {
       </div>
 
       <div className="bg-white mt-10 place-items-center rounded-[40px] max-w-7xl h-auto border-4 border-gray-700">
-        <div className="grid grid-cols-1 mx-auto lg:grid-cols-2 px-5 lg:px-10 gap-8 mt-10">
+        <div className="grid grid-cols-1 mx-auto pb-2 lg:grid-cols-2 px-5 lg:px-10 gap-8 mt-10">
           <AnimatedComponentLeft>
             <div>
-              <img className=" rounded-xl" src="/newImges/4.jpg" alt="image" />
+              <img
+                className=" rounded-xl"
+                src="/newImges/vision.jpg"
+                alt="image"
+              />
             </div>
           </AnimatedComponentLeft>
           <AnimatedComponentRight>

@@ -55,7 +55,7 @@ export default function AboutUs() {
               </motion.h3>
             </div>
           </div>
-          <div className="bg-sky-400 px-5 py-5 rounded-3xl max-w-md mx-auto mt-5 lg:mt-0">
+          <div className="bg-sky-400 px-20 py-5 rounded-3xl max-w-md mx-auto mt-5 lg:mt-0">
             <form className="w-full">
               <div className="mb-5">
                 <label
@@ -69,6 +69,21 @@ export default function AboutUs() {
                   id="email"
                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div className="mb-5">
+                <label
+                  htmlFor="number"
+                  className="block mb-2 text-sm font-medium text-gray-900"
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="number"
+                  id="number"
+                  className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="Enter Your Number"
                   required
                 />
               </div>

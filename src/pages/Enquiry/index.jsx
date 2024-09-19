@@ -166,13 +166,13 @@ export default function Enquiry() {
       title: "Our Schools",
       description: "Prep, Upper,Lower and Sixth Form",
       btnText: "Learn More",
-      imageUrl: "/bannerHero.jpg",
+      imageUrl: "/hijab-girl.jpg",
     },
     {
       id: 2,
       title: "Grades and Fees",
       btnText: "Find Out More",
-      imageUrl: "/02.jpg",
+      imageUrl: "/culture.jpg",
     },
     {
       id: 3,
@@ -184,15 +184,15 @@ export default function Enquiry() {
       id: 4,
       title: "Admission Process",
       btnText: "Apply Today",
-      imageUrl: "/04.jpg",
+      imageUrl: "/newImges/5.jpg",
     },
-    { id: 5, title: "Terms Date", btnText: "Learn More", imageUrl: "/05.jpg" },
-    {
-      id: 6,
-      title: "Our Prospectus ",
-      btnText: "Get It now",
-      imageUrl: "/06.jpg",
-    },
+    // { id: 5, title: "Terms Date", btnText: "Learn More", imageUrl: "/05.jpg" },
+    // // {
+    //   id: 6,
+    //   title: "Our Prospectus ",
+    //   btnText: "Get It now",
+    //   imageUrl: "/06.jpg",
+    // },
   ];
   return (
     <div>
@@ -220,7 +220,7 @@ export default function Enquiry() {
               <div className=" bg-blue-950 rounded-[40px] border-4 border-[#ffa500] text-white font-semibold  text-2xl mt-4 pb-10 gap-3 ">
                 <h1 className="ml-20 pb-10  text-2xl lg:text-4xl mt-6">
                   {" "}
-                  Application Form{" "}
+                  Registration Form{" "}
                 </h1>
 
                 <div className="max-w-2xl mx-auto p-8  bg-white text-black shadow-lg rounded-lg mt-6">
@@ -372,7 +372,7 @@ export default function Enquiry() {
                         </p>
                       )}
                     </div>
-                    <div>
+                    {/* <div>
                       <label
                         htmlFor="studentFirstName"
                         className="block text-sm font-medium text-gray-700 mb-1"
@@ -413,7 +413,7 @@ export default function Enquiry() {
                           {errors.studentLastName}
                         </p>
                       )}
-                    </div>
+                    </div> */}
                     <div>
                       <label
                         htmlFor="studentDOB"

@@ -109,6 +109,17 @@ export const Navbar = () => {
                         Extracurricular Activities
                       </Link>
                     </li>
+                    <li>
+                      <Link
+                        href="/integration-with-islamic"
+                        onClick={() =>
+                          handleTabClick("/integration-with-islamic")
+                        }
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        integration-with-islamic
+                      </Link>
+                    </li>
                   </div>
                   <div className="border-l-2 border-gray-400 h-32"></div>
 
@@ -147,20 +158,7 @@ export const Navbar = () => {
 
               <li>
                 <Link
-                  href={`/contact-us`}
-                  onClick={() => handleTabClick("/contact-us")}
-                  className={`transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 ${
-                    activeTab === "/contact-us"
-                      ? "text-sky-400"
-                      : "md:hover:text-blue-400"
-                  }`}
-                >
-                  Contact us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={"/how-we-teach"}
+                  href={`/how-we-teach`}
                   onClick={() => handleTabClick("/how-we-teach")}
                   className={`transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 ${
                     activeTab === "/how-we-teach"
@@ -169,6 +167,19 @@ export const Navbar = () => {
                   }`}
                 >
                   How we teach
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={"/contact-us"}
+                  onClick={() => handleTabClick("/contact-us")}
+                  className={`transition duration-1000 hover:text-sky-400 block font-semibold py-2 px-3 text-gray-900 xl:text-lg hover:bg-gray-100 md:hover:bg-transparent md:border-0 ${
+                    activeTab === "/contact-us"
+                      ? "text-sky-400"
+                      : "md:hover:text-blue-400"
+                  }`}
+                >
+                  Contact Us
                 </Link>
               </li>
             </ul>
