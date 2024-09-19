@@ -55,7 +55,7 @@ export default function AboutUs() {
               </motion.h3>
             </div>
           </div>
-          <div className="bg-sky-400 px-20 py-5 rounded-3xl max-w-md mx-auto mt-5 lg:mt-0">
+          <div className="bg-sky-400 px-10 py-5 rounded-3xl max-w-md mt-5 lg:mt-0">
             <form className="w-full">
               <div className="mb-5">
                 <label
