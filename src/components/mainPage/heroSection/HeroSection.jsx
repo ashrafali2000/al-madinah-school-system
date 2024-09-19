@@ -19,6 +19,7 @@ import {
   Mousewheel,
   Keyboard,
 } from "swiper/modules";
+import HeroBannerSlider from "../../heroSlider/HeroSectionSlider";
 export default function HeroSection() {
   const heroImage = [
     { img: "/Herobanner2.png" },
@@ -94,122 +95,125 @@ export default function HeroSection() {
   //   return () => clearInterval(intervalId);
   // }, [currentIndex, heroImage]);
   return (
-    <div className="relative pt-10 pb-5 mt-20 mb-6">
-      {/* Blurred Background Image */}
+    // <div className="relative pt-10 pb-5 mt-20 mb-6">
+    //   {/* Blurred Background Image */}
 
-      {/* Foreground Content */}
-      <div className="relative isolate px-4 overflow-hidden">
-        <div
-          className="max-w-7xl border-4 border-gray-700 rounded-[40px] h-auto relative mx-auto"
-          style={{
-            backgroundImage: "url(./herobanner1.png)",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          {/* Two Equal Divs */}
-          <div className="grid grid-cols-1 gap-40  md:grid-cols-2 items-center h-full">
-            {/* Left Side - Image */}
-            <div className="flex flex-col items-center">
-              <div className="w-full flex justify-center animate-slide-in-left">
-                <Image
-                  src={"/bannerImage3.png"}
-                  className="w-full max-w-xs sm:max-w-md md:max-w-lg h-auto"
-                  alt="heroImage"
-                  width={3000000}
-                  height={2000000}
-                />
-              </div>
-              <div className="animate-slide-in-left text-center mt-4">
-                <h2 className="cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
-                  Where Academic Excellence Meets Islamic Values
-                </h2>
-                <h2 className="cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105 mt-2">
-                  Learn Anywhere, Anytime.
-                </h2>
-              </div>
-            </div>
+    //   {/* Foreground Content */}
+    //   <div className="relative isolate px-4 overflow-hidden">
+    //     <div
+    //       className="max-w-7xl border-4 border-gray-700 rounded-[40px] h-auto relative mx-auto"
+    //       style={{
+    //         backgroundImage: "url(./herobanner1.png)",
+    //         backgroundSize: "cover",
+    //         backgroundRepeat: "no-repeat",
+    //       }}
+    //     >
+    //       {/* Two Equal Divs */}
+    //       <div className="grid grid-cols-1 gap-40  md:grid-cols-2 items-center h-full">
+    //         {/* Left Side - Image */}
+    //         <div className="flex flex-col items-center">
+    //           <div className="w-full flex justify-center animate-slide-in-left">
+    //             <Image
+    //               src={"/bannerImage3.png"}
+    //               className="w-full max-w-xs sm:max-w-md md:max-w-lg h-auto"
+    //               alt="heroImage"
+    //               width={3000000}
+    //               height={2000000}
+    //             />
+    //           </div>
+    //           <div className="animate-slide-in-left text-center mt-4">
+    //             <h2 className="cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
+    //               Where Academic Excellence Meets Islamic Values
+    //             </h2>
+    //             <h2 className="cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105 mt-2">
+    //               Learn Anywhere, Anytime.
+    //             </h2>
+    //           </div>
+    //         </div>
 
-            {/* Right Side - Text */}
-            <div className="flex justify-center">
-              <AnimationRigth>
-                {/* {heroImage.map((d) => (
-                  <Image
-                    src={d.img}
-                    alt="heroImage"
-                    className="w-full max-w-xs sm:max-w-md md:max-w-lg h-auto animate-slide-in-right"
-                    width={3000000}
-                    height={2000000}
-                  />
-                ))} */}
-                <div className="grid grid-cols-12   ">
-                  {/* First Div */}
+    //         {/* Right Side - Text */}
+    //         <div className="flex justify-center">
+    //           <AnimationRigth>
+    //             {/* {heroImage.map((d) => (
+    //               <Image
+    //                 src={d.img}
+    //                 alt="heroImage"
+    //                 className="w-full max-w-xs sm:max-w-md md:max-w-lg h-auto animate-slide-in-right"
+    //                 width={3000000}
+    //                 height={2000000}
+    //               />
+    //             ))} */}
+    //             <div className="grid grid-cols-12   ">
+    //               {/* First Div */}
 
-                  {/* Second Div - Swiper */}
-                  <div className="flex flex-row  col-span-12">
-                    <Swiper
-                      slidesPerView={1} // Default to showing 3 slides at a time
-                      // spaceBetween={20} // Space between slides
-                      speed={3000}
-                      autoplay={{
-                        delay: 1,
-                        disableOnInteraction: false,
-                      }}
-                      loop={true}
-                      modules={[Autoplay]}
-                      className=""
-                      // style={{
-                      //   "--swiper-navigation-color": "#fff",
-                      //   "--swiper-navigation-size": "25px",
-                      // }}
-                      // breakpoints={{
-                      //   320: {
-                      //     // Mobile screens
-                      //     slidesPerView: 1, // Show 1 slide at a time
-                      //     spaceBetween: 10, // Adjust space between slides for mobile
-                      //   },
-                      //   640: {
-                      //     // Small screens and up
-                      //     slidesPerView: 2,
-                      //     spaceBetween: 15,
-                      //   },
-                      //   768: {
-                      //     // Medium screens and up
-                      //     slidesPerView: 3,
-                      //     spaceBetween: 20,
-                      //   },
-                      //   1024: {
-                      //     // Large screens and up
-                      //     slidesPerView: 3, // Adjust as needed for larger screens
-                      //     spaceBetween: 20,
-                      //   },
-                      // }}
-                    >
-                      {heroImage.map((item, index) => (
-                        <SwiperSlide key={index}>
-                          <div className=" w-[450px]  h-[620px]">
-                            {/* <Link href={`/`}> */}
-                            {/* <div className="flex flex-col border border-gray-400 items-center rounded-lg shadow-lg"> */}
-                            <div className="w-full h-full">
-                              <img
-                                src={item.img}
-                                alt={`Image ${index}`}
-                                className="w-full h-full rounded-lg"
-                              />
-                            </div>
-                            {/* </div> */}
-                            {/* </Link> */}
-                          </div>
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div>
-                </div>
-              </AnimationRigth>
-            </div>
-          </div>
-        </div>
-      </div>
+    //               {/* Second Div - Swiper */}
+    //               <div className="flex flex-row  col-span-12">
+    //                 <Swiper
+    //                   slidesPerView={1} // Default to showing 3 slides at a time
+    //                   // spaceBetween={20} // Space between slides
+    //                   speed={3000}
+    //                   autoplay={{
+    //                     delay: 1,
+    //                     disableOnInteraction: false,
+    //                   }}
+    //                   loop={true}
+    //                   modules={[Autoplay]}
+    //                   className=""
+    //                   // style={{
+    //                   //   "--swiper-navigation-color": "#fff",
+    //                   //   "--swiper-navigation-size": "25px",
+    //                   // }}
+    //                   // breakpoints={{
+    //                   //   320: {
+    //                   //     // Mobile screens
+    //                   //     slidesPerView: 1, // Show 1 slide at a time
+    //                   //     spaceBetween: 10, // Adjust space between slides for mobile
+    //                   //   },
+    //                   //   640: {
+    //                   //     // Small screens and up
+    //                   //     slidesPerView: 2,
+    //                   //     spaceBetween: 15,
+    //                   //   },
+    //                   //   768: {
+    //                   //     // Medium screens and up
+    //                   //     slidesPerView: 3,
+    //                   //     spaceBetween: 20,
+    //                   //   },
+    //                   //   1024: {
+    //                   //     // Large screens and up
+    //                   //     slidesPerView: 3, // Adjust as needed for larger screens
+    //                   //     spaceBetween: 20,
+    //                   //   },
+    //                   // }}
+    //                 >
+    //                   {heroImage.map((item, index) => (
+    //                     <SwiperSlide key={index}>
+    //                       <div className=" w-[450px]  h-[620px]">
+    //                         {/* <Link href={`/`}> */}
+    //                         {/* <div className="flex flex-col border border-gray-400 items-center rounded-lg shadow-lg"> */}
+    //                         <div className="w-full h-full">
+    //                           <img
+    //                             src={item.img}
+    //                             alt={`Image ${index}`}
+    //                             className="w-full h-full rounded-lg"
+    //                           />
+    //                         </div>
+    //                         {/* </div> */}
+    //                         {/* </Link> */}
+    //                       </div>
+    //                     </SwiperSlide>
+    //                   ))}
+    //                 </Swiper>
+    //               </div>
+    //             </div>
+    //           </AnimationRigth>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+    <div>
+      <HeroBannerSlider />
     </div>
   );
 }
