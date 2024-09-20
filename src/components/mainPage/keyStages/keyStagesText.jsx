@@ -5,7 +5,7 @@ export const KeyStagesText = () => {
   return (
     <div
       id="key-Stages"
-      className="mx-auto  bg-white border-4 border-gray-700  rounded-[40px]  max-w-7xl py-8 "
+      className="mx-auto mt-40 bg-white border-4 border-gray-700  rounded-[40px]  max-w-7xl py-8 "
     >
       <div className="flex justify-center">
         <AnimationPopUp>
