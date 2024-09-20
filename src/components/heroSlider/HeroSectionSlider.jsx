@@ -13,9 +13,9 @@ const HeroBannerSlider = () => {
   const heroImage = [
     { img: "/Al-Madinah-L.png", titl: "firstimg" },
     { img: "/newImges/register.png" },
-    { img: "/newImges/1.jpg" },
-    { img: "/newImges/2.jpg" },
-    { img: "/newImges/3.jpg" },
+    // { img: "/newImges/1.jpg" },
+    // { img: "/newImges/2.jpg" },
+    // { img: "/newImges/3.jpg" },
   ];
   const handleUpdate = (newIndex) => {
     if (newIndex < 0 || newIndex > 4) {
@@ -34,7 +34,7 @@ const HeroBannerSlider = () => {
   }, [currentIndex, heroImage]);
 
   return (
-    <div className="md:h-[370px] lg:h-[600px] h-[170px] w-full max-w-screen-2xl mx-auto flex items-center text-white relative overflow-hidden">
+    <div className="md:h-[370px] lg:h-[550px] mt-40 h-[170px] w-full max-w-7xl border-4 border-gray-700 rounded-[40px] mx-auto flex items-center text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-[1]">
         <div className="overflow-hidden w-full h-full flex flex-col justify-center">
           <div
@@ -54,9 +54,9 @@ const HeroBannerSlider = () => {
                   height={1200}
                 />
                 {data.titl && (
-                  <div className=" absolute top-96  -left-80  md:h-[500px] w-full ">
+                  <div className="absolute top-1/2 left-1/2 transform  items-start -translate-x-3/4 translate-y-3/4 md:top-1/2 md:left-1/2 w-full">
                     {/* {data.titl} */}
-                    <div className="animate-slide-in-left text-center mt-4">
+                    <div className="animate-slide-in-left text-center">
                       <h2 className="cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
                         Where Academic Excellence Meets Islamic Values
                       </h2>
@@ -120,10 +120,10 @@ const HeroBannerSlider = () => {
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         className="absolute animate-pulse opacity-30 md:block hidden maskanimation2 -bottom-[1%] right-0 w-full bg-no-repeat bg-center bg-cover z-[3] 2xl:h-[320px] xl:h-[260px] lg:h-[230px] h-[300px]"
         style={{ backgroundImage: `url(/img/mask1.svg)` }}
-      ></div>
+      ></div> */}
       {/* <div
         className="absolute  opacity-40 md:block hidden maskanimat1on -bottom-[1%] right-0 w-full bg-no-repeat bg-center bg-cover z-[3] 2xl:h-[320px] xl:h-[260px] lg:h-[230px] h-[300px]"
         style={{ backgroundImage: `url(/img/mask2.svg)` }}
