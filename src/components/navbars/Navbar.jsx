@@ -77,7 +77,7 @@ export const Navbar = () => {
                 </Link>
 
                 {/* Sub-tabs */}
-                <ul className="absolute -left-24 flex w-[500px] place-items-center justify-between hidden group-hover:flex bg-gray-100 rounded-lg shadow-lg p-5 space-x-2">
+                <ul className="absolute -left-24 flex w-[500px] place-items-center justify-between hidden group-hover:flex bg-gray-100 rounded-lg shadow-lg p-16 space-x-2">
                   {/* Left-side sub-tabs */}
                   <div className="flex flex-col    inline-block  space-y-2">
                     <li>
@@ -121,10 +121,8 @@ export const Navbar = () => {
                       </Link>
                     </li>
                   </div>
-                  <div className="border-l-2 border-gray-400 h-32"></div>
-
-                  {/* Right-side sub-tabs */}
-                  <div className="flex  flex-col inline-block place-items-center ">
+                  <div className="border-l-2 border-gray-400 h-60"></div>
+                  <div className="flex flex-col    inline-block  space-y-2">
                     <li>
                       <Link
                         href="/support-services"
@@ -152,7 +150,19 @@ export const Navbar = () => {
                         Parental Involvement
                       </Link>
                     </li>
+                    <li>
+                      <Link
+                        href="/integration-with-islamic"
+                        onClick={() =>
+                          handleTabClick("/integration-with-islamic")
+                        }
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        integration with islamic studies
+                      </Link>
+                    </li>
                   </div>
+                  {/* Right-side sub-tabs */}
                 </ul>
               </li>
 

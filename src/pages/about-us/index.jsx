@@ -255,7 +255,7 @@ export default function AboutUs() {
       {/* </div> */}
       {/* </div> */}
       <div className="bg-white place-items-center rounded-[40px] max-w-7xl h-auto border-4 border-gray-700">
-        <div className="grid grid-cols-1 mx-auto lg:grid-cols-2 px-5 lg:px-10 gap-8 mt-10">
+        <div className="grid grid-cols-1 mx-auto lg:grid-cols-2 px-5 lg:px-10 gap-8 pb-6 mt-10">
           <AnimatedComponentLeft>
             <div>
               <img className=" rounded-xl" src="/newImges/11.jpg" alt="image" />
@@ -278,7 +278,7 @@ export default function AboutUs() {
                 </motion.h3>
               </div>
 
-              <p className="text-base md:text-lg mt-4 text-gray-700 font-bold">
+              <p className="text-base md:text-lg  text-gray-700 font-bold">
                 At Al-Madinah Online School, our mission is to provide an
                 exceptional and varied education that nurtures the intellectual,
                 spiritual, and moral development of every child. We are
@@ -298,11 +298,11 @@ export default function AboutUs() {
       </div>
 
       <div className="bg-white mt-10 place-items-center rounded-[40px] max-w-7xl h-auto border-4 border-gray-700">
-        <div className="grid grid-cols-1 mx-auto pb-2 lg:grid-cols-2 px-5 lg:px-10 gap-8 mt-10">
+        <div className="grid grid-cols-1 mx-auto  lg:grid-cols-2 px-5  pb-6 lg:px-10 gap-8 mt-10">
           <AnimatedComponentLeft>
             <div>
               <img
-                className=" rounded-xl"
+                className=" rounded-xl border-2 border-gray-700"
                 src="/newImges/vision.jpg"
                 alt="image"
               />
@@ -344,7 +344,7 @@ export default function AboutUs() {
       </div>
 
       <div className="bg-white mt-10 tracking-wider rounded-[40px] max-w-7xl h-auto border-4 border-gray-700">
-        <div className="grid grid-cols-1 mx-auto lg:grid-cols-2 px-5 lg:px-10 gap-8 mt-10">
+        <div className="grid grid-cols-1  pb-6 mx-auto lg:grid-cols-2 px-5 lg:px-10 gap-8 mt-10">
           <AnimatedComponentLeft>
             <div>
               <img

@@ -252,11 +252,12 @@ export default function ExtracurricularActivites() {
       {/* </div> */}
       {/* </div> */}
       <div className="bg-white place-items-center rounded-[40px] max-w-7xl h-auto border-4 border-gray-700 mx-4 md:mx-0">
-        <div className="grid grid-cols-1 mx-auto lg:pb-6 lg:grid-cols-2 px-6 lg:px-10 gap-6 mt-10 lg:mt-20">
+        <div className="grid grid-cols-1 mx-auto lg:pb-6 lg:grid-cols-2 px-6 lg:px-10 gap-6 mt-10 lg:mt-10">
           <AnimatedComponentLeft>
             <div className="flex justify-center">
               <img
-                className="rounded-xl w-full h-auto max-w-xs md:max-w-sm lg:max-w-md"
+                // className="rounded-xl w-full h-auto max-w-xs md:max-w-sm lg:max-w-md"
+                className="rounded-xl "
                 src="/extraActivites.jpg"
                 alt="image"
               />
