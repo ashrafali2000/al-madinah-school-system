@@ -18,7 +18,7 @@ const HeroBannerSlider = () => {
     { img: "/newImges/3.jpg" },
   ];
   const handleUpdate = (newIndex) => {
-    if (newIndex < 0 || newIndex > 12) {
+    if (newIndex < 0 || newIndex > 5) {
       newIndex = 0;
     } else if (newIndex >= heroImage.length) {
       newIndex = heroImage.length - 1;
