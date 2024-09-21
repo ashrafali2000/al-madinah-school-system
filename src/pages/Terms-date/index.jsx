@@ -4,17 +4,16 @@ import { motion } from "framer-motion";
 function index() {
   return (
     <div>
-      <div className="border-4 mx-2 md:mx-20 mt-40 mb-6 rounded-[40px]  border-gray-700 bg-white">
-        <div className="flex flex-col gap-8 md:flex-cols-3 sm:flex-cols-3  max-w-9xl">
+      <div className="border-4  md:mx-5 mt-40 mb-6 rounded-[40px]  border-gray-700 bg-white">
+        <div className="flex flex-col gap-6 md:gap-8 max-w-9xl">
           {/* Text Section */}
-          <div className="flex flex-col mt-6 text-black text-center p-6">
-            {/* <h2 className="   font-bold mb-4">School Year 2024 to 2025</h2> */}
+          <div className="flex flex-col mt-6 text-black text-center p-4 md:p-6">
             <motion.h3
-              className="  cursor-pointer text-3xl md:text-4xl  border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold "
+              className="cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
               initial={{ opacity: 0, scale: 0.2 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
-                duration: 20, // removed quotes around the duration
+                duration: 20,
                 delay: 0.3,
                 ease: [0, 0.71, 0.2, 1.01],
               }}
@@ -22,186 +21,121 @@ function index() {
               School Year 2024 to 2025
             </motion.h3>
 
-            <div className="mt-4 flex gap-4  ">
-              <div className="border-2 pt-20 pb-20 border-gray-700 inline-block  rounded-[40px] ">
-                <motion.p
-                  className="  cursor-pointer text-3xl md:text-4xl  border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold "
-                  initial={{ opacity: 0, scale: 0.2 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 20, // removed quotes around the duration
-                    delay: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                  }}
-                >
-                  Autumn Term 2024
-                </motion.p>
-                <p className="m-4">
-                  {" "}
-                  <b> Term Starts </b>: Monday 2 September 2024
-                </p>
-                <p>
-                  {" "}
-                  <b> Half-term </b> : Monday 28 October 2024 to Friday 1
-                  November 2024
-                </p>
-                <p>
-                  <b> Term ends </b>: Friday 20 December 2024
-                </p>
-              </div>
-              <div className="border-2 pt-20 pb-20 border-gray-700 inline-block  rounded-[40px] ">
-                <motion.p
-                  className="  cursor-pointer text-3xl md:text-4xl  border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold "
-                  initial={{ opacity: 0, scale: 0.2 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 20, // removed quotes around the duration
-                    delay: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                  }}
-                >
-                  Spring Term 2025
-                </motion.p>
-                <p className="m-4">
-                  {" "}
-                  <b> Term Starts </b>: Monday 6 January 2025
-                </p>
-                <p>
-                  {" "}
-                  <b> Half-term </b> : Monday 17 February 2025 to Friday 21
-                  February 2025
-                </p>
-                <p>
-                  <b> Term ends </b>:Friday 11 April 2025
-                </p>
-              </div>
-              <div className="border-2 pt-20 pb-20 border-gray-700 inline-block  rounded-[40px] ">
-                <motion.p
-                  className="  cursor-pointer text-3xl md:text-4xl  border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold "
-                  initial={{ opacity: 0, scale: 0.2 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 20, // removed quotes around the duration
-                    delay: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                  }}
-                >
-                  Summer Term 2025
-                </motion.p>
-                <p className="m-4">
-                  {" "}
-                  <b> Term Starts </b>:Monday 28 April 2025
-                </p>
-                <p>
-                  {" "}
-                  <b> Half-term </b> : Monday 26 May 2025 to Friday 30 May 2025
-                </p>
-                <p>
-                  <b> Term ends </b>:Monday 21 July 2025
-                </p>
-              </div>
+            <div className="mt-4 flex flex-col md:flex-row gap-4">
+              {["Autumn Term 2024", "Spring Term 2025", "Summer Term 2025"].map(
+                (term, index) => (
+                  <div
+                    key={index}
+                    className="border-2 pt-6 pb-6 border-gray-700 rounded-[40px] flex flex-col"
+                  >
+                    <motion.p
+                      className="cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
+                      initial={{ opacity: 0, scale: 0.2 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 20,
+                        delay: 0.3,
+                        ease: [0, 0.71, 0.2, 1.01],
+                      }}
+                    >
+                      {term}
+                    </motion.p>
+                    <p className="m-2">
+                      <b> Term Starts </b>:{" "}
+                      {index === 0
+                        ? "Monday 2 September 2024"
+                        : index === 1
+                        ? "Monday 6 January 2025"
+                        : "Monday 28 April 2025"}
+                    </p>
+                    <p className="m-2">
+                      <b> Half-term </b>:{" "}
+                      {index === 0
+                        ? "Monday 28 October 2024 to Friday  1 November 2024"
+                        : index === 1
+                        ? "Monday 17 February 2025 to Friday 21 February 2025"
+                        : "Monday 26 May 2025 to Friday 30 May 2025"}
+                    </p>
+                    <p className="m-2">
+                      <b> Term ends </b>:{" "}
+                      {index === 0
+                        ? "Friday 20 December 2024"
+                        : index === 1
+                        ? "Friday 11 April 2025"
+                        : "Monday 21 July 2025"}
+                    </p>
+                  </div>
+                )
+              )}
             </div>
           </div>
 
-          <div className="flex flex-col mt-2 text-black text-center p-6">
-            {/* <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              School Year 2025 to 2026
-            </h2> */}
-
+          <div className="flex flex-col mt-2 text-black text-center p-4 md:p-6">
             <motion.h3
-              className="  mb-4 cursor-pointer text-3xl md:text-4xl  border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold "
+              className="mb-4 cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
               initial={{ opacity: 0, scale: 0.2 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
-                duration: 20, // removed quotes around the duration
+                duration: 20,
                 delay: 0.3,
                 ease: [0, 0.71, 0.2, 1.01],
               }}
             >
               School Year 2025 to 2026
             </motion.h3>
-            <div className="flex gap-4  ">
-              <div className="border-2 pt-20 pb-20 border-gray-700 inline-block  rounded-[40px] ">
-                <motion.p
-                  className="  cursor-pointer text-3xl md:text-4xl  border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold "
-                  initial={{ opacity: 0, scale: 0.2 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 20, // removed quotes around the duration
-                    delay: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                  }}
-                >
-                  Autumn Term 2025
-                </motion.p>
-                <p className="m-4">
-                  {" "}
-                  <b> Term Starts </b>: Monday 1 September 2025
-                </p>
-                <p>
-                  {" "}
-                  <b> Half-term </b> : Monday 27 October 2025 to Friday 31
-                  October 2025
-                </p>
-                <p>
-                  <b> Term ends </b>: Friday 19 December 2025
-                </p>
-              </div>
-              <div className="border-2 pt-20 pb-20 border-gray-700 inline-block  rounded-[40px] ">
-                <motion.p
-                  className="  cursor-pointer text-3xl md:text-4xl  border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold "
-                  initial={{ opacity: 0, scale: 0.2 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 20, // removed quotes around the duration
-                    delay: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                  }}
-                >
-                  Spring Term 2026
-                </motion.p>
-                <p className="m-4">
-                  {" "}
-                  <b> Term Starts </b>: Monday 5 January 2026
-                </p>
-                <p>
-                  {" "}
-                  <b> Half-term </b> : Monday 16 February 2026 to Friday 20
-                  February 2026
-                </p>
-                <p>
-                  <b> Term ends </b>: Friday 27 March 2026
-                </p>
-              </div>
-              <div className="border-2 pt-20 pb-20 border-gray-700 inline-block  rounded-[40px] ">
-                <motion.p
-                  className="  cursor-pointer text-3xl md:text-4xl  border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold "
-                  initial={{ opacity: 0, scale: 0.2 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 20, // removed quotes around the duration
-                    delay: 0.3,
-                    ease: [0, 0.71, 0.2, 1.01],
-                  }}
-                >
-                  Summer Term 2026
-                </motion.p>
-                <p className="m-4">
-                  {" "}
-                  <b> Term Starts </b>:Monday 13 April 2026
-                </p>
-                <p>
-                  {" "}
-                  <b> Half-term </b> : Monday 25 May 2026 to Friday 29 May 2026
-                </p>
-                <p>
-                  <b> Term ends </b>: Monday 20 July 2026
-                </p>
-              </div>
+            <div className="flex flex-col md:flex-row gap-4">
+              {["Autumn Term 2025", "Spring Term 2026", "Summer Term 2026"].map(
+                (term, index) => (
+                  <div
+                    key={index}
+                    className="border-2 pt-6 pb-6 border-gray-700 rounded-[40px] flex flex-col"
+                  >
+                    <motion.p
+                      className="cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
+                      initial={{ opacity: 0, scale: 0.2 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        duration: 20,
+                        delay: 0.3,
+                        ease: [0, 0.71, 0.2, 1.01],
+                      }}
+                    >
+                      {term}
+                    </motion.p>
+                    <p className="m-2">
+                      <b> Term Starts </b>:{" "}
+                      {index === 0
+                        ? "Monday 1 September 2025"
+                        : index === 1
+                        ? "Monday 5 January 2026"
+                        : "Monday 13 April 2026"}
+                    </p>
+                    <p className="m-2">
+                      <b> Half-term </b>:{" "}
+                      {index === 0
+                        ? "Monday 27 October 2025 to Friday 31 October 2025"
+                        : index === 1
+                        ? "Monday 16 February 2026 to Friday 20 February 2026"
+                        : "Monday 25 May 2026 to Friday 29 May 2026"}
+                    </p>
+                    <p className="m-2">
+                      <b> Term ends </b>:{" "}
+                      {index === 0
+                        ? "Friday 19 December 2025"
+                        : index === 1
+                        ? "Friday 27 March 2026"
+                        : "Monday 20 July 2026"}
+                    </p>
+                  </div>
+                )
+              )}
             </div>
           </div>
-          <div className="text-center ">
-            <p className="font-bold">Page last updated: 10 September 2024</p>
+
+          <div className="text-center">
+            <p className="font-bold text-sm md:text-base">
+              Page last updated: 10 September 2024
+            </p>
           </div>
         </div>
       </div>

@@ -46,7 +46,7 @@ export default function PolicyAndProcedure() {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          Fees Structure
+          Policy and procedure
         </motion.h3>
       </div>
 

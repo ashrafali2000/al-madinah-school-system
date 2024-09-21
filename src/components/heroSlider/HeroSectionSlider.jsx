@@ -11,14 +11,14 @@ const HeroBannerSlider = () => {
   // const mainSlider = foodBoxData[0]?.content?.mainSlider;
   // const heroImage = mainSlider;
   const heroImage = [
-    { img: "/Al-Madinah-L.png", titl: "firstimg" },
+    { img: "/Al-Madinah-hijab.png", titl: "firstimg" },
     { img: "/newImges/register.png" },
     // { img: "/newImges/1.jpg" },
     // { img: "/newImges/2.jpg" },
     // { img: "/newImges/3.jpg" },
   ];
   const handleUpdate = (newIndex) => {
-    if (newIndex < 0 || newIndex > 4) {
+    if (newIndex < 0 || newIndex > 1) {
       newIndex = 0;
     } else if (newIndex >= heroImage.length) {
       newIndex = heroImage.length - 1;
@@ -34,7 +34,7 @@ const HeroBannerSlider = () => {
   }, [currentIndex, heroImage]);
 
   return (
-    <div className="md:h-[370px] lg:h-[550px] mt-40 h-[170px] w-full max-w-7xl border-4 border-gray-700 rounded-[40px] mx-auto flex items-center text-white relative overflow-hidden">
+    <div className="md:h-[370px] lg:h-[650px] mt-40 h-[300px] w-full max-w-7xl border-4 border-gray-700 rounded-[40px] mx-auto flex items-center text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-[1]">
         <div className="overflow-hidden w-full h-full flex flex-col justify-center">
           <div
@@ -54,11 +54,31 @@ const HeroBannerSlider = () => {
                   height={1200}
                 />
                 {data.titl && (
-                  <div className="absolute top-1/2 left-1/2 transform  items-start -translate-x-3/4 translate-y-3/4 md:top-1/2 md:left-1/2 w-full">
-                    {/* {data.titl} */}
-                    <div className="animate-slide-in-left text-center">
-                      <h2 className="cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105">
-                        Where Academic Excellence Meets Islamic Values
+                  // <div className="absolute top-60 mt-2 left-48 lg:ml-24 lg:left-1/3 transform -translate-x-3/4 -translate-y-3/4 lg:top-[550px] sm:top-[50px] md:w-auto md:top-[320px] md:left-1/3 sm:left-1/3 sm:mt-2 w-full">
+                  //   <div className="animate-slide-in-left text-center md:w-[300px] lg:w-auto">
+                  //     <h2 className="cursor-pointer text-xs sm:text-xs md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105 break-words sm:w-full whitespace-normal">
+                  //       Where Academic Excellence Meets Islamic Values
+                  //     </h2>
+
+                  //     <h2 className="cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105 mt-2">
+                  //       Learn Anywhere, Anytime.
+                  //     </h2>
+                  //   </div>
+                  // </div>
+                  <div className="absolute top-60 mt-6 left-48  lg:ml-22 lg:left-1/3 transform -translate-x-3/4 -translate-y-3/4 lg:top-[550px] sm:top-[50px] md:w-auto md:top-[320px] md:left-1/3 sm:left-1/3 sm:mt-2 w-full">
+                    <div className="animate-slide-in-left text-center md:w-[300px] lg:w-auto">
+                      <h2 className="cursor-pointer text-xs sm:text-xs md:text-xl lg:text-2xl font-bold text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105 break-words sm:w-full whitespace-normal">
+                        Where Academic Excellence
+                        <span className="hidden sm:inline">
+                          {" "}
+                          meets Islamic Values
+                        </span>{" "}
+                        {/* Default for non-mobile screens */}
+                        <span className="sm:hidden block">
+                          {" "}
+                          <br /> meets Islamic Values
+                        </span>{" "}
+                        {/* Line break for mobile screens */}
                       </h2>
 
                       <h2 className="cursor-pointer text-xs sm:text-sm md:text-xl lg:text-2xl font-bold tracking-wider text-[#00477e] hover:text-[#ffa500] transition duration-300 transform hover:scale-105 mt-2">
