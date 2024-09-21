@@ -38,7 +38,7 @@ export default function fees() {
           >
             Monthly Fee
           </motion.h3>
-          <p className="border-2 rounded-[40px] p-3  font-bold  border-[#00477e]">
+          <p className="border-2 rounded-[40px] p-3  border-[#00477e]">
             £210 per month
           </p>
           <h2 className="text-2xl text-center md:text-2xl lg:text-2xl p-6 text-[#00477e] hover:text-[#ffa500] font-medium">
@@ -60,7 +60,7 @@ export default function fees() {
           >
             Term Fee
           </motion.h3>
-          <p className="border-2 rounded-[40px] p-3  font-bold  border-[#00477e]">
+          <p className="border-2 rounded-[40px] p-3 font-bold border-[#00477e]">
             £840 per term
           </p>
           <h2 className="text-2xl text-center md:text-2xl lg:text-2xl p-6 text-[#00477e] hover:text-[#ffa500] font-medium">
