@@ -152,13 +152,11 @@ export const Navbar = () => {
                     </li>
                     <li>
                       <Link
-                        href="/integration-with-islamic"
-                        onClick={() =>
-                          handleTabClick("/integration-with-islamic")
-                        }
+                        href="/Terms-date"
+                        onClick={() => handleTabClick("/Terms-date")}
                         className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
                       >
-                        integration with islamic studies
+                        Term Dates
                       </Link>
                     </li>
                   </div>

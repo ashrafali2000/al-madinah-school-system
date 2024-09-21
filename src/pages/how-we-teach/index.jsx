@@ -68,7 +68,7 @@ const SlidingImageSection = () => {
   ];
   return (
     <div>
-      <div className="border-4 mx-4 md:mx-28 mt-12 mb-6 rounded-[40px] border-gray-700 bg-white">
+      <div className="border-4 mx-4 md:mx-28 mt-40 mb-6 rounded-[40px] border-gray-700 bg-white">
         <div className="flex flex-col gap-8 md:flex-cols-2 w-full">
           {/* Text Section */}
           <div className="flex-1 mt-6 text-black text-center p-6">
