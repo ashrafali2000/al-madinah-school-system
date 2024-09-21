@@ -215,10 +215,10 @@ export default function Enquiry() {
       </div> */}
       <div className=" mt-28  p-10  ml-8  ">
         <div className="mx-auto grid grid-cols-1  md:grid-cols-3 gap-12 max-w-7xl ">
-          <div className="md:col-span-2 w-auto rounded-[40px] border-4 border-gray-700 h-[1550px] bg-white p-4 md:p-8 flex flex-col  ">
+          <div className="md:col-span-2 w-auto rounded-[40px] border-4 border-gray-700 h-[1350px] bg-white p-4 md:p-8 flex flex-col  ">
             <div className="flex flex-col">
               <div className=" bg-blue-950 rounded-[40px] border-4 border-[#ffa500] text-white font-semibold  text-2xl mt-4 pb-10 gap-3 ">
-                <h1 className="ml-20 pb-10  text-2xl lg:text-4xl mt-6">
+                <h1 className=" pb-10 text-center  text-2xl lg:text-4xl mt-6">
                   {" "}
                   Registration Form{" "}
                 </h1>

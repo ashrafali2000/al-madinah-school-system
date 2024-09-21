@@ -77,7 +77,7 @@ export const Navbar = () => {
                 </Link>
 
                 {/* Sub-tabs */}
-                <ul className="absolute -left-24 flex w-[500px] place-items-center justify-between hidden group-hover:flex bg-gray-100 rounded-lg shadow-lg p-16 space-x-2">
+                <ul className="absolute -left-40 flex w-[600px] place-items-center justify-between hidden group-hover:flex bg-gray-100 rounded-lg shadow-lg p-10 space-x-2">
                   {/* Left-side sub-tabs */}
                   <div className="flex flex-col    inline-block  space-y-2">
                     <li>
@@ -120,8 +120,19 @@ export const Navbar = () => {
                         integration with islamic studies
                       </Link>
                     </li>
+                    <li>
+                      <Link
+                        href="/policies-and-procedure"
+                        onClick={() =>
+                          handleTabClick("/policies-and-procedure")
+                        }
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        Policy and procedure
+                      </Link>
+                    </li>
                   </div>
-                  <div className="border-l-2 border-gray-400 h-60"></div>
+                  <div className="border-l-2 border-gray-400 h-72"></div>
                   <div className="flex flex-col    inline-block  space-y-2">
                     <li>
                       <Link
@@ -159,7 +170,17 @@ export const Navbar = () => {
                         Term Dates
                       </Link>
                     </li>
+                    <li>
+                      <Link
+                        href="/fees"
+                        onClick={() => handleTabClick("/fees")}
+                        className="block font-semibold py-2 px-4 hover:bg-gray-200 rounded-lg"
+                      >
+                        Fees
+                      </Link>
+                    </li>
                   </div>
+
                   {/* Right-side sub-tabs */}
                 </ul>
               </li>
