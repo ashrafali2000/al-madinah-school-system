@@ -174,9 +174,9 @@ const DashBoard = () => {
       </div>
 
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6">
-        <ChartOne />
+        {/* <ChartOne />
         <ChartTwo />
-        <ChartThree />
+        <ChartThree /> */}
         {/* <MapOne /> */}
 
         {/* <UserDonationChart /> */}
@@ -186,7 +186,7 @@ const DashBoard = () => {
         {/* </div> */}
         {/* <ChatCard /> */}
       </div>
-      <UpdateForm />
+      {/* <UpdateForm /> */}
     </div>
   );
 };
