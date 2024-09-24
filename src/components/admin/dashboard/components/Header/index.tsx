@@ -6,10 +6,21 @@ import DropdownUser from "./DropdownUser";
 import Image from "next/image";
 import { RiSearchLine } from "react-icons/ri";
 import { TfiLayoutListThumbAlt } from "react-icons/tfi";
+import { useState } from "react";
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
 }) => {
+  let userData = localStorage.getItem("Auth-admin");
+  const user = userData ? JSON.parse(userData) : null;
+  const Email = user?.email;
+  const userPassword = user?.password;
+
+  // };
+  // checkFunc();
+  const signOutHandler = () => {
+    localStorage.removeItem("Auth-admin");
+  };
   return (
     <header className="sticky top-0 z-50 flex w-full bg-gray-400 drop-shadow-1  dark:drop-shadow-none">
       <div className="flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
@@ -107,14 +118,24 @@ const Header = (props: {
             {/* <!-- Notification Menu Area --> */}
             {/* <DropdownNotification /> */}
             {/* <!-- Notification Menu Area --> */}
-
+            {/* </DropdownUser /> */}
+            {Email === process.env.NEXT_PUBLIC_USER_EMAIL &&
+              userPassword === process.env.NEXT_PUBLIC_USER_PASSWORD && (
+                <a
+                  href="/admin/dashboard"
+                  onClick={signOutHandler}
+                  className="bg-black text-white py-2 px-4 rounded-2xl"
+                >
+                  Sign Out
+                </a>
+              )}
             {/* <!-- Chat Notification Area --> */}
             {/* <DropdownMessage /> */}
             {/* <!-- Chat Notification Area --> */}
           </ul>
 
           {/* <!-- User Area --> */}
-          <DropdownUser />
+
           {/* <!-- User Area --> */}
         </div>
       </div>
