@@ -4,60 +4,66 @@ import { motion } from "framer-motion";
 function index() {
   return (
     <div>
-      <div className="border-4  mx-auto mt-40 mb-6 rounded-[40px]  border-gray-700 bg-white">
-        <div className="flex flex-col     w-full">
+      <div className="border-4 mx-auto mt-40 mb-6 p-6 rounded-[40px] border-gray-700 bg-white shadow-xl hover:shadow-2xl transition-shadow duration-500 ease-in-out">
+        <div className="flex flex-col w-full">
           {/* Text Section */}
-          <div className="flex flex-col mt-6 mx-auto text-black text-center ">
-            <motion.h3
+          <div className="flex flex-col mt-6 mx-auto text-black text-center">
+            <motion.h2
               className="cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
-              initial={{ opacity: 0, scale: 0.2 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1.1 }}
               transition={{
-                duration: 20,
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                duration: 1.5,
                 delay: 0.3,
-                ease: [0, 0.71, 0.2, 1.01],
               }}
+              whileHover={{ scale: 1.2, color: "" }} // Scale and color change on hover
             >
               School Year 2024 to 2025
-            </motion.h3>
+            </motion.h2>
 
-            <div className="mt-4 flex flex-col md:flex-row gap-4">
+            <div className="mt-8 flex flex-col md:flex-row gap-3">
               {["Autumn Term 2024", "Spring Term 2025", "Summer Term 2025"].map(
                 (term, index) => (
                   <div
                     key={index}
-                    className="border-2 pt-6 pb-6 border-gray-700 rounded-[40px] flex flex-col"
+                    className="border-2 pt-6 pb-6 px-6 border-gray-700 rounded-[40px] flex flex-col transition-all transform hover:-translate-y-2 hover:shadow-lg bg-gradient-to-br from-white to-gray-100"
                   >
                     <motion.p
                       className="cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
-                      initial={{ opacity: 0, scale: 0.2 }}
-                      animate={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1.1 }}
                       transition={{
-                        duration: 20,
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                        duration: 1.5,
                         delay: 0.3,
-                        ease: [0, 0.71, 0.2, 1.01],
                       }}
+                      whileHover={{ scale: 1.2, color: "" }} // Scale and color change on hover
                     >
                       {term}
                     </motion.p>
-                    <p className="m-2">
-                      <b> Term Starts </b>:{" "}
+                    <p className="m-2 text-lg md:text-xl text-gray-800">
+                      <b>Term Starts</b>:{" "}
                       {index === 0
                         ? "Monday 2 September 2024"
                         : index === 1
                         ? "Monday 6 January 2025"
                         : "Monday 28 April 2025"}
                     </p>
-                    <p className="m-2">
-                      <b> Half-term </b>:{" "}
+                    <p className="m-2 text-lg md:text-xl text-gray-800">
+                      <b>Half-term</b>:{" "}
                       {index === 0
-                        ? "Monday 28 October 2024 to Friday  1 November 2024"
+                        ? "Monday 28 October 2024 to Friday 1 November 2024"
                         : index === 1
                         ? "Monday 17 February 2025 to Friday 21 February 2025"
                         : "Monday 26 May 2025 to Friday 30 May 2025"}
                     </p>
-                    <p className="m-2">
-                      <b> Term ends </b>:{" "}
+                    <p className="m-2 text-lg md:text-xl text-gray-800">
+                      <b>Term ends</b>:{" "}
                       {index === 0
                         ? "Friday 20 December 2024"
                         : index === 1
@@ -70,56 +76,62 @@ function index() {
             </div>
           </div>
 
-          <div className="flex flex-col mt-2 mx-auto text-black text-center ">
-            <motion.h3
-              className="mb-4 cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
-              initial={{ opacity: 0, scale: 0.2 }}
-              animate={{ opacity: 1, scale: 1 }}
+          <div className="flex flex-col mt-6 mx-auto text-black text-center">
+            <motion.h2
+              className="cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1.1 }}
               transition={{
-                duration: 20,
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                duration: 1.5,
                 delay: 0.3,
-                ease: [0, 0.71, 0.2, 1.01],
               }}
+              whileHover={{ scale: 1.2, color: "" }} // Scale and color change on hover
             >
-              School Year 2025 to 2026
-            </motion.h3>
-            <div className="flex flex-col md:flex-row gap-4">
+              School Year 2024 to 2025
+            </motion.h2>
+            <div className="mt-8 flex flex-col md:flex-row gap-4">
               {["Autumn Term 2025", "Spring Term 2026", "Summer Term 2026"].map(
                 (term, index) => (
                   <div
                     key={index}
-                    className="border-2 pt-6 pb-6 border-gray-700 rounded-[40px] flex flex-col"
+                    className="border-2 pt-6 pb-6 px-6 border-gray-700 rounded-[40px] flex flex-col transition-all transform hover:-translate-y-2 hover:shadow-lg bg-gradient-to-br from-white to-gray-100"
                   >
                     <motion.p
                       className="cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
-                      initial={{ opacity: 0, scale: 0.2 }}
-                      animate={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1.1 }}
                       transition={{
-                        duration: 20,
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                        duration: 1.5,
                         delay: 0.3,
-                        ease: [0, 0.71, 0.2, 1.01],
                       }}
+                      whileHover={{ scale: 1.2, color: "" }} // Scale and color change on hover
                     >
                       {term}
                     </motion.p>
-                    <p className="m-2">
-                      <b> Term Starts </b>:{" "}
+                    <p className="m-2 text-lg md:text-xl text-gray-800">
+                      <b>Term Starts</b>:{" "}
                       {index === 0
                         ? "Monday 1 September 2025"
                         : index === 1
                         ? "Monday 5 January 2026"
                         : "Monday 13 April 2026"}
                     </p>
-                    <p className="m-2">
-                      <b> Half-term </b>:{" "}
+                    <p className="m-2 text-lg md:text-xl text-gray-800">
+                      <b>Half-term</b>:{" "}
                       {index === 0
                         ? "Monday 27 October 2025 to Friday 31 October 2025"
                         : index === 1
                         ? "Monday 16 February 2026 to Friday 20 February 2026"
                         : "Monday 25 May 2026 to Friday 29 May 2026"}
                     </p>
-                    <p className="m-2">
-                      <b> Term ends </b>:{" "}
+                    <p className="m-2 text-lg md:text-xl text-gray-800">
+                      <b>Term ends</b>:{" "}
                       {index === 0
                         ? "Friday 19 December 2025"
                         : index === 1
@@ -132,8 +144,8 @@ function index() {
             </div>
           </div>
 
-          <div className="mt-5  text-center">
-            <p className="font-bold text-sm md:text-base">
+          <div className="mt-5 text-center">
+            <p className="font-bold text-sm md:text-base ">
               Page last updated: 10 September 2024
             </p>
           </div>
