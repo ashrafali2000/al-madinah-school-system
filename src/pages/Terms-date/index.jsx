@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 function index() {
   return (
     <div>
-      <div className="border-4  md:mx-5 mt-40 mb-6 rounded-[40px]  border-gray-700 bg-white">
-        <div className="flex flex-col gap-6 md:gap-8 max-w-9xl">
+      <div className="border-4  mx-auto mt-40 mb-6 rounded-[40px]  border-gray-700 bg-white">
+        <div className="flex flex-col     w-full">
           {/* Text Section */}
-          <div className="flex flex-col mt-6 text-black text-center p-4 md:p-6">
+          <div className="flex flex-col mt-6 mx-auto text-black text-center ">
             <motion.h3
               className="cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
               initial={{ opacity: 0, scale: 0.2 }}
@@ -70,7 +70,7 @@ function index() {
             </div>
           </div>
 
-          <div className="flex flex-col mt-2 text-black text-center p-4 md:p-6">
+          <div className="flex flex-col mt-2 mx-auto text-black text-center ">
             <motion.h3
               className="mb-4 cursor-pointer text-2xl md:text-3xl lg:text-4xl border-2 border-gray-700 rounded-[40px] w-auto p-4 inline-block mx-auto bg-[rgb(250,204,20)] text-black font-semibold"
               initial={{ opacity: 0, scale: 0.2 }}
@@ -132,7 +132,7 @@ function index() {
             </div>
           </div>
 
-          <div className="text-center">
+          <div className="mt-5  text-center">
             <p className="font-bold text-sm md:text-base">
               Page last updated: 10 September 2024
             </p>
