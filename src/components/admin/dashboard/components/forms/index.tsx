@@ -2952,13 +2952,13 @@ export default function UpdateForm() {
   const [sec, setSec] = useState("");
   const [section, setSection] = useState("");
   const [sectionName, setSectionName] = useState("");
-  const [text1, setText1] = useState(null);
+  const [introductionText, setIntroductionText] = useState(null);
   const [text2, setText2] = useState(null);
   const [counter1, setCounter1] = useState("");
   const [counter1Text, setCounter1Text] = useState("");
   const [counter2, setCounter2] = useState("");
   const [counter2Text, setCounter2Text] = useState("");
-  const [heroImage, setHeroImage] = useState<any>(null);
+  const [seniorSchool, setSeniorSchoolImage] = useState<any>(null);
   const [bannerPhoto, setBannerPhoto] = useState<any>(null);
   const [heroPhoto, setHeroPhoto] = useState<any>(null);
   const [photo2, setPhoto2] = useState<any>(null);
@@ -2967,7 +2967,7 @@ export default function UpdateForm() {
   const [video3, setVideo3] = useState<any>(null);
   const [urlList, setUrlList] = useState<any>([]);
   const [mainBannerUrlList, setMainBannerUrlList] = useState<any>([]);
-  const [ourDepartmentUrlList, setOurDepartmentUrlList] = useState<any>([]);
+  const [heroSectionImagesList, setHeroSectionImagesList] = useState<any>([]);
   const [ramazanUrlList, setRamazanUrlList] = useState<any>([]);
   const [zakatUrlList, setZakatUrlList] = useState<any>([]);
   const [foodBoxUrlList, setFoodBoxUrlList] = useState<any>([]);
@@ -2980,7 +2980,8 @@ export default function UpdateForm() {
   const [achievementUrlList, setAchievementUrlList] = useState<any>([]);
   const [newsVideoUrlList, setnewsVideoUrlList] = useState<any>([]);
   const [galleryUrlList, setGalleryUrlList] = useState<any>([]);
-  const [uploading1, setUploading1] = useState(false);
+  const [uploadingHeroSectionImages, setUploadingHeroSectionImages] =
+    useState(false);
   const [uploadingOurDepartmentSlider, setUploadingOurDepartmentSlider] =
     useState(false);
   const [uploadingRamzanSlider, setUploadingRamzanSlider] = useState(false);
@@ -3041,7 +3042,8 @@ export default function UpdateForm() {
   const [numbIndex, setNumIndex] = useState(null);
   const [switchPageArr, setSwitchPageArr] = useState(false);
   const [mySwitch, setMySwitch] = useState(false);
-  const [keyStageStext1, SetkeyStageStext1] = useState(null);
+  const [keyStageSintroductionText, SetkeyStageSintroductionText] =
+    useState(null);
   const [keyStageStext2, SetkeyStageStext2] = useState(null);
   const [keyStageStext3, SetkeyStageStext3] = useState(null);
   const [ratingtext4, setRatingText4] = useState(null);
@@ -3128,21 +3130,21 @@ export default function UpdateForm() {
         let a = Math.random();
         let bannerImage;
 
-        if (heroImage) {
-          const storageRef2 = ref(
-            storage,
-            "images/" + heroImage?.name + a.toString().slice(2, 10)
-          );
-          const titleSnapshot2 = await uploadBytes(storageRef2, heroImage);
-          bannerImage = await getDownloadURL(titleSnapshot2.ref);
-        } else {
-          bannerImage = undefined;
-        }
+        // if (heroImage) {
+        //   const storageRef2 = ref(
+        //     storage,
+        //     "images/" + heroImage?.name + a.toString().slice(2, 10)
+        //   );
+        //   const titleSnapshot2 = await uploadBytes(storageRef2, heroImage);
+        //   bannerImage = await getDownloadURL(titleSnapshot2.ref);
+        // } else {
+        //   bannerImage = undefined;
+        // }
         const mainSection = {
           bannerImage,
-          text1,
+          introductionText,
           text2,
-          keyStageStext1,
+          keyStageSintroductionText,
           keyStageStext2,
           keyStageStext3,
           ratingtext4,
@@ -3176,7 +3178,7 @@ export default function UpdateForm() {
         //     sec: sec || chooseContent.sec,
         //     switch: chooseContent.switch,
         //     // sec: sec,
-        //     text: text1 ? text1 : chooseContent.text,
+        //     text: introductionText ? introductionText : chooseContent.text,
         //     // text: text,
         //     mainSlider:
         //       mainBannerUrlList.length > 0
@@ -3510,39 +3512,39 @@ export default function UpdateForm() {
   // };
 
   // For Main page
-  const heroImageMainPageHandler = (e: any) => {
-    const file1 = e.target.files[0];
-    setHeroImage(file1);
+  const seniorSchoolImageMainPageHandler = (e: any) => {
+    const file = e.target.files[0];
+    setSeniorSchoolImage(file);
   };
-  // const counter2PhotoHandler = (e: any) => {
-  //   const file2 = e.target.files[0];
-  //   setPhoto2(file2);
-  // };
-  // const ourDepartmentSliderPhotosHandler = async (
-  //   e: React.ChangeEvent<HTMLInputElement>
-  // ) => {
-  //   const files: File[] = Array.from(e.target.files || []);
-  //   setUploadingOurDepartmentSlider(true);
+  const counter2PhotoHandler = (e: any) => {
+    const file2 = e.target.files[0];
+    setPhoto2(file2);
+  };
+  const heroImageMainPageHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingHeroSectionImages(true);
 
-  //   for (const file of files) {
-  //     let a = Math.random();
-  //     const storageRef = ref(
-  //       storage,
-  //       `images/slider/${file.name}${a.toString().slice(2, 10)}`
-  //     );
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
-  //     try {
-  //       const snapshot = await uploadBytes(storageRef, file);
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
 
-  //       const downloadURL = await getDownloadURL(snapshot.ref);
-  //       setOurDepartmentUrlList((prev: any) => [...prev, downloadURL]);
-  //       console.log("File uploaded successfully:", downloadURL);
-  //     } catch (error) {
-  //       console.error("Error uploading1 file:", error);
-  //     }
-  //   }
-  //   setUploadingOurDepartmentSlider(false);
-  // };
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setHeroSectionImagesList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingHeroSectionImages(false);
+  };
   // const ramzanSliderPhotosHandler = async (
   //   e: React.ChangeEvent<HTMLInputElement>
   // ) => {
@@ -4111,36 +4113,13 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )} */}
-
-              {mainSection === "Main Page" && (
-                <div className="col-span-full mt-9">
-                  main section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text1}
-                      onChange={(e: any) => setText1(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
               {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   <label
                     htmlFor="main-banner-slider"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Add Hero Section Image
+                    Add Hero Section Slider Images
                   </label>
                   <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <div className="text-center">
@@ -4163,7 +4142,7 @@ export default function UpdateForm() {
                             className="sr-only"
                           />
                         </label>
-                        {!uploading1 ? (
+                        {!uploadingHeroSectionImages ? (
                           <>
                             <p className="pl-1">or drag and drop</p>
                             <p className="text-xs leading-5 text-gray-600">
@@ -4174,13 +4153,13 @@ export default function UpdateForm() {
                           <div className="flex flex-wrap gap-5">
                             <PropagateLoader
                               color={"#36d7b7"}
-                              loading={uploading1}
+                              loading={uploadingHeroSectionImages}
                               size={20}
                               aria-label="Loading Spinner"
                               data-testid="loader"
                             />
                             <p className="text-teal-500">
-                              uploading1 Images ...
+                              uploading Images ...
                             </p>
                           </div>
                         )}
@@ -4189,8 +4168,416 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-
               {mainSection === "Main Page" && (
+                <div className=" mt-4">
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Introduction content:
+                  </label>
+                  <div className="mt-2">
+                    <textarea
+                      id="about"
+                      name="about"
+                      value={introductionText}
+                      onChange={(e: any) => setIntroductionText(e.target.value)}
+                      rows={3}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+              )}
+              {/* School Cards */}
+              {mainSection === "Main Page" && (
+                <div className="flex flex-col gap-2">
+                  <div className="flex gap-2 justify-center py-3 items-center">
+                    <span className="bg-teal-500 h-[2px] w-80"></span>
+                    <h3 className="text-xl py-1 px-2 rounded border-2 border-teal-500">
+                      Senior School
+                    </h3>
+                    <span className="bg-teal-500 h-[2px] w-80"></span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div className="">
+                      <label
+                        htmlFor="ramazan-slider"
+                        className="block   text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Senior School Picture
+                      </label>
+
+                      <div className=" flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                        <div className="text-center">
+                          <PhotoIcon
+                            className="mx-auto h-12 w-12 text-gray-300"
+                            aria-hidden="true"
+                          />
+                          <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                            <label
+                              htmlFor="middle-school"
+                              className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                            >
+                              <span>Upload a file</span>
+                              <input
+                                id="middle-school"
+                                name="middle-school"
+                                type="file"
+                                onChange={seniorSchoolImageMainPageHandler}
+                                multiple
+                                className="sr-only"
+                              />
+                            </label>
+                            {!uploadingRamzanSlider ? (
+                              <>
+                                <p className="pl-1">or drag and drop</p>
+                                <p className="text-xs leading-5 text-gray-600">
+                                  PNG, JPG, GIF up to 10MB
+                                </p>
+                              </>
+                            ) : (
+                              <div className="flex flex-wrap gap-5">
+                                <PropagateLoader
+                                  color={"#36d7b7"}
+                                  loading={uploadingRamzanSlider}
+                                  size={12}
+                                  aria-label="Loading Spinner"
+                                  data-testid="loader"
+                                />
+                                <p className="text-teal-500 text-sm">
+                                  uploading Images ...
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="about"
+                            name="about"
+                            value={keyStageSintroductionText}
+                            onChange={(e: any) =>
+                              SetkeyStageSintroductionText(e.target.value)
+                            }
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Key Stages
+                        </label>
+                        <div className="">
+                          <input
+                            id="about"
+                            name="about"
+                            value={keyStageSintroductionText}
+                            onChange={(e: any) =>
+                              SetkeyStageSintroductionText(e.target.value)
+                            }
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Years | Ages
+                        </label>
+                        <div className="">
+                          <input
+                            id="about"
+                            name="about"
+                            value={keyStageSintroductionText}
+                            onChange={(e: any) =>
+                              SetkeyStageSintroductionText(e.target.value)
+                            }
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {mainSection === "Main Page" && (
+                <div className="flex flex-col gap-2 mt-4">
+                  <div className="flex gap-2 justify-center py-3 items-center">
+                    <span className="bg-teal-500 h-[2px] w-80"></span>
+                    <h3 className="text-xl  py-1 px-2 rounded border-2 border-teal-500">
+                      Middle School
+                    </h3>
+                    <span className="bg-teal-500 h-[2px] w-80"></span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div className="">
+                      <label
+                        htmlFor="ramazan-slider"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Middle School Picture
+                      </label>
+
+                      <div className=" flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                        <div className="text-center">
+                          <PhotoIcon
+                            className="mx-auto h-12 w-12 text-gray-300"
+                            aria-hidden="true"
+                          />
+                          <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                            <label
+                              htmlFor="middle-school"
+                              className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                            >
+                              <span>Upload a file</span>
+                              <input
+                                id="middle-school"
+                                name="middle-school"
+                                type="file"
+                                onChange={seniorSchoolImageMainPageHandler}
+                                multiple
+                                className="sr-only"
+                              />
+                            </label>
+                            {!uploadingRamzanSlider ? (
+                              <>
+                                <p className="pl-1">or drag and drop</p>
+                                <p className="text-xs leading-5 text-gray-600">
+                                  PNG, JPG, GIF up to 10MB
+                                </p>
+                              </>
+                            ) : (
+                              <div className="flex flex-wrap gap-5">
+                                <PropagateLoader
+                                  color={"#36d7b7"}
+                                  loading={uploadingRamzanSlider}
+                                  size={12}
+                                  aria-label="Loading Spinner"
+                                  data-testid="loader"
+                                />
+                                <p className="text-teal-500 text-sm">
+                                  uploading Images ...
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="about"
+                            name="about"
+                            value={keyStageSintroductionText}
+                            onChange={(e: any) =>
+                              SetkeyStageSintroductionText(e.target.value)
+                            }
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Key Stages
+                        </label>
+                        <div className="">
+                          <input
+                            id="about"
+                            name="about"
+                            value={keyStageSintroductionText}
+                            onChange={(e: any) =>
+                              SetkeyStageSintroductionText(e.target.value)
+                            }
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Years | Ages
+                        </label>
+                        <div className="">
+                          <input
+                            id="about"
+                            name="about"
+                            value={keyStageSintroductionText}
+                            onChange={(e: any) =>
+                              SetkeyStageSintroductionText(e.target.value)
+                            }
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* Why Ch */}
+              {mainSection === "Main Page" && (
+                <div className="flex flex-col gap-2 mt-4">
+                  <div className="flex gap-2 justify-center py-3 items-center">
+                    <span className="bg-teal-500 h-[2px] w-80"></span>
+                    <h3 className="text-xl  py-1 px-2 rounded border-2 border-teal-500">
+                      Why Choose Al-amdinah
+                    </h3>
+                    <span className="bg-teal-500 h-[2px] w-80"></span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div className="">
+                      <label
+                        htmlFor="ramazan-slider"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      ></label>
+
+                      <div className=" flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                        <div className="text-center">
+                          <PhotoIcon
+                            className="mx-auto h-12 w-12 text-gray-300"
+                            aria-hidden="true"
+                          />
+                          <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                            <label
+                              htmlFor="middle-school"
+                              className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                            >
+                              <span>Upload a file</span>
+                              <input
+                                id="middle-school"
+                                name="middle-school"
+                                type="file"
+                                onChange={seniorSchoolImageMainPageHandler}
+                                multiple
+                                className="sr-only"
+                              />
+                            </label>
+                            {!uploadingRamzanSlider ? (
+                              <>
+                                <p className="pl-1">or drag and drop</p>
+                                <p className="text-xs leading-5 text-gray-600">
+                                  PNG, JPG, GIF up to 10MB
+                                </p>
+                              </>
+                            ) : (
+                              <div className="flex flex-wrap gap-5">
+                                <PropagateLoader
+                                  color={"#36d7b7"}
+                                  loading={uploadingRamzanSlider}
+                                  size={12}
+                                  aria-label="Loading Spinner"
+                                  data-testid="loader"
+                                />
+                                <p className="text-teal-500 text-sm">
+                                  uploading Images ...
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="about"
+                            name="about"
+                            value={keyStageSintroductionText}
+                            onChange={(e: any) =>
+                              SetkeyStageSintroductionText(e.target.value)
+                            }
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Key Stages
+                        </label>
+                        <div className="">
+                          <input
+                            id="about"
+                            name="about"
+                            value={keyStageSintroductionText}
+                            onChange={(e: any) =>
+                              SetkeyStageSintroductionText(e.target.value)
+                            }
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Years | Ages
+                        </label>
+                        <div className="">
+                          <input
+                            id="about"
+                            name="about"
+                            value={keyStageSintroductionText}
+                            onChange={(e: any) =>
+                              SetkeyStageSintroductionText(e.target.value)
+                            }
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   Right image
                   <label
@@ -4245,9 +4632,9 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
 
-              {mainSection === "Main Page" && (
+              {/* {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   left image
                   <label
@@ -4302,7 +4689,7 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
               {/* Key Stages */}
               {mainSection == "Main Page" ? (
                 <>
@@ -4319,9 +4706,9 @@ export default function UpdateForm() {
                         <textarea
                           id="about"
                           name="about"
-                          value={keyStageStext1}
+                          value={keyStageSintroductionText}
                           onChange={(e: any) =>
-                            SetkeyStageStext1(e.target.value)
+                            SetkeyStageSintroductionText(e.target.value)
                           }
                           rows={3}
                           className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -4356,121 +4743,7 @@ export default function UpdateForm() {
                   )}
                 </>
               ) : null}
-              {/* School Cards */}
-              {mainSection === "Main Page" && (
-                <div className="">
-                  <div className="col-span-full">
-                    <label
-                      htmlFor="ramazan-slider"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      Middle School section
-                    </label>
-                    Picture
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
-                        <PhotoIcon
-                          className="mx-auto h-12 w-12 text-gray-300"
-                          aria-hidden="true"
-                        />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                          <label
-                            htmlFor="middle-school"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="middle-school"
-                              name="middle-school"
-                              type="file"
-                              multiple
-                              className="sr-only"
-                            />
-                          </label>
-                          {!uploadingRamzanSlider ? (
-                            <>
-                              <p className="pl-1">or drag and drop</p>
-                              <p className="text-xs leading-5 text-gray-600">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </>
-                          ) : (
-                            <div className="flex flex-wrap gap-5">
-                              <PropagateLoader
-                                color={"#36d7b7"}
-                                loading={uploadingRamzanSlider}
-                                size={12}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                              />
-                              <p className="text-teal-500 text-sm">
-                                uploading Images ...
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="">
-                  <div className="col-span-full">
-                    <label
-                      htmlFor="ramazan-slider"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      Senior School section
-                    </label>
-                    Picture
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
-                        <PhotoIcon
-                          className="mx-auto h-12 w-12 text-gray-300"
-                          aria-hidden="true"
-                        />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                          <label
-                            htmlFor="middle-school"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="middle-school"
-                              name="middle-school"
-                              type="file"
-                              multiple
-                              className="sr-only"
-                            />
-                          </label>
-                          {!uploadingRamzanSlider ? (
-                            <>
-                              <p className="pl-1">or drag and drop</p>
-                              <p className="text-xs leading-5 text-gray-600">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </>
-                          ) : (
-                            <div className="flex flex-wrap gap-5">
-                              <PropagateLoader
-                                color={"#36d7b7"}
-                                loading={uploadingRamzanSlider}
-                                size={12}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                              />
-                              <p className="text-teal-500 text-sm">
-                                uploading Images ...
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+
               {mainSection === "Main Page" && (
                 <div className="">
                   <div className="col-span-full">
@@ -5209,7 +5482,7 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-              {mainSection === "Our Department" && (
+              {/* {mainSection === "Our Department" && (
                 <div className="col-span-full">
                   <label
                     htmlFor="main-banner-slider"
@@ -5263,7 +5536,7 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
               {mainSection === "Our Department" && (
                 <div className="col-span-full">
                   Vision
@@ -5308,7 +5581,7 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-              {mainSection === "Our Department" && (
+              {/* {mainSection === "Our Department" && (
                 <div className="col-span-full">
                   <label
                     htmlFor="main-banner-slider"
@@ -5362,7 +5635,7 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
               {mainSection === "Our Department" && (
                 <div className="col-span-full">
                   Value Section
@@ -5407,7 +5680,7 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-              {mainSection === "Our Department" && (
+              {/* {mainSection === "Our Department" && (
                 <div className="col-span-full">
                   <label
                     htmlFor="main-banner-slider"
@@ -5461,7 +5734,7 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
               {/* How We teach */}
 
               {mainSection === "Appeals" && (

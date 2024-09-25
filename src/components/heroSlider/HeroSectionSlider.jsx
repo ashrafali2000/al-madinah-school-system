@@ -11,7 +11,7 @@ const HeroBannerSlider = () => {
   // const mainSlider = foodBoxData[0]?.content?.mainSlider;
   // const heroImage = mainSlider;
   const heroImage = [
-    { img: "/Al-Madinah-hijab.png", titl: "firstimg" },
+    { img: "/newImges/Al-Madinah-hijab.png", titl: "firstimg" },
     { img: "/newImges/register.png" },
     // { img: "/newImges/1.jpg" },
     // { img: "/newImges/2.jpg" },
