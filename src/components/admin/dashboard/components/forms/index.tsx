@@ -2958,7 +2958,8 @@ export default function UpdateForm() {
   const [counter1Text, setCounter1Text] = useState("");
   const [counter2, setCounter2] = useState("");
   const [counter2Text, setCounter2Text] = useState("");
-  const [seniorSchool, setSeniorSchoolImage] = useState<any>(null);
+  const [seniorSchoolImage, setSeniorSchoolImage] = useState<any>(null);
+  const [middleSchoolImage, setMiddleSchoolImage] = useState<any>(null);
   const [bannerPhoto, setBannerPhoto] = useState<any>(null);
   const [heroPhoto, setHeroPhoto] = useState<any>(null);
   const [photo2, setPhoto2] = useState<any>(null);
@@ -2968,6 +2969,8 @@ export default function UpdateForm() {
   const [urlList, setUrlList] = useState<any>([]);
   const [mainBannerUrlList, setMainBannerUrlList] = useState<any>([]);
   const [heroSectionImagesList, setHeroSectionImagesList] = useState<any>([]);
+  const [whyChooseSectionImagesList, setWhyChooseSectionImagesList] =
+    useState<any>([]);
   const [ramazanUrlList, setRamazanUrlList] = useState<any>([]);
   const [zakatUrlList, setZakatUrlList] = useState<any>([]);
   const [foodBoxUrlList, setFoodBoxUrlList] = useState<any>([]);
@@ -2981,6 +2984,8 @@ export default function UpdateForm() {
   const [newsVideoUrlList, setnewsVideoUrlList] = useState<any>([]);
   const [galleryUrlList, setGalleryUrlList] = useState<any>([]);
   const [uploadingHeroSectionImages, setUploadingHeroSectionImages] =
+    useState(false);
+  const [uploadingWhyChooseSectionImages, setUploadingWhyChooseSectionImages] =
     useState(false);
   const [uploadingOurDepartmentSlider, setUploadingOurDepartmentSlider] =
     useState(false);
@@ -3516,10 +3521,11 @@ export default function UpdateForm() {
     const file = e.target.files[0];
     setSeniorSchoolImage(file);
   };
-  const counter2PhotoHandler = (e: any) => {
-    const file2 = e.target.files[0];
-    setPhoto2(file2);
+  const middleSchoolImageMainPageHandler = (e: any) => {
+    const file = e.target.files[0];
+    setMiddleSchoolImage(file);
   };
+
   const heroImageMainPageHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -3544,6 +3550,31 @@ export default function UpdateForm() {
       }
     }
     setUploadingHeroSectionImages(false);
+  };
+  const whyChooseImageMainPageHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+    setUploadingWhyChooseSectionImages(true);
+
+    for (const file of files) {
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/whyChoose/${file.name}${a.toString().slice(2, 10)}`
+      );
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setWhyChooseSectionImagesList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading1 file:", error);
+      }
+    }
+    setUploadingWhyChooseSectionImages(false);
   };
   // const ramzanSliderPhotosHandler = async (
   //   e: React.ChangeEvent<HTMLInputElement>
@@ -4056,6 +4087,36 @@ export default function UpdateForm() {
   //     }
   //   });
   // };
+  const [formDataCotentsSeniorSchool, setFormDataCotentsSeniorSchool] =
+    useState({});
+  const [formDataCotentsMiddleSchool, setFormDataCotentsMiddleSchool] =
+    useState({});
+  const [formDataWhyChoose, setFormDataWhyChoose] = useState({});
+  const [formDataSchoolFeatures, setFormDataSchoolFeatures] = useState({});
+  const seniorSchoolChangeHandler = (e: any) => {
+    setFormDataCotentsSeniorSchool({
+      ...formDataCotentsSeniorSchool,
+      [e.target.id]: e.target.value.trim(),
+    });
+  };
+  const middleSchoolChangeHandler = (e: any) => {
+    setFormDataCotentsMiddleSchool({
+      ...formDataCotentsMiddleSchool,
+      [e.target.id]: e.target.value.trim(),
+    });
+  };
+  const whyChooseChangeHandler = (e: any) => {
+    setFormDataWhyChoose({
+      ...formDataWhyChoose,
+      [e.target.id]: e.target.value.trim(),
+    });
+  };
+  const schoolFeatureChangeHandler = (e: any) => {
+    setFormDataSchoolFeatures({
+      ...formDataSchoolFeatures,
+      [e.target.id]: e.target.value.trim(),
+    });
+  };
   return (
     <div>
       <form onSubmit={submitHandler}>
@@ -4264,12 +4325,9 @@ export default function UpdateForm() {
                         </label>
                         <div className="">
                           <input
-                            id="about"
-                            name="about"
-                            value={keyStageSintroductionText}
-                            onChange={(e: any) =>
-                              SetkeyStageSintroductionText(e.target.value)
-                            }
+                            id="seniorSchoolTitle"
+                            name="seniorSchoolTitle"
+                            onChange={seniorSchoolChangeHandler}
                             className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             // defaultValue={""}
                           />
@@ -4284,12 +4342,9 @@ export default function UpdateForm() {
                         </label>
                         <div className="">
                           <input
-                            id="about"
-                            name="about"
-                            value={keyStageSintroductionText}
-                            onChange={(e: any) =>
-                              SetkeyStageSintroductionText(e.target.value)
-                            }
+                            id="seniorSchooKeyStages"
+                            name="seniorSchooKeyStages"
+                            onChange={seniorSchoolChangeHandler}
                             className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             // defaultValue={""}
                           />
@@ -4304,12 +4359,9 @@ export default function UpdateForm() {
                         </label>
                         <div className="">
                           <input
-                            id="about"
-                            name="about"
-                            value={keyStageSintroductionText}
-                            onChange={(e: any) =>
-                              SetkeyStageSintroductionText(e.target.value)
-                            }
+                            id="seniorSchooYearsAges"
+                            name="seniorSchooYearsAges"
+                            onChange={seniorSchoolChangeHandler}
                             className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             // defaultValue={""}
                           />
@@ -4353,7 +4405,7 @@ export default function UpdateForm() {
                                 id="middle-school"
                                 name="middle-school"
                                 type="file"
-                                onChange={seniorSchoolImageMainPageHandler}
+                                onChange={middleSchoolImageMainPageHandler}
                                 multiple
                                 className="sr-only"
                               />
@@ -4393,12 +4445,9 @@ export default function UpdateForm() {
                         </label>
                         <div className="">
                           <input
-                            id="about"
-                            name="about"
-                            value={keyStageSintroductionText}
-                            onChange={(e: any) =>
-                              SetkeyStageSintroductionText(e.target.value)
-                            }
+                            id="middleSchoolTitle"
+                            name="middleSchoolTitle"
+                            onChange={middleSchoolChangeHandler}
                             className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             // defaultValue={""}
                           />
@@ -4413,12 +4462,9 @@ export default function UpdateForm() {
                         </label>
                         <div className="">
                           <input
-                            id="about"
-                            name="about"
-                            value={keyStageSintroductionText}
-                            onChange={(e: any) =>
-                              SetkeyStageSintroductionText(e.target.value)
-                            }
+                            id="middleSchooKeyStages"
+                            name="middleSchooKeyStages"
+                            onChange={middleSchoolChangeHandler}
                             className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             // defaultValue={""}
                           />
@@ -4433,12 +4479,9 @@ export default function UpdateForm() {
                         </label>
                         <div className="">
                           <input
-                            id="about"
-                            name="about"
-                            value={keyStageSintroductionText}
-                            onChange={(e: any) =>
-                              SetkeyStageSintroductionText(e.target.value)
-                            }
+                            id="middleSchooYearsAges"
+                            name="middleSchooYearsAges"
+                            onChange={middleSchoolChangeHandler}
                             className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             // defaultValue={""}
                           />
@@ -4448,14 +4491,15 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-              {/* Why Ch */}
+              {/* Why Choose almadinah */}
               {mainSection === "Main Page" && (
                 <div className="flex flex-col gap-2 mt-4">
                   <div className="flex gap-2 justify-center py-3 items-center">
                     <span className="bg-teal-500 h-[2px] w-80"></span>
                     <h3 className="text-xl  py-1 px-2 rounded border-2 border-teal-500">
-                      Why Choose Al-amdinah
+                      Why Choose Al-Mdinah
                     </h3>
+
                     <span className="bg-teal-500 h-[2px] w-80"></span>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -4463,7 +4507,9 @@ export default function UpdateForm() {
                       <label
                         htmlFor="ramazan-slider"
                         className="block text-sm font-medium leading-6 text-gray-900"
-                      ></label>
+                      >
+                        Add Two Photos
+                      </label>
 
                       <div className=" flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                         <div className="text-center">
@@ -4481,7 +4527,7 @@ export default function UpdateForm() {
                                 id="middle-school"
                                 name="middle-school"
                                 type="file"
-                                onChange={seniorSchoolImageMainPageHandler}
+                                onChange={whyChooseImageMainPageHandler}
                                 multiple
                                 className="sr-only"
                               />
@@ -4521,12 +4567,9 @@ export default function UpdateForm() {
                         </label>
                         <div className="">
                           <input
-                            id="about"
-                            name="about"
-                            value={keyStageSintroductionText}
-                            onChange={(e: any) =>
-                              SetkeyStageSintroductionText(e.target.value)
-                            }
+                            id="whyChooseTitle"
+                            name="whyChooseTitle"
+                            onChange={whyChooseChangeHandler}
                             className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             // defaultValue={""}
                           />
@@ -4537,36 +4580,14 @@ export default function UpdateForm() {
                           htmlFor="about"
                           className="block text-sm font-medium leading-6 text-gray-900"
                         >
-                          Key Stages
+                          Description
                         </label>
                         <div className="">
-                          <input
-                            id="about"
-                            name="about"
-                            value={keyStageSintroductionText}
-                            onChange={(e: any) =>
-                              SetkeyStageSintroductionText(e.target.value)
-                            }
-                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            // defaultValue={""}
-                          />
-                        </div>
-                      </div>
-                      <div className="">
-                        <label
-                          htmlFor="about"
-                          className="block text-sm font-medium leading-6 text-gray-900"
-                        >
-                          Years | Ages
-                        </label>
-                        <div className="">
-                          <input
-                            id="about"
-                            name="about"
-                            value={keyStageSintroductionText}
-                            onChange={(e: any) =>
-                              SetkeyStageSintroductionText(e.target.value)
-                            }
+                          <textarea
+                            id="whyChooseDescription"
+                            name="whyChooseDescription"
+                            onChange={whyChooseChangeHandler}
+                            rows={4}
                             className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             // defaultValue={""}
                           />
@@ -4693,7 +4714,322 @@ export default function UpdateForm() {
               {/* Key Stages */}
               {mainSection == "Main Page" ? (
                 <>
-                  <h2 className="pb-4"> Introduction </h2>
+                  <div className="flex gap-2 justify-center py-3 mt-5 items-center">
+                    <span className="bg-teal-500 h-[2px] w-60"></span>
+                    <h3 className="text-xl  py-1 px-2 rounded border-2 border-teal-500">
+                      Al-Madinah School System Features
+                    </h3>
+                    <span className="bg-teal-500 h-[2px] w-60"></span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div className="flex flex-col">
+                      <div className="flex justify-center">
+                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                          1
+                        </p>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <div className="">
+                          <label
+                            htmlFor="about"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Title
+                          </label>
+                          <div className="">
+                            <input
+                              id="schoolFeatrueTitle1"
+                              name="schoolFeatrueTitle1"
+                              onChange={schoolFeatureChangeHandler}
+                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              // defaultValue={""}
+                            />
+                          </div>
+                        </div>
+                        <div className="">
+                          <label
+                            htmlFor="about"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Description
+                          </label>
+                          <div className="">
+                            <textarea
+                              id="schoolFeatureDescription1"
+                              name="schoolFeatureDescription1"
+                              onChange={schoolFeatureChangeHandler}
+                              rows={4}
+                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-col">
+                        <div className="flex justify-center">
+                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                            2
+                          </p>
+                        </div>
+                        <div className="">
+                          <label
+                            htmlFor="about"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Title
+                          </label>
+                          <div className="">
+                            <input
+                              id="schoolFeatureTitle2"
+                              name="schoolFeatureTitle2"
+                              onChange={schoolFeatureChangeHandler}
+                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              // defaultValue={""}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Description
+                        </label>
+                        <div className="">
+                          <textarea
+                            id="shoolFeatureDescription2"
+                            name="schoolFeatureDescription2"
+                            onChange={schoolFeatureChangeHandler}
+                            rows={4}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="flex justify-center">
+                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                          3
+                        </p>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <div className="">
+                          <label
+                            htmlFor="about"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Title
+                          </label>
+                          <div className="">
+                            <input
+                              id="schoolFeatureTitle3"
+                              name="schollFeatureTitle3"
+                              onChange={schoolFeatureChangeHandler}
+                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              // defaultValue={""}
+                            />
+                          </div>
+                        </div>
+                        <div className="">
+                          <label
+                            htmlFor="about"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Description
+                          </label>
+                          <div className="">
+                            <textarea
+                              id="schoolFeatureDescription3"
+                              name="schoolFeatureDescription3"
+                              onChange={schoolFeatureChangeHandler}
+                              rows={4}
+                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-col">
+                        <div className="flex justify-center">
+                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                            4
+                          </p>
+                        </div>
+                        <div className="">
+                          <label
+                            htmlFor="about"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Title
+                          </label>
+                          <div className="">
+                            <input
+                              id="schoolFeatureTitle4"
+                              name="schoolFeatureTitle4"
+                              onChange={schoolFeatureChangeHandler}
+                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              // defaultValue={""}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Description
+                        </label>
+                        <div className="">
+                          <textarea
+                            id="schoolFeatureDescription4"
+                            name="schoolFeatureDescription4"
+                            onChange={schoolFeatureChangeHandler}
+                            rows={4}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-col">
+                        <div className="flex justify-center">
+                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                            5
+                          </p>
+                        </div>
+                        <div className="">
+                          <label
+                            htmlFor="about"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Title
+                          </label>
+                          <div className="">
+                            <input
+                              id="schoolFeatureTitle5"
+                              name="schoolFeatureTitle5"
+                              onChange={schoolFeatureChangeHandler}
+                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              // defaultValue={""}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Description
+                        </label>
+                        <div className="">
+                          <textarea
+                            id="schoolFeatureDescription5"
+                            name="schoolFeatureDescription5"
+                            onChange={schoolFeatureChangeHandler}
+                            rows={4}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-col">
+                        <div className="flex justify-center">
+                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                            6
+                          </p>
+                        </div>
+                        <div className="">
+                          <label
+                            htmlFor="about"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Title
+                          </label>
+                          <div className="">
+                            <input
+                              id="schoolFeatureTitle6"
+                              name="schoolFeatureTitle6"
+                              onChange={schoolFeatureChangeHandler}
+                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              // defaultValue={""}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Description
+                        </label>
+                        <div className="">
+                          <textarea
+                            id="schoolFeatureDescription6"
+                            name="schoolFeatureDescription6"
+                            onChange={schoolFeatureChangeHandler}
+                            rows={4}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="flex flex-col">
+                        <div className="flex justify-center">
+                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                            7
+                          </p>
+                        </div>
+                        <div className="">
+                          <label
+                            htmlFor="about"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Title
+                          </label>
+                          <div className="">
+                            <input
+                              id="schoolFeatureTitle7"
+                              name="schoolFeatureTitle7"
+                              onChange={schoolFeatureChangeHandler}
+                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                              // defaultValue={""}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Description
+                        </label>
+                        <div className="">
+                          <textarea
+                            id="shoolFeatureDescription7"
+                            name="schoolFeatureDescription7"
+                            onChange={schoolFeatureChangeHandler}
+                            rows={4}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   {mainSection !== "Hide Page" && (
                     <div className="col-span-full">
                       <label
