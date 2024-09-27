@@ -2952,7 +2952,7 @@ export default function UpdateForm() {
   const [sec, setSec] = useState("");
   const [section, setSection] = useState("");
   const [sectionName, setSectionName] = useState("");
-  const [introductionText, setIntroductionText] = useState(null);
+
   const [text2, setText2] = useState(null);
   const [counter1, setCounter1] = useState("");
   const [counter1Text, setCounter1Text] = useState("");
@@ -2960,6 +2960,8 @@ export default function UpdateForm() {
   const [counter2Text, setCounter2Text] = useState("");
   const [seniorSchoolImage, setSeniorSchoolImage] = useState<any>(null);
   const [middleSchoolImage, setMiddleSchoolImage] = useState<any>(null);
+  const [whyChooseImageLeft, setWhyChooseImageLeft] = useState<any>(null);
+  const [whyChooseImageRight, setWhyChooseImageRight] = useState<any>(null);
   const [bannerPhoto, setBannerPhoto] = useState<any>(null);
   const [heroPhoto, setHeroPhoto] = useState<any>(null);
   const [photo2, setPhoto2] = useState<any>(null);
@@ -3007,43 +3009,11 @@ export default function UpdateForm() {
     useState(false);
   const contentContext = useContentContext();
 
-  // const data = contentContext.content;
-  console.log(contentContext);
+  const data = contentContext.content;
+  // console.log("data=====from context=========>", data);
   // const data2 = contentContext.content;
-  // const fetchAllData = data.filter(
-  //   (title: any) => "Main Page" === title.content.sec
-  // );
-
-  const disasterManagementLst = [
-    "Select An Option",
-    "Disaster Management",
-    "Covid-19",
-    "Pakistan Flood",
-    "Turkey & Syria Earthquake",
-    "Morocco Earthquake",
-    "Palestine",
-  ];
-  const healthCareLst = [
-    "Select An Option",
-    "Health Care",
-    "Eye Camps",
-    "Blood Donation",
-    "Madical Van",
-    "Faizan Rehabilitation Center",
-    "Madical Clinic",
-  ];
-  const environmentDepartmentLst = [
-    "Select An Option",
-    "Environment Department",
-    "Plantation",
-  ];
-
-  const mainSectionList = [
-    "Select An Option",
-    "Our Department",
-    "Appeals",
-    "Donation",
-  ];
+  const fetchAllData = data.filter((title: any) => "main-page" === title?.page);
+  console.log("fetchAllData===========>", fetchAllData);
   const [numbIndex, setNumIndex] = useState(null);
   const [switchPageArr, setSwitchPageArr] = useState(false);
   const [mySwitch, setMySwitch] = useState(false);
@@ -3118,225 +3088,569 @@ export default function UpdateForm() {
   // Submit Handler
   const submitHandler = async (e: any) => {
     e.preventDefault();
-    let a = Math.random();
+    // let a = Math.random();
+    const dataRef = collection(db, "contents");
+    const newCollectionRef = collection(db, "contents");
+    const newDocRef = doc(dataRef);
+    // const querySnapshot = await getDocs(dataRef);
+    // querySnapshot.forEach(async (docs) => {
+    //   const docsData = docs.data();
+    //   const chooseSec = docsData;
+    //   console.log("myfirebase data---------<", chooseSec);
+    // });
+    // const chooseContent = docsData.content;
+    // if (mainSection === "Main Page") {
+    // if (chooseSec === sec) {
+    try {
+      // let a = Math.random();
+      // let bannerImage;
+
+      // if (heroImage) {
+      //   const storageRef2 = ref(
+      //     storage,
+      //     "images/" + heroImage?.name + a.toString().slice(2, 10)
+      //   );
+      //   const titleSnapshot2 = await uploadBytes(storageRef2, heroImage);
+      //   bannerImage = await getDownloadURL(titleSnapshot2.ref);
+      // } else {
+      //   bannerImage = undefined;
+      // }
+      const mainSection = {
+        introductionText,
+        text2,
+        keyStageSintroductionText,
+        keyStageStext2,
+        keyStageStext3,
+        ratingtext4,
+      };
+      // if (video1) {
+      //   const videosRef1 = ref(storage, "videos/" + video1?.name);
+      //   const titleVideos1 = await uploadBytes(videosRef1, video1);
+      //   videoUrl1 = await getDownloadURL(titleVideos1.ref);
+      // } else {
+      //   videoUrl1 = undefined;
+      // }
+      // if (video2) {
+      //   const videosRef2 = ref(storage, "videos/" + video2?.name);
+      //   const titleVideos2 = await uploadBytes(videosRef2, video2);
+      //   videoUrl2 = await getDownloadURL(titleVideos2.ref);
+      // } else {
+      //   videoUrl2 = undefined;
+      // }
+      // if (video3) {
+      //   const videosRef3 = ref(storage, "videos/" + video3?.name);
+      //   const titleVideos3 = await uploadBytes(videosRef3, video3);
+      //   videoUrl3 = await getDownloadURL(titleVideos3.ref);
+      // } else {
+      //   videoUrl3 = undefined;
+      // }
+
+      // const docsId = docs.id;
+      // const docRef = doc(db, "contents", docsId);
+      // await updateDoc(docRef, {
+      //   content: {
+      //     sec: sec || chooseContent.sec,
+      //     switch: chooseContent.switch,
+      //     // sec: sec,
+      //     text: introductionText ? introductionText : chooseContent.text,
+      //     // text: text,
+      //     mainSlider:
+      //       mainBannerUrlList.length > 0
+      //         ? mainBannerUrlList
+      //         : chooseContent.mainSlider,
+      //     // mainSlider: mainBannerUrlList,
+      //     ourDepartmentSlider:
+      //       ourDepartmentUrlList.length > 0
+      //         ? ourDepartmentUrlList
+      //         : chooseContent.ourDepartmentSlider,
+      //     // ourDepartmentSlider: ourDepartmentUrlList,
+      //     ramazanSlider: {
+      //       ramazanSlider:
+      //         ramazanUrlList.length > 0
+      //           ? ramazanUrlList
+      //           : chooseContent.ramazanSlider.ramazanSlider,
+      //       switch: chooseContent.ramazanSlider.switch,
+      //     },
+      //     // ramazanSlider: ramazanUrlList,
+
+      //     zakatSlider: {
+      //       zakatSlider:
+      //         zakatUrlList.length > 0
+      //           ? zakatUrlList
+      //           : chooseContent.zakatSlider.zakatSlider,
+      //       switch: chooseContent.zakatSlider.switch,
+      //     },
+      //     // foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
+      //     // foodboxSlider: foodBoxUrlList,
+      //     foodboxSlider: {
+      //       foodboxSlider:
+      //         foodBoxUrlList.length > 0
+      //           ? foodBoxUrlList
+      //           : chooseContent.foodboxSlider.foodboxSlider,
+      //       switch: chooseContent.foodboxSlider.switch,
+      //     },
+      //     // winterSlider: winterUrlList || chooseContent.winterSlider,
+      //     // winterSlider: winterUrlList,
+      //     winterSlider: {
+      //       winterSlider:
+      //         winterUrlList.length > 0
+      //           ? winterUrlList
+      //           : chooseContent.winterSlider.winterSlider,
+      //       switch: chooseContent.winterSlider.switch,
+      //     },
+      //     // palestineSlider:
+      //     //   palestineUrlList || chooseContent.palestineSlider,
+      //     // palestineSlider: palestineUrlList,
+      //     palestineSlider: {
+      //       palestineSlider:
+      //         palestineUrlList.length > 0
+      //           ? palestineUrlList
+      //           : chooseContent.palestineSlider.palestineSlider,
+      //       switch: chooseContent.palestineSlider.switch,
+      //     },
+      //     // orphanSlider: orphanUrlList || chooseContent.orphanSlider,
+      //     // orphanSlider: orphanUrlList,
+      //     orphanSlider: {
+      //       orphanSlider:
+      //         orphanUrlList.length > 0
+      //           ? orphanUrlList
+      //           : chooseContent.orphanSlider.orphanSlider,
+      //       switch: chooseContent.orphanSlider.switch,
+      //     },
+      //     // handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
+      //     // handPumpSlider: handPumpUrlList,
+      //     handPumpSlider: {
+      //       handPumpSlider:
+      //         handPumpUrlList.length > 0
+      //           ? handPumpUrlList
+      //           : chooseContent.handPumpSlider.handPumpSlider,
+      //       switch: chooseContent.handPumpSlider.switch,
+      //     },
+      //     // waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
+      //     // waterWellSlider: waterUrlList,
+      //     waterWellSlider: {
+      //       waterWellSlider:
+      //         waterUrlList.length > 0
+      //           ? waterUrlList
+      //           : chooseContent.waterWellSlider.waterWellSlider,
+      //       switch: chooseContent.waterWellSlider.switch,
+      //     },
+      //     // masjidSlider: masjidUrlList || chooseContent.masjidSlider,
+      //     // masjidSlider: masjidUrlList,
+      //     masjidSlider: {
+      //       masjidSlider:
+      //         masjidUrlList.length > 0
+      //           ? masjidUrlList
+      //           : chooseContent.masjidSlider.masjidSlider,
+      //       switch: chooseContent.masjidSlider.switch,
+      //     },
+      //     achievementSlider:
+      //       achievementUrlList.length > 0
+      //         ? achievementUrlList
+      //         : chooseContent.achievementSlider,
+      //     // achievementSlider: achievementUrlList,
+
+      //     gallerySlider:
+      //       galleryUrlList.length > 0
+      //         ? galleryUrlList
+      //         : chooseContent.gallerySlider,
+      //     // gallerySlider: galleryUrlList,
+
+      //     newVideos:
+      //       videoUrl1 && videoUrl2 && videoUrl3
+      //         ? [videoUrl1, videoUrl2, videoUrl3]
+      //         : chooseContent.newVideos,
+      //     // newVideos: [videoUrl1, videoUrl2, videoUrl3],
+      //     newsVideoSlider:
+      //       newsVideoUrlList.length > 0
+      //         ? newsVideoUrlList
+      //         : chooseContent.newsVideoSlider,
+      //     // newsVideoSlider: newsVideoUrlList,
+      //     counters:
+      //       [
+      //         {
+      //           counter1Text: counter1Text
+      //             ? counter1Text
+      //             : chooseContent.counters[0].counter1Text,
+      //           counter1: counter1
+      //             ? counter1
+      //             : chooseContent.counters[0].counter1,
+      //           counter1ImageUrl: counter1ImageUrl
+      //             ? counter1ImageUrl
+      //             : chooseContent.counters[0].counter1ImageUrl,
+      //         },
+      //         {
+      //           counter2Text: counter2Text
+      //             ? counter2Text
+      //             : chooseContent.counters[1].counter2Text,
+      //           counter2: counter2
+      //             ? counter2
+      //             : chooseContent.counters[1].counter2,
+      //           counter2ImageUrl: counter2ImageUrl
+      //             ? counter2ImageUrl
+      //             : chooseContent.counters[1].counter2ImageUrl,
+      //         },
+      //       ] || chooseContent.counters,
+      //     // counters: [
+      //     //   { counter1Text, counter1, counter1ImageUrl },
+      //     //   { counter2Text, counter2, counter2ImageUrl },
+      //     // ],
+      //   },
+      // });
+      await setDoc(newDocRef, mainSection, { merge: true });
+      if (mainSection !== undefined) {
+        console.log("Ok ki report hai bahi");
+      }
+    } catch (error) {
+      console.error("Roko bahi firebaser error arha hai--->", error);
+    }
+    // }
+  };
+  // });
+  // };
+  // const getFirebaseData = async () => {
+  //   const dataRef = collection(db, "contents");
+  //   // const newCollectionRef = collection(db, "contents");
+  //   const querySnapshot = await getDocs(dataRef);
+  //   querySnapshot.forEach(async (docs) => {
+  //     const docsData = docs.data();
+  //     const chooseSec = docsData;
+  //     console.log("myfirebase data---------<", chooseSec);
+  //   });
+  // };
+  // getFirebaseData();
+  let hereSectionDataFromFirebase = fetchAllData?.filter(
+    (doc: any) => doc.section === "heroSection"
+  )[0];
+  console.log(
+    "hereSectionDataFromFirebase==============>",
+    hereSectionDataFromFirebase
+  );
+  let text = hereSectionDataFromFirebase?.introductionText;
+  console.log("text=========>", text);
+  const [introductionText, setIntroductionText] = useState();
+
+  const submitHandlerHeroSection = async (e: any) => {
+    e.preventDefault();
     const dataRef = collection(db, "contents");
     // const newCollectionRef = collection(db, "contents");
     const newDocRef = doc(dataRef);
-    const querySnapshot = await getDocs(dataRef);
-    querySnapshot.forEach(async (docs) => {
-      const docsData = docs.data();
-      const chooseSec = docsData;
-      console.log("myfirebase data---------<", chooseSec);
-    });
+    // let a = Math.random();
     // const chooseContent = docsData.content;
-    if (mainSection === "Main Page") {
-      // if (chooseSec === sec) {
-      try {
-        let a = Math.random();
-        let bannerImage;
+    // if (mainSection === "Main Page") {
+    // if (chooseSec === sec) {
+    try {
+      let heroSectionSlider = heroSectionImagesList;
 
-        // if (heroImage) {
-        //   const storageRef2 = ref(
-        //     storage,
-        //     "images/" + heroImage?.name + a.toString().slice(2, 10)
-        //   );
-        //   const titleSnapshot2 = await uploadBytes(storageRef2, heroImage);
-        //   bannerImage = await getDownloadURL(titleSnapshot2.ref);
-        // } else {
-        //   bannerImage = undefined;
-        // }
-        const mainSection = {
-          bannerImage,
-          introductionText,
-          text2,
-          keyStageSintroductionText,
-          keyStageStext2,
-          keyStageStext3,
-          ratingtext4,
-        };
-        // if (video1) {
-        //   const videosRef1 = ref(storage, "videos/" + video1?.name);
-        //   const titleVideos1 = await uploadBytes(videosRef1, video1);
-        //   videoUrl1 = await getDownloadURL(titleVideos1.ref);
-        // } else {
-        //   videoUrl1 = undefined;
-        // }
-        // if (video2) {
-        //   const videosRef2 = ref(storage, "videos/" + video2?.name);
-        //   const titleVideos2 = await uploadBytes(videosRef2, video2);
-        //   videoUrl2 = await getDownloadURL(titleVideos2.ref);
-        // } else {
-        //   videoUrl2 = undefined;
-        // }
-        // if (video3) {
-        //   const videosRef3 = ref(storage, "videos/" + video3?.name);
-        //   const titleVideos3 = await uploadBytes(videosRef3, video3);
-        //   videoUrl3 = await getDownloadURL(titleVideos3.ref);
-        // } else {
-        //   videoUrl3 = undefined;
-        // }
-
-        // const docsId = docs.id;
-        // const docRef = doc(db, "contents", docsId);
-        // await updateDoc(docRef, {
-        //   content: {
-        //     sec: sec || chooseContent.sec,
-        //     switch: chooseContent.switch,
-        //     // sec: sec,
-        //     text: introductionText ? introductionText : chooseContent.text,
-        //     // text: text,
-        //     mainSlider:
-        //       mainBannerUrlList.length > 0
-        //         ? mainBannerUrlList
-        //         : chooseContent.mainSlider,
-        //     // mainSlider: mainBannerUrlList,
-        //     ourDepartmentSlider:
-        //       ourDepartmentUrlList.length > 0
-        //         ? ourDepartmentUrlList
-        //         : chooseContent.ourDepartmentSlider,
-        //     // ourDepartmentSlider: ourDepartmentUrlList,
-        //     ramazanSlider: {
-        //       ramazanSlider:
-        //         ramazanUrlList.length > 0
-        //           ? ramazanUrlList
-        //           : chooseContent.ramazanSlider.ramazanSlider,
-        //       switch: chooseContent.ramazanSlider.switch,
-        //     },
-        //     // ramazanSlider: ramazanUrlList,
-
-        //     zakatSlider: {
-        //       zakatSlider:
-        //         zakatUrlList.length > 0
-        //           ? zakatUrlList
-        //           : chooseContent.zakatSlider.zakatSlider,
-        //       switch: chooseContent.zakatSlider.switch,
-        //     },
-        //     // foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
-        //     // foodboxSlider: foodBoxUrlList,
-        //     foodboxSlider: {
-        //       foodboxSlider:
-        //         foodBoxUrlList.length > 0
-        //           ? foodBoxUrlList
-        //           : chooseContent.foodboxSlider.foodboxSlider,
-        //       switch: chooseContent.foodboxSlider.switch,
-        //     },
-        //     // winterSlider: winterUrlList || chooseContent.winterSlider,
-        //     // winterSlider: winterUrlList,
-        //     winterSlider: {
-        //       winterSlider:
-        //         winterUrlList.length > 0
-        //           ? winterUrlList
-        //           : chooseContent.winterSlider.winterSlider,
-        //       switch: chooseContent.winterSlider.switch,
-        //     },
-        //     // palestineSlider:
-        //     //   palestineUrlList || chooseContent.palestineSlider,
-        //     // palestineSlider: palestineUrlList,
-        //     palestineSlider: {
-        //       palestineSlider:
-        //         palestineUrlList.length > 0
-        //           ? palestineUrlList
-        //           : chooseContent.palestineSlider.palestineSlider,
-        //       switch: chooseContent.palestineSlider.switch,
-        //     },
-        //     // orphanSlider: orphanUrlList || chooseContent.orphanSlider,
-        //     // orphanSlider: orphanUrlList,
-        //     orphanSlider: {
-        //       orphanSlider:
-        //         orphanUrlList.length > 0
-        //           ? orphanUrlList
-        //           : chooseContent.orphanSlider.orphanSlider,
-        //       switch: chooseContent.orphanSlider.switch,
-        //     },
-        //     // handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
-        //     // handPumpSlider: handPumpUrlList,
-        //     handPumpSlider: {
-        //       handPumpSlider:
-        //         handPumpUrlList.length > 0
-        //           ? handPumpUrlList
-        //           : chooseContent.handPumpSlider.handPumpSlider,
-        //       switch: chooseContent.handPumpSlider.switch,
-        //     },
-        //     // waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
-        //     // waterWellSlider: waterUrlList,
-        //     waterWellSlider: {
-        //       waterWellSlider:
-        //         waterUrlList.length > 0
-        //           ? waterUrlList
-        //           : chooseContent.waterWellSlider.waterWellSlider,
-        //       switch: chooseContent.waterWellSlider.switch,
-        //     },
-        //     // masjidSlider: masjidUrlList || chooseContent.masjidSlider,
-        //     // masjidSlider: masjidUrlList,
-        //     masjidSlider: {
-        //       masjidSlider:
-        //         masjidUrlList.length > 0
-        //           ? masjidUrlList
-        //           : chooseContent.masjidSlider.masjidSlider,
-        //       switch: chooseContent.masjidSlider.switch,
-        //     },
-        //     achievementSlider:
-        //       achievementUrlList.length > 0
-        //         ? achievementUrlList
-        //         : chooseContent.achievementSlider,
-        //     // achievementSlider: achievementUrlList,
-
-        //     gallerySlider:
-        //       galleryUrlList.length > 0
-        //         ? galleryUrlList
-        //         : chooseContent.gallerySlider,
-        //     // gallerySlider: galleryUrlList,
-
-        //     newVideos:
-        //       videoUrl1 && videoUrl2 && videoUrl3
-        //         ? [videoUrl1, videoUrl2, videoUrl3]
-        //         : chooseContent.newVideos,
-        //     // newVideos: [videoUrl1, videoUrl2, videoUrl3],
-        //     newsVideoSlider:
-        //       newsVideoUrlList.length > 0
-        //         ? newsVideoUrlList
-        //         : chooseContent.newsVideoSlider,
-        //     // newsVideoSlider: newsVideoUrlList,
-        //     counters:
-        //       [
-        //         {
-        //           counter1Text: counter1Text
-        //             ? counter1Text
-        //             : chooseContent.counters[0].counter1Text,
-        //           counter1: counter1
-        //             ? counter1
-        //             : chooseContent.counters[0].counter1,
-        //           counter1ImageUrl: counter1ImageUrl
-        //             ? counter1ImageUrl
-        //             : chooseContent.counters[0].counter1ImageUrl,
-        //         },
-        //         {
-        //           counter2Text: counter2Text
-        //             ? counter2Text
-        //             : chooseContent.counters[1].counter2Text,
-        //           counter2: counter2
-        //             ? counter2
-        //             : chooseContent.counters[1].counter2,
-        //           counter2ImageUrl: counter2ImageUrl
-        //             ? counter2ImageUrl
-        //             : chooseContent.counters[1].counter2ImageUrl,
-        //         },
-        //       ] || chooseContent.counters,
-        //     // counters: [
-        //     //   { counter1Text, counter1, counter1ImageUrl },
-        //     //   { counter2Text, counter2, counter2ImageUrl },
-        //     // ],
-        //   },
-        // });
-        await setDoc(newDocRef, mainSection, { merge: true });
-        if (mainSection !== undefined) {
-          console.log("Ok ki report hai bahi");
-        }
-      } catch (error) {
-        console.error("Roko bahi firebaser error arha hai--->", error);
-      }
+      // if (heroImage) {
+      //   const storageRef2 = ref(
+      //     storage,
+      //     "images/" + heroImage?.name + a.toString().slice(2, 10)
+      //   );
+      //   const titleSnapshot2 = await uploadBytes(storageRef2, heroImage);
+      //   bannerImage = await getDownloadURL(titleSnapshot2.ref);
+      // } else {
+      //   bannerImage = undefined;
       // }
+      const mainSection = {
+        page: "main-page",
+        section: "heroSection",
+        heroSectionSlider,
+        introductionText,
+      };
+      // if (video1) {
+      //   const videosRef1 = ref(storage, "videos/" + video1?.name);
+      //   const titleVideos1 = await uploadBytes(videosRef1, video1);
+      //   videoUrl1 = await getDownloadURL(titleVideos1.ref);
+      // } else {
+      //   videoUrl1 = undefined;
+      // }
+      // if (video2) {
+      //   const videosRef2 = ref(storage, "videos/" + video2?.name);
+      //   const titleVideos2 = await uploadBytes(videosRef2, video2);
+      //   videoUrl2 = await getDownloadURL(titleVideos2.ref);
+      // } else {
+      //   videoUrl2 = undefined;
+      // }
+      // if (video3) {
+      //   const videosRef3 = ref(storage, "videos/" + video3?.name);
+      //   const titleVideos3 = await uploadBytes(videosRef3, video3);
+      //   videoUrl3 = await getDownloadURL(titleVideos3.ref);
+      // } else {
+      //   videoUrl3 = undefined;
+      // }
+
+      // const docsId = docs.id;
+      // const docRef = doc(db, "contents", docsId);
+      // await updateDoc(docRef, {
+      //   content: {
+      //     sec: sec || chooseContent.sec,
+      //     switch: chooseContent.switch,
+      //     // sec: sec,
+      //     text: introductionText ? introductionText : chooseContent.text,
+      //     // text: text,
+      //     mainSlider:
+      //       mainBannerUrlList.length > 0
+      //         ? mainBannerUrlList
+      //         : chooseContent.mainSlider,
+      //     // mainSlider: mainBannerUrlList,
+      //     ourDepartmentSlider:
+      //       ourDepartmentUrlList.length > 0
+      //         ? ourDepartmentUrlList
+      //         : chooseContent.ourDepartmentSlider,
+      //     // ourDepartmentSlider: ourDepartmentUrlList,
+      //     ramazanSlider: {
+      //       ramazanSlider:
+      //         ramazanUrlList.length > 0
+      //           ? ramazanUrlList
+      //           : chooseContent.ramazanSlider.ramazanSlider,
+      //       switch: chooseContent.ramazanSlider.switch,
+      //     },
+      //     // ramazanSlider: ramazanUrlList,
+
+      //     zakatSlider: {
+      //       zakatSlider:
+      //         zakatUrlList.length > 0
+      //           ? zakatUrlList
+      //           : chooseContent.zakatSlider.zakatSlider,
+      //       switch: chooseContent.zakatSlider.switch,
+      //     },
+      //     // foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
+      //     // foodboxSlider: foodBoxUrlList,
+      //     foodboxSlider: {
+      //       foodboxSlider:
+      //         foodBoxUrlList.length > 0
+      //           ? foodBoxUrlList
+      //           : chooseContent.foodboxSlider.foodboxSlider,
+      //       switch: chooseContent.foodboxSlider.switch,
+      //     },
+      //     // winterSlider: winterUrlList || chooseContent.winterSlider,
+      //     // winterSlider: winterUrlList,
+      //     winterSlider: {
+      //       winterSlider:
+      //         winterUrlList.length > 0
+      //           ? winterUrlList
+      //           : chooseContent.winterSlider.winterSlider,
+      //       switch: chooseContent.winterSlider.switch,
+      //     },
+      //     // palestineSlider:
+      //     //   palestineUrlList || chooseContent.palestineSlider,
+      //     // palestineSlider: palestineUrlList,
+      //     palestineSlider: {
+      //       palestineSlider:
+      //         palestineUrlList.length > 0
+      //           ? palestineUrlList
+      //           : chooseContent.palestineSlider.palestineSlider,
+      //       switch: chooseContent.palestineSlider.switch,
+      //     },
+      //     // orphanSlider: orphanUrlList || chooseContent.orphanSlider,
+      //     // orphanSlider: orphanUrlList,
+      //     orphanSlider: {
+      //       orphanSlider:
+      //         orphanUrlList.length > 0
+      //           ? orphanUrlList
+      //           : chooseContent.orphanSlider.orphanSlider,
+      //       switch: chooseContent.orphanSlider.switch,
+      //     },
+      //     // handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
+      //     // handPumpSlider: handPumpUrlList,
+      //     handPumpSlider: {
+      //       handPumpSlider:
+      //         handPumpUrlList.length > 0
+      //           ? handPumpUrlList
+      //           : chooseContent.handPumpSlider.handPumpSlider,
+      //       switch: chooseContent.handPumpSlider.switch,
+      //     },
+      //     // waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
+      //     // waterWellSlider: waterUrlList,
+      //     waterWellSlider: {
+      //       waterWellSlider:
+      //         waterUrlList.length > 0
+      //           ? waterUrlList
+      //           : chooseContent.waterWellSlider.waterWellSlider,
+      //       switch: chooseContent.waterWellSlider.switch,
+      //     },
+      //     // masjidSlider: masjidUrlList || chooseContent.masjidSlider,
+      //     // masjidSlider: masjidUrlList,
+      //     masjidSlider: {
+      //       masjidSlider:
+      //         masjidUrlList.length > 0
+      //           ? masjidUrlList
+      //           : chooseContent.masjidSlider.masjidSlider,
+      //       switch: chooseContent.masjidSlider.switch,
+      //     },
+      //     achievementSlider:
+      //       achievementUrlList.length > 0
+      //         ? achievementUrlList
+      //         : chooseContent.achievementSlider,
+      //     // achievementSlider: achievementUrlList,
+
+      //     gallerySlider:
+      //       galleryUrlList.length > 0
+      //         ? galleryUrlList
+      //         : chooseContent.gallerySlider,
+      //     // gallerySlider: galleryUrlList,
+
+      //     newVideos:
+      //       videoUrl1 && videoUrl2 && videoUrl3
+      //         ? [videoUrl1, videoUrl2, videoUrl3]
+      //         : chooseContent.newVideos,
+      //     // newVideos: [videoUrl1, videoUrl2, videoUrl3],
+      //     newsVideoSlider:
+      //       newsVideoUrlList.length > 0
+      //         ? newsVideoUrlList
+      //         : chooseContent.newsVideoSlider,
+      //     // newsVideoSlider: newsVideoUrlList,
+      //     counters:
+      //       [
+      //         {
+      //           counter1Text: counter1Text
+      //             ? counter1Text
+      //             : chooseContent.counters[0].counter1Text,
+      //           counter1: counter1
+      //             ? counter1
+      //             : chooseContent.counters[0].counter1,
+      //           counter1ImageUrl: counter1ImageUrl
+      //             ? counter1ImageUrl
+      //             : chooseContent.counters[0].counter1ImageUrl,
+      //         },
+      //         {
+      //           counter2Text: counter2Text
+      //             ? counter2Text
+      //             : chooseContent.counters[1].counter2Text,
+      //           counter2: counter2
+      //             ? counter2
+      //             : chooseContent.counters[1].counter2,
+      //           counter2ImageUrl: counter2ImageUrl
+      //             ? counter2ImageUrl
+      //             : chooseContent.counters[1].counter2ImageUrl,
+      //         },
+      //       ] || chooseContent.counters,
+      //     // counters: [
+      //     //   { counter1Text, counter1, counter1ImageUrl },
+      //     //   { counter2Text, counter2, counter2ImageUrl },
+      //     // ],
+      //   },
+      // });
+      await setDoc(newDocRef, mainSection, { merge: true });
+      if (mainSection !== undefined) {
+        console.log("Ok ki report hai bahi");
+      }
+    } catch (error) {
+      console.error("Roko bahi firebaser error arha hai--->", error);
     }
+    // }
+    // }
+    // });
+  };
+  const submitHandlerSeniorSchool = async (e: any) => {
+    e.preventDefault();
+    const dataRef = collection(db, "contents");
+    const newDocRef = doc(dataRef);
+    try {
+      let schoolImage;
+
+      if (seniorSchoolImage) {
+        const storageRef2 = ref(storage, "images/" + seniorSchoolImage?.name);
+        const titleSnapshot2 = await uploadBytes(
+          storageRef2,
+          seniorSchoolImage
+        );
+        schoolImage = await getDownloadURL(titleSnapshot2.ref);
+      } else {
+        schoolImage = undefined;
+      }
+      const mainSection = {
+        page: "main-page",
+        section: "seniorSchool",
+        image: schoolImage,
+        formDataCotentsSeniorSchool,
+      };
+      await setDoc(newDocRef, mainSection, { merge: true });
+      if (mainSection !== undefined) {
+        console.log("Ok ki report hai bahi");
+      }
+    } catch (error) {
+      console.error("Roko bahi firebaser error arha hai--->", error);
+    }
+    // }
+    // }
+    // });
+  };
+  const submitHandlerMiddleSchool = async (e: any) => {
+    e.preventDefault();
+    const dataRef = collection(db, "contents");
+    const newDocRef = doc(dataRef);
+    try {
+      let schoolImage;
+
+      if (middleSchoolImage) {
+        const storageRef2 = ref(storage, "images/" + middleSchoolImage?.name);
+        const titleSnapshot2 = await uploadBytes(
+          storageRef2,
+          middleSchoolImage
+        );
+        schoolImage = await getDownloadURL(titleSnapshot2.ref);
+      } else {
+        schoolImage = undefined;
+      }
+      const mainSection = {
+        page: "main-page",
+        section: "middleSchool",
+        image: schoolImage,
+        formDataCotentsMiddleSchool,
+      };
+      await setDoc(newDocRef, mainSection, { merge: true });
+      if (mainSection !== undefined) {
+        console.log("Ok ki report hai bahi");
+      }
+    } catch (error) {
+      console.error("Roko bahi firebaser error arha hai--->", error);
+    }
+    // }
+    // }
+    // });
+  };
+  const submitHandlerWhyChooseALmadinah = async (e: any) => {
+    e.preventDefault();
+    const dataRef = collection(db, "contents");
+    const newDocRef = doc(dataRef);
+    try {
+      let leftImage: any;
+      let rightImage: any;
+
+      if (whyChooseImageLeft && whyChooseImageRight) {
+        const storageRef1 = ref(storage, "images/" + whyChooseImageLeft?.name);
+        const titleSnapshot1 = await uploadBytes(
+          storageRef1,
+          whyChooseImageLeft
+        );
+        const storageRef2 = ref(storage, "images/" + whyChooseImageRight?.name);
+        const titleSnapshot2 = await uploadBytes(
+          storageRef2,
+          whyChooseImageRight
+        );
+        leftImage = await getDownloadURL(titleSnapshot1.ref);
+        rightImage = await getDownloadURL(titleSnapshot2.ref);
+      } else {
+        leftImage = undefined;
+        rightImage = undefined;
+      }
+      const mainSection = {
+        page: "main-page",
+        section: "whyChooseAlmadinah",
+        images: [leftImage, rightImage],
+        formDataWhyChoose,
+      };
+      await setDoc(newDocRef, mainSection, { merge: true });
+      if (mainSection !== undefined) {
+        console.log("Ok ki report hai bahi");
+      }
+    } catch (error) {
+      console.error("Roko bahi firebaser error arha hai--->", error);
+    }
+    // }
+    // }
     // });
   };
 
@@ -3515,7 +3829,6 @@ export default function UpdateForm() {
   //   }
   //   setUploading1(false);
   // };
-
   // For Main page
   const seniorSchoolImageMainPageHandler = (e: any) => {
     const file = e.target.files[0];
@@ -3524,6 +3837,14 @@ export default function UpdateForm() {
   const middleSchoolImageMainPageHandler = (e: any) => {
     const file = e.target.files[0];
     setMiddleSchoolImage(file);
+  };
+  const whChooseImageLeftMainPageHandler = (e: any) => {
+    const file = e.target.files[0];
+    setWhyChooseImageLeft(file);
+  };
+  const whChooseImageRightMainPageHandler = (e: any) => {
+    const file = e.target.files[0];
+    setWhyChooseImageRight(file);
   };
 
   const heroImageMainPageHandler = async (
@@ -4093,6 +4414,9 @@ export default function UpdateForm() {
     useState({});
   const [formDataWhyChoose, setFormDataWhyChoose] = useState({});
   const [formDataSchoolFeatures, setFormDataSchoolFeatures] = useState({});
+  const [formDataTeachLearnFeatures, setFormDataTeachLearnFeatures] = useState(
+    {}
+  );
   const seniorSchoolChangeHandler = (e: any) => {
     setFormDataCotentsSeniorSchool({
       ...formDataCotentsSeniorSchool,
@@ -4117,22 +4441,28 @@ export default function UpdateForm() {
       [e.target.id]: e.target.value.trim(),
     });
   };
+  const teachLearnFeatureChangeHandler = (e: any) => {
+    setFormDataTeachLearnFeatures({
+      ...formDataTeachLearnFeatures,
+      [e.target.id]: e.target.value.trim(),
+    });
+  };
   return (
     <div>
-      <form onSubmit={submitHandler}>
-        <div className="space-y-12">
-          <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-base font-semibold leading-7 text-gray-900">
-              {/* {mainSection} {midSection && "/"} {midSection}{" "} */}
-              {/* {childSection && "/"} {childSection} */}
-            </h2>
-            <p className="mt-1 text-sm leading-6 text-gray-600">
-              This Contents will be displayed publicly so be careful what you
-              share.
-            </p>
+      {/* <form onSubmit={submitHandler}> */}
+      <div className="space-y-12">
+        <div className="border-b border-gray-900/10 pb-12">
+          <h2 className="text-base font-semibold leading-7 text-gray-900">
+            {/* {mainSection} {midSection && "/"} {midSection}{" "} */}
+            {/* {childSection && "/"} {childSection} */}
+          </h2>
+          <p className="mt-1 text-sm leading-6 text-gray-600">
+            This Contents will be displayed publicly so be careful what you
+            share.
+          </p>
 
-            <div className="mt-10 gap-x-6 gap-y-8">
-              {/* {mainSection !== "Hide Page" && (
+          <div className="mt-10 gap-x-6 gap-y-8">
+            {/* {mainSection !== "Hide Page" && (
                 <div className="sm:col-span-3">
                   <label
                     htmlFor="country"
@@ -4174,6 +4504,7 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )} */}
+            <form onSubmit={submitHandlerHeroSection}>
               {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   <label
@@ -4250,7 +4581,25 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-              {/* School Cards */}
+              {midSection !== "Hide Page" && (
+                <div className="mt-6 flex items-center justify-end gap-x-6">
+                  <button
+                    type="button"
+                    className="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    {mainSection !== "New Page" ? "Update" : "Create"}
+                  </button>
+                </div>
+              )}
+            </form>
+            {/* School Cards */}
+            <form onSubmit={submitHandlerSeniorSchool}>
               {mainSection === "Main Page" && (
                 <div className="flex flex-col gap-2">
                   <div className="flex gap-2 justify-center py-3 items-center">
@@ -4277,13 +4626,13 @@ export default function UpdateForm() {
                           />
                           <div className="mt-4 flex text-sm leading-6 text-gray-600">
                             <label
-                              htmlFor="middle-school"
+                              htmlFor="senior-school"
                               className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                             >
                               <span>Upload a file</span>
                               <input
-                                id="middle-school"
-                                name="middle-school"
+                                id="senior-school"
+                                name="senior-school"
                                 type="file"
                                 onChange={seniorSchoolImageMainPageHandler}
                                 multiple
@@ -4371,6 +4720,24 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
+              {midSection !== "Hide Page" && (
+                <div className="mt-6 flex items-center justify-end gap-x-6">
+                  <button
+                    type="button"
+                    className="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    {mainSection !== "New Page" ? "Update" : "Create"}
+                  </button>
+                </div>
+              )}
+            </form>
+            <form onSubmit={submitHandlerMiddleSchool}>
               {mainSection === "Main Page" && (
                 <div className="flex flex-col gap-2 mt-4">
                   <div className="flex gap-2 justify-center py-3 items-center">
@@ -4406,7 +4773,6 @@ export default function UpdateForm() {
                                 name="middle-school"
                                 type="file"
                                 onChange={middleSchoolImageMainPageHandler}
-                                multiple
                                 className="sr-only"
                               />
                             </label>
@@ -4491,7 +4857,25 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-              {/* Why Choose almadinah */}
+              {midSection !== "Hide Page" && (
+                <div className="mt-6 flex items-center justify-end gap-x-6">
+                  <button
+                    type="button"
+                    className="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    {mainSection !== "New Page" ? "Update" : "Create"}
+                  </button>
+                </div>
+              )}
+            </form>
+            {/* Why Choose almadinah */}
+            <form onSubmit={submitHandlerWhyChooseALmadinah}>
               {mainSection === "Main Page" && (
                 <div className="flex flex-col gap-2 mt-4">
                   <div className="flex gap-2 justify-center py-3 items-center">
@@ -4511,48 +4895,101 @@ export default function UpdateForm() {
                         Add Two Photos
                       </label>
 
-                      <div className=" flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                        <div className="text-center">
-                          <PhotoIcon
-                            className="mx-auto h-12 w-12 text-gray-300"
-                            aria-hidden="true"
-                          />
-                          <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                            <label
-                              htmlFor="middle-school"
-                              className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                            >
-                              <span>Upload a file</span>
-                              <input
-                                id="middle-school"
-                                name="middle-school"
-                                type="file"
-                                onChange={whyChooseImageMainPageHandler}
-                                multiple
-                                className="sr-only"
-                              />
-                            </label>
-                            {!uploadingRamzanSlider ? (
-                              <>
-                                <p className="pl-1">or drag and drop</p>
-                                <p className="text-xs leading-5 text-gray-600">
-                                  PNG, JPG, GIF up to 10MB
-                                </p>
-                              </>
-                            ) : (
-                              <div className="flex flex-wrap gap-5">
-                                <PropagateLoader
-                                  color={"#36d7b7"}
-                                  loading={uploadingRamzanSlider}
-                                  size={12}
-                                  aria-label="Loading Spinner"
-                                  data-testid="loader"
+                      <div className="grid grid-cols-2 gap-2 rounded-lg border border-dashed border-gray-900/25 px-2 py-2">
+                        <div className="flex flex-col">
+                          <p>Left</p>
+                          <div className="text-center border border-gray-900/25 py-5 px-3">
+                            <PhotoIcon
+                              className="mx-auto h-12 w-12 text-gray-300"
+                              aria-hidden="true"
+                            />
+                            <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                              <label
+                                htmlFor="leftImg"
+                                className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                              >
+                                <span>Upload a file</span>
+                                <input
+                                  id="leftImg"
+                                  name="leftImg"
+                                  type="file"
+                                  onChange={whChooseImageLeftMainPageHandler}
+                                  multiple
+                                  className="sr-only"
                                 />
-                                <p className="text-teal-500 text-sm">
-                                  uploading Images ...
-                                </p>
-                              </div>
-                            )}
+                              </label>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF
+                              </p>
+                              {/* {!uploadingRamzanSlider ? (
+                                <>
+                                  <p className="text-xs leading-5 text-gray-600">
+                                    PNG, JPG, GIF
+                                  </p>
+                                </>
+                              ) : (
+                                <div className="flex flex-wrap gap-5">
+                                  <PropagateLoader
+                                    color={"#36d7b7"}
+                                    loading={uploadingRamzanSlider}
+                                    size={12}
+                                    aria-label="Loading Spinner"
+                                    data-testid="loader"
+                                  />
+                                  <p className="text-teal-500 text-sm">
+                                    uploading Images ...
+                                  </p>
+                                </div>
+                              )} */}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col">
+                          <p>Right</p>
+                          <div className="text-center border border-gray-900/25 py-5 px-3 ">
+                            <PhotoIcon
+                              className="mx-auto h-12 w-12 text-gray-300"
+                              aria-hidden="true"
+                            />
+                            <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                              <label
+                                htmlFor="rightImg"
+                                className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                              >
+                                <span>Upload a file</span>
+                                <input
+                                  id="rightImg"
+                                  name="rightImg"
+                                  type="file"
+                                  onChange={whChooseImageRightMainPageHandler}
+                                  multiple
+                                  className="sr-only"
+                                />
+                              </label>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF
+                              </p>
+                              {/* {!uploadingRamzanSlider ? (
+                                <>
+                                  <p className="text-xs leading-5 text-gray-600">
+                                    PNG, JPG, GIF
+                                  </p>
+                                </>
+                              ) : (
+                                <div className="flex flex-wrap gap-5">
+                                  <PropagateLoader
+                                    color={"#36d7b7"}
+                                    loading={uploadingRamzanSlider}
+                                    size={12}
+                                    aria-label="Loading Spinner"
+                                    data-testid="loader"
+                                  />
+                                  <p className="text-teal-500 text-sm">
+                                    uploading Images ...
+                                  </p>
+                                </div>
+                              )} */}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -4597,8 +5034,24 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-
-              {/* {mainSection === "Main Page" && (
+              {midSection !== "Hide Page" && (
+                <div className="mt-6 flex items-center justify-end gap-x-6">
+                  <button
+                    type="button"
+                    className="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    {mainSection !== "New Page" ? "Update" : "Create"}
+                  </button>
+                </div>
+              )}
+            </form>
+            {/* {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   Right image
                   <label
@@ -4654,8 +5107,7 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )} */}
-
-              {/* {mainSection === "Main Page" && (
+            {/* {mainSection === "Main Page" && (
                 <div className="col-span-full">
                   left image
                   <label
@@ -4711,1896 +5163,527 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )} */}
-              {/* Key Stages */}
-              {mainSection == "Main Page" ? (
+            {/* Key Stages */}
+            {mainSection == "Main Page" ? (
+              <>
+                <div className="flex gap-2 justify-center py-3 mt-5 items-center">
+                  <span className="bg-teal-500 h-[2px] w-60"></span>
+                  <h3 className="text-xl  py-1 px-2 rounded border-2 border-teal-500">
+                    Al-Madinah School System Features
+                  </h3>
+                  <span className="bg-teal-500 h-[2px] w-60"></span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                  <div className="flex flex-col">
+                    <div className="flex justify-center">
+                      <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                        1
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="schoolFeatrueTitle1"
+                            name="schoolFeatrueTitle1"
+                            onChange={schoolFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Description
+                        </label>
+                        <div className="">
+                          <textarea
+                            id="schoolFeatureDescription1"
+                            name="schoolFeatureDescription1"
+                            onChange={schoolFeatureChangeHandler}
+                            rows={4}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-col">
+                      <div className="flex justify-center">
+                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                          2
+                        </p>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="schoolFeatureTitle2"
+                            name="schoolFeatureTitle2"
+                            onChange={schoolFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="">
+                      <label
+                        htmlFor="about"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Description
+                      </label>
+                      <div className="">
+                        <textarea
+                          id="shoolFeatureDescription2"
+                          name="schoolFeatureDescription2"
+                          onChange={schoolFeatureChangeHandler}
+                          rows={4}
+                          className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          // defaultValue={""}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="flex justify-center">
+                      <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                        3
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="schoolFeatureTitle3"
+                            name="schollFeatureTitle3"
+                            onChange={schoolFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Description
+                        </label>
+                        <div className="">
+                          <textarea
+                            id="schoolFeatureDescription3"
+                            name="schoolFeatureDescription3"
+                            onChange={schoolFeatureChangeHandler}
+                            rows={4}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-col">
+                      <div className="flex justify-center">
+                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                          4
+                        </p>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="schoolFeatureTitle4"
+                            name="schoolFeatureTitle4"
+                            onChange={schoolFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="">
+                      <label
+                        htmlFor="about"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Description
+                      </label>
+                      <div className="">
+                        <textarea
+                          id="schoolFeatureDescription4"
+                          name="schoolFeatureDescription4"
+                          onChange={schoolFeatureChangeHandler}
+                          rows={4}
+                          className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          // defaultValue={""}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-col">
+                      <div className="flex justify-center">
+                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                          5
+                        </p>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="schoolFeatureTitle5"
+                            name="schoolFeatureTitle5"
+                            onChange={schoolFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="">
+                      <label
+                        htmlFor="about"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Description
+                      </label>
+                      <div className="">
+                        <textarea
+                          id="schoolFeatureDescription5"
+                          name="schoolFeatureDescription5"
+                          onChange={schoolFeatureChangeHandler}
+                          rows={4}
+                          className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          // defaultValue={""}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-col">
+                      <div className="flex justify-center">
+                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                          6
+                        </p>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="schoolFeatureTitle6"
+                            name="schoolFeatureTitle6"
+                            onChange={schoolFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="">
+                      <label
+                        htmlFor="about"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Description
+                      </label>
+                      <div className="">
+                        <textarea
+                          id="schoolFeatureDescription6"
+                          name="schoolFeatureDescription6"
+                          onChange={schoolFeatureChangeHandler}
+                          rows={4}
+                          className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          // defaultValue={""}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-col">
+                      <div className="flex justify-center">
+                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                          7
+                        </p>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Title
+                        </label>
+                        <div className="">
+                          <input
+                            id="schoolFeatureTitle7"
+                            name="schoolFeatureTitle7"
+                            onChange={schoolFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="">
+                      <label
+                        htmlFor="about"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Description
+                      </label>
+                      <div className="">
+                        <textarea
+                          id="shoolFeatureDescription7"
+                          name="schoolFeatureDescription7"
+                          onChange={schoolFeatureChangeHandler}
+                          rows={4}
+                          className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          // defaultValue={""}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : null}{" "}
+            {midSection !== "Hide Page" && (
+              <div className="mt-6 flex items-center justify-end gap-x-6">
+                <button
+                  type="button"
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  {mainSection !== "New Page" ? "Update" : "Create"}
+                </button>
+              </div>
+            )}
+            {mainSection == "Main Page" ? (
+              <>
+                <div className="flex gap-2 justify-center py-3 mt-5 items-center">
+                  <span className="bg-teal-500 h-[2px] w-60"></span>
+                  <h3 className="text-xl  py-1 px-2 rounded border-2 border-teal-500">
+                    Teach / Learn Features:
+                  </h3>
+                  <span className="bg-teal-500 h-[2px] w-60"></span>
+                </div>
+                <div className="">
+                  <label
+                    htmlFor="about"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Heading
+                  </label>
+                  <div className="">
+                    <input
+                      id="teachLearnFeatureMainHeading"
+                      name="teachLearnFeatureMainHeading"
+                      onChange={teachLearnFeatureChangeHandler}
+                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      // defaultValue={""}
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                  <div className="flex flex-col">
+                    <div className="flex justify-center">
+                      <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                        1
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Sub-Heading
+                        </label>
+                        <div className="">
+                          <input
+                            id="teachLearnFeatureMainHeading1"
+                            name="teachLearnFeatureMainHeading1"
+                            onChange={teachLearnFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-col">
+                      <div className="flex justify-center">
+                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                          2
+                        </p>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Sub-Heading
+                        </label>
+                        <div className="">
+                          <input
+                            id="teachLearnFeatureMainHeading2"
+                            name="teachLearnFeatureMainHeading2"
+                            onChange={teachLearnFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col">
+                    <div className="flex justify-center">
+                      <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
+                        3
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <div className="">
+                        <label
+                          htmlFor="about"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Sub-Heading
+                        </label>
+                        <div className="">
+                          <input
+                            id="teachLearnFeatureMainHeading3"
+                            name="teachLearnFeatureMainHeading3"
+                            onChange={teachLearnFeatureChangeHandler}
+                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            // defaultValue={""}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : null}{" "}
+            {midSection !== "Hide Page" && (
+              <div className="mt-6 flex items-center justify-end gap-x-6">
+                <button
+                  type="button"
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  {mainSection !== "New Page" ? "Update" : "Create"}
+                </button>
+              </div>
+            )}
+            {/* toggle */}
+            {midSection === "Hide Page" &&
+              mainSection === "Hide Page" &&
+              childSection === "Hide Page" && (
                 <>
-                  <div className="flex gap-2 justify-center py-3 mt-5 items-center">
-                    <span className="bg-teal-500 h-[2px] w-60"></span>
-                    <h3 className="text-xl  py-1 px-2 rounded border-2 border-teal-500">
-                      Al-Madinah School System Features
-                    </h3>
-                    <span className="bg-teal-500 h-[2px] w-60"></span>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                    <div className="flex flex-col">
-                      <div className="flex justify-center">
-                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
-                          1
-                        </p>
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        <div className="">
-                          <label
-                            htmlFor="about"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Title
-                          </label>
-                          <div className="">
-                            <input
-                              id="schoolFeatrueTitle1"
-                              name="schoolFeatrueTitle1"
-                              onChange={schoolFeatureChangeHandler}
-                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                              // defaultValue={""}
-                            />
-                          </div>
-                        </div>
-                        <div className="">
-                          <label
-                            htmlFor="about"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Description
-                          </label>
-                          <div className="">
-                            <textarea
-                              id="schoolFeatureDescription1"
-                              name="schoolFeatureDescription1"
-                              onChange={schoolFeatureChangeHandler}
-                              rows={4}
-                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <div className="flex flex-col">
-                        <div className="flex justify-center">
-                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
-                            2
-                          </p>
-                        </div>
-                        <div className="">
-                          <label
-                            htmlFor="about"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Title
-                          </label>
-                          <div className="">
-                            <input
-                              id="schoolFeatureTitle2"
-                              name="schoolFeatureTitle2"
-                              onChange={schoolFeatureChangeHandler}
-                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                              // defaultValue={""}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="">
-                        <label
-                          htmlFor="about"
-                          className="block text-sm font-medium leading-6 text-gray-900"
-                        >
-                          Description
-                        </label>
-                        <div className="">
-                          <textarea
-                            id="shoolFeatureDescription2"
-                            name="schoolFeatureDescription2"
-                            onChange={schoolFeatureChangeHandler}
-                            rows={4}
-                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            // defaultValue={""}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex justify-center">
-                        <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
-                          3
-                        </p>
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        <div className="">
-                          <label
-                            htmlFor="about"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Title
-                          </label>
-                          <div className="">
-                            <input
-                              id="schoolFeatureTitle3"
-                              name="schollFeatureTitle3"
-                              onChange={schoolFeatureChangeHandler}
-                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                              // defaultValue={""}
-                            />
-                          </div>
-                        </div>
-                        <div className="">
-                          <label
-                            htmlFor="about"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Description
-                          </label>
-                          <div className="">
-                            <textarea
-                              id="schoolFeatureDescription3"
-                              name="schoolFeatureDescription3"
-                              onChange={schoolFeatureChangeHandler}
-                              rows={4}
-                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <div className="flex flex-col">
-                        <div className="flex justify-center">
-                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
-                            4
-                          </p>
-                        </div>
-                        <div className="">
-                          <label
-                            htmlFor="about"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Title
-                          </label>
-                          <div className="">
-                            <input
-                              id="schoolFeatureTitle4"
-                              name="schoolFeatureTitle4"
-                              onChange={schoolFeatureChangeHandler}
-                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                              // defaultValue={""}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="">
-                        <label
-                          htmlFor="about"
-                          className="block text-sm font-medium leading-6 text-gray-900"
-                        >
-                          Description
-                        </label>
-                        <div className="">
-                          <textarea
-                            id="schoolFeatureDescription4"
-                            name="schoolFeatureDescription4"
-                            onChange={schoolFeatureChangeHandler}
-                            rows={4}
-                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            // defaultValue={""}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <div className="flex flex-col">
-                        <div className="flex justify-center">
-                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
-                            5
-                          </p>
-                        </div>
-                        <div className="">
-                          <label
-                            htmlFor="about"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Title
-                          </label>
-                          <div className="">
-                            <input
-                              id="schoolFeatureTitle5"
-                              name="schoolFeatureTitle5"
-                              onChange={schoolFeatureChangeHandler}
-                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                              // defaultValue={""}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="">
-                        <label
-                          htmlFor="about"
-                          className="block text-sm font-medium leading-6 text-gray-900"
-                        >
-                          Description
-                        </label>
-                        <div className="">
-                          <textarea
-                            id="schoolFeatureDescription5"
-                            name="schoolFeatureDescription5"
-                            onChange={schoolFeatureChangeHandler}
-                            rows={4}
-                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            // defaultValue={""}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <div className="flex flex-col">
-                        <div className="flex justify-center">
-                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
-                            6
-                          </p>
-                        </div>
-                        <div className="">
-                          <label
-                            htmlFor="about"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Title
-                          </label>
-                          <div className="">
-                            <input
-                              id="schoolFeatureTitle6"
-                              name="schoolFeatureTitle6"
-                              onChange={schoolFeatureChangeHandler}
-                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                              // defaultValue={""}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="">
-                        <label
-                          htmlFor="about"
-                          className="block text-sm font-medium leading-6 text-gray-900"
-                        >
-                          Description
-                        </label>
-                        <div className="">
-                          <textarea
-                            id="schoolFeatureDescription6"
-                            name="schoolFeatureDescription6"
-                            onChange={schoolFeatureChangeHandler}
-                            rows={4}
-                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            // defaultValue={""}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <div className="flex flex-col">
-                        <div className="flex justify-center">
-                          <p className="border-2 border-teal-500 p-2 flex justify-center items-center w-12 mb-2  rounded-full">
-                            7
-                          </p>
-                        </div>
-                        <div className="">
-                          <label
-                            htmlFor="about"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            Title
-                          </label>
-                          <div className="">
-                            <input
-                              id="schoolFeatureTitle7"
-                              name="schoolFeatureTitle7"
-                              onChange={schoolFeatureChangeHandler}
-                              className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                              // defaultValue={""}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="">
-                        <label
-                          htmlFor="about"
-                          className="block text-sm font-medium leading-6 text-gray-900"
-                        >
-                          Description
-                        </label>
-                        <div className="">
-                          <textarea
-                            id="shoolFeatureDescription7"
-                            name="schoolFeatureDescription7"
-                            onChange={schoolFeatureChangeHandler}
-                            rows={4}
-                            className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            // defaultValue={""}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {midSection === "Hide Page" && (
+                    <div className="flex justify-between md:grid grid-cols-4 p-2 py-3 border border-teal-300">
+                      <span className="font-bold col-span-3">Pages</span>
 
-                  {mainSection !== "Hide Page" && (
-                    <div className="col-span-full">
-                      <label
-                        htmlFor="about"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        Title text
-                      </label>
-                      <div className="mt-2">
-                        <textarea
-                          id="about"
-                          name="about"
-                          value={keyStageSintroductionText}
-                          onChange={(e: any) =>
-                            SetkeyStageSintroductionText(e.target.value)
-                          }
-                          rows={3}
-                          className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                          // defaultValue={""}
-                        />
-                      </div>
-                    </div>
-                  )}
-                  {mainSection === "Main Page" && (
-                    // Introduction paragraph
-                    <div className="col-span-full">
-                      <label
-                        htmlFor="about"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        paragraph
-                      </label>
-                      <div className="mt-2">
-                        <textarea
-                          id="about"
-                          name="about"
-                          value={keyStageStext2}
-                          onChange={(e: any) =>
-                            SetkeyStageStext2(e.target.value)
-                          }
-                          rows={3}
-                          className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                          // defaultValue={""}
-                        />
+                      <div className="flex justify-between items-center gap-2 md:gap-0">
+                        <span className="font-bold">Delete</span>
+                        <span className="text-xs md:text-sm">Hide/Show</span>
                       </div>
                     </div>
                   )}
                 </>
-              ) : null}
-
-              {mainSection === "Main Page" && (
-                <div className="">
-                  <div className="col-span-full">
-                    <label
-                      htmlFor="makes-different"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      WHY CHOOSE AL-MADINAH ONLINE SCHOOL ? section
-                    </label>
-                    Picture 1
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
-                        <PhotoIcon
-                          className="mx-auto h-12 w-12 text-gray-300"
-                          aria-hidden="true"
-                        />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                          <label
-                            htmlFor="middle-school"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="middle-school"
-                              name="middle-school"
-                              type="file"
-                              multiple
-                              className="sr-only"
-                            />
-                          </label>
-                          {!uploadingRamzanSlider ? (
-                            <>
-                              <p className="pl-1">or drag and drop</p>
-                              <p className="text-xs leading-5 text-gray-600">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </>
-                          ) : (
-                            <div className="flex flex-wrap gap-5">
-                              <PropagateLoader
-                                color={"#36d7b7"}
-                                loading={uploadingRamzanSlider}
-                                size={12}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                              />
-                              <p className="text-teal-500 text-sm">
-                                uploading Images ...
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  7 Points
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  7 Points
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  7 Points
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 3
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  7 Points
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 4
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  7 Points
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 5
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  7 Points
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 6
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  7 Points
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 7
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  Building Brighter Futures through Faith and Virtual Learning.
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    main Heading
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  square Box 1
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  square Box 2
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  square Box 3
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 3
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  learning Journey Heading
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Contents 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="">
-                  <div className="col-span-full">
-                    <label
-                      htmlFor="makes-different"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      Gallery
-                    </label>
-                    Picture 1
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
-                        <PhotoIcon
-                          className="mx-auto h-12 w-12 text-gray-300"
-                          aria-hidden="true"
-                        />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                          <label
-                            htmlFor="middle-school"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="middle-school"
-                              name="middle-school"
-                              type="file"
-                              multiple
-                              className="sr-only"
-                            />
-                          </label>
-                          {!uploadingRamzanSlider ? (
-                            <>
-                              <p className="pl-1">or drag and drop</p>
-                              <p className="text-xs leading-5 text-gray-600">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </>
-                          ) : (
-                            <div className="flex flex-wrap gap-5">
-                              <PropagateLoader
-                                color={"#36d7b7"}
-                                loading={uploadingRamzanSlider}
-                                size={12}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                              />
-                              <p className="text-teal-500 text-sm">
-                                uploading Images ...
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    picture 2
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
-                        <PhotoIcon
-                          className="mx-auto h-12 w-12 text-gray-300"
-                          aria-hidden="true"
-                        />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                          <label
-                            htmlFor="middle-school"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="middle-school"
-                              name="middle-school"
-                              type="file"
-                              multiple
-                              className="sr-only"
-                            />
-                          </label>
-                          {!uploadingRamzanSlider ? (
-                            <>
-                              <p className="pl-1">or drag and drop</p>
-                              <p className="text-xs leading-5 text-gray-600">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </>
-                          ) : (
-                            <div className="flex flex-wrap gap-5">
-                              <PropagateLoader
-                                color={"#36d7b7"}
-                                loading={uploadingRamzanSlider}
-                                size={12}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                              />
-                              <p className="text-teal-500 text-sm">
-                                uploading Images ...
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    picture 3
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
-                        <PhotoIcon
-                          className="mx-auto h-12 w-12 text-gray-300"
-                          aria-hidden="true"
-                        />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                          <label
-                            htmlFor="middle-school"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="middle-school"
-                              name="middle-school"
-                              type="file"
-                              multiple
-                              className="sr-only"
-                            />
-                          </label>
-                          {!uploadingRamzanSlider ? (
-                            <>
-                              <p className="pl-1">or drag and drop</p>
-                              <p className="text-xs leading-5 text-gray-600">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </>
-                          ) : (
-                            <div className="flex flex-wrap gap-5">
-                              <PropagateLoader
-                                color={"#36d7b7"}
-                                loading={uploadingRamzanSlider}
-                                size={12}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                              />
-                              <p className="text-teal-500 text-sm">
-                                uploading Images ...
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                    picture 4
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
-                        <PhotoIcon
-                          className="mx-auto h-12 w-12 text-gray-300"
-                          aria-hidden="true"
-                        />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                          <label
-                            htmlFor="middle-school"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="middle-school"
-                              name="middle-school"
-                              type="file"
-                              multiple
-                              className="sr-only"
-                            />
-                          </label>
-                          {!uploadingRamzanSlider ? (
-                            <>
-                              <p className="pl-1">or drag and drop</p>
-                              <p className="text-xs leading-5 text-gray-600">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </>
-                          ) : (
-                            <div className="flex flex-wrap gap-5">
-                              <PropagateLoader
-                                color={"#36d7b7"}
-                                loading={uploadingRamzanSlider}
-                                size={12}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                              />
-                              <p className="text-teal-500 text-sm">
-                                uploading Images ...
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="">
-                  <div className="col-span-full">
-                    <label
-                      htmlFor="makes-different"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      How we teach
-                    </label>
-                    background Image
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
-                        <PhotoIcon
-                          className="mx-auto h-12 w-12 text-gray-300"
-                          aria-hidden="true"
-                        />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                          <label
-                            htmlFor="middle-school"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id="middle-school"
-                              name="middle-school"
-                              type="file"
-                              multiple
-                              className="sr-only"
-                            />
-                          </label>
-                          {!uploadingRamzanSlider ? (
-                            <>
-                              <p className="pl-1">or drag and drop</p>
-                              <p className="text-xs leading-5 text-gray-600">
-                                PNG, JPG, GIF up to 10MB
-                              </p>
-                            </>
-                          ) : (
-                            <div className="flex flex-wrap gap-5">
-                              <PropagateLoader
-                                color={"#36d7b7"}
-                                loading={uploadingRamzanSlider}
-                                size={12}
-                                aria-label="Loading Spinner"
-                                data-testid="loader"
-                              />
-                              <p className="text-teal-500 text-sm">
-                                uploading Images ...
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  How we teach
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Title
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Main Page" && (
-                <div className="col-span-full">
-                  How we teach
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    paragraph
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {/* toggle */}
-              {midSection === "Hide Page" &&
-                mainSection === "Hide Page" &&
-                childSection === "Hide Page" && (
-                  <>
-                    {midSection === "Hide Page" && (
-                      <div className="flex justify-between md:grid grid-cols-4 p-2 py-3 border border-teal-300">
-                        <span className="font-bold col-span-3">Pages</span>
-
-                        <div className="flex justify-between items-center gap-2 md:gap-0">
-                          <span className="font-bold">Delete</span>
-                          <span className="text-xs md:text-sm">Hide/Show</span>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                )}
-              {/* {mainSection === "New Page" && (
-                <div className="col-span-full py-2">
-                  <label
-                    htmlFor="myInput"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Section Name
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="myInput"
-                      name="myInput"
-                      value={sectionName}
-                      onChange={(e: any) => setSectionName(e.target.value)}
-                      className="block w-2/4 rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      placeholder="Type Section Name here ..."
-                    />
-                  </div>
-                </div>
-              )} */}
-
-              {mainSection === "Our Department" && (
-                <div className="col-span-full">
-                  Mission Statement
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Heading
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Our Department" && (
-                <div className="col-span-full">
-                  Mission Statement
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    paragraph
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {/* {mainSection === "Our Department" && (
-                <div className="col-span-full">
-                  <label
-                    htmlFor="main-banner-slider"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Add Mission Statement Image
-                  </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
-                      <PhotoIcon
-                        className="mx-auto h-12 w-12 text-gray-300"
-                        aria-hidden="true"
-                      />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="main-banner-slider"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="main-banner-slider"
-                            name="main-banner-slider"
-                            type="file"
-                            onChange={heroImageMainPageHandler}
-                            multiple
-                            className="sr-only"
-                          />
-                        </label>
-                        {!uploading1 ? (
-                          <>
-                            <p className="pl-1">or drag and drop</p>
-                            <p className="text-xs leading-5 text-gray-600">
-                              PNG, JPG, GIF up to 10MB
-                            </p>
-                          </>
-                        ) : (
-                          <div className="flex flex-wrap gap-5">
-                            <PropagateLoader
-                              color={"#36d7b7"}
-                              loading={uploading1}
-                              size={20}
-                              aria-label="Loading Spinner"
-                              data-testid="loader"
-                            />
-                            <p className="text-teal-500">
-                              uploading1 Images ...
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )} */}
-              {mainSection === "Our Department" && (
-                <div className="col-span-full">
-                  Vision
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Heading
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Our Department" && (
-                <div className="col-span-full">
-                  Vision
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    paragraph
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {/* {mainSection === "Our Department" && (
-                <div className="col-span-full">
-                  <label
-                    htmlFor="main-banner-slider"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Add Vision Image
-                  </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
-                      <PhotoIcon
-                        className="mx-auto h-12 w-12 text-gray-300"
-                        aria-hidden="true"
-                      />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="main-banner-slider"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="main-banner-slider"
-                            name="main-banner-slider"
-                            type="file"
-                            onChange={heroImageMainPageHandler}
-                            multiple
-                            className="sr-only"
-                          />
-                        </label>
-                        {!uploading1 ? (
-                          <>
-                            <p className="pl-1">or drag and drop</p>
-                            <p className="text-xs leading-5 text-gray-600">
-                              PNG, JPG, GIF up to 10MB
-                            </p>
-                          </>
-                        ) : (
-                          <div className="flex flex-wrap gap-5">
-                            <PropagateLoader
-                              color={"#36d7b7"}
-                              loading={uploading1}
-                              size={20}
-                              aria-label="Loading Spinner"
-                              data-testid="loader"
-                            />
-                            <p className="text-teal-500">
-                              uploading1 Images ...
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )} */}
-              {mainSection === "Our Department" && (
-                <div className="col-span-full">
-                  Value Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Heading
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Our Department" && (
-                <div className="col-span-full">
-                  Value Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    paragraph
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {/* {mainSection === "Our Department" && (
-                <div className="col-span-full">
-                  <label
-                    htmlFor="main-banner-slider"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Add Value section Image
-                  </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
-                      <PhotoIcon
-                        className="mx-auto h-12 w-12 text-gray-300"
-                        aria-hidden="true"
-                      />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="main-banner-slider"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="main-banner-slider"
-                            name="main-banner-slider"
-                            type="file"
-                            onChange={heroImageMainPageHandler}
-                            multiple
-                            className="sr-only"
-                          />
-                        </label>
-                        {!uploading1 ? (
-                          <>
-                            <p className="pl-1">or drag and drop</p>
-                            <p className="text-xs leading-5 text-gray-600">
-                              PNG, JPG, GIF up to 10MB
-                            </p>
-                          </>
-                        ) : (
-                          <div className="flex flex-wrap gap-5">
-                            <PropagateLoader
-                              color={"#36d7b7"}
-                              loading={uploading1}
-                              size={20}
-                              aria-label="Loading Spinner"
-                              data-testid="loader"
-                            />
-                            <p className="text-teal-500">
-                              uploading1 Images ...
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )} */}
-              {/* How We teach */}
-
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Teaching Methodology Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Heading
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Teaching Methodology Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub Heading 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Teaching Methodology Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Teaching Methodology Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub Heading 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Teaching Methodology Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Teaching Methodology Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub Heading 3
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Teaching Methodology Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 3
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Teaching Methodology Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub Heading 4
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Teaching Methodology Section
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 4
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Assessment and Evaluation
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    paragraph
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Assessment and Evaluation
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Assessment and Evaluation
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Assessment and Evaluation
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Assessment and Evaluation
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Assessment and Evaluation
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point 3
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Assessment and Evaluation
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 3
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Extracurricular Enrichment
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Extracurricular Enrichment
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 1
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Extracurricular Enrichment
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Extracurricular Enrichment
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 2
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Extracurricular Enrichment
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point 3
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-              {mainSection === "Appeals" && (
-                <div className="col-span-full">
-                  Extracurricular Enrichment
-                  <label
-                    htmlFor="about"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Sub point description 3
-                  </label>
-                  <div className="mt-2">
-                    <textarea
-                      id="about"
-                      name="about"
-                      value={text2}
-                      onChange={(e: any) => setText2(e.target.value)}
-                      rows={3}
-                      className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      // defaultValue={""}
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
         </div>
+      </div>
 
-        {midSection !== "Hide Page" && (
-          <div className="mt-6 flex items-center justify-end gap-x-6">
-            <button
-              type="button"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              {mainSection !== "New Page" ? "Update" : "Create"}
-            </button>
-          </div>
-        )}
-        {midSection === "Hide Page" &&
-          mainSection === "Hide Page" &&
-          childSection === "Hide Page" && (
+      {midSection !== "Hide Page" && (
+        <div className="mt-6 flex items-center justify-end gap-x-6">
+          <button
+            type="button"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            {mainSection !== "New Page" ? "Update" : "Create"}
+          </button>
+        </div>
+      )}
+      {midSection === "Hide Page" &&
+        mainSection === "Hide Page" &&
+        childSection === "Hide Page" && (
+          <>
             <>
-              <>
-                <div className="flex items-center justify-between">
-                  <span className="bg-teal-600 w-2/6 h-[2px] px-2"></span>
-                  <p className="text-teal-500 md:font-semibold text-sm md:text-xl p-2">
-                    Main Page
-                  </p>
-                  <span className="bg-teal-600 w-2/6 h-[2px] px-2"></span>
-                </div>
-                <div className="flex justify-between md:grid grid-cols-4 p-2 py-3 border border-teal-300">
-                  <span className="font-bold col-span-3">Pages</span>
+              <div className="flex items-center justify-between">
+                <span className="bg-teal-600 w-2/6 h-[2px] px-2"></span>
+                <p className="text-teal-500 md:font-semibold text-sm md:text-xl p-2">
+                  Main Page
+                </p>
+                <span className="bg-teal-600 w-2/6 h-[2px] px-2"></span>
+              </div>
+              <div className="flex justify-between md:grid grid-cols-4 p-2 py-3 border border-teal-300">
+                <span className="font-bold col-span-3">Pages</span>
 
-                  <div className="flex justify-between items-center gap-2 md:gap-0">
-                    <span className="font-bold">Delete</span>
-                    <span className="text-xs md:text-sm">Hide/Show</span>
-                  </div>
+                <div className="flex justify-between items-center gap-2 md:gap-0">
+                  <span className="font-bold">Delete</span>
+                  <span className="text-xs md:text-sm">Hide/Show</span>
                 </div>
-              </>
+              </div>
             </>
-          )}
-      </form>
+          </>
+        )}
+      {/* </form> */}
     </div>
   );
 }
