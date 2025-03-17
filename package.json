@@ -28,7 +28,8 @@
     "react-scroll": "^1.9.0",
     "react-spinners": "^0.14.1",
     "react-use": "^17.5.0",
-    "swiper": "^11.1.11"
+    "swiper": "^11.1.11",
+    "uk-school": "file:"
   },
   "devDependencies": {
     "@types/node": "20.14.11",

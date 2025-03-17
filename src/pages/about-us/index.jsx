@@ -258,7 +258,11 @@ export default function AboutUs() {
         <div className="grid grid-cols-1 mx-auto lg:grid-cols-2 px-5 lg:px-10 gap-8 pb-6 mt-10">
           <AnimatedComponentLeft>
             <div>
-              <img className=" rounded-xl" src="/newImges/11.jpg" alt="image" />
+              <img
+                className=" rounded-xl"
+                src="/newImges/mission-statement-pic.png"
+                alt="image"
+              />
             </div>
           </AnimatedComponentLeft>
           <AnimatedComponentRight>

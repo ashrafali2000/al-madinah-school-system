@@ -195,9 +195,9 @@ export const FamiliesLoveSec = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 max-w-6xl mx-auto">
           {[
             {
-              title: "Accredited By Cambridge International",
+              title: "Accredited By world renowned international organization",
               description:
-                "Al-Madinah Online School is accredited by the world-renowned Cambridge International, ensuring that your child receives a high-quality education recognised globally.",
+                "Al-Madinah Online School is accredited by the world-renowned world renowned international organization, ensuring that your child receives a high-quality education recognised globally.",
               color: "bg-green-600",
             },
             {
@@ -207,9 +207,10 @@ export const FamiliesLoveSec = () => {
               color: "bg-orange-600",
             },
             {
-              title: "Access To The Cambridge International Curriculum",
+              title:
+                "Access To The world renowned international organization Curriculum",
               description:
-                "Even if there isn't a Cambridge school nearby, students can access the prestigious Cambridge International curriculum through Al-Madinah. This allows them to benefit from a broad and balanced education that is respected worldwide.",
+                "Even if there isn't a world renowned international organization school nearby, students can access the prestigious world renowned international organization curriculum through Al-Madinah. This allows them to benefit from a broad and balanced education that is respected worldwide.",
               color: "bg-sky-600",
             },
             {

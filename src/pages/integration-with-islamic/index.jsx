@@ -75,7 +75,7 @@ const IslamicIntegration = () => {
                     color: "bg-orange-600",
                     title: "Islamic History",
                     description:
-                      "Lessons on the life of the Prophet Muhammad (Peace and blessings be upon them) and significant events in Islamic history.",
+                      "Lessons on the life of the Prophet Muhammad  صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ and significant events in Islamic history.",
                   },
                   {
                     color: "bg-yellow-600",

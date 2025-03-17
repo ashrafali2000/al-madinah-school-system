@@ -42,7 +42,7 @@ export default function fees() {
             £210 per month
           </p> */}
           <h2 className="text-2xl text-center md:text-2xl lg:text-2xl p-6 text-[#00477e] hover:text-[#ffa500] font-medium">
-            £210 Per Month,Payments must be transferred via direct debit at the
+            £270 Per Month,Payments must be transferred via direct debit at the
             beginning of each month. This allows for a flexible approach, giving
             parents the opportunity to spread the cost evenly across the year.
           </h2>
@@ -64,8 +64,8 @@ export default function fees() {
             £840 per term
           </p> */}
           <h2 className="text-2xl text-center md:text-2xl lg:text-2xl p-6 text-[#00477e] hover:text-[#ffa500] font-medium">
-            £840 Per Term,For parents who prefer to pay termly, payments will be
-            made at the beginning of each term. The academic year is divided
+            £1080 Per Term,For parents who prefer to pay termly, payments will
+            be made at the beginning of each term. The academic year is divided
             into three terms: First Term: Payment due in September Second Term:
             Payment due in January Third Term: Payment due in April All term
             payments must be transferred via direct debit.
@@ -88,7 +88,7 @@ export default function fees() {
             
           </p> */}
           <h2 className="text-2xl text-center md:text-2xl lg:text-2xl p-6 text-[#00477e] hover:text-[#ffa500] font-medium">
-            £2,520 Per Year,Parents can choose to make a one-time annual
+            £3,240 Per Year,Parents can choose to make a one-time annual
             payment, which will cover the entire academic year. Annual payments
             are due at the start of the academic year in September and are
             eligible for a 5% discount for early payments.

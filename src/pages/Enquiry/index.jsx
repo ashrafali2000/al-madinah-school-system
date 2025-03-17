@@ -468,7 +468,7 @@ export default function Enquiry() {
                         htmlFor="enrolDate"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        When would you like to enrol?
+                        When would you like to enroll?
                       </label>
                       <select
                         id="enrolDate"
@@ -497,6 +497,18 @@ export default function Enquiry() {
                     >
                       Register
                     </button>
+                    <h1 className="text-center">OR</h1>
+                    <a
+                      target="blank"
+                      href="https://form.jotform.com/250732080623449"
+                    >
+                      <button
+                        type="button"
+                        className="w-full bg-green-500 mt-6 text-white py-3 px-4 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                        Register through jotFoam
+                      </button>
+                    </a>
                   </form>
                 </div>
               </div>
